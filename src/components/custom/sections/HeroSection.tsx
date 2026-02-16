@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-react';
 
 import Container from '@/components/custom/Container';
 import { Button } from '@/components/ui/button';
@@ -63,11 +63,20 @@ interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void;
 }
 
+// Helper method to generate install command based on version
+const getInstallCommand = (version: string | null): string => {
+  if (!version) {
+    return 'curl -L -o PowerInterview-Setup.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup.exe && start "" "PowerInterview-Setup.exe"';
+  }
+  return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
+};
+
 export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isFading, setIsFading] = useState(false);
   const [version, setVersion] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -80,7 +89,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
         );
         if (response.ok) {
           const data = await response.json();
-          // tag_name is usually like "v1.0.5" or "1.0.5"
           const version = data.tag_name?.replace(/^v/, '') || null;
           setVersion(version);
         }
@@ -91,6 +99,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
 
     fetchVersion();
   }, []);
+
+  // Copy install command to clipboard
+  const copyInstallCommand = async () => {
+    const command = getInstallCommand(version);
+
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   // Carousel navigation functions with fade effect
   const goToNextMedia = () => {
@@ -175,17 +196,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             suggestions, and cutting-edge face swap technology—all while maintaining your privacy.
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" className="gap-2" asChild>
-              <a
-                href="https://github.com/PowerInterviewAI/client/releases/latest"
-                target="_blank"
-                rel="noopener noreferrer"
+          {/* Installation Command */}
+          <div className="mx-auto mt-8 max-w-3xl">
+            <div className="mb-3 text-center">
+              <h3 className="text-sm font-semibold text-muted-foreground">
+                Install on Windows with Command Line
+              </h3>
+            </div>
+            <div className="group relative rounded-lg border bg-muted/50 p-4">
+              <pre className="mr-8 overflow-x-auto">
+                <code className="text-sm text-foreground">
+                  {version ? getInstallCommand(version) : 'Loading installation command...'}
+                </code>
+              </pre>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute right-2 top-4 h-8 w-8 p-0 opacity-70 transition-opacity hover:opacity-100"
+                onClick={copyInstallCommand}
+                disabled={!version}
+                title="Copy to clipboard"
               >
-                Download Now{version && ` v${version}`}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
+                {copied ? (
+                  <Check className="h-4 w-4 text-green-500" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
               variant="outline"
               size="lg"
