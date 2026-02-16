@@ -157,15 +157,13 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Button size="lg" variant="outline" asChild>
-            <a
-              href="https://github.com/PowerInterviewAI/client/releases/latest"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Them Today
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </a>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            Join Them Today
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
         </div>
       </Container>

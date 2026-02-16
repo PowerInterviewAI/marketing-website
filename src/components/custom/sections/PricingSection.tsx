@@ -203,15 +203,9 @@ export const PricingSection: React.FC = () => {
                   <Button
                     className="mt-6 w-full"
                     variant={plan.popular ? 'default' : 'outline'}
-                    asChild
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   >
-                    <a
-                      href="https://github.com/PowerInterviewAI/client/releases/latest"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Get Started
-                    </a>
+                    Get Started
                   </Button>
                 </CardContent>
               </Card>

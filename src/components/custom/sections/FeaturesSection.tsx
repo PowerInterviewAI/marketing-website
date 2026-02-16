@@ -140,22 +140,11 @@ export const FeaturesSection: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button size="lg" asChild>
-            <a
-              href="https://github.com/PowerInterviewAI/client/releases/latest"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Started Now
-              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </a>
+          <Button size="lg" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            Get Started Now
+            <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Button>
         </div>
       </Container>

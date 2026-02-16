@@ -85,14 +85,12 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 </button>
               </li>
               <li>
-                <a
-                  href="https://github.com/PowerInterviewAI/client/releases/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   Download
-                </a>
+                </button>
               </li>
               <li>
                 <a

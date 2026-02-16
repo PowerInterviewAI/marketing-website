@@ -147,15 +147,13 @@ export const WhyChooseSection: React.FC = () => {
               privacy-focused, and feature-rich AI assistant built specifically for real interview
               scenarios.
             </p>
-            <Button size="lg" className="mt-6" asChild>
-              <a
-                href="https://github.com/PowerInterviewAI/client/releases/latest"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Experience the Difference
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+            <Button
+              size="lg"
+              className="mt-6"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Experience the Difference
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>

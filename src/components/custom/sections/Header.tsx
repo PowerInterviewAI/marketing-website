@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { X } from 'lucide-react';
 
 import Container from '@/components/custom/Container';
 import { Button } from '@/components/ui/button';
@@ -135,14 +136,8 @@ export const Header: React.FC<HeaderProps> = ({
                 GitHub
               </a>
             </Button>
-            <Button size="sm" asChild>
-              <a
-                href="https://github.com/PowerInterviewAI/client/releases/latest"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get Started
-              </a>
+            <Button size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              Get Started
             </Button>
           </div>
 
@@ -171,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
               {mobileMenuOpen ? (
-                <SiX className="h-6 w-6" />
+                <X className="h-6 w-6" />
               ) : (
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
@@ -250,14 +245,8 @@ export const Header: React.FC<HeaderProps> = ({
                     GitHub
                   </a>
                 </Button>
-                <Button size="sm" asChild>
-                  <a
-                    href="https://github.com/PowerInterviewAI/client/releases/latest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Get Started
-                  </a>
+                <Button size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  Get Started
                 </Button>
               </div>
             </nav>

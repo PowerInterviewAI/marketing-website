@@ -190,15 +190,9 @@ export const BenefitsSection: React.FC = () => {
             Join thousands of successful candidates who've used PowerInterviewAI to land their dream
             jobs
           </p>
-          <Button size="lg" asChild>
-            <a
-              href="https://github.com/PowerInterviewAI/client/releases/latest"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Start Free with 30 Credits
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+          <Button size="lg" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            Start Free with 30 Credits
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </Container>
