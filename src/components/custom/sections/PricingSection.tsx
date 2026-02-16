@@ -1,12 +1,113 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 
 import Container from '@/components/custom/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Plan } from '@/types';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
+
+// Plan features mapping
+const planFeatures: Record<string, string[]> = {
+  starter: [
+    'Real-time transcription',
+    'AI reply suggestions',
+    'Code assistance',
+    'Face swap feature',
+  ],
+  pro: [
+    'Real-time transcription',
+    'AI reply suggestions',
+    'Code assistance',
+    'Face swap feature',
+    'Priority support',
+  ],
+  enterprise: [
+    'Real-time transcription',
+    'AI reply suggestions',
+    'Code assistance',
+    'Face swap feature',
+    'Priority support',
+    'Dedicated account manager',
+  ],
+};
+
+const planDescriptions: Record<string, string> = {
+  starter: 'Perfect for trying out the platform',
+  pro: 'Best value for serious job seekers',
+  enterprise: 'For heavy users and teams',
+};
+
+const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number => {
+  const pricePerCredit = plan.price_usd / plan.credits;
+  const discount = ((starterPricePerCredit - pricePerCredit) / starterPricePerCredit) * 100;
+  return Math.round(discount);
+};
 
 export const PricingSection: React.FC = () => {
+  const [plans, setPlans] = useState<Plan[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_BASE_URL}api/payment/plans`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch plans');
+        }
+        const data: Plan[] = await response.json();
+        setPlans(data);
+        setError(null);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+        console.error('Error fetching plans:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlans();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
+        <Container>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-lg text-muted-foreground">Loading plans...</p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
+        <Container>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-lg text-destructive">
+              Failed to load plans. Please try again later.
+            </p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  const starterPlan = plans.find((p) => p.plan.toLowerCase() === 'starter');
+  const starterPricePerCredit = starterPlan ? starterPlan.price_usd / starterPlan.credits : 0;
+
   return (
     <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
       <Container>
@@ -35,170 +136,87 @@ export const PricingSection: React.FC = () => {
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
-          {/* Starter Plan */}
-          <Card className="relative flex flex-col transition-shadow hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Starter</CardTitle>
-              <CardDescription>Perfect for trying out the platform</CardDescription>
-              <div className="mt-4">
-                <span className="text-4xl font-bold">$9</span>
-                <span className="text-muted-foreground"> / 600 credits</span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">~60 minutes of AI assistance</p>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">600 credits (~60 minutes)</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Real-time transcription</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">AI reply suggestions</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Code assistance</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Face swap feature</span>
-                </li>
-              </ul>
-              <Button className="mt-6 w-full" variant="outline" asChild>
-                <a
-                  href="https://github.com/PowerInterviewAI/client/releases/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Started
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+          {plans.map((plan) => {
+            const planName = plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
+            const minutes = plan.credits / 10;
+            const features = planFeatures[plan.plan.toLowerCase()] || [];
+            const description = planDescriptions[plan.plan.toLowerCase()] || '';
+            const discount =
+              starterPricePerCredit > 0 ? calculateDiscount(plan, starterPricePerCredit) : 0;
 
-          {/* Pro Plan - Popular */}
-          <Card className="relative flex flex-col border-primary shadow-lg transition-shadow hover:shadow-xl">
-            <div className="absolute -top-4 left-0 right-0 flex justify-center">
-              <span className="rounded-full bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground">
-                Most Popular
-              </span>
-            </div>
-            <CardHeader className="pt-8">
-              <CardTitle className="text-2xl">Pro</CardTitle>
-              <CardDescription>Best value for serious job seekers</CardDescription>
-              <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                <div>
-                  <span className="text-4xl font-bold">$70</span>
-                  <span className="text-muted-foreground"> / 6,000 credits</span>
-                </div>
-                <span className="animate-pulse rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-1.5 text-sm font-bold text-white shadow-lg ring-2 ring-green-400/50">
-                  💰 Save 22%
-                </span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">~600 minutes of AI assistance</p>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">6,000 credits (~600 minutes)</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Real-time transcription</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">AI reply suggestions</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Code assistance</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Face swap feature</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Priority support</span>
-                </li>
-              </ul>
-              <Button className="mt-6 w-full" asChild>
-                <a
-                  href="https://github.com/PowerInterviewAI/client/releases/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Started
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Enterprise Plan */}
-          <Card className="relative flex flex-col transition-shadow hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Enterprise</CardTitle>
-              <CardDescription>For heavy users and teams</CardDescription>
-              <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                <div>
-                  <span className="text-4xl font-bold">$500</span>
-                  <span className="text-muted-foreground"> / 60,000 credits</span>
-                </div>
-                <span className="animate-pulse rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 px-4 py-1.5 text-sm font-bold text-white shadow-lg ring-2 ring-orange-400/50">
-                  🔥 Save 45%
-                </span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">~6,000 minutes of AI assistance</p>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">60,000 credits (~6,000 minutes)</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Real-time transcription</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">AI reply suggestions</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Code assistance</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Face swap feature</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Priority support</span>
-                </li>
-                <li className="flex items-start">
-                  <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm">Dedicated account manager</span>
-                </li>
-              </ul>
-              <Button className="mt-6 w-full" variant="outline" asChild>
-                <a
-                  href="https://github.com/PowerInterviewAI/client/releases/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Started
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+            return (
+              <Card
+                key={plan.plan}
+                className={`relative flex flex-col transition-shadow ${
+                  plan.popular ? 'border-primary shadow-lg hover:shadow-xl' : 'hover:shadow-lg'
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                    <span className="rounded-full bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <CardHeader className={plan.popular ? 'pt-8' : ''}>
+                  <CardTitle className="text-2xl">{planName}</CardTitle>
+                  <CardDescription>{description}</CardDescription>
+                  <div className="mt-4 flex flex-wrap items-baseline gap-3">
+                    <div>
+                      <span className="text-4xl font-bold">${plan.price_usd}</span>
+                      <span className="text-muted-foreground">
+                        {' '}
+                        / {plan.credits.toLocaleString()} credits
+                      </span>
+                    </div>
+                    {discount > 0 && plan.plan.toLowerCase() === 'pro' && (
+                      <span className="animate-pulse rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-1.5 text-sm font-bold text-white shadow-lg ring-2 ring-green-400/50">
+                        💰 Save {discount}%
+                      </span>
+                    )}
+                    {discount > 0 && plan.plan.toLowerCase() === 'enterprise' && (
+                      <span className="animate-pulse rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 px-4 py-1.5 text-sm font-bold text-white shadow-lg ring-2 ring-orange-400/50">
+                        🔥 Save {discount}%
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    ~{minutes.toLocaleString()} minutes of AI assistance
+                  </p>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
+                      <span className="text-sm">
+                        {plan.credits.toLocaleString()} credits (~{minutes.toLocaleString()}{' '}
+                        minutes)
+                      </span>
+                    </li>
+                    {features.map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className="mt-6 w-full"
+                    variant={plan.popular ? 'default' : 'outline'}
+                    asChild
+                  >
+                    <a
+                      href="https://github.com/PowerInterviewAI/client/releases/latest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Started
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </Container>
     </section>

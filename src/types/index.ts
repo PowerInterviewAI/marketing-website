@@ -17,4 +17,11 @@ export interface User {
   avatar?: string;
 }
 
+export interface Plan {
+  plan: string;
+  credits: number;
+  price_usd: number;
+  popular: boolean;
+}
+
 export type Theme = 'light' | 'dark' | 'system';
