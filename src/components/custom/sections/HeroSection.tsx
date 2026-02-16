@@ -205,7 +205,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             </div>
             <div className="group relative rounded-lg border bg-muted/50 p-4">
               <pre className="mr-8 overflow-x-auto">
-                <code className="text-sm text-foreground">
+                <code className="text-md font-mono text-foreground">
                   {version ? getInstallCommand(version) : 'Loading installation command...'}
                 </code>
               </pre>
