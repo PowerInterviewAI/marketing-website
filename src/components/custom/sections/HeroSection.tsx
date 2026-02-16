@@ -67,8 +67,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isFading, setIsFading] = useState(false);
+  const [version, setVersion] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Fetch latest version from GitHub releases API
+  useEffect(() => {
+    const fetchVersion = async () => {
+      try {
+        const response = await fetch(
+          'https://api.github.com/repos/PowerInterviewAI/client/releases/latest'
+        );
+        if (response.ok) {
+          const data = await response.json();
+          // tag_name is usually like "v1.0.5" or "1.0.5"
+          const version = data.tag_name?.replace(/^v/, '') || null;
+          setVersion(version);
+        }
+      } catch (error) {
+        console.error('Failed to fetch version:', error);
+      }
+    };
+
+    fetchVersion();
+  }, []);
 
   // Carousel navigation functions with fade effect
   const goToNextMedia = () => {
@@ -160,7 +182,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download Now
+                Download Now{version && ` v${version}`}
                 <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
