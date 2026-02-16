@@ -1,37 +1,138 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 import Container from '@/components/custom/Container';
 import { Button } from '@/components/ui/button';
 
+// Media carousel data
+const mediaItems = [
+  {
+    src: 'media/live.interview.assistant.mp4',
+    type: 'video',
+    title: 'Live Interview Assistant & Smart Export',
+    description:
+      'Real-time AI-powered interview assistance with instant suggestions and smart export of interview summaries and insights',
+  },
+  {
+    src: 'media/code.test.mp4',
+    type: 'video',
+    title: 'Code Test Assistance',
+    description: 'AI-powered code suggestions and solutions for technical interviews',
+  },
+  {
+    src: 'media/face.henrry.mp4',
+    type: 'video',
+    title: 'Face Swap - Henry',
+    description: 'Real-time face swap technology for enhanced privacy during interviews',
+  },
+  {
+    src: 'media/face.tonny.mp4',
+    type: 'video',
+    title: 'Face Swap - Tonny',
+    description: 'Seamless face replacement with natural expressions and movements',
+  },
+  {
+    src: 'media/face.victor.mp4',
+    type: 'video',
+    title: 'Face Swap - Victor',
+    description: 'Advanced AI face transformation maintaining professional appearance',
+  },
+  {
+    src: 'media/meeting.henry.mp4',
+    type: 'video',
+    title: 'Meeting Demo - Henry',
+    description: 'Full meeting demonstration with AI assistance and face swap features',
+  },
+  {
+    src: 'media/meeting.tonny.mp4',
+    type: 'video',
+    title: 'Meeting Demo - Tonny',
+    description: 'Complete interview scenario with real-time AI coaching and suggestions',
+  },
+
+  {
+    src: 'media/meeting.tonny.face.liveassist.png',
+    type: 'image',
+    title: 'Live Assist Interface',
+    description: 'Clean and intuitive interface showing face swap and live assistance features',
+  },
+];
+
 interface HeroSectionProps {
-  mediaItems: Array<{ src: string; type: string; title: string; description: string }>;
-  currentMediaIndex: number;
-  isPlaying: boolean;
-  isFading: boolean;
-  videoRef: React.RefObject<HTMLVideoElement>;
   scrollToSection: (sectionId: string) => void;
-  goToNextMedia: () => void;
-  goToPrevMedia: () => void;
-  goToMedia: (index: number) => void;
-  togglePlayPause: () => void;
-  handleVideoEnded: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  mediaItems,
-  currentMediaIndex,
-  isPlaying,
-  isFading,
-  videoRef,
-  scrollToSection,
-  goToNextMedia,
-  goToPrevMedia,
-  goToMedia,
-  togglePlayPause,
-  handleVideoEnded,
-}) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isFading, setIsFading] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Carousel navigation functions with fade effect
+  const goToNextMedia = () => {
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentMediaIndex((prev) => (prev + 1) % mediaItems.length);
+      setIsFading(false);
+    }, 300);
+  };
+
+  const goToPrevMedia = () => {
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentMediaIndex((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
+      setIsFading(false);
+    }, 300);
+  };
+
+  const goToMedia = (index: number) => {
+    if (index !== currentMediaIndex) {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentMediaIndex(index);
+        setIsFading(false);
+      }, 300);
+    }
+  };
+
+  const togglePlayPause = () => {
+    setIsPlaying((prev) => !prev);
+  };
+
+  // Handle video ended event - auto advance to next media
+  const handleVideoEnded = () => {
+    goToNextMedia();
+  };
+
+  // Handle image timer - show for 5 seconds then advance
+  useEffect(() => {
+    const currentMedia = mediaItems[currentMediaIndex];
+
+    if (currentMedia.type === 'image' && isPlaying) {
+      imageTimerRef.current = setTimeout(() => {
+        goToNextMedia();
+      }, 5000); // 5 seconds for images
+    }
+
+    return () => {
+      if (imageTimerRef.current) {
+        clearTimeout(imageTimerRef.current);
+      }
+    };
+  }, [currentMediaIndex, isPlaying]);
+
+  // Handle video play/pause
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.play().catch((e) => console.log('Video play error:', e));
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isPlaying, currentMediaIndex]);
   return (
     <section id="home" className="pb-16 pt-20 md:pb-24 md:pt-32" aria-labelledby="hero-heading">
       <Container>
