@@ -23,7 +23,7 @@ export const ENV = {
  * Route Constants
  */
 export const ROUTES = {
-  home: '/',
+  home: '/home',
   about: '/about',
   contact: '/contact',
 } as const;

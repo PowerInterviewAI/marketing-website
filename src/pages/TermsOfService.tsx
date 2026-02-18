@@ -52,7 +52,7 @@ const TermsOfService: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <Container>
         <div className="py-12">
-          <Link to="/" className="mb-8 inline-block">
+          <Link to="/home" className="mb-8 inline-block">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Home
