@@ -28,9 +28,9 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
    - Under "Build and deployment", select "GitHub Actions" as the source
 
 3. **Update base URL in vite.config.ts:**
-   - The `base` property is already configured for the `/hero/` subdirectory:
+   - The `base` property is set to the site root ("/") so routes are served from the domain root:
      ```typescript
-     base: '/hero/';
+     base: '/';
      ```
 
 4. **Automatic Deployment:**

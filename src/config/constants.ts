@@ -3,7 +3,7 @@
  */
 
 export const APP_CONFIG = {
-  name: 'Power Interview Hero',
+  name: 'Power Interview AI',
   description: 'Your ultimate interview coaching companion',
   version: '0.10.0',
   author: 'Alpha Dev',
@@ -23,7 +23,7 @@ export const ENV = {
  * Route Constants
  */
 export const ROUTES = {
-  home: '/home',
+  home: '/',
   about: '/about',
   contact: '/contact',
 } as const;

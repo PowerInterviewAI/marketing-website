@@ -12,39 +12,39 @@ const PrivacyPolicy: React.FC = () => {
     window.scrollTo(0, 0);
 
     // Update meta tags for SEO
-    document.title = 'Privacy Policy - Power Interview';
+    document.title = 'Privacy Policy - Power Interview AI';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        "Read Power Interview's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
+        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
       );
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Privacy Policy - Power Interview');
+      ogTitle.setAttribute('content', 'Privacy Policy - Power Interview AI');
     }
 
     const ogDescription = document.querySelector('meta[property="og:description"]');
     if (ogDescription) {
       ogDescription.setAttribute(
         'content',
-        "Read Power Interview's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
+        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
       );
     }
 
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Privacy Policy - Power Interview');
+      twitterTitle.setAttribute('content', 'Privacy Policy - Power Interview AI');
     }
 
     const twitterDescription = document.querySelector('meta[name="twitter:description"]');
     if (twitterDescription) {
       twitterDescription.setAttribute(
         'content',
-        "Read Power Interview's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
+        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
       );
     }
   }, []);
@@ -52,7 +52,7 @@ const PrivacyPolicy: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <Container>
         <div className="py-12">
-          <Link to="/home" className="mb-8 inline-block">
+          <Link to="/" className="mb-8 inline-block">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -68,7 +68,7 @@ const PrivacyPolicy: React.FC = () => {
               <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-semibold">1. Introduction</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
-                  Welcome to Power Interview Hero. We are committed to protecting your privacy and
+                  Welcome to Power Interview AI. We are committed to protecting your privacy and
                   ensuring the security of your personal information. This Privacy Policy explains
                   how we collect, use, disclose, and safeguard your information when you use our
                   interview assistance application.

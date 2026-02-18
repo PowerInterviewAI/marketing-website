@@ -14,9 +14,9 @@ interface FAQSectionProps {
 
 const faqData = [
   {
-    question: 'Is Power Interview legal to use?',
+    question: 'Is Power Interview AI legal to use?',
     answer:
-      'Power Interview is designed for legitimate educational and interview preparation purposes. However, you are responsible for ensuring your use complies with applicable laws and the terms of service of platforms you use. Always use ethically and legally.',
+      'Power Interview AI is designed for legitimate educational and interview preparation purposes. However, you are responsible for ensuring your use complies with applicable laws and the terms of service of platforms you use. Always use ethically and legally.',
   },
   {
     question: 'How does the privacy protection work?',
@@ -31,12 +31,12 @@ const faqData = [
   {
     question: 'What platforms are supported?',
     answer:
-      'Currently, Power Interview is available for Windows only. We are actively working on MacOS and Linux versions. Stay tuned for updates! Follow our GitHub repository or join our Telegram channel to be notified when new platform versions are released.',
+      'Currently, Power Interview AI is available for Windows only. We are actively working on MacOS and Linux versions. Stay tuned for updates! Follow our GitHub repository or join our Telegram channel to be notified when new platform versions are released.',
   },
   {
-    question: 'Do I need special hardware to run Power Interview?',
+    question: 'Do I need special hardware to run Power Interview AI?',
     answer:
-      'Power Interview runs on most modern Windows computers without special hardware requirements. For the face swap feature, simply install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - both free and require no configuration. Detailed installation instructions are provided in the documentation.',
+      'Power Interview AI runs on most modern Windows computers without special hardware requirements. For the face swap feature, simply install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - both free and require no configuration. Detailed installation instructions are provided in the documentation.',
   },
   {
     question: 'How accurate is the AI transcription?',
@@ -46,7 +46,7 @@ const faqData = [
   {
     question: 'Can I use this for coding interviews?',
     answer:
-      'Absolutely! Power Interview includes specialized code suggestion features. It can analyze screenshots of coding problems and provide LLM-powered solutions with proper syntax highlighting. Perfect for technical interviews.',
+      'Absolutely! Power Interview AI includes specialized code suggestion features. It can analyze screenshots of coding problems and provide LLM-powered solutions with proper syntax highlighting. Perfect for technical interviews.',
   },
   {
     question: 'What is stealth mode?',
@@ -66,12 +66,12 @@ const faqData = [
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! All new users receive 30 free credits to try out all features (approximately 3 minutes of AI assistance). This allows you to experience the full capabilities of Power Interview risk-free, with no payment information needed. After that, you can choose from our affordable pricing plans starting at just $20 for 600 credits, payable with coins only.',
+      'Yes! All new users receive 30 free credits to try out all features (approximately 3 minutes of AI assistance). This allows you to experience the full capabilities of Power Interview AI risk-free, with no payment information needed. After that, you can choose from our affordable pricing plans starting at just $20 for 600 credits, payable with coins only.',
   },
   {
     question: 'Can I get a refund?',
     answer:
-      'We stand behind our product. If you are not satisfied with Power Interview, please contact us at power-interview@protonmail.com within 14 days of purchase to discuss refund options.',
+      'We stand behind our product. If you are not satisfied with Power Interview AI, please contact us at power-interview@protonmail.com within 14 days of purchase to discuss refund options.',
   },
 ];
 
@@ -91,7 +91,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to know about Power Interview
+            Everything you need to know about Power Interview AI
           </p>
         </div>
 
