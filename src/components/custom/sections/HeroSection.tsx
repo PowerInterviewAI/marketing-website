@@ -199,8 +199,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           {/* Installation Command */}
           <div className="mx-auto mt-8 max-w-3xl">
             <div className="mb-3 text-center">
-              <h3 className="text-sm font-semibold text-muted-foreground">
-                Install on Windows with Command Line
+              <h3 className="text-lg text-muted-foreground">
+                Install on <strong>Windows</strong> with Command Line
               </h3>
             </div>
             <div className="group relative rounded-lg border bg-muted/50 p-4">
