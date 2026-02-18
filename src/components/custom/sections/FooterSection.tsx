@@ -1,15 +1,17 @@
 import React from 'react';
 
 import { SiDiscord, SiGithub, SiProtonmail, SiTelegram } from '@icons-pack/react-simple-icons';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Container from '@/components/custom/Container';
 
 interface FooterSectionProps {
-  scrollToSection: (sectionId: string) => void;
+  scrollToSection?: (sectionId: string) => void; // optional; if provided we still support in-page scroll on home
 }
 
 export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection }) => {
+  const location = useLocation();
+
   return (
     <footer className="border-t py-12 md:py-16" role="contentinfo">
       <Container>
@@ -18,10 +20,10 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <div className="mb-4 flex items-center gap-2">
               <img
                 src={`${import.meta.env.BASE_URL}logo.png`}
-                alt="Power Interview Logo"
+                alt="Power Interview AI Logo"
                 className="h-6 w-6"
               />
-              <span className="text-lg font-bold">Power Interview</span>
+              <span className="text-lg font-bold">Power Interview AI</span>
             </div>
             <p className="mb-4 text-sm text-muted-foreground">
               Your personal AI-powered interview coach with real-time face swap technology.
@@ -69,20 +71,38 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <h3 className="mb-4 font-semibold">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  onClick={() => scrollToSection('features')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Features
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('features')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Features
+                  </button>
+                ) : (
+                  <Link
+                    to="/features"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Features
+                  </Link>
+                )}
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('pricing')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Pricing
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('pricing')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Pricing
+                  </button>
+                ) : (
+                  <Link
+                    to="/pricing"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Pricing
+                  </Link>
+                )}
               </li>
               <li>
                 <button
@@ -109,20 +129,38 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <h3 className="mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Testimonials
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('testimonials')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Testimonials
+                  </button>
+                ) : (
+                  <Link
+                    to="/testimonials"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Testimonials
+                  </Link>
+                )}
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  FAQ
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('faq')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    FAQ
+                  </button>
+                ) : (
+                  <Link
+                    to="/faq"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    FAQ
+                  </Link>
+                )}
               </li>
               <li>
                 <a
@@ -155,12 +193,21 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Support
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Support
+                  </button>
+                ) : (
+                  <Link
+                    to="/contact"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Support
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
@@ -195,19 +242,28 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Contact
-                </button>
+                {location.pathname === '/' && scrollToSection ? (
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Contact
+                  </button>
+                ) : (
+                  <Link
+                    to="/contact"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    Contact
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Power Interview. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Power Interview AI. All rights reserved.</p>
           <p className="mt-2">Made to help you ace your interviews while protecting your privacy</p>
         </div>
       </Container>

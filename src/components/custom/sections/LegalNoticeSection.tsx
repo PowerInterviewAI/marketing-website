@@ -26,7 +26,7 @@ export const LegalNoticeSection: React.FC = () => {
                 <div>
                   <h3 className="mb-2 font-semibold text-foreground">Intended Use</h3>
                   <p>
-                    Power Interview is designed as an{' '}
+                    Power Interview AI is designed as an{' '}
                     <span className="font-semibold text-foreground">educational tool</span> for
                     interview preparation and practice. This software should only be used for
                     legitimate, legal purposes in accordance with all applicable laws and
@@ -62,7 +62,7 @@ export const LegalNoticeSection: React.FC = () => {
                     <span className="font-semibold text-foreground">
                       You are solely responsible
                     </span>{' '}
-                    for ensuring your use of Power Interview complies with all applicable laws,
+                    for ensuring your use of Power Interview AI complies with all applicable laws,
                     terms of service of platforms you use it with, and ethical standards. By using
                     this software, you:
                   </p>
@@ -88,17 +88,17 @@ export const LegalNoticeSection: React.FC = () => {
                 <div>
                   <h3 className="mb-2 font-semibold text-foreground">No Warranty</h3>
                   <p>
-                    Power Interview is provided "as is" without warranty of any kind. The developers
-                    make no representations about the suitability, reliability, availability,
-                    timeliness, or accuracy of the software. Use at your own risk.
+                    Power Interview AI is provided "as is" without warranty of any kind. The
+                    developers make no representations about the suitability, reliability,
+                    availability, timeliness, or accuracy of the software. Use at your own risk.
                   </p>
                 </div>
 
                 <div className="rounded-lg border-2 border-amber-500 bg-amber-500/10 p-4">
                   <p className="font-semibold text-amber-900 dark:text-amber-400">
-                    ⚖️ By downloading and using Power Interview, you acknowledge that you have read,
-                    understood, and agree to use this software ethically, legally, and responsibly.
-                    If you do not agree to these terms, do not use this software.
+                    ⚖️ By downloading and using Power Interview AI, you acknowledge that you have
+                    read, understood, and agree to use this software ethically, legally, and
+                    responsibly. If you do not agree to these terms, do not use this software.
                   </p>
                 </div>
 

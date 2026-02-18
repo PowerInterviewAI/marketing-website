@@ -16,7 +16,7 @@ export const HowToUseSection: React.FC = () => {
             id="how-to-use-heading"
             className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
           >
-            How to Use Power Interview
+            How to Use Power Interview AI
           </h2>
           <p className="text-lg text-muted-foreground">
             Follow these simple steps to ace your next interview
@@ -32,9 +32,9 @@ export const HowToUseSection: React.FC = () => {
                   1
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-2 text-xl font-semibold">Run Power Interview App</h3>
+                  <h3 className="mb-2 text-xl font-semibold">Run Power Interview AI App</h3>
                   <p className="text-muted-foreground">
-                    Download and launch the Power Interview desktop application on your computer.
+                    Download and launch the Power Interview AI desktop application on your computer.
                   </p>
                 </div>
               </CardContent>

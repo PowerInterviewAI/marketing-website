@@ -1,21 +1,39 @@
 import React from 'react';
 
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import Benefits from './pages/Benefits';
+import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
+import Features from './pages/Features';
 import Home from './pages/Home';
+import HowToUse from './pages/HowToUse';
+import LegalNotice from './pages/LegalNotice';
+import Pricing from './pages/Pricing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Testimonials from './pages/Testimonials';
+import WhyChoose from './pages/WhyChoose';
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/how-to-use" element={<HowToUse />} />
+        <Route path="/why-choose" element={<WhyChoose />} />
+        <Route path="/benefits" element={<Benefits />} />
+        <Route path="/legal-notice" element={<LegalNotice />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

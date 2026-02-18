@@ -12,39 +12,39 @@ const TermsOfService: React.FC = () => {
     window.scrollTo(0, 0);
 
     // Update meta tags for SEO
-    document.title = 'Terms of Service - Power Interview';
+    document.title = 'Terms of Service - Power Interview AI';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        "Review Power Interview's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
+        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
       );
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Terms of Service - Power Interview');
+      ogTitle.setAttribute('content', 'Terms of Service - Power Interview AI');
     }
 
     const ogDescription = document.querySelector('meta[property="og:description"]');
     if (ogDescription) {
       ogDescription.setAttribute(
         'content',
-        "Review Power Interview's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
+        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
       );
     }
 
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Terms of Service - Power Interview');
+      twitterTitle.setAttribute('content', 'Terms of Service - Power Interview AI');
     }
 
     const twitterDescription = document.querySelector('meta[name="twitter:description"]');
     if (twitterDescription) {
       twitterDescription.setAttribute(
         'content',
-        "Review Power Interview's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
+        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
       );
     }
   }, []);
@@ -52,7 +52,7 @@ const TermsOfService: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <Container>
         <div className="py-12">
-          <Link to="/home" className="mb-8 inline-block">
+          <Link to="/" className="mb-8 inline-block">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -68,7 +68,7 @@ const TermsOfService: React.FC = () => {
               <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-semibold">1. Agreement to Terms</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
-                  By accessing or using Power Interview Hero ("Service", "we", "us", or "our"), you
+                  By accessing or using Power Interview AI ("Service", "we", "us", or "our"), you
                   agree to be bound by these Terms of Service ("Terms"). If you disagree with any
                   part of these terms, you may not access the Service.
                 </p>
@@ -77,7 +77,7 @@ const TermsOfService: React.FC = () => {
               <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-semibold">2. Description of Service</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
-                  Power Interview Hero is an AI-powered interview assistance platform that provides:
+                  Power Interview AI is an AI-powered interview assistance platform that provides:
                 </p>
                 <ul className="mb-4 list-disc space-y-2 pl-6 text-gray-700 dark:text-gray-300">
                   <li>Real-time interview transcription and assistance</li>
@@ -131,7 +131,7 @@ const TermsOfService: React.FC = () => {
               <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-semibold">5. Ethical Use and Responsibility</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
-                  <strong>IMPORTANT:</strong> Power Interview Hero is designed as a learning and
+                  <strong>IMPORTANT:</strong> Power Interview AI is designed as a learning and
                   preparation tool. Users are responsible for:
                 </p>
                 <ul className="mb-4 list-disc space-y-2 pl-6 text-gray-700 dark:text-gray-300">
@@ -155,7 +155,7 @@ const TermsOfService: React.FC = () => {
                 <h3 className="mb-2 text-xl font-semibold">6.1 Our Content</h3>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   The Service and its original content, features, and functionality are owned by
-                  Power Interview Hero and are protected by international copyright, trademark,
+                  Power Interview AI and are protected by international copyright, trademark,
                   patent, trade secret, and other intellectual property laws.
                 </p>
 
@@ -242,7 +242,7 @@ const TermsOfService: React.FC = () => {
               <section className="mb-8">
                 <h2 className="mb-4 text-2xl font-semibold">12. Indemnification</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
-                  You agree to indemnify and hold harmless Power Interview Hero from any claims,
+                  You agree to indemnify and hold harmless Power Interview AI from any claims,
                   damages, losses, liabilities, and expenses arising from:
                 </p>
                 <ul className="mb-4 list-disc space-y-2 pl-6 text-gray-700 dark:text-gray-300">

@@ -1,4 +1,4 @@
-# Power Interview Hero
+# Power Interview AI
 
 A modern interview preparation platform built with React, TypeScript, Vite, and Tailwind CSS.
 

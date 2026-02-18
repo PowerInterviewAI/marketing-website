@@ -16,7 +16,7 @@ export const WhyChooseSection: React.FC = () => {
             id="why-choose-heading"
             className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
           >
-            Why Power Interview Stands Out
+            Why Power Interview AI Stands Out
           </h2>
           <p className="text-lg text-muted-foreground">
             The most advanced and privacy-focused AI interview assistant on the market
@@ -112,7 +112,7 @@ export const WhyChooseSection: React.FC = () => {
                 </CardTitle>
                 <CardDescription className="text-base">
                   Unlike basic screen recording tools or simple overlay assistants (like Interview
-                  Copilot, Final Round AI), Power Interview offers{' '}
+                  Copilot, Final Round AI), Power Interview AI offers{' '}
                   <span className="font-semibold text-foreground">
                     real-time face swap with OBS integration
                   </span>
@@ -130,7 +130,7 @@ export const WhyChooseSection: React.FC = () => {
                 </CardTitle>
                 <CardDescription className="text-base">
                   Competitors often require complex API setups, browser extensions with permission
-                  risks, or cloud service configurations. Power Interview is a{' '}
+                  risks, or cloud service configurations. Power Interview AI is a{' '}
                   <span className="font-semibold text-foreground">
                     standalone desktop application
                   </span>{' '}
@@ -143,7 +143,7 @@ export const WhyChooseSection: React.FC = () => {
 
           <div className="mt-12 rounded-lg border-2 border-primary bg-primary/5 p-6 text-center">
             <p className="text-lg font-semibold text-foreground">
-              Power Interview isn't just another interview prep tool - it's the most advanced,
+              Power Interview AI isn't just another interview prep tool - it's the most advanced,
               privacy-focused, and feature-rich AI assistant built specifically for real interview
               scenarios.
             </p>
