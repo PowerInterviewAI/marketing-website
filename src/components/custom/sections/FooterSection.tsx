@@ -140,23 +140,6 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               <li>
                 {location.pathname === '/' && scrollToSection ? (
                   <button
-                    onClick={() => scrollToSection('testimonials')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Testimonials
-                  </button>
-                ) : (
-                  <Link
-                    to="/testimonials"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Testimonials
-                  </Link>
-                )}
-              </li>
-              <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
                     onClick={() => scrollToSection('faq')}
                     className="text-muted-foreground transition-colors hover:text-primary"
                   >

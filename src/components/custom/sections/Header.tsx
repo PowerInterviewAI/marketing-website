@@ -122,22 +122,6 @@ export const Header: React.FC<HeaderProps> = ({
 
             {location.pathname === '/' && scrollToSection ? (
               <button
-                onClick={() => scrollToSection('testimonials')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Testimonials
-              </button>
-            ) : (
-              <Link
-                to="/testimonials"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Testimonials
-              </Link>
-            )}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
                 onClick={() => scrollToSection('faq')}
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
@@ -328,22 +312,6 @@ export const Header: React.FC<HeaderProps> = ({
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
                   Pricing
-                </Link>
-              )}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Testimonials
-                </button>
-              ) : (
-                <Link
-                  to="/testimonials"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Testimonials
                 </Link>
               )}
 

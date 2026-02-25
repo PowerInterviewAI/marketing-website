@@ -12,7 +12,6 @@ import LegalNotice from './pages/LegalNotice';
 import Pricing from './pages/Pricing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
-import Testimonials from './pages/Testimonials';
 import WhyChoose from './pages/WhyChoose';
 
 const App: React.FC = () => {
@@ -22,7 +21,6 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/how-to-use" element={<HowToUse />} />

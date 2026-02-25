@@ -77,7 +77,6 @@ src/components/custom/sections/
 These larger sections can also be extracted:
 
 - **Why Choose Section** (~lines 740-1095)
-- **Testimonials Section** (~lines 1540-1670)
 - **Contact Section** (~lines 1793-2000)
 
 ## Usage in Home.tsx
@@ -152,7 +151,7 @@ export default Home;
 ## Next Steps
 
 1. Complete the placeholder components by moving content from original Home.tsx
-2. Extract remaining large sections (Why Choose, Testimonials, Contact)
+2. Extract remaining large sections (Why Choose, Contact)
 3. Consider further breaking down large sections into smaller sub-components
 4. Add unit tests for each section component
 5. Update imports in Home.tsx to use the new structure

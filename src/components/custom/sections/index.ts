@@ -5,7 +5,6 @@ export { BenefitsSection } from './BenefitsSection';
 export { WhyChooseSection } from './WhyChooseSection';
 export { HowToUseSection } from './HowToUseSection';
 export { PricingSection } from './PricingSection';
-export { TestimonialsSection } from './TestimonialsSection';
 export { FAQSection } from './FAQSection';
 export { ContactSection } from './ContactSection';
 export { LegalNoticeSection } from './LegalNoticeSection';

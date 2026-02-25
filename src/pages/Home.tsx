@@ -11,7 +11,6 @@ import {
   HowToUseSection,
   LegalNoticeSection,
   PricingSection,
-  TestimonialsSection,
   WhyChooseSection,
 } from '@/components/custom/sections';
 import { useTheme } from '@/hooks/useTheme';
@@ -105,9 +104,6 @@ const Home: React.FC = () => {
 
         {/* Pricing Section */}
         <PricingSection />
-
-        {/* Testimonials Section */}
-        <TestimonialsSection />
 
         {/* FAQ Section */}
         <FAQSection
