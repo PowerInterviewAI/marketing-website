@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SiDiscord, SiGithub, SiProtonmail, SiTelegram } from '@icons-pack/react-simple-icons';
+import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 import { Link, useLocation } from 'react-router-dom';
 
 import Container from '@/components/custom/Container';
@@ -47,6 +47,15 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 aria-label="Telegram"
               >
                 <SiTelegram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com/power_interview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-primary"
+                aria-label="X"
+              >
+                <SiX className="h-5 w-5" />
               </a>
               <a
                 href="https://discord.gg/TJJp5azK7Z"

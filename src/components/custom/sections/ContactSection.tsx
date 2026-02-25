@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SiDiscord, SiGithub, SiProtonmail, SiTelegram } from '@icons-pack/react-simple-icons';
+import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 
 import Container from '@/components/custom/Container';
 import { Card, CardContent } from '@/components/ui/card';
@@ -85,6 +85,29 @@ export const ContactSection: React.FC = () => {
                   </p>
                   <p className="mt-3 text-xs text-muted-foreground">
                     Join our Telegram community for updates
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
+
+            {/* X Card */}
+            <a
+              href="https://x.com/power_interview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block transition-transform hover:scale-105"
+            >
+              <Card className="h-full border-2 transition-colors hover:border-primary hover:shadow-lg">
+                <CardContent className="flex flex-col items-center p-8 text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20">
+                    <SiX className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="mb-2 text-xl font-semibold">X</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-primary">
+                    @power_interview
+                  </p>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    Follow us on X (formerly Twitter)
                   </p>
                 </CardContent>
               </Card>

@@ -223,6 +223,17 @@ const PrivacyPolicy: React.FC = () => {
                   <p className="text-gray-700 dark:text-gray-300">
                     <strong>Website:</strong> https://www.powerinterviewai.com/
                   </p>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    <strong>X:</strong>{' '}
+                    <a
+                      href="https://x.com/power_interview"
+                      className="text-primary hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @power_interview
+                    </a>
+                  </p>
                 </div>
               </section>
             </CardContent>
