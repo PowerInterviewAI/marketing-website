@@ -92,7 +92,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Discord Card */}
             <a
-              href="https://discord.gg/BB3mSBa9hZ"
+              href="https://discord.gg/TJJp5azK7Z"
               target="_blank"
               rel="noopener noreferrer"
               className="group block transition-transform hover:scale-105"

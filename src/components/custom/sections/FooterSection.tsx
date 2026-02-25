@@ -49,7 +49,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 <SiTelegram className="h-5 w-5" />
               </a>
               <a
-                href="https://discord.gg/BB3mSBa9hZ"
+                href="https://discord.gg/TJJp5azK7Z"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
@@ -184,7 +184,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://discord.gg/BB3mSBa9hZ"
+                  href="https://discord.gg/TJJp5azK7Z"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"

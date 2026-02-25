@@ -183,7 +183,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 💬 Community & Support
 
-- **Discord**: [Join our Discord community](https://discord.gg/BB3mSBa9hZ)
+- **Discord**: [Join our Discord community](https://discord.gg/TJJp5azK7Z)
 - **Telegram**: [@power_interview_ai](https://t.me/+uQuuBdrsIYBjY2Qx)
 - **GitHub**: [PowerInterviewAI/client](https://github.com/PowerInterviewAI/client)
 - **Email**: power-interview@protonmail.com
