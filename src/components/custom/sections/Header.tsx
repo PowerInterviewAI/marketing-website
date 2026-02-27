@@ -133,6 +133,10 @@ export const Header: React.FC<HeaderProps> = ({
               </Link>
             )}
 
+            <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
+              Docs
+            </Link>
+
             {location.pathname === '/' && scrollToSection ? (
               <button
                 onClick={() => scrollToSection('contact')}
@@ -346,6 +350,10 @@ export const Header: React.FC<HeaderProps> = ({
                   Contact
                 </Link>
               )}
+
+              <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
+                Docs
+              </Link>
 
               <div className="flex flex-col gap-2 pt-4">
                 <Button variant="ghost" size="sm" asChild>

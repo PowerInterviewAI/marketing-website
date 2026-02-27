@@ -13,6 +13,8 @@ import Pricing from './pages/Pricing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import WhyChoose from './pages/WhyChoose';
+import DocsIndex from './pages/docs/DocsIndex';
+import DocsPage from './pages/docs/DocsPage';
 
 const App: React.FC = () => {
   return (
@@ -29,6 +31,8 @@ const App: React.FC = () => {
         <Route path="/legal-notice" element={<LegalNotice />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/docs" element={<DocsIndex />} />
+        <Route path="/docs/:slug" element={<DocsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
