@@ -8,7 +8,6 @@ import {
   FooterSection,
   Header,
   HeroSection,
-  HowToUseSection,
   LegalNoticeSection,
   PricingSection,
   WhyChooseSection,
@@ -98,9 +97,6 @@ const Home: React.FC = () => {
 
         {/* Why Choose Power Interview AI Section */}
         <WhyChooseSection />
-
-        {/* How to Use Section */}
-        <HowToUseSection />
 
         {/* Pricing Section */}
         <PricingSection />

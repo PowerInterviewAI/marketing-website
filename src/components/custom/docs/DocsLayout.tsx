@@ -26,7 +26,7 @@ const DocsLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
         <div className="mx-auto flex w-full max-w-6xl gap-6 py-8">
           <DocsSidebar />
 
-          <div className="prose w-full max-w-none">{children}</div>
+          <div className="prose markdown-body w-full max-w-none">{children}</div>
         </div>
       </Container>
 

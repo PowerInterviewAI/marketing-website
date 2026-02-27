@@ -88,21 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
               </Link>
             )}
 
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('how-to-use')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                How to Use
-              </button>
-            ) : (
-              <Link
-                to="/how-to-use"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                How to Use
-              </Link>
-            )}
+            {/* 'How to Use' moved into Docs; link removed */}
 
             {location.pathname === '/' && scrollToSection ? (
               <button
@@ -287,21 +273,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </Link>
               )}
 
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('how-to-use')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  How to Use
-                </button>
-              ) : (
-                <Link
-                  to="/how-to-use"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  How to Use
-                </Link>
-              )}
+              {/* 'How to Use' moved into Docs; link removed */}
 
               {location.pathname === '/' && scrollToSection ? (
                 <button

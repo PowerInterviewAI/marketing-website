@@ -3,7 +3,6 @@ export { HeroSection } from './HeroSection';
 export { FeaturesSection } from './FeaturesSection';
 export { BenefitsSection } from './BenefitsSection';
 export { WhyChooseSection } from './WhyChooseSection';
-export { HowToUseSection } from './HowToUseSection';
 export { PricingSection } from './PricingSection';
 export { FAQSection } from './FAQSection';
 export { ContactSection } from './ContactSection';
