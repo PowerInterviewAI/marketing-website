@@ -10,7 +10,7 @@ import {
   UserLock,
 } from 'lucide-react';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -151,3 +151,5 @@ export const FeaturesSection: React.FC = () => {
     </section>
   );
 };
+
+export default FeaturesSection;

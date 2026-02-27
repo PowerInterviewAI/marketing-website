@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Plan } from '@/types';
@@ -216,3 +216,5 @@ export const PricingSection: React.FC = () => {
     </section>
   );
 };
+
+export default PricingSection;

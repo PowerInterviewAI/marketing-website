@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { FooterSection, Header, LegalNoticeSection } from '@/components/custom/sections';
+import { FooterSection, Header, LegalNoticeSection } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const LegalNoticePage: React.FC = () => {

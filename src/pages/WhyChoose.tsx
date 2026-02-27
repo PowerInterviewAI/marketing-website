@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { FooterSection, Header, WhyChooseSection } from '@/components/custom/sections';
+import { FooterSection, Header, WhyChooseSection } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const WhyChoosePage: React.FC = () => {

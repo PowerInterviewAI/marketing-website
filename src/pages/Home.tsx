@@ -11,7 +11,7 @@ import {
   LegalNoticeSection,
   PricingSection,
   WhyChooseSection,
-} from '@/components/custom/sections';
+} from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const Home: React.FC = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { FeaturesSection, FooterSection, Header } from '@/components/custom/sections';
+import { FeaturesSection, FooterSection, Header } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const FeaturesPage: React.FC = () => {

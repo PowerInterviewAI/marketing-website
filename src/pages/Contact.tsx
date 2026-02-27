@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { ContactSection, FooterSection, Header } from '@/components/custom/sections';
+import { ContactSection, FooterSection, Header } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const ContactPage: React.FC = () => {

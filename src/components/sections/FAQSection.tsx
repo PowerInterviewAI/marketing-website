@@ -2,9 +2,8 @@ import React from 'react';
 
 import { SiProtonmail } from '@icons-pack/react-simple-icons';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface FAQSectionProps {
   openFaqIndex: number | null;
@@ -97,13 +96,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
 
         <div className="mx-auto max-w-3xl space-y-4">
           {faqData.map((faq, index) => (
-            <Card key={index} className="overflow-hidden">
+            <div key={index} className="rounded-lg border bg-background p-4">
               <button
                 className="w-full text-left"
                 onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
               >
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-                  <CardTitle className="text-lg font-semibold">{faq.question}</CardTitle>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold">{faq.question}</h3>
                   <svg
                     className={`h-5 w-5 transition-transform ${
                       openFaqIndex === index ? 'rotate-180' : ''
@@ -119,14 +118,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
-                </CardHeader>
+                </div>
               </button>
               {openFaqIndex === index && (
-                <CardContent className="pt-0">
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
+                <div className="mt-3 text-muted-foreground">{faq.answer}</div>
               )}
-            </Card>
+            </div>
           ))}
         </div>
 
@@ -141,3 +138,5 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
     </section>
   );
 };
+
+export default FAQSection;

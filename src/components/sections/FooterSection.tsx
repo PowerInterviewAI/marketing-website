@@ -3,7 +3,7 @@ import React from 'react';
 import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 import { Link, useLocation } from 'react-router-dom';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 
 interface FooterSectionProps {
   scrollToSection?: (sectionId: string) => void; // optional; if provided we still support in-page scroll on home
@@ -123,9 +123,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://github.com/PowerInterviewAI/client"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/docs"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   Documentation
@@ -262,3 +260,5 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
     </footer>
   );
 };
+
+export default FooterSection;

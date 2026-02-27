@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
-const docs = import.meta.glob('/src/docs/content/*.md', { as: 'raw', eager: true }) as Record<
+const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
   string
 >;

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-react';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 
 // Media carousel data
@@ -341,3 +341,5 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     </section>
   );
 };
+
+export default HeroSection;

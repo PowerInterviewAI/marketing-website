@@ -3,7 +3,7 @@ import React from 'react';
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 import { ArrowRight } from 'lucide-react';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -161,3 +161,5 @@ export const WhyChooseSection: React.FC = () => {
     </section>
   );
 };
+
+export default WhyChooseSection;

@@ -2,8 +2,6 @@ import React from 'react';
 
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import DocsIndex from './docs/pages/DocsIndex';
-import DocsPage from './docs/pages/DocsPage';
 import Benefits from './pages/Benefits';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
@@ -14,6 +12,8 @@ import Pricing from './pages/Pricing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import WhyChoose from './pages/WhyChoose';
+import DocsIndex from './pages/docs';
+import DocsPage from './pages/docs/[slug]';
 
 const App: React.FC = () => {
   return (

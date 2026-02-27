@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Card, CardContent } from '@/components/ui/card';
 
 export const ContactSection: React.FC = () => {
@@ -148,3 +148,5 @@ export const ContactSection: React.FC = () => {
     </section>
   );
 };
+
+export default ContactSection;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Container from '@/components/custom/Container';
-import { FooterSection } from '@/components/custom/sections/FooterSection';
-import { Header } from '@/components/custom/sections/Header';
+import Container from '@/components/Container';
+import { FooterSection } from '@/components/sections/FooterSection';
+import { Header } from '@/components/sections/Header';
 import { useTheme } from '@/hooks/useTheme';
 
 import DocsSidebar from './DocsSidebar';

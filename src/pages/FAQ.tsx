@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { FAQSection, FooterSection, Header } from '@/components/custom/sections';
+import { FAQSection, FooterSection, Header } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
 const FAQPage: React.FC = () => {

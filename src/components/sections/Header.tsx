@@ -4,7 +4,7 @@ import { SiGithub } from '@icons-pack/react-simple-icons';
 import { X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 
 interface HeaderProps {
@@ -350,3 +350,5 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+
+export default Header;

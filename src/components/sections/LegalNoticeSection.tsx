@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
 import { Card, CardContent } from '@/components/ui/card';
 
 export const LegalNoticeSection: React.FC = () => {
@@ -121,3 +121,5 @@ export const LegalNoticeSection: React.FC = () => {
     </section>
   );
 };
+
+export default LegalNoticeSection;

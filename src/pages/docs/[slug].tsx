@@ -4,9 +4,9 @@ import ReactMarkdown from 'react-markdown';
 import { useParams } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
 
-import DocsLayout from '@/components/custom/docs/DocsLayout';
+import DocsLayout from '@/layouts/DocsLayout';
 
-const docs = import.meta.glob('/src/docs/content/*.md', { as: 'raw', eager: true }) as Record<
+const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
   string
 >;
@@ -16,7 +16,7 @@ const DocsPage: React.FC = () => {
 
   if (!slug) return null;
 
-  const key = `/src/docs/content/${slug}.md`;
+  const key = `/src/content/docs/${slug}.md`;
   const content = docs[key];
 
   if (!content) {

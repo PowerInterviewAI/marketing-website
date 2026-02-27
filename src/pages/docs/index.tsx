@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import DocsLayout from '@/components/custom/docs/DocsLayout';
+import DocsLayout from '@/layouts/DocsLayout';
 
-const docs = import.meta.glob('/src/docs/content/*.md', { as: 'raw', eager: true }) as Record<
+const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
   string
 >;
