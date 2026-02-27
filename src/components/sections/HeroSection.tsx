@@ -193,7 +193,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Ace technical and behavioral interviews with real-time transcription, intelligent
-            suggestions, and cutting-edge face swap technology—all while maintaining your privacy.
+            suggestions, and cutting-edge face swap technology-all while maintaining your privacy.
           </p>
 
           {/* Installation Command */}

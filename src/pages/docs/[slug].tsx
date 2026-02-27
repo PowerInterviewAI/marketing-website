@@ -43,7 +43,6 @@ const DocsPage: React.FC = () => {
         url={`https://www.powerinterviewai.com/docs/${slug}`}
       />
       <main className="mx-auto max-w-4xl p-6">
-        <h1 className="mb-4 text-3xl font-bold">{title}</h1>
         <article className="prose max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </article>

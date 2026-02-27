@@ -10,7 +10,7 @@ const WhyChoosePage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const description =
-    'Why choose Power Interview AI — privacy-first design, face-swap, real-time assistance and high accuracy for interview practice.';
+    'Why choose Power Interview AI - privacy-first design, face-swap, real-time assistance and high accuracy for interview practice.';
 
   return (
     <div className="min-h-screen bg-background">

@@ -2,7 +2,7 @@
 
 This documentation explains how to set up, configure, and use Power Interview AI for
 real interview practice and coaching. It focuses on practical steps and best
-practices — not source code.
+practices - not source code.
 
 ## Quick Start
 
@@ -25,9 +25,9 @@ practices — not source code.
 
 ## App Workspace Overview
 
-- **Profile** — Manage personal info and upload resume/CV.
-- **Assistant** — Start/stop real-time AI assistance during a session.
-- **Recordings** — Export transcripts, suggestions, and session summaries.
+- **Profile** - Manage personal info and upload resume/CV.
+- **Assistant** - Start/stop real-time AI assistance during a session.
+- **Recordings** - Export transcripts, suggestions, and session summaries.
 
 If you just want to try a quick run, open the app, start an assistant session, and
 perform a 5–10 minute mock interview to get a feel for AI prompts and feedback.

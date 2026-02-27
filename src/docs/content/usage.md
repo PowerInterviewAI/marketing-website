@@ -1,4 +1,4 @@
-# Usage Guide — Practical, Safe, Effective
+# Usage Guide - Practical, Safe, Effective
 
 This document covers practical usage: session setup, configuration, operating the
 assistant, and privacy-minded tips to get meaningful improvements from your practice.
@@ -7,7 +7,7 @@ assistant, and privacy-minded tips to get meaningful improvements from your prac
 
 - Choose a quiet, well-lit space and use a reliable headset to avoid echo.
 - Use a neutral, professional-looking photo if you enable face-swap (optional).
-- Prepare a short job description and your resume/CV to upload — the assistant uses
+- Prepare a short job description and your resume/CV to upload - the assistant uses
   this context to generate relevant questions and feedback.
 
 ## Configuration
@@ -20,7 +20,7 @@ assistant, and privacy-minded tips to get meaningful improvements from your prac
 ## Running a Session
 
 1. Click **Start Assistant** shortly before your mock interview begins. Credits
-   are consumed while the assistant is running — stop it immediately after.
+   are consumed while the assistant is running - stop it immediately after.
 2. During the session, the assistant provides real-time hints and can optionally
    display suggested answers, follow-up questions, and timing cues.
 3. After the session, export the transcript and AI feedback for review.

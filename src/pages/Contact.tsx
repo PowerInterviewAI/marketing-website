@@ -10,7 +10,7 @@ const ContactPage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const description =
-    'Contact Power Interview AI support or sales — reach out for help, partnership, or product inquiries.';
+    'Contact Power Interview AI support or sales - reach out for help, partnership, or product inquiries.';
 
   return (
     <div className="min-h-screen bg-background">
