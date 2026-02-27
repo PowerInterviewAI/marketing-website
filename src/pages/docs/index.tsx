@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import Seo from '@/components/Seo';
 import DocsLayout from '@/layouts/DocsLayout';
 
 const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
@@ -19,6 +20,11 @@ const list = Object.keys(docs).map((p) => {
 const DocsIndex: React.FC = () => {
   return (
     <DocsLayout>
+      <Seo
+        title="Documentation"
+        description="Power Interview AI documentation and usage guides."
+        url="https://www.powerinterviewai.com/docs"
+      />
       <main className="mx-auto max-w-4xl p-6">
         <h1 className="mb-4 text-3xl font-bold">Documentation</h1>
         <p className="mb-6">Welcome to the docs. Choose a page below:</p>
