@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
+import Seo from '@/components/Seo';
 import { BenefitsSection, FooterSection, Header } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -8,29 +9,16 @@ const BenefitsPage: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'Benefits - Power Interview AI';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Benefits of using Power Interview AI for interview practice, confidence building, and coding prep.'
-      );
-    }
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.powerinterviewai.com/benefits');
-  }, []);
+  const description =
+    'Benefits of using Power Interview AI for interview practice, confidence building, and coding prep.';
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Benefits"
+        description={description}
+        url="https://www.powerinterviewai.com/benefits"
+      />
       <Header
         theme={theme}
         mobileMenuOpen={mobileMenuOpen}

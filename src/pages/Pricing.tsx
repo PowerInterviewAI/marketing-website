@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
+import Seo from '@/components/Seo';
 import { FooterSection, Header, PricingSection } from '@/components/sections';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -8,29 +9,16 @@ const PricingPage: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'Pricing - Power Interview AI';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'See Power Interview AI pricing plans and credit packs — secure crypto payments, flexible options for interview practice and live assistance.'
-      );
-    }
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.powerinterviewai.com/pricing');
-  }, []);
+  const description =
+    'See Power Interview AI pricing plans and credit packs — secure crypto payments, flexible options for interview practice and live assistance.';
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Pricing"
+        description={description}
+        url="https://www.powerinterviewai.com/pricing"
+      />
       <Header
         theme={theme}
         mobileMenuOpen={mobileMenuOpen}
