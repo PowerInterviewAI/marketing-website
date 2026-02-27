@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import ScrollToTop from '@/components/ScrollToTop';
+
 import Benefits from './pages/Benefits';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
@@ -18,6 +20,7 @@ import DocsPage from './pages/docs/[slug]';
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
