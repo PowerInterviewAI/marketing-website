@@ -7,7 +7,7 @@ This page describes how to use Power Interview during a live interview session, 
 ## Starting a Session
 
 1. Launch Power Interview.
-2. Ensure the health indicators (top of the app) show green for the backend and GPU services.
+2. Review configuration and settings to ensure your profile is complete and devices are set up correctly.
 3. Click the **Start** button to activate transcription and AI assistance.
 
 Once started, the app begins capturing audio from your configured microphone (your voice) and the system audio loopback (the interviewer's voice). Both channels are streamed to the ASR backend in real time and displayed in the transcript panel.
@@ -25,12 +25,6 @@ To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q
 - Both streams are sent to the ASR backend over WebSocket and returned as live transcription.
 - Each line is labeled by speaker name: your configured name or "Interviewer", with a timestamp.
 
-### Reading the Transcript
-
-The transcript panel displays messages in chronological order with speaker labels. The panel auto-scrolls as new lines arrive. Uncheck **Auto-scroll** at the top of the panel to pause and manually browse the history.
-
-![Transcript and Reply Suggestions](/media/meeting.tonny.face.liveassist.png)
-
 ---
 
 ## AI Reply Suggestions
@@ -43,7 +37,7 @@ Suggestions are triggered automatically as the AI determines a response is usefu
 
 ### Scrolling Suggestions
 
-Use the keyboard to scroll through reply suggestion content without leaving your video call window:
+You can use the keyboard to scroll through reply suggestion content without leaving your video call window:
 
 | Action      | Shortcut       |
 | ----------- | -------------- |
@@ -59,10 +53,10 @@ For technical interviews with coding problems, Power Interview can analyze your 
 ### Workflow
 
 1. When a coding problem appears on screen (in your browser, IDE, or shared screen), press `Ctrl+Alt+Shift+P` to take a screenshot.
-2. You can capture up to **4 screenshots** to provide more context (e.g., multiple parts of the problem or different tabs).
+2. You can capture up to **4 screenshots** to provide more context (e.g., multiple parts of the problem due overflowed content or different tabs).
 3. Press `Ctrl+Alt+Shift+Enter` to submit the screenshots for analysis.
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
-5. To start over, press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
+5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
 
 ### Scrolling Code Suggestions
 
@@ -73,17 +67,17 @@ For technical interviews with coding problems, Power Interview can analyze your 
 
 ---
 
-## Face Swap (Virtual Camera)
+## Face Swap
 
-The face swap feature replaces your webcam output with a face-swapped stream - your physical appearance is replaced with the face from the photo you uploaded in settings.
+The face swap feature replaces your webcam output with a face-swapped stream - your physical appearance is replaced with the face from the photo you configured in settings.
 
 ### Setting It Up
 
-1. Ensure **OBS Studio** is installed and **OBS Virtual Camera** is started in OBS before opening your video call.
+1. Ensure **OBS Studio** is installed before opening your video call.
 2. In your video call app (Zoom, Google Meet, Teams, etc.), select:
    - **OBS Virtual Camera** as your camera source
    - **CABLE Output (VB-Audio Virtual Cable)** as your microphone
-3. In Power Interview, open **Face Swap Options** from the control panel (face icon), select your webcam and resolution, then close the dialog.
+3. In Power Interview, open **Face Swap Options** from the control panel (face scan icon), select your webcam and resolution, then close the dialog.
 4. Toggle **Face Swap on** using the face icon button in the control panel.
 
 The VCam Agent captures frames from your webcam, streams them to the face swap backend, and pushes the processed output to OBS Virtual Camera.
@@ -96,15 +90,13 @@ The VCam Agent captures frames from your webcam, streams them to the face swap b
 | Resolution       | Output resolution: 640×360, 640×480, or 1280×720   |
 | Face Enhancement | Toggle AI post-processing for more natural results |
 
-> **Note:** Credits are consumed while the assistant is running. Your remaining balance is shown in the app. You can top up credits from the **Buy Credits** page.
-
-![Face Swap Video Demo](/media/meeting.tonny.mp4)
-
 ---
 
 ## Stealth Mode
 
-Stealth mode hides the Power Interview window from your screen share so interviewers cannot see it.
+The Power Interview window is **always hidden from screen capture and screen share** — interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
+
+Stealth mode is about **focus control**. When active, the window will not steal focus from your coding challenge, IDE, or video call. You stay in full control of your keyboard and mouse at all times.
 
 ### Activating Stealth Mode
 
@@ -112,7 +104,7 @@ Press `Ctrl+Shift+M` to toggle stealth mode on or off.
 
 ### Opacity Toggle
 
-When in stealth mode, the window becomes hidden. You can use `Ctrl+Shift+N` to toggle a low-opacity overlay state, letting you glance at suggestions through a semi-transparent window without fully revealing it.
+Press `Ctrl+Shift+N` to toggle a low-opacity overlay, letting you glance at suggestions through a semi-transparent window without switching focus away from your active window.
 
 ---
 
