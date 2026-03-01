@@ -4,15 +4,29 @@ This page covers everything you need to install and run Power Interview, whether
 
 ---
 
-## Option A - Prebuilt Release (Recommended)
+## Option A - Use Install Commandline (Recommended)
 
-Download the latest installer from the [Releases page](https://github.com/PowerInterviewAI/power-interview-assistant/releases/latest) and run it. The installer packages the Electron app and all compiled Python agents together - no additional setup is required.
+On the [Home page](https://powerinterviewai.com/) you can see full command line to install latest release version like this:
 
-After installation, launch **Power Interview** from your Start Menu or desktop shortcut, sign in with your account, and proceed to [configure your profile](#first-run-setup).
+```bash
+curl -L -o PowerInterview-Setup-x.x.x.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-x.x.x.exe && start "" "PowerInterview-Setup-x.x.x.exe"
+```
+
+Just open a terminal, copy & paste the command, and run it.
+
+This will download the latest installer and launch it immediately. Follow the installer prompts to complete installation, then launch Power Interview from your Start Menu or desktop shortcut.
 
 ---
 
-## Option B - Build from Source
+## Option B - Prebuilt Release
+
+Download the latest installer from the [Releases page](https://github.com/PowerInterviewAI/power-interview-assistant/releases/latest) and run it. The installer packages the Electron app and all compiled Python agents together - no additional setup is required.
+
+After installation, launch **Power Interview** from your Start Menu or desktop shortcut, sign in with your account, and proceed to [First-Run Setup](#first-run-setup).
+
+---
+
+## Option C - Build from Source
 
 Use this path if you want to run or modify the development version.
 
@@ -32,7 +46,7 @@ Use this path if you want to run or modify the development version.
 | [OBS Studio with Virtual Camera](https://obsproject.com/) | Required for the face swap / virtual camera feature                                                                                |
 | [VB-Audio Virtual Cable](https://vb-audio.com/Cable/)     | Required for face swap: routes your microphone audio through the virtual camera output so the meeting platform receives your voice |
 
-These are only needed if you intend to use the face swap feature. Transcription of both your voice and the interviewer's voice works without them.
+These are only needed if you intend to use the **face swap** feature. Transcription of both your voice and the interviewer's voice works without them.
 
 ---
 
@@ -82,24 +96,28 @@ The key Python packages installed are:
 
 ### Step 4 - Build the Python Agents
 
+> **Important:** This step must be run inside a **Visual Studio Developer Command Prompt** (not a regular terminal or PowerShell). Nuitka uses the MSVC compiler toolchain which is only available in that environment.
+>
+> Open it from the Start Menu: **Visual Studio → Developer Command Prompt for VS 20xx**. Then activate your virtual environment inside it before running the commands below.
+
 The Python agents are compiled into standalone executables using Nuitka. Build each agent separately or all at once:
 
 **Build a specific agent:**
 
-```bash
-# ASR (transcription) agent
+```bat
+:: ASR (transcription) agent
 python -m scripts.build_asr_agent
 
-# Audio control agent
+:: Audio control agent
 python -m scripts.build_audio_control_agent
 
-# Virtual camera agent
+:: Virtual camera agent
 python -m scripts.build_vcam_agent
 ```
 
 **Build all agents at once:**
 
-```bash
+```bat
 python -m scripts.build_all
 ```
 
@@ -147,7 +165,7 @@ The packaged installer will be output to the `build/` directory.
 
 After launching the app for the first time (whether from the installer or source):
 
-1. **Sign in** with your Power Interview account credentials. If you don't have an account, sign up at [powerinterviewai.com](https://www.powerinterviewai.com/).
+1. **Sign in** with your Power Interview account credentials. If you don't have an account, sign up using the application.
 
 2. **Open Configuration** from the profile dropdown (bottom-left of the control panel).
 
@@ -162,21 +180,10 @@ After launching the app for the first time (whether from the installer or source
    - The interviewer's voice is captured automatically via Windows system audio loopback - no extra device configuration needed
 
 5. **Face swap setup** (optional - requires OBS Virtual Camera and VB-Audio Virtual Cable):
-   - Upload a face swap reference photo in the **Configuration** dialog
+   - Set a face swap reference photo in the **Configuration** dialog
    - Click the face icon in the control panel to open **Face Swap Options**
    - Select your physical webcam and preferred resolution
    - Toggle **Face Swap** on from the control panel
    - In your video call app, select **OBS Virtual Camera** as the camera and **CABLE Output (VB-Audio Virtual Cable)** as the microphone
 
 After completing setup, click **Start** to begin a session.
-
----
-
-## Verifying the Installation
-
-Once the app is running, the health indicator in the UI will show the status of:
-
-- **Backend API** - connection to cloud AI and ASR services
-- **GPU Server** - availability of the face swap processing server
-
-If both indicators are green, the app is fully connected and ready to use.
