@@ -56,9 +56,12 @@ Run a short test session a few minutes before the interview starts:
 
 ## Face Swap Setup
 
+> **Critical: Start Power Interview assistant before you join the meeting.**
+> Video call platforms (Zoom, Teams, Google Meet) detect available camera and audio devices only at launch time. If Power Interview, OBS Virtual Camera, or VB-Cable are not running when you join, the meeting app will not see those virtual devices and face swap cannot be activated. Always start the assistant and confirm the virtual devices are visible in your meeting app settings **before** clicking Join.
+
 ### Use OBS Virtual Camera Correctly
 
-Make sure OBS Virtual Camera is started **before** your video call app opens. Many video call platforms (Zoom, Teams) only detect camera devices at launch time. If you start OBS after joining the call, you may need to leave and rejoin.
+Make sure **OBSStudio** is is installed **before** your video call app opens. Many video call platforms (Zoom, Teams) only detect camera devices at launch time. If you start OBS after joining the call, you may need to leave and rejoin.
 
 ### Select the Correct Devices in Your Meeting App
 
@@ -67,11 +70,7 @@ When face swap is enabled, your meeting platform must use the virtual devices, n
 - **Camera**: select **OBS Virtual Camera**
 - **Microphone**: select **CABLE Output (VB-Audio Virtual Cable)**
 
-Do not select your physical camera or physical microphone in the meeting platform when face swap is active.
-
-![Meeting Audio and Video Device Setup](/media/meeting-video-device.png)
-
-![Audio Device Setup](/media/meeting-audio-device.png)
+Do not select your physical camera or physical microphone in the meeting platform when using the face swap feature.
 
 ### Use a Good Reference Photo
 
@@ -104,14 +103,6 @@ A single screenshot of a long problem statement often misses important details. 
 - Any relevant constraints or examples below the fold
 
 Press `Ctrl+Alt+Shift+P` for each capture, then `Ctrl+Alt+Shift+Enter` to submit.
-
-### Capture Only the Relevant Area
-
-The AI processes the full screenshot. If your screen is cluttered with unrelated windows, the model may spend attention on irrelevant content. Before capturing, maximize the problem window or zoom in on the relevant section.
-
-### Clear Screenshots Between Problems
-
-After you finish one coding question and move to the next, press `Ctrl+Alt+Shift+X` to clear the captured images. Submitting stale screenshots from a previous problem alongside ones from the current problem degrades suggestion quality.
 
 ---
 
@@ -154,19 +145,20 @@ Before every interview, run through this checklist:
 
 - [ ] Profile (name, CV) is up to date
 - [ ] Context field has the correct job description for this role
+- [ ] **Power Interview is started before joining the meeting**
 - [ ] Microphone is selected and producing transcript output (test session run)
 - [ ] Camera and face swap photo are configured (if using face swap)
+- [ ] **Power Interview assistant is running before joining the meeting** (if using face swap — critical)
 - [ ] OBS Virtual Camera is started and selected in the video call app (if using face swap)
 - [ ] CABLE Output is selected as microphone in the video call app (if using face swap)
 - [ ] Credits balance is sufficient for the session (if using face swap)
 - [ ] Power Interview window is positioned and hotkeys tested
-- [ ] Health indicators are green (backend and GPU services connected)
 
 ---
 
 ## Ethical Use
 
-Power Interview is a tool to support your preparation and reduce anxiety during a high-stakes moment. Use it responsibly:
+Use it responsibly:
 
 - The face swap feature is intended for privacy and personal presentation. Do not use it to impersonate another person.
 - AI suggestions are a starting point - adapt them in your own words. Parroting a suggestion verbatim can appear unnatural.
