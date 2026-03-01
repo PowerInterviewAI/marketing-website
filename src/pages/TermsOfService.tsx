@@ -1,55 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const TermsOfService: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    // Update meta tags for SEO
-    document.title = 'Terms of Service - Power Interview AI';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
-      );
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'Terms of Service - Power Interview AI');
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute(
-        'content',
-        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
-      );
-    }
-
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Terms of Service - Power Interview AI');
-    }
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDescription) {
-      twitterDescription.setAttribute(
-        'content',
-        "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform."
-      );
-    }
-  }, []);
+  const description =
+    "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform.";
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+      <Seo
+        title="Terms of Service"
+        description={description}
+        url="https://www.powerinterviewai.com/terms"
+      />
       <Container>
         <div className="py-12">
           <Link to="/" className="mb-8 inline-block">

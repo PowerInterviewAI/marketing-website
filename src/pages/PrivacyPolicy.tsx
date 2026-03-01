@@ -1,55 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import Container from '@/components/custom/Container';
+import Container from '@/components/Container';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const PrivacyPolicy: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    // Update meta tags for SEO
-    document.title = 'Privacy Policy - Power Interview AI';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
-      );
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'Privacy Policy - Power Interview AI');
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute(
-        'content',
-        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
-      );
-    }
-
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Privacy Policy - Power Interview AI');
-    }
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDescription) {
-      twitterDescription.setAttribute(
-        'content',
-        "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation."
-      );
-    }
-  }, []);
+  const description =
+    "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation.";
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+      <Seo
+        title="Privacy Policy"
+        description={description}
+        url="https://www.powerinterviewai.com/privacy"
+      />
       <Container>
         <div className="py-12">
           <Link to="/" className="mb-8 inline-block">

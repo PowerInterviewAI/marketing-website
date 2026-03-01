@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="340" viewBox="0 0 400 340">
+  <defs>
+    <linearGradient id="bgW" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2035" />
+      <stop offset="100%" style="stop-color:#0a1628" />
+    </linearGradient>
+    <linearGradient id="selGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f8ef7;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7c5cfc;stop-opacity:0.5" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="340" rx="10" fill="url(#bgW)" stroke="#1e3a5f" stroke-width="1.5" />
+
+  <text x="200" y="30" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Window Positioning — Numpad Layout</text>
+  <text x="200" y="48" fill="#6a7a8a" font-size="10" font-family="Arial" text-anchor="middle">Ctrl+Shift + number key to snap window position</text>
+  <rect x="20" y="56" width="360" height="1" fill="#1e3a5f" />
+
+  <!-- Monitor outline -->
+  <rect x="40" y="72" width="320" height="200" rx="8" fill="#050d18" stroke="#1e3450" stroke-width="1.5" />
+
+  <!-- Monitor screen grid (3x3) -->
+  <!-- Row 1 -->
+  <rect x="48" y="80" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="96" y="112" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Top-Left</text>
+  <text x="96" y="124" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+7</text>
+
+  <rect x="152" y="80" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="200" y="112" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Top-Center</text>
+  <text x="200" y="124" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+8</text>
+
+  <rect x="256" y="80" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="304" y="112" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Top-Right</text>
+  <text x="304" y="124" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+9</text>
+
+  <!-- Row 2 -->
+  <rect x="48" y="144" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="96" y="176" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Mid-Left</text>
+  <text x="96" y="188" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+4</text>
+
+  <rect x="152" y="144" width="96" height="56" rx="4" fill="url(#selGrad)" stroke="#4f8ef7" stroke-width="1.5" />
+  <text x="200" y="176" fill="#aab4c6" font-size="9" font-family="Arial" text-anchor="middle">Center</text>
+  <text x="200" y="188" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+5</text>
+
+  <rect x="256" y="144" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="304" y="176" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Mid-Right</text>
+  <text x="304" y="188" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+6</text>
+
+  <!-- Row 3 -->
+  <rect x="48" y="208" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="96" y="240" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Bottom-Left</text>
+  <text x="96" y="252" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+1</text>
+
+  <rect x="152" y="208" width="96" height="56" rx="4" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="200" y="240" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Bottom-Center</text>
+  <text x="200" y="252" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+2</text>
+
+  <!-- Bottom-right highlighted (recommended zone) -->
+  <rect x="256" y="208" width="96" height="56" rx="4" fill="url(#selGrad)" stroke="#7c5cfc" stroke-width="1.5" />
+  <text x="304" y="236" fill="#aab4c6" font-size="9" font-family="Arial" text-anchor="middle">Bottom-Right</text>
+  <text x="304" y="248" fill="#4f8ef7" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Ctrl+Shift+3</text>
+  <text x="304" y="260" fill="#7c5cfc" font-size="8" font-family="Arial" text-anchor="middle">★ Recommended</text>
+
+  <!-- Monitor stand -->
+  <rect x="175" y="272" width="50" height="10" rx="2" fill="#1e3450" />
+  <rect x="155" y="282" width="90" height="8" rx="2" fill="#1e3450" />
+
+  <!-- Extra shortcuts hint -->
+  <rect x="40" y="298" width="320" height="30" rx="6" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
+  <text x="200" y="311" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Fine Position:  Ctrl+Alt+Shift+Arrow  |  Resize:  Ctrl+Win+Shift+Arrow</text>
+  <text x="200" y="323" fill="#4a5a6a" font-size="9" font-family="Arial" text-anchor="middle">Window is always hidden from screen capture — safe to place anywhere</text>
+</svg>
