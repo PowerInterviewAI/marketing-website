@@ -14,7 +14,7 @@ Once started, the app begins capturing audio from your configured microphone (yo
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
-![Power Interview — main UI during an active session](/media/docs/app-overview.svg)
+![Power Interview — main UI during an active session](/media/docs/app-overview.png)
 
 ---
 
@@ -36,6 +36,8 @@ Reply suggestions are generated based on the current transcript, your profile (n
 ### Getting a Suggestion
 
 Suggestions are triggered automatically as the AI determines a response is useful, or you can request one manually through the UI. The suggestion streams into the reply panel word by word in real time.
+
+![Reply Suggestions panel — streamed in real time](/media/docs/reply-suggestions.mp4)
 
 ### Scrolling Suggestions
 
@@ -60,7 +62,7 @@ For technical interviews with coding problems, Power Interview can analyze your 
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
 5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
 
-![Code Suggestions panel — syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.svg)
+![Code Suggestions panel — syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.mp4)
 
 ### Scrolling Code Suggestions
 
@@ -82,15 +84,18 @@ The face swap feature replaces your webcam output with a face-swapped stream - y
    - **OBS Virtual Camera** as your camera source
    - **CABLE Output (VB-Audio Virtual Cable)** as your microphone
 
-   ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
-
-   ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+   |                                              Camera                                              |                                           Microphone                                           |
+   | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+   | ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
 
 3. In Power Interview, open **Face Swap Options** from the control panel (face scan icon), select your webcam and resolution, then close the dialog.
 
-   ![Face Swap Options dialog](/media/docs/face-swap-options.svg)
+   ![Face Swap Options dialog](/media/docs/face-swap-options.png)
 
 4. Toggle **Face Swap on** using the face icon button in the control panel.
+5. Click start button to begin the session with face swap active.
+
+   ![Face swap in action — webcam feed replaced with face-swapped output](/media/docs/face-swap-example.png)
 
 The VCam Agent captures frames from your webcam, streams them to the face swap backend, and pushes the processed output to OBS Virtual Camera.
 
@@ -116,7 +121,7 @@ Press `Ctrl+Shift+M` to toggle stealth mode on or off.
 
 When active, the window collapses to a minimal status bar showing running state, credit balance, and active hotkeys.
 
-![Stealth mode status bar](/media/docs/stealth-mode.svg)
+![Stealth mode status bar](/media/docs/stealth-mode.png)
 
 ### Opacity Toggle
 
@@ -132,25 +137,7 @@ Because you cannot use the mouse to interact with Power Interview while focused 
 
 Use a numpad-style layout to snap the window to any screen position:
 
-```
-Ctrl+Shift+7   Ctrl+Shift+8   Ctrl+Shift+9
-Ctrl+Shift+4   Ctrl+Shift+5   Ctrl+Shift+6
-Ctrl+Shift+1   Ctrl+Shift+2   Ctrl+Shift+3
-```
-
 ![Window positioning grid — numpad layout for screen zones](/media/docs/window-positioning.svg)
-
-| Key            | Position      |
-| -------------- | ------------- |
-| `Ctrl+Shift+7` | Top-left      |
-| `Ctrl+Shift+8` | Top-center    |
-| `Ctrl+Shift+9` | Top-right     |
-| `Ctrl+Shift+4` | Middle-left   |
-| `Ctrl+Shift+5` | Center        |
-| `Ctrl+Shift+6` | Middle-right  |
-| `Ctrl+Shift+1` | Bottom-left   |
-| `Ctrl+Shift+2` | Bottom-center |
-| `Ctrl+Shift+3` | Bottom-right  |
 
 ### Fine-Tuning Position and Size
 
@@ -205,6 +192,11 @@ The **Export** button generates a Word document (`.docx`) containing:
 - All reply suggestions with the questions that triggered them
 
 A save dialog appears so you can choose where to save the file.
+
+| ![Export Interview dialog — save generated report as a .docx file](/media/docs/export-interview.png) | ![Export Example — generated interview report in Word](/media/docs/export-example.png) |
+| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+
+[Export Example — generated interview report in Word](/media/docs/export-example.docx)
 
 ### Clear Session
 

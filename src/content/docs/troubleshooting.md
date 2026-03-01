@@ -61,7 +61,7 @@ The app checks connectivity to backend services on startup and periodically duri
 1. Confirm the session is **started** (the Start button should show as active / Stop should be visible).
 2. Open **Audio Options** from the control panel (microphone icon) and verify your physical microphone is selected.
 
-   ![Audio Options — verify the correct microphone is selected](/media/docs/audio-options.svg)
+   ![Audio Options — verify the correct microphone is selected](/media/docs/audio-options.png)
 
 3. Speak and check if your operating-system volume indicator shows sound input from the selected device (Windows Sound settings → Recording).
 4. Ensure the backend is reachable - transcription is processed on the backend. Try visiting [powerinterviewai.com](https://www.powerinterviewai.com/) to rule out a service outage.
@@ -160,7 +160,7 @@ Video processing introduces a small amount of latency. If the face swap video an
 - Confirm the GPU service is reachable. Face swap processing runs on the backend GPU server — if it is unavailable, stop and restart the assistant once connectivity is restored.
 - Stop and restart the face swap feature from the control panel.
 
-  ![Face Swap Options dialog — verify reference photo is uploaded](/media/docs/face-swap-options.svg)
+  ![Face Swap Options dialog — verify reference photo is uploaded](/media/docs/face-swap-options.png)
 
 ---
 

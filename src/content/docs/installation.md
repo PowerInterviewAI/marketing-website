@@ -174,14 +174,14 @@ After launching the app for the first time (whether from the installer or source
    - Paste your **CV / resume** or bio summary (required)
    - Paste the **job description** or role context for your upcoming interview (recommended)
 
-   ![Configuration dialog — Profile tab](/media/docs/configuration-dialog.svg)
+   ![Configuration dialog — Profile tab](/media/docs/configuration-dialog.png)
 
 4. **Select your microphone:**
    - Click the microphone icon in the control panel to open **Audio Options**
    - Choose your physical microphone from the dropdown
    - The interviewer's voice is captured automatically via Windows system audio loopback - no extra device configuration needed
 
-   ![Audio Options — microphone selector](/media/docs/audio-options.svg)
+   ![Audio Options — microphone selector](/media/docs/audio-options.png)
 
 5. **Face swap setup** (optional - requires OBS Virtual Camera and VB-Audio Virtual Cable):
    - Set a face swap reference photo in the **Configuration** dialog

@@ -2,7 +2,9 @@
 
 Power Interview is a privacy-first AI assistant that helps you perform confidently during live technical and behavioral interviews. It runs as a desktop application on your machine and combines real-time transcription, intelligent AI suggestions, and optional face swap technology - all designed to keep your data under your control.
 
-![Power Interview — Main Application Interface](/media/docs/app-overview.svg)
+| Normal Mode                                                                   | Stealth Mode                                                                          |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| ![Power Interview — Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview — Main Application Interface](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
@@ -45,7 +47,7 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 - Configurable video resolution (640×360, 640×480, 1280×720)
 - Requires an active credits balance; balance is shown live in the app
 
-![Face Swap Options dialog](/media/docs/face-swap-options.svg)
+![Face Swap Options dialog](/media/docs/face-swap-options.png)
 
 ### Stealth Mode
 
@@ -55,7 +57,7 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus
 - Entire workflow controllable by keyboard shortcuts - no mouse required, no lost focus
 
-![Stealth mode status bar](/media/docs/stealth-mode.svg)
+![Stealth mode status bar](/media/docs/stealth-mode.png)
 
 ### Interview Export
 
