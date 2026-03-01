@@ -1,9 +1,18 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
 import Seo from '@/components/Seo';
 import DocsLayout from '@/layouts/DocsLayout';
+
+const ORDER = [
+  'introduction',
+  'installation',
+  'usage',
+  'how-it-works',
+  'best-practices',
+  'troubleshooting',
+];
 
 const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
@@ -12,41 +21,38 @@ const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true
 
 type DocItem = { slug: string; title: string; excerpt: string };
 
-const buildDocsList = (): DocItem[] => {
-  return Object.entries(docs).map(([p, raw]) => {
-    const name = p.split('/').pop() || '';
-    const slug = name.replace(/\.md$/, '');
-
-    // Try to extract H1 title from markdown, fallback to filename
-    const titleMatch = raw.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1].trim() : slug.replace(/-/g, ' ');
-
-    // Extract first meaningful paragraph as excerpt (skip headings, images, tables, separators)
-    const blocks = raw
-      .split(/\r?\n\r?\n/)
-      .map((b) => b.replace(/\r?\n/g, ' ').trim())
-      .filter(
-        (b) => b && !/^#{1,6}\s/.test(b) && !/^!\[/.test(b) && !/^\|/.test(b) && !/^---/.test(b)
-      );
-
-    // Prefer the block after the H1 if present
-    let excerpt;
-    if (titleMatch) {
-      const idx = blocks.findIndex((b) => b.includes(title));
-      excerpt = blocks[idx + 1] || blocks[0] || '';
-    } else {
-      excerpt = blocks[0] || '';
-    }
-
-    // Truncate excerpt to ~220 chars
-    if (excerpt.length > 220) excerpt = `${excerpt.slice(0, 217).trim()}...`;
-
-    return { slug, title, excerpt };
-  });
-};
-
 const DocsIndex: React.FC = () => {
-  const list = useMemo(() => buildDocsList(), []);
+  const list: DocItem[] = Object.entries(docs)
+    .map(([p, raw]) => {
+      const name = p.split('/').pop() || '';
+      const slug = name.replace(/\.md$/, '');
+
+      const titleMatch = raw.match(/^#\s+(.+)$/m);
+      const title = titleMatch ? titleMatch[1].trim() : slug.replace(/-/g, ' ');
+
+      const blocks = raw
+        .split(/\r?\n\r?\n/)
+        .map((b) => b.replace(/\r?\n/g, ' ').trim())
+        .filter(
+          (b) => b && !/^#{1,6}\s/.test(b) && !/^!\[/.test(b) && !/^\|/.test(b) && !/^---/.test(b)
+        );
+
+      let excerpt;
+      if (titleMatch) {
+        const idx = blocks.findIndex((b) => b.includes(title));
+        excerpt = blocks[idx + 1] || blocks[0] || '';
+      } else {
+        excerpt = blocks[0] || '';
+      }
+      if (excerpt.length > 220) excerpt = `${excerpt.slice(0, 217).trim()}...`;
+
+      return { slug, title, excerpt };
+    })
+    .sort((a, b) => {
+      const ai = ORDER.indexOf(a.slug);
+      const bi = ORDER.indexOf(b.slug);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
 
   return (
     <DocsLayout>

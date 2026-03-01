@@ -73,7 +73,7 @@ const DocsPage: React.FC = () => {
     );
   }
 
-  const title = slug.replace(/-/g, ' ');
+  const title = slug.replace(/^\d+\.\s*/, '').replace(/-/g, ' ');
 
   return (
     <DocsLayout>

@@ -2,14 +2,29 @@ import React from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
+const ORDER = [
+  'introduction',
+  'installation',
+  'usage',
+  'how-it-works',
+  'best-practices',
+  'troubleshooting',
+];
+
 const docPaths = Object.keys(import.meta.glob('/src/content/docs/*.md'));
 
-const list = docPaths.map((p) => {
-  const name = p.split('/').pop() || '';
-  const slug = name.replace(/\.md$/, '');
-  const title = slug.replace(/-/g, ' ');
-  return { slug, title };
-});
+const list = docPaths
+  .map((p) => {
+    const name = p.split('/').pop() || '';
+    const slug = name.replace(/\.md$/, '');
+    const title = slug.replace(/-/g, ' ');
+    return { slug, title };
+  })
+  .sort((a, b) => {
+    const ai = ORDER.indexOf(a.slug);
+    const bi = ORDER.indexOf(b.slug);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  });
 
 interface DocsSidebarProps {
   className?: string;
