@@ -89,7 +89,7 @@ Avoid blurry photos, side profiles, or images where the face is partially obscur
 
 ### Keep Credits Topped Up
 
-Face swap consumes credits per session. Check your balance in the app (shown in the video panel and the stealth status bar) before your interview. Topping up in advance avoids the face swap feature being automatically disabled mid-session due to depleted credits.
+Credits are consumed while the assistant is running. Check your balance in the app (shown in the video panel and the stealth status bar) before your interview. Topping up in advance avoids the session being automatically stopped mid-interview due to depleted credits.
 
 ---
 
@@ -97,7 +97,7 @@ Face swap consumes credits per session. Check your balance in the app (shown in 
 
 ### Capture Multiple Angles of the Problem
 
-A single screenshot of a long problem statement often misses important details. Use up to three screenshots to cover:
+A single screenshot of a long problem statement often misses important details. Use up to four screenshots to cover:
 
 - The full problem description
 - Sample inputs and expected outputs

@@ -144,7 +144,7 @@ When the ASR backend delivers a final transcript segment, the Electron main proc
 
 ### Code Suggestions
 
-When the user presses `Ctrl+Alt+Shift+P`, the main process takes a screenshot of the entire screen using `screenshot-desktop` and stores it temporarily. Up to 3 screenshots can be queued. When the user presses `Ctrl+Alt+Shift+Enter`, all queued screenshots are sent as image attachments to the LLM code suggestion API. The API analyzes the images and streams back a code solution which is rendered with syntax highlighting.
+When the user presses `Ctrl+Alt+Shift+P`, the main process takes a screenshot of the entire screen using `screenshot-desktop` and stores it temporarily. Up to 4 screenshots can be queued. When the user presses `Ctrl+Alt+Shift+Enter`, all queued screenshots are sent as image attachments to the LLM code suggestion API. The API analyzes the images and streams back a code solution which is rendered with syntax highlighting.
 
 ---
 
@@ -217,6 +217,6 @@ Running state set to Idle; Panels retain last session data until cleared
 
 ## Credits System
 
-Face swap processing consumes GPU compute on the backend, which is metered as credits. The credit balance is fetched from the backend on every health-check client ping (every 5 seconds while running). If the balance reaches zero during a session, face swap is automatically disabled and a notification is shown in the UI.
+Credits are consumed while the assistant is running, covering AI inference (reply and code suggestions), transcription, and face swap GPU processing. The credit balance is fetched from the backend on every health-check client ping (every 5 seconds while running). If the balance reaches zero during a session, the assistant stops and a notification is shown in the UI.
 
 Credits are purchased from the **Buy Credits** page inside the app, which calls the backend payment API. Payments are processed externally; the credit balance updates automatically once a payment is confirmed.

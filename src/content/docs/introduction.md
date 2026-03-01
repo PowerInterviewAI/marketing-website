@@ -32,7 +32,7 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 
 ### AI Code Suggestions
 
-- Captures one or multiple screenshots of your screen (up to 3) to read the problem
+- Captures one or multiple screenshots of your screen (up to 4) to read the problem
 - Sends the screenshots to an AI model that generates a suggested solution
 - Displays the result with syntax highlighting inside the app
 - All triggered without ever switching focus away from your interview window
@@ -58,7 +58,7 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 
 ### Credits & Payments
 
-- Face swap processing is powered by a GPU backend and consumes credits
+- Credits are consumed while the assistant is running (AI suggestions, transcription, and face swap)
 - Credit balance is displayed live inside the app
 - Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
 

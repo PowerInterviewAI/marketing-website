@@ -59,7 +59,7 @@ For technical interviews with coding problems, Power Interview can analyze your 
 ### Workflow
 
 1. When a coding problem appears on screen (in your browser, IDE, or shared screen), press `Ctrl+Alt+Shift+P` to take a screenshot.
-2. You can capture up to **3 screenshots** to provide more context (e.g., multiple parts of the problem or different tabs).
+2. You can capture up to **4 screenshots** to provide more context (e.g., multiple parts of the problem or different tabs).
 3. Press `Ctrl+Alt+Shift+Enter` to submit the screenshots for analysis.
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
 5. To start over, press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
@@ -96,7 +96,7 @@ The VCam Agent captures frames from your webcam, streams them to the face swap b
 | Resolution       | Output resolution: 640×360, 640×480, or 1280×720   |
 | Face Enhancement | Toggle AI post-processing for more natural results |
 
-> **Note:** Face swap consumes credits. Your remaining balance is shown in the app. You can top up credits from the **Buy Credits** page.
+> **Note:** Credits are consumed while the assistant is running. Your remaining balance is shown in the app. You can top up credits from the **Buy Credits** page.
 
 ![Face Swap Video Demo](/media/meeting.tonny.mp4)
 
@@ -204,7 +204,7 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 
 ## Credits & Payments
 
-Face swap processing runs on a backend GPU server and consumes credits. Your remaining credit balance is shown live in the video panel and in the status bar (stealth mode).
+Credits are consumed while the assistant is running — covering AI reply suggestions, transcription, and face swap processing. Your remaining credit balance is shown live in the video panel and in the status bar (stealth mode).
 
 To buy credits:
 
