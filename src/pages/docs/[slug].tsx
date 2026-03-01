@@ -7,8 +7,40 @@ import remarkGfm from 'remark-gfm';
 import Seo from '@/components/Seo';
 import DocsLayout from '@/layouts/DocsLayout';
 
+// Convert heading text to a URL-friendly id
+const slugify = (text: React.ReactNode): string =>
+  String(text)
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+
+const heading =
+  (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') =>
+  ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = slugify(children);
+    return (
+      <Tag id={id} className="group relative">
+        {children}
+        <a
+          href={`#${id}`}
+          className="ml-2 text-primary no-underline opacity-0 transition-opacity group-hover:opacity-60"
+          aria-label="Link to section"
+        >
+          #
+        </a>
+      </Tag>
+    );
+  };
+
 // Dark-mode-aware table components
 const mdComponents = {
+  h1: heading('h1'),
+  h2: heading('h2'),
+  h3: heading('h3'),
+  h4: heading('h4'),
+  h5: heading('h5'),
+  h6: heading('h6'),
   table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-4 w-full overflow-x-auto">
       <table className="w-full border-collapse text-sm">{children}</table>
