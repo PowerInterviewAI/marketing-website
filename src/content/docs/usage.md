@@ -93,6 +93,11 @@ The face swap feature replaces your webcam output with a face-swapped stream - y
    ![Face Swap Options dialog](/media/docs/face-swap-options.png)
 
 4. Toggle **Face Swap on** using the face icon button in the control panel.
+
+   |                                   Face Swap ON                                    |                   Start assistant with face swap active                   |
+   | :-------------------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+   | ![Face swap toggle button in the control panel](/media/docs/face-swap-toggle.png) | ![Start assistant with face swap active](/media/docs/face-swap-start.png) |
+
 5. Click start button to begin the session with face swap active.
 
    ![Face swap in action — webcam feed replaced with face-swapped output](/media/docs/face-swap-example.png)
