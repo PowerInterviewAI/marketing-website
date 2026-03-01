@@ -20,20 +20,25 @@ These layers communicate in real time using ZeroMQ (local inter-process), WebSoc
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Your Windows Machine                      │
+│                    Your Windows Machine                     │
 │                                                             │
-│  ┌─────────────────────┐        ┌────────────────────────┐ │
-│  │   Electron App       │◄──────►│    ASR Agent (Python)  │ │
-│  │  (React + Node.js)  │ ZeroMQ │  Audio capture +       │ │
-│  │                     │        │  WebSocket to backend  │ │
-│  │  • UI & settings    │        └────────────────────────┘ │
-│  │  • Session state    │                                   │
-│  │  • IPC handlers     │        ┌────────────────────────┐ │
-│  │                     │◄──────►│   VCam Agent (Python)  │ │
-│  │                     │ ZeroMQ │  Webcam capture +      │ │
-│  │                     │        │  WebRTC to backend     │ │
-│  └─────────────────────┘        └────────────────────────┘ │
-│           │                                                 │
+│  ┌─────────────────────┐        ┌────────────────────────┐  │
+│  │   Electron App      │◄──────►│    ASR Agent (Python)  │  │
+│  │  (React + Node.js)  │ ZeroMQ │  Audio capture +       │  │
+│  │                     │        │  WebSocket to backend  │  │
+│  │  • UI & settings    │        └────────────────────────┘  │
+│  │  • Session state    │                                    │
+│  │  • IPC handlers     │        ┌────────────────────────┐  │
+│  │                     │◄──────►│   VCam Agent (Python)  │  │
+│  │                     │ ZeroMQ │  Webcam → WebRTC →     │  │
+│  │                     │        │  face swap → OBS VCam  │  │
+│  │                     │        └────────────────────────┘  │
+│  │                     │                                    │
+│  │                     │        ┌────────────────────────┐  │
+│  │                     │◄──────►│  Audio Control Agent   │  │
+│  │                     │ ZeroMQ │  Voice sync with       │  │
+│  └─────────────────────┘        │  face-swapped stream   │  │
+│           │                     └────────────────────────┘  │
 │           │ HTTPS / WebSocket                               │
 └───────────┼─────────────────────────────────────────────────┘
             │
@@ -132,7 +137,49 @@ The processed frames received from the backend are pushed to OBS Virtual Camera 
 
 ## Audio Control Agent (Python)
 
-The audio control agent manages audio device enumeration and routing. It provides the list of available audio input devices to the Electron app so the user can select the correct physical microphone.
+The audio control agent is responsible for two things: enumerating audio devices so the user can select the correct microphone, and — critically — keeping the user's real voice synchronized with the face-swapped video stream.
+
+### The Synchronization Problem
+
+When face swap is active, the VCam agent sends raw webcam frames to the cloud GPU server and receives processed frames back. This round-trip introduces a variable network delay (typically 80–250 ms) before the face-swapped video is available for output.
+
+If the user's microphone audio is routed directly and without compensation, the interviewer will see the processed face move out of sync with the voice — the lips on screen will appear to lag behind the words being spoken.
+
+### How Synchronization Works
+
+The Audio Control Agent solves this with a **timestamped delay buffer**:
+
+1. **Frame timestamp tagging** — the VCam agent stamps each outgoing frame with a monotonic clock timestamp before sending it to the GPU server
+2. **Round-trip measurement** — when the processed frame arrives back, the agent computes the actual frame latency: `latency = receive_time − send_timestamp`
+3. **Audio delay buffer** — the Audio Control Agent receives the current measured latency over ZeroMQ from the VCam agent and holds incoming microphone audio in a rolling ring buffer for exactly that duration before releasing it to the virtual audio output
+4. **Dynamic adjustment** — latency is re-measured on every frame and the buffer depth is smoothed with an exponential moving average to avoid abrupt audio jumps from transient network spikes
+
+```
+Microphone ──► Ring Buffer (depth = measured video latency)
+                     │
+                     ▼ (delayed by N ms)
+              VB-Cable Input  ──► VB-Cable Output  ◄── interviewer's app selects this
+
+Webcam ──► VCam Agent ──► GPU Server ──► OBS Virtual Camera  ◄── interviewer's app selects this
+                 │              │
+                 └── timestamp ─┘  (latency measured here)
+                         │
+                         ▼
+              Audio Control Agent adjusts buffer depth
+```
+
+### VB-Cable Virtual Audio Output
+
+The agent writes the delay-compensated audio stream to **VB-Cable Input**, a virtual audio cable driver ([VB-Audio VB-Cable](https://vb-audio.com/Cable/)). VB-Cable works as a loopback: anything written to the **VB-Cable Input** device is instantly readable from the **VB-Cable Output** device.
+
+Meeting apps (Zoom, Teams, Google Meet) expose VB-Cable Output in their microphone selector. The user selects it once in the meeting app settings; from that point on, the app always receives the synchronized, delay-compensated voice stream.
+
+> **When face swap is active, select both of the following in your meeting app:**
+>
+> - **Camera / Video** → `OBS Virtual Camera` (the face-swapped video)
+> - **Microphone / Audio input** → `CABLE Output (VB-Audio Virtual Cable)` (the synced voice)
+>
+> Selecting either device alone will result in mismatched audio or video.
 
 ---
 
@@ -196,13 +243,18 @@ Spawns ASR Agent → ASR Agent opens microphone + loopback streams → WebSocket
 Spawns VCam Agent → VCam Agent opens webcam → WebRTC to GPU backend → pushes to OBS VCam
        │
        ▼
+Spawns Audio Control Agent → measures VCam round-trip latency → buffers microphone audio → writes to VB-Cable Input → readable as VB-Cable Output in meeting app
+       │
+       ▼
 Running state set to Running; Renderer shows active panels
        │
        │  (during session)
        │  ┌─ Audio loopback → ASR → ZeroMQ → Transcript panel
        │  ├─ Microphone → ASR → ZeroMQ → Transcript panel
        │  ├─ Transcript final → LLM API → Reply suggestion panel (streaming)
-       │  └─ Screenshots → LLM API → Code suggestion panel (streaming)
+       │  ├─ Screenshots → LLM API → Code suggestion panel (streaming)
+       │  ├─ VCam frame latency → ZeroMQ → Audio Control Agent buffer depth
+       │  └─ Microphone → Audio Control Agent delay buffer → VB-Cable Input → VB-Cable Output
        │
 User clicks Stop (or presses Ctrl+Shift+Q)
        │
