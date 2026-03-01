@@ -67,9 +67,9 @@ const DocsIndex: React.FC = () => {
           A quick overview of guides and reference material - click any card to read more.
         </p>
 
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <div className="marker:none grid gap-4 sm:grid-cols-2">
           {list.map((doc) => (
-            <li key={doc.slug}>
+            <div key={doc.slug}>
               <Link
                 to={`/docs/${doc.slug}`}
                 className="block h-full rounded-lg border bg-card p-4 transition-shadow hover:shadow-lg"
@@ -82,9 +82,9 @@ const DocsIndex: React.FC = () => {
                 )}
                 <span className="mt-3 inline-block text-sm text-primary">Read more →</span>
               </Link>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </main>
     </DocsLayout>
   );
