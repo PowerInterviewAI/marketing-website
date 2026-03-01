@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
@@ -23,6 +23,15 @@ export const Header: React.FC<HeaderProps> = ({
   setMobileMenuOpen,
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <header
@@ -179,7 +188,7 @@ export const Header: React.FC<HeaderProps> = ({
                 GitHub
               </a>
             </Button>
-            <Button size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Button size="sm" onClick={handleGetStarted}>
               Get Started
             </Button>
           </div>
@@ -339,7 +348,7 @@ export const Header: React.FC<HeaderProps> = ({
                     GitHub
                   </a>
                 </Button>
-                <Button size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Button size="sm" onClick={handleGetStarted}>
                   Get Started
                 </Button>
               </div>

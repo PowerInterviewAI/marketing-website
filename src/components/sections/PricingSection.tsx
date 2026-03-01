@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
@@ -47,9 +48,19 @@ const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number =>
 };
 
 export const PricingSection: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const handleGetStarted = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -203,7 +214,7 @@ export const PricingSection: React.FC = () => {
                   <Button
                     className="mt-6 w-full"
                     variant={plan.popular ? 'default' : 'outline'}
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={handleGetStarted}
                   >
                     Get Started
                   </Button>
