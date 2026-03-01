@@ -6,11 +6,9 @@ Power Interview is a privacy-first AI assistant that helps you perform confident
 
 ## What It Does
 
-Power Interview listens to your interview conversation, transcribes it in real time, and surfaces contextual suggestions so you can respond with clarity. For technical roles, it can analyze coding problems on your screen and generate solution hints. For behavioral rounds, it draws on your profile - your name, CV, and the job description - to generate personalized, natural-sounding responses.
+Power Interview listens to your interview conversation, transcribes it in real time, and surfaces contextual suggestions so you can respond with clarity. For technical roles, it can analyze coding problems on your screen and generate solution. For behavioral rounds, it draws on your profile - your name, CV, and the job description - to generate personalized, natural-sounding responses.
 
 The face swap feature lets you replace your camera feed with a chosen photo of your preferred appearance, routed through a virtual camera that any video-conferencing app can use.
-
-![Live Interview Assistant](/media/live.interview.assistant.mp4)
 
 ---
 
@@ -37,8 +35,6 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 - Displays the result with syntax highlighting inside the app
 - All triggered without ever switching focus away from your interview window
 
-![Code Suggestion Feature](/media/code.test.mp4)
-
 ### Face Swap (Virtual Camera)
 
 - Replaces your webcam feed with a face-swapped version using a chosen reference photo
@@ -47,8 +43,6 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 - Configurable video resolution (640×360, 640×480, 1280×720)
 - Requires an active credits balance; balance is shown live in the app
 
-![Face Swap Demo](/media/face.tonny.mp4)
-
 ### Stealth Mode
 
 - Hides the assistant window from your screen share
@@ -56,21 +50,16 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 - A toggleable low-opacity overlay lets you glance at suggestions discreetly
 - Entire workflow controllable by keyboard shortcuts - no mouse required, no lost focus
 
-### Credits & Payments
-
-- Credits are consumed while the assistant is running (AI suggestions, transcription, and face swap)
-- Credit balance is displayed live inside the app
-- Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
-
 ### Interview Export
 
 - After a session, export a complete interview report as a Word document (`.docx`)
 - Report includes an AI-generated summary, full timestamped transcript with speaker labels, and all reply suggestions
 
-### Session Tools
+### Credits & Payments
 
-- **Clear Session**: One-click clearing of all transcripts and suggestions from the current session
-- **Auto-Updater**: The app checks for new releases and notifies you when an update is available
+- Credits are consumed while the assistant is running (AI suggestions, transcription, and face swap)
+- Credit balance is displayed live inside the app
+- Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
 
 ### Global Hotkeys
 
@@ -118,7 +107,7 @@ The desktop client communicates with the local Python agents over ZeroMQ and wit
 
 Before getting started, ensure you have the following:
 
-- A Power Interview account (sign up at [powerinterviewai.com](https://www.powerinterviewai.com/))
+- A Power Interview account (sign up at using the application)
 - A Windows machine
-- A working microphone
-- **For face swap only**: [OBS Studio](https://obsproject.com/) with Virtual Camera enabled and [VB-Audio Virtual Cable](https://vb-audio.com/Cable/) installed
+- A working microphone and (optionally) webcam
+- **For face swap only**: [OBS Studio](https://obsproject.com/) and [VB-Audio Virtual Cable](https://vb-audio.com/Cable/) installed
