@@ -25,7 +25,7 @@ export const DocsSidebar: React.FC<DocsSidebarProps> = ({ className = '', onLink
   return (
     <aside className={`w-64 shrink-0 border-r p-4 ${className}`}>
       <nav>
-        <h4 className="mb-2 text-sm font-semibold">Docs</h4>
+        <h4 className="mb-2 text-sm font-semibold">Documentation</h4>
         <ul className="flex flex-col gap-2">
           {list.map((d) => (
             <li key={d.slug}>
