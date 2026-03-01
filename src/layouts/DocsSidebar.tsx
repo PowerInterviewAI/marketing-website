@@ -14,11 +14,16 @@ const list = Object.keys(docs).map((p) => {
   return { slug, title };
 });
 
-export const DocsSidebar: React.FC = () => {
+interface DocsSidebarProps {
+  className?: string;
+  onLinkClick?: () => void;
+}
+
+export const DocsSidebar: React.FC<DocsSidebarProps> = ({ className = '', onLinkClick }) => {
   const location = useLocation();
 
   return (
-    <aside className="w-64 shrink-0 border-r p-4">
+    <aside className={`w-64 shrink-0 border-r p-4 ${className}`}>
       <nav>
         <h4 className="mb-2 text-sm font-semibold">Docs</h4>
         <ul className="flex flex-col gap-2">
@@ -26,6 +31,7 @@ export const DocsSidebar: React.FC = () => {
             <li key={d.slug}>
               <Link
                 to={`/docs/${d.slug}`}
+                onClick={onLinkClick}
                 className={`block rounded px-2 py-1 text-sm transition-colors hover:bg-muted-foreground/5 ${
                   location.pathname === `/docs/${d.slug}`
                     ? 'font-semibold text-primary'
