@@ -40,9 +40,9 @@ This typically means the renderer process failed to load.
 
 ## Backend & Service Connectivity
 
-### The health indicator shows red for "Backend" or "GPU"
+### Cannot connect to the Backend or GPU service
 
-The app performs health checks on startup and periodically during a session. A red indicator means the app cannot reach the respective service.
+The app checks connectivity to backend services on startup and periodically during a session. If a service is unreachable, the relevant feature (transcription, AI suggestions, face swap) will not work.
 
 **Steps to diagnose:**
 
@@ -50,7 +50,7 @@ The app performs health checks on startup and periodically during a session. A r
 2. Visit [powerinterviewai.com](https://www.powerinterviewai.com/) in a browser to confirm the service is not under maintenance.
 3. Check if a firewall or VPN is blocking outbound WebSocket connections (ports 443 or 8080 are typically used).
 4. Disable your VPN temporarily and retry.
-5. If the GPU indicator is red but the backend is green, the face swap feature will not be available, but transcription and AI suggestions will still work.
+5. If the GPU service is unreachable but the backend is reachable, the face swap feature will not be available, but transcription and AI suggestions will still work.
 
 ---
 
@@ -61,7 +61,7 @@ The app performs health checks on startup and periodically during a session. A r
 1. Confirm the session is **started** (the Start button should show as active / Stop should be visible).
 2. Open **Audio Options** from the control panel (microphone icon) and verify your physical microphone is selected.
 3. Speak and check if your operating-system volume indicator shows sound input from the selected device (Windows Sound settings → Recording).
-4. Ensure the backend health indicator is green - transcription is processed on the backend.
+4. Ensure the backend is reachable - transcription is processed on the backend. Try visiting [powerinterviewai.com](https://www.powerinterviewai.com/) to rule out a service outage.
 5. Restart the session.
 
 ### Only your voice is being transcribed (not the interviewer's)
@@ -91,7 +91,7 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 ### No reply suggestions are generated
 
 - Verify your **Profile** (CV / resume) and **Context** (job description) fields are filled in. The AI requires this information to generate useful responses.
-- Confirm the backend health indicator is green.
+- Confirm the backend is reachable (see [Cannot connect to the Backend or GPU service](#cannot-connect-to-the-backend-or-gpu-service)).
 - Ensure the session is active and transcription is running. Suggestions require conversation data.
 
 ### Suggestions are generic and not relevant to the interview
@@ -150,7 +150,7 @@ Video processing introduces a small amount of latency. If the face swap video an
 ### Face swap starts but the output shows the original face (no swap)
 
 - Confirm a face swap **photo is uploaded** in the Configuration dialog (profile dropdown → Configuration). Without a reference photo, the feature cannot swap faces.
-- Confirm the GPU health indicator is green. The face swap processing runs on the backend GPU server - a red indicator means the server is unavailable.
+- Confirm the GPU service is reachable. Face swap processing runs on the backend GPU server — if it is unavailable, stop and restart the assistant once connectivity is restored.
 - Stop and restart the face swap feature from the control panel.
 
 ---
