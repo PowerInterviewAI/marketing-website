@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="420" viewBox="0 0 520 420">
+  <defs>
+    <linearGradient id="bgF" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e" />
+      <stop offset="100%" style="stop-color:#16213e" />
+    </linearGradient>
+    <linearGradient id="accentF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c5cfc" />
+      <stop offset="100%" style="stop-color:#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <rect width="520" height="420" fill="url(#bgF)" opacity="0.5" />
+
+  <!-- Dialog -->
+  <rect x="50" y="20" width="420" height="380" rx="12" fill="#0f2035" stroke="#1e3a5f" stroke-width="1.5" />
+
+  <!-- Header -->
+  <rect x="50" y="20" width="420" height="50" rx="12" fill="#0a1628" />
+  <rect x="50" y="56" width="420" height="14" fill="#0a1628" />
+  <text x="80" y="50" fill="#c084fc" font-size="18" font-family="Arial">🎭</text>
+  <text x="108" y="50" fill="#ccd6f6" font-size="14" font-family="Arial" font-weight="bold">Face Swap Options</text>
+  <circle cx="450" cy="45" r="11" fill="#1a2a3a" />
+  <text x="450" y="49" fill="#8899aa" font-size="12" font-family="Arial" text-anchor="middle">✕</text>
+  <rect x="50" y="70" width="420" height="1" fill="#1e3a5f" />
+
+  <!-- Face Swap toggle -->
+  <text x="74" y="97" fill="#8a9ab0" font-size="11" font-family="Arial">Face Swap</text>
+  <!-- Toggle ON -->
+  <rect x="380" y="82" width="64" height="26" rx="13" fill="#7c5cfc" />
+  <circle cx="432" cy="95" r="11" fill="white" />
+  <text x="388" y="99" fill="white" font-size="10" font-family="Arial">ON</text>
+
+  <!-- Camera device -->
+  <text x="74" y="130" fill="#8a9ab0" font-size="11" font-family="Arial">Camera Device</text>
+  <rect x="74" y="136" width="372" height="34" rx="7" fill="#0a1a2a" stroke="#2a4a6a" stroke-width="1.5" />
+  <text x="90" y="158" fill="#ccd6f6" font-size="12" font-family="Arial">Integrated Webcam (USB)</text>
+  <text x="430" y="158" fill="#6a7a8a" font-size="12" font-family="Arial" text-anchor="middle">▾</text>
+
+  <!-- Resolution -->
+  <text x="74" y="194" fill="#8a9ab0" font-size="11" font-family="Arial">Output Resolution</text>
+  <!-- Radio-style options -->
+  <rect x="74" y="200" width="370" height="38" rx="7" fill="#0a1a2a" stroke="#2a4a6a" stroke-width="1" />
+  <!-- Option 1 -->
+  <rect x="84" y="209" width="86" height="20" rx="5" fill="#0f3460" />
+  <text x="127" y="223" fill="#7c5cfc" font-size="10" font-family="Arial" text-anchor="middle">640×360</text>
+  <!-- Option 2 selected -->
+  <rect x="182" y="209" width="86" height="20" rx="5" fill="#7c5cfc" />
+  <text x="225" y="223" fill="white" font-size="10" font-family="Arial" text-anchor="middle">640×480</text>
+  <!-- Option 3 -->
+  <rect x="280" y="209" width="90" height="20" rx="5" fill="#0f3460" />
+  <text x="325" y="223" fill="#8a9ab0" font-size="10" font-family="Arial" text-anchor="middle">1280×720</text>
+
+  <!-- Face Enhancement toggle -->
+  <text x="74" y="262" fill="#8a9ab0" font-size="11" font-family="Arial">Face Enhancement</text>
+  <text x="74" y="278" fill="#4a6a8a" font-size="10" font-family="Arial">AI post-processing for more natural results</text>
+  <!-- Toggle OFF -->
+  <rect x="380" y="263" width="64" height="26" rx="13" fill="#1a2a3a" stroke="#2a4a6a" stroke-width="1" />
+  <circle cx="394" cy="276" r="11" fill="#4a6a8a" />
+  <text x="410" y="280" fill="#4a5a6a" font-size="10" font-family="Arial">OFF</text>
+
+  <!-- Reference Photo -->
+  <text x="74" y="312" fill="#8a9ab0" font-size="11" font-family="Arial">Reference Photo</text>
+  <rect x="74" y="318" width="90" height="60" rx="6" fill="#0a1a2a" stroke="#2a4a6a" stroke-width="1" />
+  <!-- Silhouette -->
+  <ellipse cx="119" cy="338" rx="15" ry="15" fill="#1e3450" />
+  <path d="M 94 378 Q 119 352 144 378" fill="#1e3450" />
+  <!-- Upload area -->
+  <rect x="176" y="318" width="270" height="60" rx="6" fill="#0a1628" stroke="#2a4a6a" stroke-width="1" stroke-dasharray="5,3" />
+  <text x="311" y="348" fill="#6a7a8a" font-size="11" font-family="Arial" text-anchor="middle">📁 Click to change photo</text>
+  <text x="311" y="364" fill="#4a5a6a" font-size="10" font-family="Arial" text-anchor="middle">JPG, PNG — min 512×512px recommended</text>
+
+  <!-- Apply button -->
+  <rect x="305" y="362" width="145" height="32" rx="7" fill="url(#accentF)" />
+  <text x="377" y="382" fill="white" font-size="12" font-family="Arial" font-weight="bold" text-anchor="middle">Apply Settings</text>
+</svg>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="320" viewBox="0 0 720 320">
+  <defs>
+    <linearGradient id="bgSync" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2035" />
+      <stop offset="100%" style="stop-color:#0a1628" />
+    </linearGradient>
+    <marker id="arrowSync" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4f8ef7" />
+    </marker>
+    <marker id="arrowSyncG" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#28c840" />
+    </marker>
+    <marker id="arrowSyncY" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#febc2e" />
+    </marker>
+    <marker id="arrowSyncP" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c084fc" />
+    </marker>
+  </defs>
+
+  <rect width="720" height="320" rx="10" fill="url(#bgSync)" stroke="#1e3a5f" stroke-width="1.5" />
+
+  <text x="360" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Audio / Video Synchronization — Face Swap Mode</text>
+  <rect x="20" y="36" width="680" height="1" fill="#1e3a5f" />
+
+  <!-- Source nodes -->
+  <!-- Microphone -->
+  <rect x="20" y="60" width="90" height="36" rx="6" fill="#0a1e30" stroke="#28c840" stroke-width="1.5" />
+  <text x="65" y="82" fill="#28c840" font-size="11" font-family="Arial" text-anchor="middle">🎤 Mic</text>
+
+  <!-- Webcam -->
+  <rect x="20" y="160" width="90" height="36" rx="6" fill="#0a1e30" stroke="#c084fc" stroke-width="1.5" />
+  <text x="65" y="182" fill="#c084fc" font-size="11" font-family="Arial" text-anchor="middle">📷 Webcam</text>
+
+  <!-- Audio path (top) -->
+  <line x1="110" y1="78" x2="170" y2="78" stroke="#28c840" stroke-width="1.5" marker-end="url(#arrowSyncG)" />
+
+  <!-- Delay Buffer box -->
+  <rect x="170" y="58" width="120" height="40" rx="6" fill="#0f2a1e" stroke="#28c840" stroke-width="1.5" />
+  <text x="230" y="76" fill="#28c840" font-size="10" font-family="Arial" text-anchor="middle">Ring Buffer</text>
+  <text x="230" y="90" fill="#4a8a6a" font-size="9" font-family="Arial" text-anchor="middle">depth = measured latency</text>
+
+  <!-- Buffer → VB-Cable Input -->
+  <line x1="290" y1="78" x2="360" y2="78" stroke="#28c840" stroke-width="1.5" marker-end="url(#arrowSyncG)" />
+
+  <rect x="360" y="58" width="120" height="40" rx="6" fill="#0a1e30" stroke="#28c840" stroke-width="1.5" />
+  <text x="420" y="76" fill="#28c840" font-size="10" font-family="Arial" text-anchor="middle">VB-Cable Input</text>
+  <text x="420" y="90" fill="#4a8a6a" font-size="9" font-family="Arial" text-anchor="middle">(virtual audio cable)</text>
+
+  <!-- VB-Cable Input → VB-Cable Output -->
+  <line x1="480" y1="78" x2="550" y2="78" stroke="#28c840" stroke-width="1.5" marker-end="url(#arrowSyncG)" />
+
+  <rect x="550" y="58" width="126" height="40" rx="6" fill="#0a1e30" stroke="#28c840" stroke-width="1.5" />
+  <text x="613" y="76" fill="#28c840" font-size="10" font-family="Arial" text-anchor="middle">VB-Cable Output</text>
+  <text x="613" y="90" fill="#4a8a6a" font-size="9" font-family="Arial" text-anchor="middle">→ Meeting app mic</text>
+
+  <!-- Video path (middle) -->
+  <line x1="110" y1="178" x2="170" y2="178" stroke="#c084fc" stroke-width="1.5" marker-end="url(#arrowSyncP)" />
+
+  <rect x="170" y="158" width="100" height="40" rx="6" fill="#1a0f2e" stroke="#c084fc" stroke-width="1.5" />
+  <text x="220" y="176" fill="#c084fc" font-size="10" font-family="Arial" text-anchor="middle">VCam Agent</text>
+  <text x="220" y="190" fill="#6a4a9a" font-size="9" font-family="Arial" text-anchor="middle">timestamps frame</text>
+
+  <!-- VCam Agent → GPU (up + right) -->
+  <line x1="270" y1="178" x2="360" y2="178" stroke="#c084fc" stroke-width="1.5" marker-end="url(#arrowSyncP)" />
+
+  <rect x="360" y="158" width="100" height="40" rx="6" fill="#1a0f2e" stroke="#c084fc" stroke-width="1.5" />
+  <text x="410" y="176" fill="#c084fc" font-size="10" font-family="Arial" text-anchor="middle">GPU Backend</text>
+  <text x="410" y="190" fill="#6a4a9a" font-size="9" font-family="Arial" text-anchor="middle">face swap</text>
+
+  <!-- GPU → OBS -->
+  <line x1="460" y1="178" x2="550" y2="178" stroke="#c084fc" stroke-width="1.5" marker-end="url(#arrowSyncP)" />
+
+  <rect x="550" y="158" width="126" height="40" rx="6" fill="#1a0f2e" stroke="#c084fc" stroke-width="1.5" />
+  <text x="613" y="176" fill="#c084fc" font-size="10" font-family="Arial" text-anchor="middle">OBS Virtual Camera</text>
+  <text x="613" y="190" fill="#6a4a9a" font-size="9" font-family="Arial" text-anchor="middle">→ Meeting app cam</text>
+
+  <!-- Latency measurement arrow (GPU back to VCam Agent) -->
+  <!-- Curved arrow under video path -->
+  <path d="M 460 198 Q 415 230 370 198" stroke="#febc2e" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowSyncY)" />
+  <text x="415" y="240" fill="#febc2e" font-size="9" font-family="Arial" text-anchor="middle">measured latency</text>
+  <text x="415" y="252" fill="#febc2e" font-size="9" font-family="Arial" text-anchor="middle">(send_time → receive_time)</text>
+
+  <!-- ZeroMQ latency signal from VCam to Audio Control -->
+  <line x1="220" y1="198" x2="220" y2="265" stroke="#febc2e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowSyncY)" />
+  <text x="175" y="240" fill="#febc2e" font-size="9" font-family="Arial" text-anchor="middle">ZeroMQ</text>
+  <text x="175" y="252" fill="#febc2e" font-size="9" font-family="Arial" text-anchor="middle">latency signal</text>
+
+  <!-- Audio Control Agent box -->
+  <rect x="120" y="265" width="180" height="40" rx="6" fill="#1e1a0f" stroke="#febc2e" stroke-width="1.5" />
+  <text x="210" y="283" fill="#febc2e" font-size="10" font-family="Arial" text-anchor="middle">Audio Control Agent</text>
+  <text x="210" y="297" fill="#7a6a2a" font-size="9" font-family="Arial" text-anchor="middle">adjusts buffer depth dynamically</text>
+
+  <!-- Audio Control Agent → Ring Buffer -->
+  <line x1="210" y1="265" x2="230" y2="98" stroke="#febc2e" stroke-width="1" stroke-dasharray="4,3" />
+
+  <!-- Sync indicator -->
+  <rect x="560" y="240" width="140" height="52" rx="8" fill="#0a1e0a" stroke="#28c840" stroke-width="1.5" />
+  <text x="630" y="262" fill="#28c840" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">✓ Synchronized</text>
+  <text x="630" y="278" fill="#4a8a6a" font-size="9" font-family="Arial" text-anchor="middle">Video latency ≈ Audio delay</text>
+  <text x="630" y="290" fill="#4a8a6a" font-size="9" font-family="Arial" text-anchor="middle">Lip-sync maintained</text>
+</svg>

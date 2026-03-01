@@ -70,6 +70,10 @@ When face swap is enabled, your meeting platform must use the virtual devices, n
 - **Camera**: select **OBS Virtual Camera**
 - **Microphone**: select **CABLE Output (VB-Audio Virtual Cable)**
 
+![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
+
+![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+
 Do not select your physical camera or physical microphone in the meeting platform when using the face swap feature.
 
 ### Use a Good Reference Photo
@@ -85,6 +89,8 @@ The quality of the face swap result is highly sensitive to the reference photo y
 - Single subject (no other people in the frame)
 
 Avoid blurry photos, side profiles, or images where the face is partially obscured.
+
+![Reference photo guidelines — good vs bad examples](/media/docs/reference-photo-guide.svg)
 
 ### Keep Credits Topped Up
 

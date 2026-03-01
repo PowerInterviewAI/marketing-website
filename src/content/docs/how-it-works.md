@@ -54,6 +54,8 @@ These layers communicate in real time using ZeroMQ (local inter-process), WebSoc
 └─────────────────────────────────────────────────────────────┘
 ```
 
+![Architecture overview — components and connections](/media/docs/architecture-diagram.svg)
+
 ---
 
 ## Desktop App (Electron)
@@ -153,6 +155,8 @@ The Audio Control Agent solves this with a **timestamped delay buffer**:
 2. **Round-trip measurement** — when the processed frame arrives back, the agent computes the actual frame latency: `latency = receive_time − send_timestamp`
 3. **Audio delay buffer** — the Audio Control Agent receives the current measured latency over ZeroMQ from the VCam agent and holds incoming microphone audio in a rolling ring buffer for exactly that duration before releasing it to the virtual audio output
 4. **Dynamic adjustment** — latency is re-measured on every frame and the buffer depth is smoothed with an exponential moving average to avoid abrupt audio jumps from transient network spikes
+
+![Audio / video synchronization diagram](/media/docs/audio-sync-diagram.svg)
 
 ```
 Microphone ──► Ring Buffer (depth = measured video latency)

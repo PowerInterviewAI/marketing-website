@@ -60,6 +60,9 @@ The app checks connectivity to backend services on startup and periodically duri
 
 1. Confirm the session is **started** (the Start button should show as active / Stop should be visible).
 2. Open **Audio Options** from the control panel (microphone icon) and verify your physical microphone is selected.
+
+   ![Audio Options — verify the correct microphone is selected](/media/docs/audio-options.svg)
+
 3. Speak and check if your operating-system volume indicator shows sound input from the selected device (Windows Sound settings → Recording).
 4. Ensure the backend is reachable - transcription is processed on the backend. Try visiting [powerinterviewai.com](https://www.powerinterviewai.com/) to rule out a service outage.
 5. Restart the session.
@@ -132,6 +135,10 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 - Ensure OBS Virtual Camera is installed (it is bundled with OBS Studio 26+, but must be explicitly installed from the OBS Tools menu on some older versions).
 - In the video call app, look for a camera source named **OBS Virtual Camera**. If it does not appear, restart both OBS and the video call app.
 
+  ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
+
+  ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+
 ### The face swap output is misaligned, jittery, or flickering
 
 - Use a better reference photo: clear, front-facing, well-lit, with no obstructions.
@@ -152,6 +159,8 @@ Video processing introduces a small amount of latency. If the face swap video an
 - Confirm a face swap **photo is uploaded** in the Configuration dialog (profile dropdown → Configuration). Without a reference photo, the feature cannot swap faces.
 - Confirm the GPU service is reachable. Face swap processing runs on the backend GPU server — if it is unavailable, stop and restart the assistant once connectivity is restored.
 - Stop and restart the face swap feature from the control panel.
+
+  ![Face Swap Options dialog — verify reference photo is uploaded](/media/docs/face-swap-options.svg)
 
 ---
 

@@ -14,6 +14,8 @@ Once started, the app begins capturing audio from your configured microphone (yo
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
+![Power Interview — main UI during an active session](/media/docs/app-overview.svg)
+
 ---
 
 ## Transcription
@@ -58,6 +60,8 @@ For technical interviews with coding problems, Power Interview can analyze your 
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
 5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
 
+![Code Suggestions panel — syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.svg)
+
 ### Scrolling Code Suggestions
 
 | Action      | Shortcut       |
@@ -77,7 +81,15 @@ The face swap feature replaces your webcam output with a face-swapped stream - y
 2. In your video call app (Zoom, Google Meet, Teams, etc.), select:
    - **OBS Virtual Camera** as your camera source
    - **CABLE Output (VB-Audio Virtual Cable)** as your microphone
+
+   ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
+
+   ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+
 3. In Power Interview, open **Face Swap Options** from the control panel (face scan icon), select your webcam and resolution, then close the dialog.
+
+   ![Face Swap Options dialog](/media/docs/face-swap-options.svg)
+
 4. Toggle **Face Swap on** using the face icon button in the control panel.
 
 The VCam Agent captures frames from your webcam, streams them to the face swap backend, and pushes the processed output to OBS Virtual Camera.
@@ -102,6 +114,10 @@ Stealth mode is about **focus control**. When active, the window will not steal 
 
 Press `Ctrl+Shift+M` to toggle stealth mode on or off.
 
+When active, the window collapses to a minimal status bar showing running state, credit balance, and active hotkeys.
+
+![Stealth mode status bar](/media/docs/stealth-mode.svg)
+
 ### Opacity Toggle
 
 Press `Ctrl+Shift+N` to toggle a low-opacity overlay, letting you glance at suggestions through a semi-transparent window without switching focus away from your active window.
@@ -121,6 +137,8 @@ Ctrl+Shift+7   Ctrl+Shift+8   Ctrl+Shift+9
 Ctrl+Shift+4   Ctrl+Shift+5   Ctrl+Shift+6
 Ctrl+Shift+1   Ctrl+Shift+2   Ctrl+Shift+3
 ```
+
+![Window positioning grid — numpad layout for screen zones](/media/docs/window-positioning.svg)
 
 | Key            | Position      |
 | -------------- | ------------- |

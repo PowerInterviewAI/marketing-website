@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="280" viewBox="0 0 560 280">
+  <defs>
+    <linearGradient id="bgR" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2035" />
+      <stop offset="100%" style="stop-color:#0a1628" />
+    </linearGradient>
+  </defs>
+
+  <rect width="560" height="280" rx="10" fill="url(#bgR)" stroke="#1e3a5f" stroke-width="1.5" />
+
+  <text x="280" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Reference Photo Guidelines — Face Swap</text>
+  <rect x="20" y="36" width="520" height="1" fill="#1e3a5f" />
+
+  <!-- GOOD examples (3) -->
+  <text x="100" y="56" fill="#28c840" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">✓ Good</text>
+
+  <!-- Good Photo 1 -->
+  <rect x="30" y="64" width="100" height="110" rx="6" fill="#0a1628" stroke="#28c840" stroke-width="1.5" />
+  <ellipse cx="80" cy="104" rx="26" ry="28" fill="#2a3a4a" />
+  <ellipse cx="80" cy="94" rx="17" ry="17" fill="#3a4a5a" />
+  <!-- face features -->
+  <ellipse cx="74" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <ellipse cx="86" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <path d="M 73 100 Q 80 106 87 100" stroke="#1a2a3a" stroke-width="1.5" fill="none" />
+  <text x="80" y="148" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">Front-facing</text>
+  <text x="80" y="160" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">well-lit</text>
+
+  <!-- Good Photo 2 -->
+  <rect x="145" y="64" width="100" height="110" rx="6" fill="#0a1628" stroke="#28c840" stroke-width="1.5" />
+  <ellipse cx="195" cy="104" rx="26" ry="28" fill="#2a3a4a" />
+  <ellipse cx="195" cy="94" rx="17" ry="17" fill="#3a4a5a" />
+  <ellipse cx="189" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <ellipse cx="201" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <path d="M 188 100 Q 195 106 202 100" stroke="#1a2a3a" stroke-width="1.5" fill="none" />
+  <!-- neutral background -->
+  <rect x="145" y="64" width="100" height="32" rx="6" fill="#1a3a6a" opacity="0.4" />
+  <text x="195" y="148" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">Neutral bg</text>
+  <text x="195" y="160" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">512px+ res</text>
+
+  <!-- Good Photo 3 -->
+  <rect x="260" y="64" width="100" height="110" rx="6" fill="#0a1628" stroke="#28c840" stroke-width="1.5" />
+  <ellipse cx="310" cy="104" rx="26" ry="28" fill="#2a3a4a" />
+  <ellipse cx="310" cy="94" rx="17" ry="17" fill="#3a4a5a" />
+  <ellipse cx="304" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <ellipse cx="316" cy="90" rx="3" ry="3.5" fill="#1a2a3a" />
+  <path d="M 303 100 Q 310 106 317 100" stroke="#1a2a3a" stroke-width="1.5" fill="none" />
+  <text x="310" y="148" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">Single subject</text>
+  <text x="310" y="160" fill="#28c840" font-size="9" font-family="Arial" text-anchor="middle">clear face</text>
+
+  <!-- Divider -->
+  <rect x="380" y="52" width="1" height="180" fill="#1e3a5f" />
+
+  <!-- BAD examples (3) -->
+  <text x="470" y="56" fill="#ff5a5a" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">✗ Avoid</text>
+
+  <!-- Bad Photo 1 - sunglasses -->
+  <rect x="390" y="64" width="80" height="90" rx="6" fill="#0a1628" stroke="#ff5a5a" stroke-width="1.5" />
+  <ellipse cx="430" cy="94" rx="20" ry="22" fill="#2a3a4a" />
+  <!-- Sunglasses -->
+  <rect x="414" y="82" width="32" height="14" rx="6" fill="#0a0a0a" />
+  <text x="430" y="132" fill="#ff5a5a" font-size="8" font-family="Arial" text-anchor="middle">Sunglasses</text>
+
+  <!-- Bad Photo 2 - blurry -->
+  <rect x="392" y="150" width="76" height="26" rx="6" fill="#0a1628" stroke="#ff5a5a" stroke-width="1.5" opacity="0.7" />
+  <text x="430" y="167" fill="#1a3a6a" font-size="8" font-family="Arial" text-anchor="middle" filter="blur(1px)">Blurry image</text>
+  <!-- Blur overlay visual -->
+  <rect x="392" y="150" width="76" height="26" rx="6" fill="#1a2a3a" opacity="0.5" />
+  <text x="430" y="183" fill="#ff5a5a" font-size="8" font-family="Arial" text-anchor="middle">Blurry / low-res</text>
+
+  <!-- Bad Photo 3 - side profile -->
+  <rect x="480" y="64" width="60" height="90" rx="6" fill="#0a1628" stroke="#ff5a5a" stroke-width="1.5" />
+  <!-- Side face profile in silhouette -->
+  <ellipse cx="510" cy="94" rx="16" ry="20" fill="#2a3a4a" />
+  <ellipse cx="522" cy="90" rx="5" ry="5" fill="#2a3a4a" />
+  <!-- ear detail -->
+  <ellipse cx="496" cy="94" rx="4" ry="6" fill="#2a3a4a" />
+  <text x="510" y="132" fill="#ff5a5a" font-size="8" font-family="Arial" text-anchor="middle">Side profile</text>
+
+  <!-- Summary box at bottom -->
+  <rect x="20" y="192" width="520" height="72" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1" />
+  <text x="40" y="212" fill="#8a9ab0" font-size="10" font-family="Arial" font-weight="bold">Ideal photo requirements:</text>
+  <text x="40" y="229" fill="#aab4c6" font-size="10" font-family="Arial">• Clear, front-facing, well-lit shot  • No sunglasses, hats, or obstructions</text>
+  <text x="40" y="245" fill="#aab4c6" font-size="10" font-family="Arial">• Neutral or calm expression           • Minimum 512×512 pixels resolution</text>
+  <text x="40" y="260" fill="#aab4c6" font-size="10" font-family="Arial">• Single subject in frame               • No heavy makeup or filters</text>
+</svg>

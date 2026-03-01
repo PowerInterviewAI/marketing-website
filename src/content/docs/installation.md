@@ -174,10 +174,14 @@ After launching the app for the first time (whether from the installer or source
    - Paste your **CV / resume** or bio summary (required)
    - Paste the **job description** or role context for your upcoming interview (recommended)
 
+   ![Configuration dialog — Profile tab](/media/docs/configuration-dialog.svg)
+
 4. **Select your microphone:**
    - Click the microphone icon in the control panel to open **Audio Options**
    - Choose your physical microphone from the dropdown
    - The interviewer's voice is captured automatically via Windows system audio loopback - no extra device configuration needed
+
+   ![Audio Options — microphone selector](/media/docs/audio-options.svg)
 
 5. **Face swap setup** (optional - requires OBS Virtual Camera and VB-Audio Virtual Cable):
    - Set a face swap reference photo in the **Configuration** dialog
@@ -185,5 +189,9 @@ After launching the app for the first time (whether from the installer or source
    - Select your physical webcam and preferred resolution
    - Toggle **Face Swap** on from the control panel
    - In your video call app, select **OBS Virtual Camera** as the camera and **CABLE Output (VB-Audio Virtual Cable)** as the microphone
+
+   ![Select OBS Virtual Camera in your meeting app](/media/docs/meeting-video-device.png)
+
+   ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
 
 After completing setup, click **Start** to begin a session.
