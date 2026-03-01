@@ -190,8 +190,8 @@ After launching the app for the first time (whether from the installer or source
    - Toggle **Face Swap** on from the control panel
    - In your video call app, select **OBS Virtual Camera** as the camera and **CABLE Output (VB-Audio Virtual Cable)** as the microphone
 
-   ![Select OBS Virtual Camera in your meeting app](/media/docs/meeting-video-device.png)
-
-   ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+   |                                         Camera                                         |                                           Microphone                                           |
+   | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+   | ![Select OBS Virtual Camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
 
 After completing setup, click **Start** to begin a session.
