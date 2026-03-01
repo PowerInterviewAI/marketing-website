@@ -117,6 +117,8 @@ After you finish one coding question and move to the next, press `Ctrl+Alt+Shift
 
 ## Stealth Mode & Window Placement
 
+The Power Interview window is always excluded from screen capture and screen share — interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
+
 ### Set Up Your Window Position Before the Interview
 
 Decide where the Power Interview window will sit on your screen before the interview begins. Use `Ctrl+Shift+1–9` to snap it to your preferred screen zone. The bottom-right or top-right corners are often least intrusive.
@@ -125,11 +127,14 @@ Position it so it is:
 
 - Visible to you at a glance
 - Not overlapping the content you need to look at (your IDE, the interviewer's video)
-- Not visible in your shared screen area (if you are screen-sharing only a portion of your display)
+
+### Enable Stealth Mode During Coding Challenges
+
+Turn on stealth mode (`Ctrl+Shift+M`) whenever you need to type or interact with your IDE without the Power Interview window accidentally capturing focus. This keeps your keystrokes going to the right place.
 
 ### Use a Dual-Monitor Setup
 
-If you have two monitors, run your video call on one screen and Power Interview on the other. This eliminates the need for stealth mode entirely - the assistant is on a separate display, never in frame or on the shared screen.
+If you have two monitors, run your video call on one screen and Power Interview on the other for maximum comfort — the assistant is always on a separate display.
 
 ### Practice Hotkeys Beforehand
 

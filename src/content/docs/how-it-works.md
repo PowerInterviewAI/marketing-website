@@ -75,7 +75,7 @@ The renderer (React + TypeScript) renders the UI and communicates with the main 
 - **Control panel** - audio device selector, face swap toggle + options, start/stop button, export and clear tools, profile dropdown
 - **Configuration dialog** - profile name, CV text, job context, reference photo upload
 - **Payment page** - buy credits, payment history, payment status tabs
-- **Stealth mode** - when active, the main panel collapses to a minimal status bar showing running state, credit balance, and hotkey reference
+- **Stealth mode** - when active, the window stops stealing focus so your keyboard and mouse stay on your coding challenge or video call; the main panel collapses to a minimal status bar showing running state, credit balance, and hotkey reference
 
 ---
 
