@@ -32,7 +32,7 @@ export const DocsSidebar: React.FC<DocsSidebarProps> = ({ className = '', onLink
               <Link
                 to={`/docs/${d.slug}`}
                 onClick={onLinkClick}
-                className={`block rounded px-2 py-1 text-sm transition-colors hover:bg-muted-foreground/5 ${
+                className={`block rounded px-2 py-1 text-sm capitalize transition-colors hover:bg-muted-foreground/5 ${
                   location.pathname === `/docs/${d.slug}`
                     ? 'font-semibold text-primary'
                     : 'text-muted-foreground'
