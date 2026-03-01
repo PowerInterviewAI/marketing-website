@@ -22,7 +22,7 @@ export default function Seo({ title, description, url, image }: SeoProps) {
   useEffect(() => {
     const baseTitle = 'Power Interview AI';
     if (title) {
-      document.title = `${title} - ${baseTitle}`;
+      document.title = `${title.charAt(0).toUpperCase() + title.slice(1)} - ${baseTitle}`;
     } else {
       document.title = `${baseTitle} - Privacy-First AI Interview Assistant`;
     }
