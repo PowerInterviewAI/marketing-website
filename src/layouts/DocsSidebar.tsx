@@ -2,12 +2,9 @@ import React from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
-const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
-  string,
-  string
->;
+const docPaths = Object.keys(import.meta.glob('/src/content/docs/*.md'));
 
-const list = Object.keys(docs).map((p) => {
+const list = docPaths.map((p) => {
   const name = p.split('/').pop() || '';
   const slug = name.replace(/\.md$/, '');
   const title = slug.replace(/-/g, ' ');

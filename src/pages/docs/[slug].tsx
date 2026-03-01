@@ -7,10 +7,32 @@ import remarkGfm from 'remark-gfm';
 import Seo from '@/components/Seo';
 import DocsLayout from '@/layouts/DocsLayout';
 
-// Render .mp4 links in markdown as autoplay muted looping videos
-const MarkdownImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt }) => {
-  if (src?.endsWith('.mp4')) {
-    return (
+// Dark-mode-aware table components
+const mdComponents = {
+  table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="my-4 w-full overflow-x-auto">
+      <table className="w-full border-collapse text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-muted text-foreground">{children}</thead>
+  ),
+  tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className="divide-y divide-border">{children}</tbody>
+  ),
+  tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="even:bg-muted/40">{children}</tr>
+  ),
+  th: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <th className="border border-border px-3 py-2 text-left font-semibold text-foreground">
+      {children}
+    </th>
+  ),
+  td: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <td className="border border-border px-3 py-2 text-foreground">{children}</td>
+  ),
+  img: ({ src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) =>
+    src?.endsWith('.mp4') ? (
       <video
         src={src}
         title={alt}
@@ -20,9 +42,9 @@ const MarkdownImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ sr
         playsInline
         className="my-4 w-full rounded-lg shadow"
       />
-    );
-  }
-  return <img src={src} alt={alt} className="my-4 w-full rounded-lg shadow" />;
+    ) : (
+      <img src={src} alt={alt} className="my-4 w-full rounded-lg shadow" />
+    ),
 };
 
 const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
@@ -61,8 +83,8 @@ const DocsPage: React.FC = () => {
         url={`https://www.powerinterviewai.com/docs/${slug}`}
       />
       <main className="mx-auto max-w-4xl p-6">
-        <article className="prose max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ img: MarkdownImage }}>
+        <article>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
             {content}
           </ReactMarkdown>
         </article>
