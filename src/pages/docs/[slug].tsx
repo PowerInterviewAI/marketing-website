@@ -7,6 +7,24 @@ import remarkGfm from 'remark-gfm';
 import Seo from '@/components/Seo';
 import DocsLayout from '@/layouts/DocsLayout';
 
+// Render .mp4 links in markdown as autoplay muted looping videos
+const MarkdownImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt }) => {
+  if (src?.endsWith('.mp4')) {
+    return (
+      <video
+        src={src}
+        title={alt}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="my-4 w-full rounded-lg shadow"
+      />
+    );
+  }
+  return <img src={src} alt={alt} className="my-4 w-full rounded-lg shadow" />;
+};
+
 const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
   string
@@ -44,7 +62,9 @@ const DocsPage: React.FC = () => {
       />
       <main className="mx-auto max-w-4xl p-6">
         <article className="prose max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ img: MarkdownImage }}>
+            {content}
+          </ReactMarkdown>
         </article>
       </main>
     </DocsLayout>
