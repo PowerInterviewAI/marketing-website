@@ -58,7 +58,7 @@ const DocsIndex: React.FC = () => {
       <main className="mx-auto max-w-6xl p-6">
         <h1 className="mb-4 text-3xl font-bold">Documentation</h1>
         <p className="mb-6">
-          A quick overview of guides and reference material — click any card to read more.
+          A quick overview of guides and reference material - click any card to read more.
         </p>
 
         <ul className="grid gap-4 sm:grid-cols-2">
