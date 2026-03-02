@@ -1,6 +1,12 @@
 # Best Practices
 
-Getting the most from Power Interview requires more than just turning it on. The following practices will help you achieve accurate transcription, relevant AI suggestions, and a seamless interview experience.
+> **Be Careful:**
+>
+> Always start the Power Interview Assistant **before** joining the call. If you launch the assistant after connecting, you may need to leave and re‑join for the virtual camera and microphone to be detected.
+>
+> The face‑enhancement feature can introduce latency and may decrease the realism of the resulting face; test it beforehand to ensure it suits your requirements.
+>
+> Getting the most from Power Interview requires more than just turning it on. The following practices will help you achieve accurate transcription, relevant AI suggestions, and a seamless interview experience.
 
 ---
 
@@ -70,9 +76,9 @@ When face swap is enabled, your meeting platform must use the virtual devices, n
 - **Camera**: select **OBS Virtual Camera**
 - **Microphone**: select **CABLE Output (VB-Audio Virtual Cable)**
 
-![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
-
-![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+|                                          Camera Device                                           |                                       Microphone Device                                        |
+| :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+| ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
 
 Do not select your physical camera or physical microphone in the meeting platform when using the face swap feature.
 
