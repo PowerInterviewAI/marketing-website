@@ -2,12 +2,25 @@ import React from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 import { ArrowRight } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const WhyChooseSection: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // send user back to homepage; include hash for features section if desired
+      navigate('/');
+    }
+  };
+
   return (
     <section className="py-16 md:py-24" aria-labelledby="why-choose-heading">
       <Container>
@@ -147,11 +160,7 @@ export const WhyChooseSection: React.FC = () => {
               privacy-focused, and feature-rich AI assistant built specifically for real interview
               scenarios.
             </p>
-            <Button
-              size="lg"
-              className="mt-6"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
+            <Button size="lg" className="mt-6" onClick={handleButtonClick}>
               Experience the Difference
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

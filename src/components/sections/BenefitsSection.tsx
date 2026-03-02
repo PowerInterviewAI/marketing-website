@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { ArrowRight } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const BenefitsSection: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   return (
     <section className="py-16 md:py-24" aria-labelledby="benefits-heading">
       <Container>
@@ -190,7 +193,16 @@ export const BenefitsSection: React.FC = () => {
             Join thousands of successful candidates who've used PowerInterviewAI to land their dream
             jobs
           </p>
-          <Button size="lg" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Button
+            size="lg"
+            onClick={() => {
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+              }
+            }}
+          >
             Start Free with 30 Credits
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
