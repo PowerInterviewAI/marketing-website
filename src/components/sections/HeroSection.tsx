@@ -200,9 +200,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           {/* Installation Options */}
           <div className="mx-auto mt-8 max-w-3xl">
             <div className="mb-3 text-center">
-              <h3 className="text-lg text-muted-foreground">
-                Install on <strong>Windows</strong>
-              </h3>
+              <h3 className="text-md text-muted-foreground">Install on Windows using:</h3>
             </div>
 
             {/* Tab buttons */}
@@ -332,6 +330,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             )}
           </div>
 
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 rounded-lg border bg-background/50 px-3 py-1.5">
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z" />
+              </svg>
+              <span>Windows Only (MacOS Coming Soon)</span>
+            </div>
+          </div>
+
+          <p className="mt-4 text-sm text-muted-foreground">
+            🎁 Start with <span className="font-semibold text-foreground">30 free credits</span> -
+            Pay with coins only (No credit card, PayPal, or bank required)
+          </p>
+
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
               variant="outline"
@@ -349,20 +361,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                 />
               </svg>
             </Button>
-          </div>
-
-          <p className="mt-4 text-sm text-muted-foreground">
-            🎁 Start with <span className="font-semibold text-foreground">30 free credits</span> -
-            Pay with coins only (No credit card, PayPal, or bank required)
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center gap-2 rounded-lg border bg-background/50 px-3 py-1.5">
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z" />
-              </svg>
-              <span>Windows Only (MacOS & Linux Coming Soon)</span>
-            </div>
           </div>
 
           {/* Product Demo Carousel */}
