@@ -14,7 +14,9 @@ Once started, the app begins capturing audio from your configured microphone (yo
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
-![Power Interview — main UI during an active session](/media/docs/app-overview.png)
+| Main UI during active session                                                    | Main UI during active session — Stealth Mode                                                            |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| ![Power Interview — Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview — Main UI during active session — Stealth Mode](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
