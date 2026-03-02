@@ -34,50 +34,6 @@ const heading =
   };
 
 // Dark-mode-aware table components
-const mdComponents = {
-  h1: heading('h1'),
-  h2: heading('h2'),
-  h3: heading('h3'),
-  h4: heading('h4'),
-  h5: heading('h5'),
-  h6: heading('h6'),
-  table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-4 w-full overflow-x-auto">
-      <table className="w-full border-collapse text-sm">{children}</table>
-    </div>
-  ),
-  thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="bg-muted text-foreground">{children}</thead>
-  ),
-  tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <tbody className="divide-y divide-border">{children}</tbody>
-  ),
-  tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className="even:bg-muted/40">{children}</tr>
-  ),
-  th: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className="border border-border px-3 py-2 text-left font-semibold text-foreground">
-      {children}
-    </th>
-  ),
-  td: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="border border-border px-3 py-2 text-foreground">{children}</td>
-  ),
-  img: ({ src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) =>
-    src?.endsWith('.mp4') ? (
-      <video
-        src={src}
-        title={alt}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="my-4 w-full rounded-lg shadow"
-      />
-    ) : (
-      <img src={src} alt={alt} className="my-4 w-full rounded-lg shadow" />
-    ),
-};
 
 const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
   string,
@@ -86,6 +42,7 @@ const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true
 
 const DocsPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [previewSrc, setPreviewSrc] = React.useState<string | null>(null);
 
   if (!slug) return null;
 
@@ -107,6 +64,57 @@ const DocsPage: React.FC = () => {
 
   const title = slug.replace(/^\d+\.\s*/, '').replace(/-/g, ' ');
 
+  // build components object now that preview state is available
+  const components = {
+    h1: heading('h1'),
+    h2: heading('h2'),
+    h3: heading('h3'),
+    h4: heading('h4'),
+    h5: heading('h5'),
+    h6: heading('h6'),
+    table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+      <div className="my-4 w-full overflow-x-auto">
+        <table className="w-full border-collapse text-sm">{children}</table>
+      </div>
+    ),
+    thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <thead className="bg-muted text-foreground">{children}</thead>
+    ),
+    tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <tbody className="divide-y divide-border">{children}</tbody>
+    ),
+    tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
+      <tr className="even:bg-muted/40">{children}</tr>
+    ),
+    th: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+      <th className="border border-border px-3 py-2 text-left font-semibold text-foreground">
+        {children}
+      </th>
+    ),
+    td: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+      <td className="border border-border px-3 py-2 text-foreground">{children}</td>
+    ),
+    img: ({ src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      src?.endsWith('.mp4') ? (
+        <video
+          src={src}
+          title={alt}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="my-4 w-full rounded-lg shadow"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className="my-4 w-full cursor-pointer rounded-lg shadow"
+          onClick={() => src && setPreviewSrc(src)}
+        />
+      ),
+  };
+
   return (
     <DocsLayout>
       <Seo
@@ -116,11 +124,25 @@ const DocsPage: React.FC = () => {
       />
       <main className="mx-auto max-w-4xl p-6">
         <article>
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
             {content}
           </ReactMarkdown>
         </article>
       </main>
+
+      {/* preview overlay */}
+      {previewSrc && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setPreviewSrc(null)}
+        >
+          <img
+            src={previewSrc}
+            alt="preview"
+            className="max-h-full max-w-full rounded-md shadow-lg"
+          />
+        </div>
+      )}
     </DocsLayout>
   );
 };
