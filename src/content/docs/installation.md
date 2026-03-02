@@ -18,9 +18,17 @@ This will download the latest installer and launch it immediately. Follow the in
 
 ---
 
-## Option B - Prebuilt Release
+## Option B - Prebuilt Installer
 
-Download the latest installer from the [Releases page](https://github.com/PowerInterviewAI/power-interview-assistant/releases/latest) and run it. The installer packages the Electron app and all compiled Python agents together - no additional setup is required.
+Download the latest Windows installer and run it. The installer packages the Electron app and all compiled Python agents together — no additional setup is required.
+
+### Windows Installer Download
+
+| File                                                                             | Description                        |
+| -------------------------------------------------------------------------------- | ---------------------------------- |
+| [Get Latest Release](https://github.com/PowerInterviewAI/client/releases/latest) | Windows installer (latest release) |
+
+Or browse all releases and changelogs on the [GitHub Releases page](https://github.com/PowerInterviewAI/client/releases).
 
 After installation, launch **Power Interview** from your Start Menu or desktop shortcut, sign in with your account, and proceed to [First-Run Setup](#first-run-setup).
 

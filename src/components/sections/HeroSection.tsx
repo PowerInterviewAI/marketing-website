@@ -77,6 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [isFading, setIsFading] = useState(false);
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -196,34 +197,139 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             suggestions, and cutting-edge face swap technology-all while maintaining your privacy.
           </p>
 
-          {/* Installation Command */}
+          {/* Installation Options */}
           <div className="mx-auto mt-8 max-w-3xl">
             <div className="mb-3 text-center">
               <h3 className="text-lg text-muted-foreground">
-                Install on <strong>Windows</strong> with Command Line
+                Install on <strong>Windows</strong>
               </h3>
             </div>
-            <div className="group relative rounded-lg border bg-muted/50 p-4">
-              <pre className="mr-8 overflow-x-auto">
-                <code className="text-md font-mono text-foreground">
-                  {version ? getInstallCommand(version) : 'Loading installation command...'}
-                </code>
-              </pre>
-              <Button
-                size="sm"
-                variant="ghost"
-                className="absolute right-2 top-4 h-8 w-8 p-0 opacity-70 transition-opacity hover:opacity-100"
-                onClick={copyInstallCommand}
-                disabled={!version}
-                title="Copy to clipboard"
+
+            {/* Tab buttons */}
+            <div className="mb-3 flex rounded-lg border bg-muted/30 p-1">
+              <button
+                onClick={() => setActiveInstallTab('cli')}
+                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                  activeInstallTab === 'cli'
+                    ? 'bg-background text-foreground shadow'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
-                {copied ? (
-                  <Check className="h-4 w-4 text-green-500" />
-                ) : (
-                  <Copy className="h-4 w-4" />
-                )}
-              </Button>
+                Command Line{' '}
+                <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
+                  Recommended
+                </span>
+              </button>
+              <button
+                onClick={() => setActiveInstallTab('binary')}
+                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                  activeInstallTab === 'binary'
+                    ? 'bg-background text-foreground shadow'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Prebuilt Installer
+              </button>
+              <button
+                onClick={() => setActiveInstallTab('source')}
+                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
+                  activeInstallTab === 'source'
+                    ? 'bg-background text-foreground shadow'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Build from Source
+              </button>
             </div>
+
+            {/* Tab: Command Line */}
+            {activeInstallTab === 'cli' && (
+              <div className="group relative rounded-lg border bg-muted/50 p-4">
+                <pre className="mr-8 overflow-x-auto">
+                  <code className="text-md font-mono text-foreground">
+                    {version ? getInstallCommand(version) : 'Loading installation command...'}
+                  </code>
+                </pre>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="absolute right-2 top-4 h-8 w-8 p-0 opacity-70 transition-opacity hover:opacity-100"
+                  onClick={copyInstallCommand}
+                  disabled={!version}
+                  title="Copy to clipboard"
+                >
+                  {copied ? (
+                    <Check className="h-4 w-4 text-green-500" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+            )}
+
+            {/* Tab: Prebuilt Installer */}
+            {activeInstallTab === 'binary' && (
+              <div className="rounded-lg border bg-muted/50 p-6 text-center">
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Download the Windows installer and run it. No additional setup required.
+                </p>
+                <div className="flex flex-col items-center gap-3">
+                  <a
+                    href={
+                      version
+                        ? `https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe`
+                        : 'https://github.com/PowerInterviewAI/client/releases/latest'
+                    }
+                    download
+                    className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                  >
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      />
+                    </svg>
+                    {version
+                      ? `Download PowerInterview-Setup-${version}.exe`
+                      : 'Download Latest Installer'}
+                  </a>
+                  <a
+                    href="https://github.com/PowerInterviewAI/client/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted-foreground underline hover:text-foreground"
+                  >
+                    View all releases on GitHub
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {/* Tab: Build from Source */}
+            {activeInstallTab === 'source' && (
+              <div className="rounded-lg border bg-muted/50 p-6 text-center">
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Clone the repository and build from source. Requires Node.js&nbsp;18+,
+                  Python&nbsp;3.12, and Visual Studio build tools.
+                </p>
+                <a
+                  href="/docs/installation#option-c---build-from-source"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  View Build Instructions
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
