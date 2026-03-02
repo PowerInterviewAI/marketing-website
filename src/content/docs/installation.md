@@ -49,10 +49,10 @@ Use this path if you want to run or modify the development version.
 
 ### External Software (Optional, for specific features)
 
-| Software                                                  | Purpose                                                                                                                            |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [OBS Studio with Virtual Camera](https://obsproject.com/) | Required for the face swap / virtual camera feature                                                                                |
-| [VB-Audio Virtual Cable](https://vb-audio.com/Cable/)     | Required for face swap: routes your microphone audio through the virtual camera output so the meeting platform receives your voice |
+| Software                                                  | Purpose                                                                                                                            |                                                                                 |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [OBS Studio with Virtual Camera](https://obsproject.com/) | Required for the face swap / virtual camera feature                                                                                | ![Download and Install OBS Studio](/media/docs/obsstudio-install.png)           |
+| [VB-Audio Virtual Cable](https://vb-audio.com/Cable/)     | Required for face swap: routes your microphone audio through the virtual camera output so the meeting platform receives your voice | ![Download and Install VB-Audio Virtual Cable](/media/docs/vbcable-install.png) |
 
 These are only needed if you intend to use the **face swap** feature. Transcription of both your voice and the interviewer's voice works without them.
 

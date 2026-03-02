@@ -161,6 +161,7 @@ Before every interview, run through this checklist:
 - [ ] Microphone is selected and producing transcript output (test session run)
 - [ ] Camera and face swap photo are configured (if using face swap)
 - [ ] **Power Interview assistant is running before joining the meeting** (if using face swap — critical)
+- [ ] VB-Audio Virtual Cable driver is installed and **CABLE Output** is visible in Windows sound devices (if using face swap)
 - [ ] OBS Virtual Camera is started and selected in the video call app (if using face swap)
 - [ ] CABLE Output is selected as microphone in the video call app (if using face swap)
 - [ ] Credits balance is sufficient for the session (if using face swap)

@@ -119,4 +119,4 @@ Before getting started, ensure you have the following:
 - A Power Interview account (sign up at using the application)
 - A Windows machine
 - A working microphone and (optionally) webcam
-- **For face swap only**: [OBS Studio](https://obsproject.com/) and [VB-Audio Virtual Cable](https://vb-audio.com/Cable/) installed
+- **For face swap only**: [OBS Studio](https://obsproject.com/) installed **and the VB-Audio Virtual Cable driver installed** (download from https://vb-audio.com/Cable/). After installing the driver you may need to reboot or restart audio services so that the **CABLE Output** device appears in Windows sound settings.

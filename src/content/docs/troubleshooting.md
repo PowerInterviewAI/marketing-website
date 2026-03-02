@@ -131,19 +131,17 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 
 ### OBS Virtual Camera is not appearing in the video call app
 
-- Start OBS and enable **Virtual Camera** in OBS **before** opening the video call app. Most video call apps detect cameras only at startup.
-- Ensure OBS Virtual Camera is installed (it is bundled with OBS Studio 26+, but must be explicitly installed from the OBS Tools menu on some older versions).
+- Ensure **OBS Studio** is installed and updated to the latest version.
 - In the video call app, look for a camera source named **OBS Virtual Camera**. If it does not appear, restart both OBS and the video call app.
 
-  ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png)
-
-  ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png)
+  |                                          Camera Device                                           |                                       Microphone Device                                        |
+  | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+  | ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
 
 ### The face swap output is misaligned, jittery, or flickering
 
 - Use a better reference photo: clear, front-facing, well-lit, with no obstructions.
 - Enable **Face Enhancement** in the Face Swap Options dialog for additional post-processing.
-- Check your GPU usage. If the GPU is overloaded with other tasks, processing frames will stutter. Close GPU-intensive applications running in the background.
 - Reduce the output resolution in face swap settings if performance is the bottleneck.
 
 ### The face swap video is out of sync with audio
