@@ -18,42 +18,6 @@ These layers communicate in real time using ZeroMQ (local inter-process), WebSoc
 
 ## Component Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Your Windows Machine                     │
-│                                                             │
-│  ┌─────────────────────┐        ┌────────────────────────┐  │
-│  │   Electron App      │◄──────►│    ASR Agent (Python)  │  │
-│  │  (React + Node.js)  │ ZeroMQ │  Audio capture +       │  │
-│  │                     │        │  WebSocket to backend  │  │
-│  │  • UI & settings    │        └────────────────────────┘  │
-│  │  • Session state    │                                    │
-│  │  • IPC handlers     │        ┌────────────────────────┐  │
-│  │                     │◄──────►│   VCam Agent (Python)  │  │
-│  │                     │ ZeroMQ │  Webcam → WebRTC →     │  │
-│  │                     │        │  face swap → OBS VCam  │  │
-│  │                     │        └────────────────────────┘  │
-│  │                     │                                    │
-│  │                     │        ┌────────────────────────┐  │
-│  │                     │◄──────►│  Audio Control Agent   │  │
-│  │                     │ ZeroMQ │  Voice sync with       │  │
-│  └─────────────────────┘        │  face-swapped stream   │  │
-│           │                     └────────────────────────┘  │
-│           │ HTTPS / WebSocket                               │
-└───────────┼─────────────────────────────────────────────────┘
-            │
-            ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Cloud Backend                            │
-│                                                             │
-│  • Auth service (login / session)                           │
-│  • ASR service (speech-to-text streaming)                   │
-│  • LLM service (reply + code suggestions)                   │
-│  • Face swap GPU service (WebRTC video + image output)      │
-│  • Payment service (credits)                                │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ![Architecture overview — components and connections](/media/docs/architecture-diagram.svg)
 
 ---
@@ -157,20 +121,6 @@ The Audio Control Agent solves this with a **timestamped delay buffer**:
 4. **Dynamic adjustment** — latency is re-measured on every frame and the buffer depth is smoothed with an exponential moving average to avoid abrupt audio jumps from transient network spikes
 
 ![Audio / video synchronization diagram](/media/docs/audio-sync-diagram.svg)
-
-```
-Microphone ──► Ring Buffer (depth = measured video latency)
-                     │
-                     ▼ (delayed by N ms)
-              VB-Cable Input  ──► VB-Cable Output  ◄── interviewer's app selects this
-
-Webcam ──► VCam Agent ──► GPU Server ──► OBS Virtual Camera  ◄── interviewer's app selects this
-                 │              │
-                 └── timestamp ─┘  (latency measured here)
-                         │
-                         ▼
-              Audio Control Agent adjusts buffer depth
-```
 
 ### VB-Cable Virtual Audio Output
 
