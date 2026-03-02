@@ -296,7 +296,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                       : 'Download Latest Installer'}
                   </a>
                   <a
-                    href="https://github.com/PowerInterviewAI/client/releases/latest"
+                    href="https://github.com/PowerInterviewAI/client/releases"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-muted-foreground underline hover:text-foreground"
