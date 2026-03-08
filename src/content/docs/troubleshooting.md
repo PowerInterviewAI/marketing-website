@@ -117,12 +117,12 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 - Some applications use hardware acceleration that prevents software-level screen capture.
   - In Chrome/Edge: launch with `--disable-gpu-sandbox` or use the built-in window capture workaround.
   - For other apps: try taking a screenshot using the Windows Snip & Sketch tool first to confirm the issue is application-specific.
-- Ensure the target window is not minimized when you press `Ctrl+Alt+Shift+P`.
+- Ensure the target window is not minimized when you press `Ctrl+Shift+F9`.
 
 ### Code suggestion is incorrect or does not address the problem
 
-- Capture additional screenshots that include edge cases, constraints, or sample I/O (`Ctrl+Alt+Shift+P` for each).
-- Clear the previous set of screenshots (`Ctrl+Alt+Shift+X`) before capturing images for a new problem.
+- Capture additional screenshots that include edge cases, constraints, or sample I/O (`Ctrl+Shift+F9` for each).
+- Clear the previous set of screenshots (`Ctrl+Shift+F11`) before capturing images for a new problem.
 - Zoom into the relevant portion of the problem before capturing so the model receives higher-resolution text.
 
 ---

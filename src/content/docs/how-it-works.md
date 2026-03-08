@@ -145,7 +145,7 @@ When the ASR backend delivers a final transcript segment, the Electron main proc
 
 ### Code Suggestions
 
-When the user presses `Ctrl+Alt+Shift+P`, the main process takes a screenshot of the entire screen using `screenshot-desktop` and stores it temporarily. Up to 4 screenshots can be queued. When the user presses `Ctrl+Alt+Shift+Enter`, all queued screenshots are sent as image attachments to the LLM code suggestion API. The API analyzes the images and streams back a code solution which is rendered with syntax highlighting.
+When the user presses `Ctrl+Shift+F9`, the main process takes a screenshot of the entire screen using `screenshot-desktop` and stores it temporarily. Up to 4 screenshots can be queued. When the user presses `Ctrl+Shift+F10`, all queued screenshots are sent as image attachments to the LLM code suggestion API. The API analyzes the images and streams back a code solution which is rendered with syntax highlighting.
 
 ---
 

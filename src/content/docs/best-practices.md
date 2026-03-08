@@ -114,7 +114,7 @@ A single screenshot of a long problem statement often misses important details. 
 - Sample inputs and expected outputs
 - Any relevant constraints or examples below the fold
 
-Press `Ctrl+Alt+Shift+P` for each capture, then `Ctrl+Alt+Shift+Enter` to submit.
+Press `Ctrl+Shift+F9` for each capture, then `Ctrl+Shift+F10` to submit (use `Ctrl+Shift+F11` to clear captures if you make a mistake).
 
 ---
 

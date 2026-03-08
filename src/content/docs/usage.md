@@ -43,12 +43,13 @@ Suggestions are triggered automatically as the AI determines a response is usefu
 
 ### Scrolling Suggestions
 
-You can use the keyboard to scroll through reply suggestion content without leaving your video call window:
+You can use the keyboard to scroll through reply suggestion content without leaving your video call window (use J/K for line‑by‑line movement or L to jump to the end):
 
-| Action      | Shortcut       |
-| ----------- | -------------- |
-| Scroll up   | `Ctrl+Shift+K` |
-| Scroll down | `Ctrl+Shift+J` |
+| Action        | Shortcut       |
+| ------------- | -------------- |
+| Scroll up     | `Ctrl+Shift+K` |
+| Scroll down   | `Ctrl+Shift+J` |
+| Scroll to end | `Ctrl+Shift+L` |
 
 ---
 
@@ -58,20 +59,23 @@ For technical interviews with coding problems, Power Interview can analyze your 
 
 ### Workflow
 
-1. When a coding problem appears on screen (in your browser, IDE, or shared screen), press `Ctrl+Alt+Shift+P` to take a screenshot.
+1. When a coding problem appears on screen (in your browser, IDE, or shared screen), press `Ctrl+Shift+F9` to take a screenshot. You can also skip the queue and automatically submit in one step by using `Ctrl+Shift+F12` (capture + submit).
 2. You can capture up to **4 screenshots** to provide more context (e.g., multiple parts of the problem due overflowed content or different tabs).
-3. Press `Ctrl+Alt+Shift+Enter` to submit the screenshots for analysis.
+3. Press `Ctrl+Shift+F10` to submit the screenshots for analysis (not needed if you used F12).
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
-5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Alt+Shift+X` to clear all captured screenshots.
+5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Shift+F11` to clear all captured screenshots.
 
 ![Code Suggestions panel — syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.mp4)
 
 ### Scrolling Code Suggestions
 
-| Action      | Shortcut       |
-| ----------- | -------------- |
-| Scroll up   | `Ctrl+Shift+I` |
-| Scroll down | `Ctrl+Shift+U` |
+You can also jump to the end of the code panel using the third shortcut (O).
+
+| Action        | Shortcut       |
+| ------------- | -------------- |
+| Scroll up     | `Ctrl+Shift+I` |
+| Scroll down   | `Ctrl+Shift+U` |
+| Scroll to end | `Ctrl+Shift+O` |
 
 ---
 
@@ -230,18 +234,19 @@ You can also view your payment history and check pending payment status from the
 
 ## Complete Hotkey Reference
 
-| Action                        | Shortcut                        |
-| ----------------------------- | ------------------------------- |
-| Stop all & exit stealth       | `Ctrl+Shift+Q`                  |
-| Toggle stealth mode           | `Ctrl+Shift+M`                  |
-| Toggle window opacity         | `Ctrl+Shift+N`                  |
-| Position window (numpad)      | `Ctrl+Shift+1` – `Ctrl+Shift+9` |
-| Move window                   | `Ctrl+Alt+Shift+Arrow`          |
-| Resize window                 | `Ctrl+Win+Shift+Arrow`          |
-| Scroll reply suggestions down | `Ctrl+Shift+J`                  |
-| Scroll reply suggestions up   | `Ctrl+Shift+K`                  |
-| Scroll code suggestions down  | `Ctrl+Shift+U`                  |
-| Scroll code suggestions up    | `Ctrl+Shift+I`                  |
-| Capture screenshot            | `Ctrl+Alt+Shift+P`              |
-| Submit screenshots            | `Ctrl+Alt+Shift+Enter`          |
-| Clear screenshots             | `Ctrl+Alt+Shift+X`              |
+| Action                           | Shortcut                                         |
+| -------------------------------- | ------------------------------------------------ |
+| Stop all & exit stealth          | `Ctrl+Shift+Q`                                   |
+| Toggle stealth mode              | `Ctrl+Shift+M`                                   |
+| Toggle window opacity            | `Ctrl+Shift+N`                                   |
+| Position window (numpad)         | `Ctrl+Shift+1` – `Ctrl+Shift+9`                  |
+| Move window                      | `Ctrl+Alt+Shift+Arrow`                           |
+| Resize window                    | `Ctrl+Win+Shift+Arrow`                           |
+| Scroll reply panel (down/up/end) | `Ctrl+Shift+J` / `Ctrl+Shift+K` / `Ctrl+Shift+L` |
+| Scroll code panel (down/up/end)  | `Ctrl+Shift+U` / `Ctrl+Shift+I` / `Ctrl+Shift+O` |
+| Capture                          | `Ctrl+Shift+F9`                                  |
+| Submit captures                  | `Ctrl+Shift+F10`                                 |
+| Clear captures                   | `Ctrl+Shift+F11`                                 |
+| Capture and submit               | `Ctrl+Shift+F12`                                 |
+
+> The canonical list of hotkeys is maintained in `src/config/hotkeys.ts` for the application; update both the code and documentation when making changes.
