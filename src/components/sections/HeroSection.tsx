@@ -340,7 +340,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           </div>
 
           <p className="mt-4 text-sm text-muted-foreground">
-            🎁 Start with <span className="font-semibold text-foreground">30 free credits</span> -
+            🎁 Start with <span className="font-semibold text-foreground">100 free credits</span> -
             Pay with coins only (No credit card, PayPal, or bank required)
           </p>
 

@@ -203,7 +203,7 @@ export const BenefitsSection: React.FC = () => {
               }
             }}
           >
-            Start Free with 30 Credits
+            Start Free with 100 Credits
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

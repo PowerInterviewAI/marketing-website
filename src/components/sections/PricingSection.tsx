@@ -132,7 +132,7 @@ export const PricingSection: React.FC = () => {
           <div className="mt-6 inline-flex flex-col gap-2">
             <div className="rounded-lg bg-primary/10 px-6 py-3 text-center">
               <p className="text-sm font-semibold text-primary">
-                🎁 New users get 30 free credits to try all features!
+                🎁 New users get 100 free credits to try all features!
               </p>
             </div>
             <p className="text-sm text-muted-foreground">

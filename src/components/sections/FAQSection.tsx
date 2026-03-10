@@ -65,7 +65,7 @@ const faqData = [
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! All new users receive 30 free credits to try out all features (approximately 3 minutes of AI assistance). This allows you to experience the full capabilities of Power Interview AI risk-free, with no payment information needed. After that, you can choose from our affordable pricing plans starting at just $20 for 600 credits, payable with coins only.',
+      'Yes! All new users receive 100 free credits to try out all features (approximately 10 minutes of AI assistance). This allows you to experience the full capabilities of Power Interview AI risk-free, with no payment information needed. After that, you can choose from our affordable pricing plans starting at just $20 for 600 credits, payable with coins only.',
   },
   {
     question: 'Can I get a refund?',
