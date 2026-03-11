@@ -74,20 +74,21 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 
 Every function in Power Interview is accessible from any window via keyboard shortcuts:
 
-| Action                           | Shortcut                                         |
-| -------------------------------- | ------------------------------------------------ |
-| Stop all & exit stealth          | `Ctrl+Shift+Q`                                   |
-| Toggle stealth mode              | `Ctrl+Shift+M`                                   |
-| Toggle window opacity            | `Ctrl+Shift+N`                                   |
-| Place window (numpad layout)     | `Ctrl+Shift+1` – `Ctrl+Shift+9`                  |
-| Move window                      | `Ctrl+Alt+Shift+Arrow`                           |
-| Resize window                    | `Ctrl+Win+Shift+Arrow`                           |
-| Scroll reply panel (down/up/end) | `Ctrl+Shift+J` / `Ctrl+Shift+K` / `Ctrl+Shift+L` |
-| Scroll code panel (down/up/end)  | `Ctrl+Shift+U` / `Ctrl+Shift+I` / `Ctrl+Shift+O` |
-| Capture                          | `Ctrl+Shift+F9`                                  |
-| Submit captures                  | `Ctrl+Shift+F10`                                 |
-| Clear captures                   | `Ctrl+Shift+F11`                                 |
-| Capture and submit               | `Ctrl+Shift+F12`                                 |
+| Action                                      | Shortcut                        |
+| ------------------------------------------- | ------------------------------- |
+| Stop all & exit stealth                     | `Ctrl+Shift+Q`                  |
+| Toggle stealth mode                         | `Ctrl+Shift+M`                  |
+| Toggle window opacity                       | `Ctrl+Shift+N`                  |
+| Place window (numpad layout)                | `Ctrl+Shift+1` – `Ctrl+Shift+9` |
+| Move window                                 | `Ctrl+Alt+Shift+Arrow`          |
+| Resize window                               | `Ctrl+Win+Shift+Arrow`          |
+| Zoom in/out or reset zoom                   | `Ctrl+Shift+[=, -, 0]`          |
+| Scroll live suggestions panel (down/up/end) | `Ctrl+Shift+[J, K, L]`          |
+| Scroll triggered suggestions panel          | `Ctrl+Shift+[U, I, O]`          |
+| Capture screen                              | `Ctrl+Shift+F9`                 |
+| Clear captures                              | `Ctrl+Shift+F10`                |
+| Trigger without captures                    | `Ctrl+Shift+F11`                |
+| Trigger with captures                       | `Ctrl+Shift+F12`                |
 
 > Hotkey definitions live in `src/config/hotkeys.ts` (keep docs and code in sync).
 
