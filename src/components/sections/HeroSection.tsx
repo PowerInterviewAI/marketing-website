@@ -68,6 +68,18 @@ interface HeroSectionProps {
 // Utility helpers
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+// Gaussian (normal) distribution via Box-Muller transform
+const gaussianRandom = (mean: number, stddev: number) => {
+  let u = 0;
+  let v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  return z * stddev + mean;
+};
+
+const sampleInterviewCount = () => Math.round(Math.max(10, gaussianRandom(175, 10)));
+
 // Helper method to generate install command based on version
 const getInstallCommand = (version: string | null): string => {
   if (!version) {
@@ -83,7 +95,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
-  const [interviewCount, setInterviewCount] = useState(() => randomInt(50, 100));
+  const [interviewCount, setInterviewCount] = useState(() => sampleInterviewCount());
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const interviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -92,11 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     const scheduleNextUpdate = () => {
       const delay = randomInt(5000, 10000);
       interviewTimerRef.current = setTimeout(() => {
-        setInterviewCount((prev) => {
-          const delta = randomInt(-20, 20);
-          const next = Math.min(100, Math.max(50, prev + delta));
-          return next;
-        });
+        setInterviewCount(() => sampleInterviewCount());
 
         scheduleNextUpdate();
       }, delay);
