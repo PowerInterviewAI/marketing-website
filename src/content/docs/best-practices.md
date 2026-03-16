@@ -96,7 +96,7 @@ The quality of the face swap result is highly sensitive to the reference photo y
 
 Avoid blurry photos, side profiles, or images where the face is partially obscured.
 
-![Reference photo guidelines — good vs bad examples](/media/docs/reference-photo-guide.svg)
+![Reference photo guidelines - good vs bad examples](/media/docs/reference-photo-guide.svg)
 
 ### Keep Credits Topped Up
 
@@ -120,7 +120,7 @@ Press `Ctrl+Shift+F9` for each capture, then `Ctrl+Shift+F10` to submit (use `Ct
 
 ## Stealth Mode & Window Placement
 
-The Power Interview window is always excluded from screen capture and screen share — interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
+The Power Interview window is always excluded from screen capture and screen share - interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
 
 ### Set Up Your Window Position Before the Interview
 
@@ -137,7 +137,7 @@ Turn on stealth mode (`Ctrl+Shift+M`) whenever you need to type or interact with
 
 ### Use a Dual-Monitor Setup
 
-If you have two monitors, run your video call on one screen and Power Interview on the other for maximum comfort — the assistant is always on a separate display.
+If you have two monitors, run your video call on one screen and Power Interview on the other for maximum comfort - the assistant is always on a separate display.
 
 ### Practice Hotkeys Beforehand
 
@@ -160,7 +160,7 @@ Before every interview, run through this checklist:
 - [ ] **Power Interview is started before joining the meeting**
 - [ ] Microphone is selected and producing transcript output (test session run)
 - [ ] Camera and face swap photo are configured (if using face swap)
-- [ ] **Power Interview assistant is running before joining the meeting** (if using face swap — critical)
+- [ ] **Power Interview assistant is running before joining the meeting** (if using face swap - critical)
 - [ ] VB-Audio Virtual Cable driver is installed and **CABLE Output** is visible in Windows sound devices (if using face swap)
 - [ ] OBS Virtual Camera is started and selected in the video call app (if using face swap)
 - [ ] CABLE Output is selected as microphone in the video call app (if using face swap)

@@ -8,7 +8,7 @@
 
   <rect width="560" height="280" rx="10" fill="url(#bgR)" stroke="#1e3a5f" stroke-width="1.5" />
 
-  <text x="280" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Reference Photo Guidelines — Face Swap</text>
+  <text x="280" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Reference Photo Guidelines - Face Swap</text>
   <rect x="20" y="36" width="520" height="1" fill="#1e3a5f" />
 
   <!-- GOOD examples (3) -->

@@ -25,7 +25,7 @@ export const LegalNoticeSection: React.FC = () => {
               <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
                 <div>
                   <h3 className="mb-2 text-2xl font-semibold tracking-tight text-amber-900 dark:text-amber-300">
-                    Face Swap Feature — Legal Use Only
+                    Face Swap Feature - Legal Use Only
                   </h3>
                   <p className="text-base">
                     The face swap feature is powerful and must be used{' '}

@@ -12,7 +12,7 @@
 
   <rect width="400" height="340" rx="10" fill="url(#bgW)" stroke="#1e3a5f" stroke-width="1.5" />
 
-  <text x="200" y="30" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Window Positioning — Numpad Layout</text>
+  <text x="200" y="30" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Window Positioning - Numpad Layout</text>
   <text x="200" y="48" fill="#6a7a8a" font-size="10" font-family="Arial" text-anchor="middle">Ctrl+Shift + number key to snap window position</text>
   <rect x="20" y="56" width="360" height="1" fill="#1e3a5f" />
 
@@ -68,5 +68,5 @@
   <!-- Extra shortcuts hint -->
   <rect x="40" y="298" width="320" height="30" rx="6" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
   <text x="200" y="311" fill="#6a7a8a" font-size="9" font-family="Arial" text-anchor="middle">Fine Position:  Ctrl+Alt+Shift+Arrow  |  Resize:  Ctrl+Win+Shift+Arrow</text>
-  <text x="200" y="323" fill="#4a5a6a" font-size="9" font-family="Arial" text-anchor="middle">Window is always hidden from screen capture — safe to place anywhere</text>
+  <text x="200" y="323" fill="#4a5a6a" font-size="9" font-family="Arial" text-anchor="middle">Window is always hidden from screen capture - safe to place anywhere</text>
 </svg>

@@ -20,7 +20,7 @@
 
   <rect width="720" height="320" rx="10" fill="url(#bgSync)" stroke="#1e3a5f" stroke-width="1.5" />
 
-  <text x="360" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Audio / Video Synchronization — Face Swap Mode</text>
+  <text x="360" y="28" fill="#ccd6f6" font-size="13" font-family="Arial" font-weight="bold" text-anchor="middle">Audio / Video Synchronization - Face Swap Mode</text>
   <rect x="20" y="36" width="680" height="1" fill="#1e3a5f" />
 
   <!-- Source nodes -->

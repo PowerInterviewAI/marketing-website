@@ -18,7 +18,7 @@ These layers communicate in real time using ZeroMQ (local inter-process), WebSoc
 
 ## Component Diagram
 
-![Architecture overview — components and connections](/media/docs/architecture-diagram.svg)
+![Architecture overview - components and connections](/media/docs/architecture-diagram.svg)
 
 ---
 
@@ -103,22 +103,22 @@ The processed frames received from the backend are pushed to OBS Virtual Camera 
 
 ## Audio Control Agent (Python)
 
-The audio control agent is responsible for two things: enumerating audio devices so the user can select the correct microphone, and — critically — keeping the user's real voice synchronized with the face-swapped video stream.
+The audio control agent is responsible for two things: enumerating audio devices so the user can select the correct microphone, and - critically - keeping the user's real voice synchronized with the face-swapped video stream.
 
 ### The Synchronization Problem
 
 When face swap is active, the VCam agent sends raw webcam frames to the cloud GPU server and receives processed frames back. This round-trip introduces a variable network delay (typically 80–250 ms) before the face-swapped video is available for output.
 
-If the user's microphone audio is routed directly and without compensation, the interviewer will see the processed face move out of sync with the voice — the lips on screen will appear to lag behind the words being spoken.
+If the user's microphone audio is routed directly and without compensation, the interviewer will see the processed face move out of sync with the voice - the lips on screen will appear to lag behind the words being spoken.
 
 ### How Synchronization Works
 
 The Audio Control Agent solves this with a **timestamped delay buffer**:
 
-1. **Frame timestamp tagging** — the VCam agent stamps each outgoing frame with a monotonic clock timestamp before sending it to the GPU server
-2. **Round-trip measurement** — when the processed frame arrives back, the agent computes the actual frame latency: `latency = receive_time − send_timestamp`
-3. **Audio delay buffer** — the Audio Control Agent receives the current measured latency over ZeroMQ from the VCam agent and holds incoming microphone audio in a rolling ring buffer for exactly that duration before releasing it to the virtual audio output
-4. **Dynamic adjustment** — latency is re-measured on every frame and the buffer depth is smoothed with an exponential moving average to avoid abrupt audio jumps from transient network spikes
+1. **Frame timestamp tagging** - the VCam agent stamps each outgoing frame with a monotonic clock timestamp before sending it to the GPU server
+2. **Round-trip measurement** - when the processed frame arrives back, the agent computes the actual frame latency: `latency = receive_time − send_timestamp`
+3. **Audio delay buffer** - the Audio Control Agent receives the current measured latency over ZeroMQ from the VCam agent and holds incoming microphone audio in a rolling ring buffer for exactly that duration before releasing it to the virtual audio output
+4. **Dynamic adjustment** - latency is re-measured on every frame and the buffer depth is smoothed with an exponential moving average to avoid abrupt audio jumps from transient network spikes
 
 ![Audio / video synchronization diagram](/media/docs/audio-sync-diagram.svg)
 

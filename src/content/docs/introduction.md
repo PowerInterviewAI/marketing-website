@@ -4,7 +4,7 @@ Power Interview is a privacy-first AI assistant that helps you perform confident
 
 | Normal Mode                                                                   | Stealth Mode                                                                          |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| ![Power Interview — Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview — Main Application Interface](/media/docs/app-overview-stealth.jpg) |
+| ![Power Interview - Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview - Main Application Interface](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
@@ -51,7 +51,7 @@ The face swap feature lets you replace your camera feed with a chosen photo of y
 
 ### Stealth Mode
 
-- The Power Interview window is **always hidden from screen capture and screen share** — interviewers can never see it regardless of mode
+- The Power Interview window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
 - Stealth mode keeps the window from receiving focus, so your keyboard and mouse stay locked on your coding challenge or video call
 - A minimal status bar shows running state, credit balance, and active hotkeys
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus

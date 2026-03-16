@@ -14,9 +14,9 @@ Once started, the app begins capturing audio from your configured microphone (yo
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
-| Main UI during active session                                                    | Main UI during active session — Stealth Mode                                                            |
+| Main UI during active session                                                    | Main UI during active session - Stealth Mode                                                            |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ![Power Interview — Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview — Main UI during active session — Stealth Mode](/media/docs/app-overview-stealth.jpg) |
+| ![Power Interview - Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview - Main UI during active session - Stealth Mode](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
@@ -39,7 +39,7 @@ Reply suggestions are generated based on the current transcript, your profile (n
 
 Suggestions are triggered automatically as the AI determines a response is useful, or you can request one manually through the UI. The suggestion streams into the reply panel word by word in real time.
 
-![Reply Suggestions panel — streamed in real time](/media/docs/reply-suggestions.mp4)
+![Reply Suggestions panel - streamed in real time](/media/docs/reply-suggestions.mp4)
 
 ### Scrolling Suggestions
 
@@ -65,7 +65,7 @@ For technical interviews with coding problems, Power Interview can analyze your 
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
 5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Shift+F11` to clear all captured screenshots.
 
-![Code Suggestions panel — syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.mp4)
+![Code Suggestions panel - syntax-highlighted solution streamed in real time](/media/docs/code-suggestions.mp4)
 
 ### Scrolling Code Suggestions
 
@@ -109,7 +109,7 @@ The face swap feature replaces your webcam output with a face-swapped stream - y
 
 6. Click start button to begin the session with face swap active.
 
-   ![Face swap in action — webcam feed replaced with face-swapped output](/media/docs/face-swap-example.png)
+   ![Face swap in action - webcam feed replaced with face-swapped output](/media/docs/face-swap-example.png)
 
 The VCam Agent captures frames from your webcam, streams them to the face swap backend, and pushes the processed output to OBS Virtual Camera.
 
@@ -125,7 +125,7 @@ The VCam Agent captures frames from your webcam, streams them to the face swap b
 
 ## Stealth Mode
 
-The Power Interview window is **always hidden from screen capture and screen share** — interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
+The Power Interview window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
 
 Stealth mode is about **focus control**. When active, the window will not steal focus from your coding challenge, IDE, or video call. You stay in full control of your keyboard and mouse at all times.
 
@@ -151,7 +151,7 @@ Because you cannot use the mouse to interact with Power Interview while focused 
 
 Use a numpad-style layout to snap the window to any screen position:
 
-![Window positioning grid — numpad layout for screen zones](/media/docs/window-positioning.svg)
+![Window positioning grid - numpad layout for screen zones](/media/docs/window-positioning.svg)
 
 ### Fine-Tuning Position and Size
 
@@ -207,10 +207,10 @@ The **Export** button generates a Word document (`.docx`) containing:
 
 A save dialog appears so you can choose where to save the file.
 
-| ![Export Interview dialog — save generated report as a .docx file](/media/docs/export-interview.png) | ![Export Example — generated interview report in Word](/media/docs/export-example.png) |
+| ![Export Interview dialog - save generated report as a .docx file](/media/docs/export-interview.png) | ![Export Example - generated interview report in Word](/media/docs/export-example.png) |
 | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 
-[Export Example — generated interview report in Word](/media/docs/export-example.docx)
+[Export Example - generated interview report in Word](/media/docs/export-example.docx)
 
 ### Clear Session
 
@@ -220,7 +220,7 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 
 ## Credits & Payments
 
-Credits are consumed while the assistant is running — covering AI reply suggestions, transcription, and face swap processing. Your remaining credit balance is shown live in the video panel and in the status bar (stealth mode).
+Credits are consumed while the assistant is running - covering AI reply suggestions, transcription, and face swap processing. Your remaining credit balance is shown live in the video panel and in the status bar (stealth mode).
 
 To buy credits:
 
