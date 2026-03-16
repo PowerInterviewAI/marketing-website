@@ -103,11 +103,12 @@ export const FeaturesSection: React.FC = () => {
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
               <SiSuperuser className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
-              <CardTitle>Real-Time Face Swap</CardTitle>
+              <CardTitle>Real-Time Face Swap (GPU-less)</CardTitle>
               <CardDescription>
                 Transform your video appearance during live interviews with advanced face swap
-                technology. <span className="font-semibold text-foreground">Simple setup:</span>{' '}
-                Just install{' '}
+                technology. It works on most machines — no dedicated GPU or powerful graphics card
+                is required because all processing is handled in the cloud.
+                <span className="font-semibold text-foreground">Simple setup:</span> Just install{' '}
                 <a
                   href="https://obsproject.com/download"
                   target="_blank"

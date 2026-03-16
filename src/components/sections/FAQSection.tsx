@@ -35,7 +35,7 @@ const faqData = [
   {
     question: 'Do I need special hardware to run Power Interview AI?',
     answer:
-      'Power Interview AI runs on most modern Windows computers without special hardware requirements. For the face swap feature, simply install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - both free and require no configuration. Detailed installation instructions are provided in the documentation.',
+      'Power Interview AI runs on most modern Windows computers without special hardware requirements. The face swap video is processed on our cloud GPU servers, so you do not need a dedicated graphics card or local GPU — just a stable internet connection. For the face swap feature, simply install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - both free and require no configuration. Detailed installation instructions are provided in the documentation.',
   },
   {
     question: 'How accurate is the AI transcription?',

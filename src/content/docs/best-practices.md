@@ -69,6 +69,10 @@ Run a short test session a few minutes before the interview starts:
 
 Make sure **OBSStudio** is is installed **before** your video call app opens. Many video call platforms (Zoom, Teams) only detect camera devices at launch time. If you start OBS after joining the call, you may need to leave and rejoin.
 
+### Cloud GPU Processing (No Local GPU Required)
+
+Face swap processing runs on our cloud GPU servers, so you do **not** need a powerful graphics card on your machine. A stable internet connection is the only requirement for face swap to work reliably.
+
 ### Select the Correct Devices in Your Meeting App
 
 When face swap is enabled, your meeting platform must use the virtual devices, not your physical ones:

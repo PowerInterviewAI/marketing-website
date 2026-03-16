@@ -12,6 +12,8 @@ Power Interview is composed of three layers:
 2. **Python Agents** - lightweight local processes for audio capture and virtual camera streaming
 3. **Cloud Backend** - AI inference, ASR transcription, and face swap GPU processing
 
+> All GPU-heavy face swap work happens in the cloud, so you do not need a local GPU—only a stable internet connection.
+
 These layers communicate in real time using ZeroMQ (local inter-process), WebSocket (streaming), and HTTPS REST (configuration and auth).
 
 ---

@@ -150,7 +150,7 @@ Video processing introduces a small amount of latency. If the face swap video an
 
 - Check your network connection. High latency or packet loss between your machine and the GPU backend increases processing delay.
 - Reduce the video resolution in Face Swap Options (try 640×360 instead of 1280×720) to decrease processing time.
-- Close other GPU-intensive applications on your machine to free GPU resources for the backend.
+- Close other GPU-intensive applications on your machine to free local GPU resources (for OBS and video rendering). Face swap processing itself runs on the cloud GPU backend.
 
 ### Face swap starts but the output shows the original face (no swap)
 
