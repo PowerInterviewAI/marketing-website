@@ -5,6 +5,8 @@ import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-reac
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 
+import { InterviewCountBanner } from './InterviewCountBanner';
+
 // Media carousel data
 const mediaItems = [
   {
@@ -181,6 +183,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     <section id="home" className="pb-16 pt-20 md:pb-24 md:pt-32" aria-labelledby="hero-heading">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
+          <InterviewCountBanner count={10} floating />
           <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
             <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
             <span className="font-medium">Privacy-First AI Interview Assistant</span>
