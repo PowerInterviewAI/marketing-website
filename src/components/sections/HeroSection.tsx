@@ -80,8 +80,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
+  const [interviewCount, setInterviewCount] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const interviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  useEffect(() => {
+    const scheduleNextUpdate = () => {
+      const delay = randomInt(5000, 10000);
+      interviewTimerRef.current = setTimeout(() => {
+        setInterviewCount((prev) => {
+          const delta = randomInt(-20, 20);
+          const next = Math.min(100, Math.max(50, prev + delta));
+          return next;
+        });
+
+        scheduleNextUpdate();
+      }, delay);
+    };
+
+    scheduleNextUpdate();
+
+    return () => {
+      if (interviewTimerRef.current) {
+        clearTimeout(interviewTimerRef.current);
+      }
+    };
+  }, []);
 
   // Fetch latest version from GitHub releases API
   useEffect(() => {
@@ -183,7 +210,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     <section id="home" className="md:pt-22 pb-16 pt-10 md:pb-24" aria-labelledby="hero-heading">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <InterviewCountBanner count={10} />
+          <InterviewCountBanner count={interviewCount} />
           <h1
             id="hero-heading"
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
