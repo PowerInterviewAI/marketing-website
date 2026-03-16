@@ -65,6 +65,9 @@ interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void;
 }
 
+// Utility helpers
+const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+
 // Helper method to generate install command based on version
 const getInstallCommand = (version: string | null): string => {
   if (!version) {
@@ -80,12 +83,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
-  const [interviewCount, setInterviewCount] = useState(0);
+  const [interviewCount, setInterviewCount] = useState(() => randomInt(50, 100));
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const interviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   useEffect(() => {
     const scheduleNextUpdate = () => {
