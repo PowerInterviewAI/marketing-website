@@ -180,14 +180,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     }
   }, [isPlaying, currentMediaIndex]);
   return (
-    <section id="home" className="pb-16 pt-20 md:pb-24 md:pt-32" aria-labelledby="hero-heading">
+    <section id="home" className="md:pt-22 pb-16 pt-10 md:pb-24" aria-labelledby="hero-heading">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <InterviewCountBanner count={10} floating />
-          <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
-            <span className="font-medium">Privacy-First AI Interview Assistant</span>
-          </div>
+          <InterviewCountBanner count={10} />
           <h1
             id="hero-heading"
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
@@ -199,6 +195,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             Ace technical and behavioral interviews with real-time transcription, intelligent
             suggestions, and cutting-edge face swap technology-all while maintaining your privacy.
           </p>
+
+          <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
+            <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
+            <span className="font-medium">Privacy-First AI Interview Assistant</span>
+          </div>
 
           {/* Installation Options */}
           <div className="mx-auto mt-8 max-w-3xl">
