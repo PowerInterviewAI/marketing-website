@@ -65,20 +65,34 @@ interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void;
 }
 
-// Utility helpers
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const fetchActiveSessionsCount = async (): Promise<number | null> => {
+  try {
+    const response = await fetch(
+      'https://api.powerinterviewai.com/api/health-check/active-sessions',
+      {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+        },
+      }
+    );
 
-// Gaussian (normal) distribution via Box-Muller transform
-const gaussianRandom = (mean: number, stddev: number) => {
-  let u = 0;
-  let v = 0;
-  while (u === 0) u = Math.random();
-  while (v === 0) v = Math.random();
-  const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-  return z * stddev + mean;
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const text = await response.text();
+    const parsedCount = parseInt(text.trim(), 10);
+
+    if (Number.isFinite(parsedCount) && parsedCount >= 0) {
+      return parsedCount;
+    }
+  } catch (error) {
+    console.warn('Failed to fetch active session count:', error);
+  }
+
+  return null;
 };
-
-const sampleInterviewCount = () => Math.round(Math.max(10, gaussianRandom(175, 10)));
 
 // Helper method to generate install command based on version
 const getInstallCommand = (version: string | null): string => {
@@ -95,17 +109,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
-  const [interviewCount, setInterviewCount] = useState(() => sampleInterviewCount());
+  const [interviewCount, setInterviewCount] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const interviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const scheduleNextUpdate = () => {
-      const delay = randomInt(5000, 10000);
-      interviewTimerRef.current = setTimeout(() => {
-        setInterviewCount(() => sampleInterviewCount());
+    let isMounted = true;
 
+    const scheduleNextUpdate = async () => {
+      const delay = 5000; // poll every 5 seconds
+
+      const count = await fetchActiveSessionsCount();
+      if (isMounted && count !== null) {
+        setInterviewCount(count);
+      }
+
+      if (!isMounted) return;
+      interviewTimerRef.current = setTimeout(() => {
         scheduleNextUpdate();
       }, delay);
     };
@@ -113,6 +134,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     scheduleNextUpdate();
 
     return () => {
+      isMounted = false;
       if (interviewTimerRef.current) {
         clearTimeout(interviewTimerRef.current);
       }
