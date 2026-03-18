@@ -250,16 +250,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             <span className="block text-primary">Interview Coach</span>
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Ace technical and behavioral interviews with{' '}
-            <span className="font-semibold text-foreground">real-time transcription</span>,{' '}
-            <span className="font-semibold text-foreground">intelligent suggestions</span>, and{' '}
-            <span className="font-semibold text-foreground">
-              ✨ cutting-edge <span className="animate-pulse text-destructive">GPU-less</span>{' '}
-              <span className="animate-pulse font-bold uppercase text-primary">face swap</span>{' '}
-              technology
-            </span>{' '}
-            - all while keeping your data private with our{' '}
-            <span className="font-semibold text-primary">privacy-first</span> design.
+            Ace any type of interviews with our{' '}
+            <span className="font-bold uppercase text-foreground">live suggestions, </span>
+            <span className="font-bold uppercase text-foreground">
+              coding challenge assistant,{' '}
+            </span>
+            and{' '}
+            <span className="font-semibold uppercase text-foreground">
+              ✨<span className="animate-pulse font-extrabold text-destructive">GPU-less</span>{' '}
+              <span className="animate-pulse font-extrabold uppercase text-primary">
+                face swap
+              </span>{' '}
+            </span>
+            features - all while keeping your data private with our{' '}
+            <span className="font-bold uppercase text-primary">privacy-first</span> design.
           </p>
 
           <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
