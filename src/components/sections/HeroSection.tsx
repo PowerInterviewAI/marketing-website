@@ -254,9 +254,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             <span className="font-semibold text-foreground">real-time transcription</span>,{' '}
             <span className="font-semibold text-foreground">intelligent suggestions</span>, and{' '}
             <span className="font-semibold text-foreground">
-              ✨ cutting-edge <span className="uppercase text-primary">face swap</span> technology
+              ✨ cutting-edge <span className="animate-pulse text-destructive">GPU-less</span>{' '}
+              <span className="animate-pulse font-bold uppercase text-primary">face swap</span>{' '}
+              technology
             </span>{' '}
-            — all while keeping your data private with our{' '}
+            - all while keeping your data private with our{' '}
             <span className="font-semibold text-primary">privacy-first</span> design.
           </p>
 
