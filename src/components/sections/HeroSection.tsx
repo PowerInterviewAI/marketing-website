@@ -250,8 +250,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             <span className="block text-primary">Interview Coach</span>
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Ace technical and behavioral interviews with real-time transcription, intelligent
-            suggestions, and cutting-edge face swap technology-all while maintaining your privacy.
+            Ace technical and behavioral interviews with{' '}
+            <span className="font-semibold text-foreground">real-time transcription</span>,{' '}
+            <span className="font-semibold text-foreground">intelligent suggestions</span>, and{' '}
+            <span className="font-semibold text-foreground">
+              ✨ cutting-edge <span className="uppercase text-primary">face swap</span> technology
+            </span>{' '}
+            — all while keeping your data private with our{' '}
+            <span className="font-semibold text-primary">privacy-first</span> design.
           </p>
 
           <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
