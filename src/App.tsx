@@ -18,9 +18,27 @@ import DocsIndex from './pages/docs';
 import DocsPage from './pages/docs/[slug]';
 
 const App: React.FC = () => {
+  const showUpgradeOverlay = true;
+
   return (
     <BrowserRouter>
       <ScrollToTop />
+
+      {showUpgradeOverlay && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 px-6 py-8 text-center text-white">
+          <div className="max-w-xl rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl backdrop-blur-sm">
+            <p className="mb-4 text-sm uppercase tracking-[0.28em] text-slate-400">
+              Service upgrade underway
+            </p>
+            <h1 className="mb-4 text-4xl font-semibold sm:text-5xl">We'll be back soon</h1>
+            <p className="text-lg leading-8 text-slate-300">
+              Our service is currently upgrading. Thank you for your patience - please check back
+              shortly.
+            </p>
+          </div>
+        </div>
+      )}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
