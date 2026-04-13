@@ -25,15 +25,15 @@ export const LegalNoticeSection: React.FC = () => {
               <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
                 <div>
                   <h3 className="mb-2 text-2xl font-semibold tracking-tight text-amber-900 dark:text-amber-300">
-                    Face Swap Feature - Legal Use Only
+                    Ethical Use - Legal Use Only
                   </h3>
                   <p className="text-base">
-                    The face swap feature is powerful and must be used{' '}
+                    This product is powerful and must be used{' '}
                     <span className="font-semibold text-amber-700 dark:text-amber-400">
                       responsibly and legally
                     </span>
-                    . Misusing face swap technology to impersonate another person, misrepresent your
-                    identity, or deceive interviewers can be{' '}
+                    . Using it to impersonate another person, misrepresent your identity, or deceive
+                    interviewers can be{' '}
                     <span className="font-semibold text-foreground">illegal</span> and may lead to:
                   </p>
                   <ul className="ml-6 mt-4 list-disc space-y-1 text-sm">
@@ -46,9 +46,9 @@ export const LegalNoticeSection: React.FC = () => {
 
                 <div className="rounded-lg border-2 border-amber-500 bg-amber-500/10 p-4">
                   <p className="font-semibold text-amber-900 dark:text-amber-400">
-                    ⚖️ By using the face swap feature, you acknowledge that you will use it
-                    ethically, legally, and only for legitimate practice scenarios. Do not use it to
-                    deceive others.
+                    ⚖️ By using this product, you acknowledge that you will use it ethically,
+                    legally, and only for legitimate practice and preparation scenarios. Do not use
+                    it to deceive others.
                   </p>
                 </div>
 

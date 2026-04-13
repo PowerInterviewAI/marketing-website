@@ -23,9 +23,9 @@ const faqData = [
       'Your data stays with you. All sensitive information is stored locally on your device using encrypted storage. Only necessary data (transcripts, screenshots) is sent to our AI services for suggestions. We never collect, sell, or share your personal information.',
   },
   {
-    question: 'What is the face swap feature and how does it work?',
+    question: 'Can I use my own LLM provider?',
     answer:
-      'The face swap feature uses advanced AI to replace your face in real-time video with a photo you provide. Setup is incredibly simple: just install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - no configuration needed! Once installed, the feature works seamlessly with any video conferencing application. Perfect for privacy protection or personal presentation preferences.',
+      'Yes. All users can bring their own provider (OpenAI, Anthropic, Google, and more) using API keys they control. Depending on your plan, we also include a default model so you can get started instantly.',
   },
   {
     question: 'What platforms are supported?',
@@ -35,7 +35,7 @@ const faqData = [
   {
     question: 'Do I need special hardware to run Power Interview AI?',
     answer:
-      'Power Interview AI runs on most modern Windows computers without special hardware requirements. The face swap video is processed on our cloud GPU servers, so you do not need a dedicated graphics card or local GPU — just a stable internet connection. For the face swap feature, simply install OBS Studio (https://obsproject.com/download) and VB-Cable (https://vb-audio.com/Cable/) - both free and require no configuration. Detailed installation instructions are provided in the documentation.',
+      'Power Interview AI runs on most modern Windows computers without special hardware requirements. A stable internet connection improves streaming performance, but you do not need a dedicated GPU.',
   },
   {
     question: 'How accurate is the AI transcription?',
@@ -55,7 +55,7 @@ const faqData = [
   {
     question: 'How do credits work?',
     answer:
-      'Credits are consumed at a rate of 10 credits per minute when using AI-powered features like reply suggestions, code analysis, transcription, and face swap processing. For example, a 30-minute interview session would use approximately 300 credits. You can purchase credit packs starting from 600 credits ($9 for ~60 minutes) up to 60,000 credits ($500 for ~6,000 minutes).',
+      'Credits are consumed at a rate of 10 credits per minute when using AI-powered features like reply suggestions, code analysis, and transcription. For example, a 30-minute interview session would use approximately 300 credits. You can purchase credit packs starting from 600 credits ($9 for ~60 minutes) up to 60,000 credits ($500 for ~6,000 minutes).',
   },
   {
     question: 'What payment methods do you accept?',
@@ -64,8 +64,7 @@ const faqData = [
   },
   {
     question: 'Is there a free trial?',
-    answer:
-      'Yes! All new users receive 100 free credits to try out all features (approximately 10 minutes of AI assistance). This allows you to experience the full capabilities of Power Interview AI risk-free, with no payment information needed. After that, you can choose from our affordable pricing plans starting at just $20 for 600 credits, payable with coins only.',
+    answer: 'Yes! All new users can experience all features for free with rate limit.',
   },
   {
     question: 'Can I get a refund?',

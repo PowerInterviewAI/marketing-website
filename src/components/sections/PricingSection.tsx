@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
@@ -9,31 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Plan } from '@/types';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
-
-// Plan features mapping
-const planFeatures: Record<string, string[]> = {
-  starter: [
-    'Real-time transcription',
-    'AI reply suggestions',
-    'Code assistance',
-    'Face swap feature',
-  ],
-  pro: [
-    'Real-time transcription',
-    'AI reply suggestions',
-    'Code assistance',
-    'Face swap feature',
-    'Priority support',
-  ],
-  enterprise: [
-    'Real-time transcription',
-    'AI reply suggestions',
-    'Code assistance',
-    'Face swap feature',
-    'Priority support',
-    'Dedicated account manager',
-  ],
-};
 
 const planDescriptions: Record<string, string> = {
   starter: 'Perfect for trying out the platform',
@@ -132,7 +106,7 @@ export const PricingSection: React.FC = () => {
           <div className="mt-6 inline-flex flex-col gap-2">
             <div className="rounded-lg bg-primary/10 px-6 py-3 text-center">
               <p className="text-sm font-semibold text-primary">
-                🎁 New users get 100 free credits to try all features!
+                🎁 New users can experience all features for free with rate limit!
               </p>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -146,11 +120,57 @@ export const PricingSection: React.FC = () => {
           </div>
         </div>
 
+        <div className="mx-auto mb-10 grid max-w-5xl gap-6 md:grid-cols-2">
+          <Card className="border-primary/30 bg-primary/5">
+            <CardHeader>
+              <CardTitle className="text-2xl">Free</CardTitle>
+              <CardDescription>
+                Unlimited interviews with fair-use limits for suggestions.
+              </CardDescription>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <span className="font-semibold text-foreground">AI suggestions:</span> 5 per hour
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
+                  <code className="rounded bg-background px-1 py-0.5">
+                    meta-llama/llama-4-scout-17b-16e-instruct
+                  </code>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
+                  Anthropic, Google, etc.
+                </li>
+              </ul>
+            </CardHeader>
+          </Card>
+
+          <Card className="border-primary shadow-sm">
+            <CardHeader>
+              <CardTitle className="text-2xl">Paid</CardTitle>
+              <CardDescription>Higher throughput plus provided SOTA models.</CardDescription>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <span className="font-semibold text-foreground">AI suggestions:</span> higher rate
+                  limits
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
+                  <code className="rounded bg-background px-1 py-0.5">openai/gpt-5.4</code>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
+                  Anthropic, Google, etc.
+                </li>
+              </ul>
+            </CardHeader>
+          </Card>
+        </div>
+
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
           {plans.map((plan) => {
             const planName = plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
             const minutes = plan.credits / 10;
-            const features = planFeatures[plan.plan.toLowerCase()] || [];
             const description = planDescriptions[plan.plan.toLowerCase()] || '';
             const discount =
               starterPricePerCredit > 0 ? calculateDiscount(plan, starterPricePerCredit) : 0;
@@ -169,7 +189,7 @@ export const PricingSection: React.FC = () => {
                     </span>
                   </div>
                 )}
-                <CardHeader className={plan.popular ? 'pt-8' : ''}>
+                <CardHeader className={'flex-1' + (plan.popular ? 'pt-8' : '')}>
                   <CardTitle className="text-2xl">{planName}</CardTitle>
                   <CardDescription>{description}</CardDescription>
                   <div className="mt-4 flex flex-wrap items-baseline gap-3">
@@ -195,22 +215,7 @@ export const PricingSection: React.FC = () => {
                     ~{minutes.toLocaleString()} minutes of AI assistance
                   </p>
                 </CardHeader>
-                <CardContent className="flex-1">
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                      <span className="text-sm">
-                        {plan.credits.toLocaleString()} credits (~{minutes.toLocaleString()}{' '}
-                        minutes)
-                      </span>
-                    </li>
-                    {features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <SiCheckmarx className="mr-2 h-5 w-5 shrink-0 text-primary" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <CardContent>
                   <Button
                     className="mt-6 w-full"
                     variant={plan.popular ? 'default' : 'outline'}

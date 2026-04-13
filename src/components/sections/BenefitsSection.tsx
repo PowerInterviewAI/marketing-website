@@ -203,7 +203,7 @@ export const BenefitsSection: React.FC = () => {
               }
             }}
           >
-            Start Free with 100 Credits
+            Start for Free to try all features
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   };
 
   const longDescription =
-    'Transform your interview performance with Power Interview AI - the ultimate AI-powered interview assistant featuring advanced face-swap technology for privacy, live coding challenge assistance with real-time transcription and intelligent code suggestions, smart export functionality to save your sessions, and flexible cryptocurrency payment options. Get 100 free credits to start! No credit card, PayPal, or bank account required - pay securely with crypto. Perfect for technical interviews, coding assessments, and behavioral interviews with AI-driven real-time guidance.';
+    'Transform your interview performance with Power Interview AI - a privacy-first AI interview assistant with real-time transcription, intelligent reply and code suggestions, and exportable session reports. Use your own LLM provider (OpenAI, Anthropic, Google, etc.) and get started instantly with included models based on your plan. Perfect for technical interviews, coding assessments, and behavioral interviews.';
 
   return (
     <div className="min-h-screen bg-background">

@@ -47,15 +47,6 @@ Use this path if you want to run or modify the development version.
 | Python           | 3.12            |
 | npm              | 8 or higher     |
 
-### External Software (Optional, for specific features)
-
-| Software                                                  | Purpose                                                                                                                            |                                                                                 |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [OBS Studio with Virtual Camera](https://obsproject.com/) | Required for the face swap / virtual camera feature                                                                                | ![Download and Install OBS Studio](/media/docs/obsstudio-install.png)           |
-| [VB-Audio Virtual Cable](https://vb-audio.com/Cable/)     | Required for face swap: routes your microphone audio through the virtual camera output so the meeting platform receives your voice | ![Download and Install VB-Audio Virtual Cable](/media/docs/vbcable-install.png) |
-
-These are only needed if you intend to use the **face swap** feature. Transcription of both your voice and the interviewer's voice works without them.
-
 ---
 
 ### Step 1 - Clone the Repository
@@ -92,8 +83,6 @@ The key Python packages installed are:
 | Package           | Purpose                                         |
 | ----------------- | ----------------------------------------------- |
 | `pyaudiowpatch`   | Audio capture including system (loopback) audio |
-| `pyvirtualcam`    | Virtual camera output                           |
-| `opencv-python`   | Video frame processing                          |
 | `pyzmq`           | Inter-process communication between agents      |
 | `websockets`      | Real-time streaming to backend services         |
 | `sounddevice`     | Audio device enumeration and routing            |
@@ -113,14 +102,11 @@ The Python agents are compiled into standalone executables using Nuitka. Build e
 **Build a specific agent:**
 
 ```bat
-:: ASR (transcription) agent
+::: ASR (transcription) agent
 python -m scripts.build_asr_agent
 
-:: Audio control agent
+::: Audio control agent
 python -m scripts.build_audio_control_agent
-
-:: Virtual camera agent
-python -m scripts.build_vcam_agent
 ```
 
 **Build all agents at once:**
@@ -191,15 +177,5 @@ After launching the app for the first time (whether from the installer or source
 
    ![Audio Options - microphone selector](/media/docs/audio-options.png)
 
-5. **Face swap setup** (optional - requires OBS Virtual Camera and VB-Audio Virtual Cable):
-   - Set a face swap reference photo in the **Configuration** dialog
-   - Click the face icon in the control panel to open **Face Swap Options**
-   - Select your physical webcam and preferred resolution
-   - Toggle **Face Swap** on from the control panel
-   - In your video call app, select **OBS Virtual Camera** as the camera and **CABLE Output (VB-Audio Virtual Cable)** as the microphone
-
-   |                                         Camera                                         |                                           Microphone                                           |
-   | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
-   | ![Select OBS Virtual Camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
-
 After completing setup, click **Start** to begin a session.
+

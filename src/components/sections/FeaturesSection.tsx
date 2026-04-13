@@ -5,6 +5,7 @@ import {
   Captions,
   FileDown,
   Ghost,
+  KeyRound,
   MessageSquareCode,
   MessageSquareText,
   UserLock,
@@ -103,30 +104,22 @@ export const FeaturesSection: React.FC = () => {
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
               <SiSuperuser className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
-              <CardTitle>Real-Time Face Swap (GPU-less)</CardTitle>
+              <CardTitle>Bring Your Own LLM</CardTitle>
               <CardDescription>
-                Transform your video appearance during live interviews with advanced face swap
-                technology. It works on most machines — no dedicated GPU or powerful graphics card
-                is required because all processing is handled in the cloud.
-                <span className="font-semibold text-foreground">Simple setup:</span> Just install{' '}
-                <a
-                  href="https://obsproject.com/download"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  OBS Studio
-                </a>{' '}
-                and{' '}
-                <a
-                  href="https://vb-audio.com/Cable/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  VB-Cable
-                </a>{' '}
-                - no configuration needed!
+                Use your own provider (OpenAI, Anthropic, Google, and more) with API keys you
+                control. We also include a default model based on your plan so you can get started
+                instantly.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="transition-shadow hover:shadow-lg">
+            <CardHeader>
+              <KeyRound className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
+              <CardTitle>Plan-Based Access</CardTitle>
+              <CardDescription>
+                Free users get unlimited interviews with a fair-use rate limit (5 suggestions per
+                hour). Paid users unlock higher throughput and premium included models.
               </CardDescription>
             </CardHeader>
           </Card>

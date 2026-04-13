@@ -40,9 +40,9 @@ This typically means the renderer process failed to load.
 
 ## Backend & Service Connectivity
 
-### Cannot connect to the Backend or GPU service
+### Cannot connect to the backend services
 
-The app checks connectivity to backend services on startup and periodically during a session. If a service is unreachable, the relevant feature (transcription, AI suggestions, face swap) will not work.
+The app checks connectivity to backend services on startup and periodically during a session. If a service is unreachable, the relevant feature (transcription, AI suggestions) will not work.
 
 **Steps to diagnose:**
 
@@ -50,7 +50,6 @@ The app checks connectivity to backend services on startup and periodically duri
 2. Visit [powerinterviewai.com](https://www.powerinterviewai.com/) in a browser to confirm the service is not under maintenance.
 3. Check if a firewall or VPN is blocking outbound WebSocket connections (ports 443 or 8080 are typically used).
 4. Disable your VPN temporarily and retry.
-5. If the GPU service is unreachable but the backend is reachable, the face swap feature will not be available, but transcription and AI suggestions will still work.
 
 ---
 
@@ -94,7 +93,7 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 ### No reply suggestions are generated
 
 - Verify your **Profile** (CV / resume) and **Context** (job description) fields are filled in. The AI requires this information to generate useful responses.
-- Confirm the backend is reachable (see [Cannot connect to the Backend or GPU service](#cannot-connect-to-the-backend-or-gpu-service)).
+- Confirm the backend is reachable (see [Cannot connect to the backend services](#cannot-connect-to-the-backend-services)).
 - Ensure the session is active and transcription is running. Suggestions require conversation data.
 
 ### Suggestions are generic and not relevant to the interview
@@ -124,41 +123,6 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 - Capture additional screenshots that include edge cases, constraints, or sample I/O (`Ctrl+Shift+F9` for each).
 - Clear the previous set of screenshots (`Ctrl+Shift+F11`) before capturing images for a new problem.
 - Zoom into the relevant portion of the problem before capturing so the model receives higher-resolution text.
-
----
-
-## Face Swap & Virtual Camera
-
-### OBS Virtual Camera is not appearing in the video call app
-
-- Ensure **OBS Studio** is installed and updated to the latest version.
-- In the video call app, look for a camera source named **OBS Virtual Camera**. If it does not appear, restart both OBS and the video call app.
-
-  |                                          Camera Device                                           |                                       Microphone Device                                        |
-  | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
-  | ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
-
-### The face swap output is misaligned, jittery, or flickering
-
-- Use a better reference photo: clear, front-facing, well-lit, with no obstructions.
-- Enable **Face Enhancement** in the Face Swap Options dialog for additional post-processing.
-- Reduce the output resolution in face swap settings if performance is the bottleneck.
-
-### The face swap video is out of sync with audio
-
-Video processing introduces a small amount of latency. If the face swap video and your audio are noticeably out of sync in the video call:
-
-- Check your network connection. High latency or packet loss between your machine and the GPU backend increases processing delay.
-- Reduce the video resolution in Face Swap Options (try 640×360 instead of 1280×720) to decrease processing time.
-- Close other GPU-intensive applications on your machine to free local GPU resources (for OBS and video rendering). Face swap processing itself runs on the cloud GPU backend.
-
-### Face swap starts but the output shows the original face (no swap)
-
-- Confirm a face swap **photo is uploaded** in the Configuration dialog (profile dropdown → Configuration). Without a reference photo, the feature cannot swap faces.
-- Confirm the GPU service is reachable. Face swap processing runs on the backend GPU server - if it is unavailable, stop and restart the assistant once connectivity is restored.
-- Stop and restart the face swap feature from the control panel.
-
-  ![Face Swap Options dialog - verify reference photo is uploaded](/media/docs/face-swap-options.png)
 
 ---
 

@@ -121,16 +121,12 @@ export const WhyChooseSection: React.FC = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <SiCheckmarx className="h-6 w-6 text-primary" />
-                  Unmatched Face Swap Technology
+                  Bring Your Own Model
                 </CardTitle>
                 <CardDescription className="text-base">
-                  Unlike basic screen recording tools or simple overlay assistants (like Interview
-                  Copilot, Final Round AI), Power Interview AI offers{' '}
-                  <span className="font-semibold text-foreground">
-                    real-time face swap with OBS integration
-                  </span>
-                  . Other tools can't modify your video feed - we can. No complex setup required -
-                  just install OBS and VB-Cable and you're ready!
+                  Use your own LLM provider (OpenAI, Anthropic, Google, and more) with keys you
+                  control. Depending on your plan, a default model is also included so you can get
+                  started instantly.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -147,8 +143,7 @@ export const WhyChooseSection: React.FC = () => {
                   <span className="font-semibold text-foreground">
                     standalone desktop application
                   </span>{' '}
-                  - download, install, and start. Face swap? Just install OBS and VB-Cable - no
-                  configuration needed.
+                  - download, install, and start.
                 </CardDescription>
               </CardHeader>
             </Card>

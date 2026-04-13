@@ -26,8 +26,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               <span className="text-lg font-bold">Power Interview AI</span>
             </div>
             <p className="mb-4 text-sm text-muted-foreground">
-              Your personal AI-powered interview coach with real-time face swap technology.
-              Privacy-first, powerful, and effective.
+              Your personal AI-powered interview coach. Privacy-first, powerful, and effective.
             </p>
             <div className="flex gap-4">
               <a

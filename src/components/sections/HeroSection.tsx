@@ -23,41 +23,10 @@ const mediaItems = [
     description: 'AI-powered code suggestions and solutions for technical interviews',
   },
   {
-    src: 'media/face.henrry.mp4',
-    type: 'video',
-    title: 'Face Swap - Henry',
-    description: 'Real-time face swap technology for enhanced privacy during interviews',
-  },
-  {
-    src: 'media/face.tonny.mp4',
-    type: 'video',
-    title: 'Face Swap - Tonny',
-    description: 'Seamless face replacement with natural expressions and movements',
-  },
-  {
-    src: 'media/face.victor.mp4',
-    type: 'video',
-    title: 'Face Swap - Victor',
-    description: 'Advanced AI face transformation maintaining professional appearance',
-  },
-  {
-    src: 'media/meeting.henry.mp4',
-    type: 'video',
-    title: 'Meeting Demo - Henry',
-    description: 'Full meeting demonstration with AI assistance and face swap features',
-  },
-  {
-    src: 'media/meeting.tonny.mp4',
-    type: 'video',
-    title: 'Meeting Demo - Tonny',
-    description: 'Complete interview scenario with real-time AI coaching and suggestions',
-  },
-
-  {
     src: 'media/meeting.tonny.face.liveassist.png',
     type: 'image',
     title: 'Live Assist Interface',
-    description: 'Clean and intuitive interface showing face swap and live assistance features',
+    description: 'Clean and intuitive interface for live interview assistance',
   },
 ];
 
@@ -255,14 +224,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             <span className="font-bold uppercase text-foreground">
               coding challenge assistant,{' '}
             </span>
-            and{' '}
-            <span className="font-semibold uppercase text-foreground">
-              ✨<span className="animate-pulse font-extrabold text-destructive">GPU-less</span>{' '}
-              <span className="animate-pulse font-extrabold uppercase text-primary">
-                face swap
-              </span>{' '}
-            </span>
-            features - all while keeping your data private with our{' '}
+            plus plan-based included models and support for{' '}
+            <span className="font-bold uppercase text-foreground">your own LLM provider</span> - all
+            while keeping your data private with our{' '}
             <span className="font-bold uppercase text-primary">privacy-first</span> design.
           </p>
 
@@ -414,8 +378,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           </div>
 
           <p className="mt-4 text-sm text-muted-foreground">
-            🎁 Start with <span className="font-semibold text-foreground">100 free credits</span> -
-            Pay with coins only (No credit card, PayPal, or bank required)
+            🎁 Start for Free to try all features - Pay with coins only (No credit card, PayPal, or
+            bank required)
           </p>
 
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">

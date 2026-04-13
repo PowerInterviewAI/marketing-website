@@ -50,7 +50,6 @@ const TermsOfService: React.FC = () => {
                 <ul className="mb-4 list-disc space-y-2 pl-6 text-gray-700 dark:text-gray-300">
                   <li>Real-time interview transcription and assistance</li>
                   <li>Code test support and suggestions</li>
-                  <li>Face swap technology for enhanced privacy</li>
                   <li>AI-powered response generation</li>
                   <li>Interview preparation tools</li>
                 </ul>

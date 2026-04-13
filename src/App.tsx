@@ -18,7 +18,7 @@ import DocsIndex from './pages/docs';
 import DocsPage from './pages/docs/[slug]';
 
 const App: React.FC = () => {
-  const showUpgradeOverlay = true;
+  const showUpgradeOverlay = false;
 
   return (
     <BrowserRouter>

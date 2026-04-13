@@ -1,6 +1,6 @@
 # Usage
 
-This page describes how to use Power Interview during a live interview session, including transcription, AI suggestions, code assistance, face swap, stealth mode, and window management.
+This page describes how to use Power Interview during a live interview session, including transcription, AI suggestions, code assistance, stealth mode, and window management.
 
 ---
 
@@ -79,50 +79,6 @@ You can also jump to the end of the code panel using the third shortcut (O).
 
 ---
 
-## Face Swap
-
-The face swap feature replaces your webcam output with a face-swapped stream - your physical appearance is replaced with the face from the photo you configured in settings.
-
-### Setting It Up
-
-1.  Ensure **OBS Studio** is installed before opening your video call.
-
-2.  Ensure **VB-Audio Virtual Cable driver** is installed.
-
-3.  In your video call app (Zoom, Google Meet, Teams, etc.), select:
-    - **OBS Virtual Camera** as your camera source
-    - **CABLE Output (VB-Audio Virtual Cable)** as your microphone
-
-|                                              Camera                                              |                                           Microphone                                           |
-| :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
-| ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
-
-4. In Power Interview, open **Face Swap Options** from the control panel (face scan icon), select your webcam and resolution, then close the dialog.
-
-   ![Face Swap Options dialog](/media/docs/face-swap-options.png)
-
-5. Toggle **Face Swap on** using the face icon button in the control panel.
-
-   |                                   Face Swap ON                                    |                   Start assistant with face swap active                   |
-   | :-------------------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
-   | ![Face swap toggle button in the control panel](/media/docs/face-swap-toggle.png) | ![Start assistant with face swap active](/media/docs/face-swap-start.png) |
-
-6. Click start button to begin the session with face swap active.
-
-   ![Face swap in action - webcam feed replaced with face-swapped output](/media/docs/face-swap-example.png)
-
-The VCam Agent captures frames from your webcam, streams them to the face swap backend, and pushes the processed output to OBS Virtual Camera.
-
-### Face Swap Settings
-
-| Setting          | Description                                        |
-| ---------------- | -------------------------------------------------- |
-| Camera Device    | Physical webcam used as the video input            |
-| Resolution       | Output resolution: 640×360, 640×480, or 1280×720   |
-| Face Enhancement | Toggle AI post-processing for more natural results |
-
----
-
 ## Stealth Mode
 
 The Power Interview window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
@@ -173,14 +129,12 @@ Access your settings by clicking the **profile icon** in the app's control panel
 | Name         | Your name (required) - used as the speaker label and in AI responses |
 | Profile / CV | Your resume, bio, or portfolio content (required)                    |
 | Context      | Job description or role requirements for the interview (recommended) |
-| Face Photo   | Reference photo used for face swap                                   |
 
 ### Device Settings
 
 | Setting    | Where to configure            | Description                              |
 | ---------- | ----------------------------- | ---------------------------------------- |
 | Microphone | Audio Options (mic icon)      | Physical microphone for your voice       |
-| Camera     | Face Swap Options (face icon) | Webcam used as video input for face swap |
 
 ### Account Menu
 
@@ -220,7 +174,7 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 
 ## Credits & Payments
 
-Credits are consumed while the assistant is running - covering AI reply suggestions, transcription, and face swap processing. Your remaining credit balance is shown live in the video panel and in the status bar (stealth mode).
+Credits are consumed while the assistant is running - covering AI reply suggestions and transcription. Your remaining credit balance is shown live in the status bar (stealth mode).
 
 To buy credits:
 

@@ -34,7 +34,7 @@
   <text x="70" y="154" fill="#8a9ab0" font-size="9" font-family="Arial">• Transcript panel</text>
   <text x="70" y="168" fill="#8a9ab0" font-size="9" font-family="Arial">• Reply suggestions panel</text>
   <text x="70" y="182" fill="#8a9ab0" font-size="9" font-family="Arial">• Code suggestions panel</text>
-  <text x="70" y="196" fill="#8a9ab0" font-size="9" font-family="Arial">• Video / camera panel</text>
+  <text x="70" y="196" fill="#8a9ab0" font-size="9" font-family="Arial">• Session insights</text>
   <text x="70" y="210" fill="#8a9ab0" font-size="9" font-family="Arial">• Control panel &amp; settings</text>
   <text x="70" y="224" fill="#8a9ab0" font-size=  "9" font-family="Arial">• Stealth mode</text>
   <text x="70" y="238" fill="#8a9ab0" font-size="9" font-family="Arial">• Global hotkeys</text>
@@ -49,14 +49,6 @@
   <text x="292" y="152" fill="#8a9ab0" font-size="9" font-family="Arial">• WebSocket → ASR backend</text>
   <text x="292" y="166" fill="#8a9ab0" font-size="9" font-family="Arial">• ZeroMQ → Electron app</text>
 
-  <!-- VCam Agent box -->
-  <rect x="272" y="200" width="200" height="88" rx="8" fill="#0f2035" stroke="#c084fc" stroke-width="1.5" />
-  <text x="372" y="221" fill="#c084fc" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">VCam Agent (Python)</text>
-  <rect x="282" y="227" width="180" height="1" fill="#1e3a5f" />
-  <text x="292" y="243" fill="#8a9ab0" font-size="9" font-family="Arial">• Webcam frame capture</text>
-  <text x="292" y="257" fill="#8a9ab0" font-size="9" font-family="Arial">• WebRTC → GPU face swap</text>
-  <text x="292" y="271" fill="#8a9ab0" font-size="9" font-family="Arial">• → OBS Virtual Camera</text>
-
   <!-- Audio Control Agent box -->
   <rect x="272" y="305" width="200" height="88" rx="8" fill="#0f2035" stroke="#febc2e" stroke-width="1.5" />
   <text x="372" y="326" fill="#febc2e" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle">Audio Control Agent</text>
@@ -70,11 +62,6 @@
   <line x1="230" y1="135" x2="268" y2="135" stroke="#4f8ef7" stroke-width="1.5" marker-end="url(#arrow)" />
   <line x1="268" y1="145" x2="230" y2="145" stroke="#4f8ef7" stroke-width="1.5" marker-end="url(#arrow)" />
   <text x="249" y="130" fill="#4f8ef7" font-size="8" font-family="Arial" text-anchor="middle">ZeroMQ</text>
-
-  <!-- Electron → VCam -->
-  <line x1="230" y1="238" x2="268" y2="238" stroke="#4f8ef7" stroke-width="1.5" marker-end="url(#arrow)" />
-  <line x1="268" y1="248" x2="230" y2="248" stroke="#4f8ef7" stroke-width="1.5" marker-end="url(#arrow)" />
-  <text x="249" y="233" fill="#4f8ef7" font-size="8" font-family="Arial" text-anchor="middle">ZeroMQ</text>
 
   <!-- Electron → Audio Control -->
   <line x1="230" y1="340" x2="268" y2="340" stroke="#4f8ef7" stroke-width="1.5" marker-end="url(#arrow)" />
@@ -99,12 +86,8 @@
   <text x="665" y="236" fill="#4a6a8a" font-size="9" font-family="Arial" text-anchor="middle">reply + code suggestions</text>
 
   <rect x="574" y="256" width="182" height="42" rx="6" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
-  <text x="665" y="274" fill="#c084fc" font-size="10" font-family="Arial" text-anchor="middle">Face Swap GPU Service</text>
-  <text x="665" y="288" fill="#4a6a8a" font-size="9" font-family="Arial" text-anchor="middle">WebRTC video processing</text>
-
-  <rect x="574" y="308" width="182" height="42" rx="6" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
-  <text x="665" y="326" fill="#febc2e" font-size="10" font-family="Arial" text-anchor="middle">Payment Service</text>
-  <text x="665" y="340" fill="#4a6a8a" font-size="9" font-family="Arial" text-anchor="middle">credits / billing</text>
+  <text x="665" y="274" fill="#febc2e" font-size="10" font-family="Arial" text-anchor="middle">Payment Service</text>
+  <text x="665" y="288" fill="#4a6a8a" font-size="9" font-family="Arial" text-anchor="middle">credits / billing</text>
 
   <!-- Arrows from machine to cloud -->
   <!-- ASR Agent → ASR Service (WebSocket) -->
@@ -115,10 +98,6 @@
   <line x1="230" y1="185" x2="556" y2="220" stroke="#4f8ef7" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)" />
   <text x="396" y="210" fill="#4f8ef7" font-size="8" font-family="Arial">HTTPS / WebSocket</text>
 
-  <!-- VCam → GPU (WebRTC) -->
-  <line x1="472" y1="245" x2="556" y2="272" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowP)" />
-  <text x="516" y="257" fill="#c084fc" font-size="8" font-family="Arial" text-anchor="middle">WebRTC</text>
-
   <!-- Legend -->
   <rect x="30" y="442" width="740" height="38" rx="6" fill="#0a1628" stroke="#1e3450" stroke-width="1" />
   <line x1="50" y1="461" x2="80" y2="461" stroke="#4f8ef7" stroke-width="1.5" stroke-dasharray="5,3" />
@@ -127,8 +106,6 @@
   <text x="278" y="465" fill="#6a7a8a" font-size="9" font-family="Arial">ZeroMQ (local IPC)</text>
   <circle cx="440" cy="461" r="4" fill="#28c840"/>
   <text x="450" y="465" fill="#6a7a8a" font-size="9" font-family="Arial">ASR Agent</text>
-  <circle cx="530" cy="461" r="4" fill="#c084fc"/>
-  <text x="540" y="465" fill="#6a7a8a" font-size="9" font-family="Arial">VCam Agent</text>
   <circle cx="620" cy="461" r="4" fill="#febc2e"/>
   <text x="630" y="465" fill="#6a7a8a" font-size="9" font-family="Arial">Audio Agent</text>
 </svg>

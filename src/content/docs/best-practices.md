@@ -2,9 +2,7 @@
 
 > **Be Careful:**
 >
-> Always start the Power Interview Assistant **before** joining the call. If you launch the assistant after connecting, you may need to leave and re‑join for the virtual camera and microphone to be detected.
->
-> The face‑enhancement feature can introduce latency and may decrease the realism of the resulting face; test it beforehand to ensure it suits your requirements.
+> Always start the Power Interview Assistant **before** joining the call so transcription and suggestions are ready from the first question.
 >
 > Getting the most from Power Interview requires more than just turning it on. The following practices will help you achieve accurate transcription, relevant AI suggestions, and a seamless interview experience.
 
@@ -57,54 +55,6 @@ Run a short test session a few minutes before the interview starts:
 - Speak a few sentences and verify your voice appears in the transcript.
 - Play a short audio clip through your speakers and verify the loopback channel picks it up.
 - If the microphone channel is missing, re-check that your physical microphone is selected in **Audio Options**.
-
----
-
-## Face Swap Setup
-
-> **Critical: Start Power Interview assistant before you join the meeting.**
-> Video call platforms (Zoom, Teams, Google Meet) detect available camera and audio devices only at launch time. If Power Interview, OBS Virtual Camera, or VB-Cable are not running when you join, the meeting app will not see those virtual devices and face swap cannot be activated. Always start the assistant and confirm the virtual devices are visible in your meeting app settings **before** clicking Join.
-
-### Use OBS Virtual Camera Correctly
-
-Make sure **OBSStudio** is is installed **before** your video call app opens. Many video call platforms (Zoom, Teams) only detect camera devices at launch time. If you start OBS after joining the call, you may need to leave and rejoin.
-
-### Cloud GPU Processing (No Local GPU Required)
-
-Face swap processing runs on our cloud GPU servers, so you do **not** need a powerful graphics card on your machine. A stable internet connection is the only requirement for face swap to work reliably.
-
-### Select the Correct Devices in Your Meeting App
-
-When face swap is enabled, your meeting platform must use the virtual devices, not your physical ones:
-
-- **Camera**: select **OBS Virtual Camera**
-- **Microphone**: select **CABLE Output (VB-Audio Virtual Cable)**
-
-|                                          Camera Device                                           |                                       Microphone Device                                        |
-| :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
-| ![Select OBS Virtual Camera as camera in your meeting app](/media/docs/meeting-video-device.png) | ![Select CABLE Output as microphone in your meeting app](/media/docs/meeting-audio-device.png) |
-
-Do not select your physical camera or physical microphone in the meeting platform when using the face swap feature.
-
-### Use a Good Reference Photo
-
-The quality of the face swap result is highly sensitive to the reference photo you upload.
-
-**Ideal photo characteristics:**
-
-- Clear, well-lit, front-facing shot
-- Neutral or calm expression
-- No sunglasses, heavy makeup, hats, or occlusions
-- Resolution of at least 512×512 pixels
-- Single subject (no other people in the frame)
-
-Avoid blurry photos, side profiles, or images where the face is partially obscured.
-
-![Reference photo guidelines - good vs bad examples](/media/docs/reference-photo-guide.svg)
-
-### Keep Credits Topped Up
-
-Credits are consumed while the assistant is running. Check your balance in the app (shown in the video panel and the stealth status bar) before your interview. Topping up in advance avoids the session being automatically stopped mid-interview due to depleted credits.
 
 ---
 
@@ -163,12 +113,6 @@ Before every interview, run through this checklist:
 - [ ] Context field has the correct job description for this role
 - [ ] **Power Interview is started before joining the meeting**
 - [ ] Microphone is selected and producing transcript output (test session run)
-- [ ] Camera and face swap photo are configured (if using face swap)
-- [ ] **Power Interview assistant is running before joining the meeting** (if using face swap - critical)
-- [ ] VB-Audio Virtual Cable driver is installed and **CABLE Output** is visible in Windows sound devices (if using face swap)
-- [ ] OBS Virtual Camera is started and selected in the video call app (if using face swap)
-- [ ] CABLE Output is selected as microphone in the video call app (if using face swap)
-- [ ] Credits balance is sufficient for the session (if using face swap)
 - [ ] Power Interview window is positioned and hotkeys tested
 
 ---
@@ -177,6 +121,5 @@ Before every interview, run through this checklist:
 
 Use it responsibly:
 
-- The face swap feature is intended for privacy and personal presentation. Do not use it to impersonate another person.
 - AI suggestions are a starting point - adapt them in your own words. Parroting a suggestion verbatim can appear unnatural.
 - Ensure your use complies with the terms of service of the platform hosting the interview and with any applicable laws in your jurisdiction.
