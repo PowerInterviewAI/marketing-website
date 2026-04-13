@@ -136,13 +136,6 @@ export const ContactSection: React.FC = () => {
               </Card>
             </a>
           </div>
-
-          <div className="mt-12 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 p-8 text-center">
-            <p className="mb-2 text-lg font-semibold text-foreground">Need immediate assistance?</p>
-            <p className="text-sm text-muted-foreground">
-              Join our Discord or Telegram community for real-time support and discussions
-            </p>
-          </div>
         </div>
       </Container>
     </section>

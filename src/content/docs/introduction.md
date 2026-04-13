@@ -80,8 +80,6 @@ Every function in Power Interview is accessible from any window via keyboard sho
 | Trigger without captures                    | `Ctrl+Shift+F11`                |
 | Trigger with captures                       | `Ctrl+Shift+F12`                |
 
-> Hotkey definitions live in `src/config/hotkeys.ts` (keep docs and code in sync).
-
 ---
 
 ## How It Is Built

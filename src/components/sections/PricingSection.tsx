@@ -100,15 +100,7 @@ export const PricingSection: React.FC = () => {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Choose the plan that fits your interview preparation needs
-          </p>
           <div className="mt-6 inline-flex flex-col gap-2">
-            <div className="rounded-lg bg-primary/10 px-6 py-3 text-center">
-              <p className="text-sm font-semibold text-primary">
-                🎁 New users can experience all features for free under rate limit!
-              </p>
-            </div>
             <p className="text-sm text-muted-foreground">
               Credit usage: 10 credits per minute of AI assistance
             </p>

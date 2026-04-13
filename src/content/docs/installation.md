@@ -91,7 +91,7 @@ The key Python packages installed are:
 
 ---
 
-### Step 4 - Build the Python Agents
+### Step 4 - Build the Python Agent
 
 > **Important:** This step must be run inside a **Visual Studio Developer Command Prompt** (not a regular terminal or PowerShell). Nuitka uses the MSVC compiler toolchain which is only available in that environment.
 >
@@ -99,14 +99,11 @@ The key Python packages installed are:
 
 The Python agents are compiled into standalone executables using Nuitka. Build each agent separately or all at once:
 
-**Build a specific agent:**
+**Build agent:**
 
 ```bat
 ::: ASR (transcription) agent
 python -m scripts.build_asr_agent
-
-::: Audio control agent
-python -m scripts.build_audio_control_agent
 ```
 
 **Build all agents at once:**
