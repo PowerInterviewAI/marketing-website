@@ -22,12 +22,6 @@ const mediaItems = [
     title: 'Code Test Assistance',
     description: 'AI-powered code suggestions and solutions for technical interviews',
   },
-  {
-    src: 'media/meeting.tonny.face.liveassist.png',
-    type: 'image',
-    title: 'Live Assist Interface',
-    description: 'Clean and intuitive interface for live interview assistance',
-  },
 ];
 
 interface HeroSectionProps {
@@ -240,15 +234,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             <span className="font-bold uppercase text-primary">privacy-first</span> design.
           </p>
 
-          <div className="mb-6 inline-flex items-center rounded-full border bg-muted px-4 py-2 text-sm">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
-            <span className="font-medium">Privacy-First AI Interview Assistant</span>
-          </div>
-
           {/* Installation Options */}
-          <div className="mx-auto mt-8 max-w-3xl">
+          <div className="mx-auto mt-4 max-w-3xl">
             <div className="mb-3 text-center">
-              <h3 className="text-md text-muted-foreground">Install on Windows or macOS using:</h3>
+              <h3 className="text-md text-muted-foreground">
+                Install PowerInterviewAI client using:
+              </h3>
             </div>
 
             {/* Tab buttons */}
@@ -419,14 +410,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                 </a>
               </div>
             )}
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center gap-2 rounded-lg border bg-background/50 px-3 py-1.5">
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z" />
-              </svg>
-            </div>
           </div>
 
           <p className="mt-4 text-sm text-muted-foreground">
