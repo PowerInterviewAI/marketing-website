@@ -25,7 +25,7 @@ export const ContactSection: React.FC = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {/* Email Card */}
             <a
-              href="mailto:support@powerinterviewai.com"
+              href="mailto:team@vectorleappulse.xyz"
               className="group block transition-transform hover:scale-105"
             >
               <Card className="h-full border-2 transition-colors hover:border-primary hover:shadow-lg">
@@ -35,7 +35,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <h3 className="mb-2 text-xl font-semibold">Email</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-primary">
-                    support@powerinterviewai.com
+                    team@vectorleappulse.xyz
                   </p>
                   <p className="mt-3 text-xs text-muted-foreground">
                     Send us an email for detailed inquiries

@@ -176,7 +176,7 @@ Your session token may have expired. Log in again. If this happens repeatedly, c
 
 If none of the above resolves your issue:
 
-- **Email**: [support@powerinterviewai.com](mailto:support@powerinterviewai.com)
+- **Email**: [team@vectorleappulse.xyz](mailto:team@vectorleappulse.xyz)
 - **Discord**: [discord.gg/TJJp5azK7Z](https://discord.gg/TJJp5azK7Z)
 - **Telegram**: [t.me/+uQuuBdrsIYBjY2Qx](https://t.me/power_interview_ai)
 - **GitHub Issues**: Open an issue at [github.com/PowerInterviewAI/client](https://github.com/PowerInterviewAI/client)

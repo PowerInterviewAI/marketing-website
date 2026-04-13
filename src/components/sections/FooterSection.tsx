@@ -66,7 +66,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 <SiDiscord className="h-5 w-5" />
               </a>
               <a
-                href="mailto:support@powerinterviewai.com"
+                href="mailto:team@vectorleappulse.xyz"
                 className="text-muted-foreground transition-colors hover:text-primary"
                 aria-label="Email"
               >

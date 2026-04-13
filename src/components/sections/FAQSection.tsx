@@ -68,7 +68,7 @@ const faqData = [
   {
     question: 'Can I get a refund?',
     answer:
-      'We stand behind our product. If you are not satisfied with Power Interview AI, please contact us at support@powerinterviewai.com within 14 days of purchase to discuss refund options.',
+      'We stand behind our product. If you are not satisfied with Power Interview AI, please contact us at team@vectorleappulse.xyz within 14 days of purchase to discuss refund options.',
   },
 ];
 

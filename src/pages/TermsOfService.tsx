@@ -275,7 +275,7 @@ const TermsOfService: React.FC = () => {
                 </p>
                 <div className="rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
                   <p className="text-gray-700 dark:text-gray-300">
-                    <strong>Email:</strong> support@powerinterviewai.com
+                    <strong>Email:</strong> team@vectorleappulse.xyz
                   </p>
                   <p className="text-gray-700 dark:text-gray-300">
                     <strong>Website:</strong> https://www.powerinterviewai.com/
