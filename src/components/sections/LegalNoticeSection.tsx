@@ -56,10 +56,10 @@ export const LegalNoticeSection: React.FC = () => {
                   <p className="text-xs text-muted-foreground">
                     For questions about legal use, please contact:{' '}
                     <a
-                      href="mailto:power-interview@protonmail.com"
+                      href="mailto:support@powerinterviewai.com"
                       className="font-medium text-primary hover:underline"
                     >
-                      power-interview@protonmail.com
+                      support@powerinterviewai.com
                     </a>
                   </p>
                 </div>

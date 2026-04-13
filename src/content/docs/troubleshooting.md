@@ -176,7 +176,7 @@ Your session token may have expired. Log in again. If this happens repeatedly, c
 
 If none of the above resolves your issue:
 
-- **Email**: [power-interview@protonmail.com](mailto:power-interview@protonmail.com)
+- **Email**: [support@powerinterviewai.com](mailto:support@powerinterviewai.com)
 - **Discord**: [discord.gg/TJJp5azK7Z](https://discord.gg/TJJp5azK7Z)
 - **Telegram**: [t.me/+uQuuBdrsIYBjY2Qx](https://t.me/+uQuuBdrsIYBjY2Qx)
 - **GitHub Issues**: Open an issue at [github.com/PowerInterviewAI/power-interview-assistant](https://github.com/PowerInterviewAI/power-interview-assistant)
