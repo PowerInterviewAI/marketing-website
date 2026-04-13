@@ -254,7 +254,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
         </div>
 
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Power Interview AI. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} VectorLeap Pulse Innovation LTD. All rights reserved.
+          </p>
           <p className="mt-2">Made to help you ace your interviews while protecting your privacy</p>
         </div>
       </Container>
