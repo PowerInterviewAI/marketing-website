@@ -46,7 +46,7 @@ The built-in laptop microphone often picks up keyboard sounds, fan noise, and ro
 
 ### How Interviewer Audio is Captured
 
-Power Interview captures the interviewer's voice via Windows WASAPI audio loopback - it reads whatever audio is playing through your system speakers automatically. No extra routing software is needed for transcription to work for both channels.
+Power Interview captures the interviewer's voice via system audio loopback - it reads whatever audio is playing through your system speakers automatically. No extra routing software is needed for transcription to work for both channels.
 
 ### Test Audio Before the Interview
 

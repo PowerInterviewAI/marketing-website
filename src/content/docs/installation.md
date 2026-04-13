@@ -1,178 +1,73 @@
 # Installation
 
-This page covers everything you need to install and run Power Interview, whether you are using the prebuilt release or building from source.
+This page covers how to install and run Power Interview on Windows and macOS.
 
 ---
 
-## Option A - Use Install Commandline (Recommended)
+## Option A - Install via Command Line
 
-On the [Home page](https://powerinterviewai.com/) you can see full command line to install latest release version like this:
+### Windows (PowerShell)
 
-```bash
-curl -L -o PowerInterview-Setup-x.x.x.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-x.x.x.exe && start "" "PowerInterview-Setup-x.x.x.exe"
+```powershell
+$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client/releases/latest"
+$asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1
+Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name
+Start-Process ".\$($asset.name)"
 ```
 
-Just open a terminal, copy & paste the command, and run it.
+### macOS (Terminal)
 
-This will download the latest installer and launch it immediately. Follow the installer prompts to complete installation, then launch Power Interview from your Start Menu or desktop shortcut.
+```bash
+DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client/releases/latest | grep -Eo 'https://[^"]+\.dmg' | head -n 1)
+curl -L "$DMG_URL" -o PowerInterview.dmg
+open "PowerInterview.dmg"
+```
 
----
-
-## Option B - Prebuilt Installer
-
-Download the latest Windows installer and run it. The installer packages the Electron app and all compiled Python agents together - no additional setup is required.
-
-### Windows Installer Download
-
-| File                                                                             | Description                        |
-| -------------------------------------------------------------------------------- | ---------------------------------- |
-| [Get Latest Release](https://github.com/PowerInterviewAI/client/releases/latest) | Windows installer (latest release) |
-
-Or browse all releases and changelogs on the [GitHub Releases page](https://github.com/PowerInterviewAI/client/releases).
-
-After installation, launch **Power Interview** from your Start Menu or desktop shortcut, sign in with your account, and proceed to [First-Run Setup](#first-run-setup).
+These commands download the latest installer and open it immediately.
 
 ---
 
-## Option C - Build from Source
+## Option B - Prebuilt Installer Download
 
-Use this path if you want to run or modify the development version.
+Use the latest release binaries from GitHub:
+
+- [Windows installer (.exe)](https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-1.4.0.exe)
+- [macOS installer (.dmg)](https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-1.4.0-arm64.dmg)
+- [All release assets (latest)](https://github.com/PowerInterviewAI/client/releases/latest)
+
+After installation, launch **Power Interview**, sign in, and proceed to first-run setup.
+
+---
+
+## Option C - Run from Source
 
 ### System Requirements
 
-| Requirement      | Minimum Version |
-| ---------------- | --------------- |
-| Operating System | Windows 10 / 11 |
-| Node.js          | 18 or higher    |
-| Python           | 3.12            |
-| npm              | 8 or higher     |
+| Requirement      | Minimum Version            |
+| ---------------- | -------------------------- |
+| Operating System | Windows 10/11 or macOS 13+ |
+| Node.js          | 18+ (20 recommended)       |
+| npm              | 8+                         |
 
----
-
-### Step 1 - Clone the Repository
+### Setup
 
 ```bash
-git clone https://github.com/PowerInterviewAI/power-interview-assistant
-cd power-interview-assistant
-```
-
----
-
-### Step 2 - Install Node.js Dependencies
-
-```bash
-cd app
+git clone https://github.com/PowerInterviewAI/client
+cd client
 npm install
-cd ..
-```
-
----
-
-### Step 3 - Install Python Dependencies
-
-It is recommended to use a virtual environment:
-
-```bash
-python -m venv venv
-venv\Scripts\activate       # Windows
-pip install -r requirements.txt
-```
-
-The key Python packages installed are:
-
-| Package           | Purpose                                         |
-| ----------------- | ----------------------------------------------- |
-| `pyaudiowpatch`   | Audio capture including system (loopback) audio |
-| `pyzmq`           | Inter-process communication between agents      |
-| `websockets`      | Real-time streaming to backend services         |
-| `sounddevice`     | Audio device enumeration and routing            |
-| `scipy` / `numpy` | Signal processing                               |
-| `loguru`          | Logging                                         |
-
----
-
-### Step 4 - Build the Python Agent
-
-> **Important:** This step must be run inside a **Visual Studio Developer Command Prompt** (not a regular terminal or PowerShell). Nuitka uses the MSVC compiler toolchain which is only available in that environment.
->
-> Open it from the Start Menu: **Visual Studio → Developer Command Prompt for VS 20xx**. Then activate your virtual environment inside it before running the commands below.
-
-The Python agents are compiled into standalone executables using Nuitka. Build each agent separately or all at once:
-
-**Build agent:**
-
-```bat
-::: ASR (transcription) agent
-python -m scripts.build_asr_agent
-```
-
-**Build all agents at once:**
-
-```bat
-python -m scripts.build_all
-```
-
-Compiled agent executables will be placed in the `build/agents/` directory.
-
----
-
-### Step 5 - Run the Application (Development Mode)
-
-```bash
-cd app
 npm run start
 ```
-
-This starts both the Vite dev server and the Electron window. The app opens in development mode with hot reload enabled.
-
-Alternatively, to run with the browser content visible in a separate Chrome window (useful for debugging the renderer):
-
-```bash
-npm run electron:dev-show
-```
-
----
-
-### Step 6 - Build a Production Installer (Optional)
-
-To produce a self-contained Windows installer:
-
-```bash
-# From the repo root
-python -m scripts.build_electron_app
-```
-
-Or build everything (agents + app) in one command:
-
-```bash
-python -m scripts.build_all
-```
-
-The packaged installer will be output to the `build/` directory.
 
 ---
 
 ## First-Run Setup
 
-After launching the app for the first time (whether from the installer or source):
+After launching the app for the first time:
 
-1. **Sign in** with your Power Interview account credentials. If you don't have an account, sign up using the application.
+1. **Sign in** with your Power Interview account.
+2. **Open Configuration** from the profile dropdown.
+3. **Set up your profile** (name, CV/resume, interview context).
+4. **Select your microphone** in **Audio Options**.
 
-2. **Open Configuration** from the profile dropdown (bottom-left of the control panel).
-
-3. **Set up your profile:**
-   - Enter your **name** (required)
-   - Paste your **CV / resume** or bio summary (required)
-   - Paste the **job description** or role context for your upcoming interview (recommended)
-
-   ![Configuration dialog - Profile tab](/media/docs/configuration-dialog.png)
-
-4. **Select your microphone:**
-   - Click the microphone icon in the control panel to open **Audio Options**
-   - Choose your physical microphone from the dropdown
-   - The interviewer's voice is captured automatically via Windows system audio loopback - no extra device configuration needed
-
-   ![Audio Options - microphone selector](/media/docs/audio-options.png)
-
-After completing setup, click **Start** to begin a session.
+After setup, click **Start** to begin a session.
 

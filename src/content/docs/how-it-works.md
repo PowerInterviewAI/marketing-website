@@ -1,18 +1,18 @@
 # How It Works
 
-This page explains the internal architecture of Power Interview: the components that run on your machine, how they communicate with each other and with backend services, and how each feature is delivered.
+This page explains the high-level architecture of Power Interview: what runs on your machine, what runs in the cloud, and how core features are delivered in real time.
 
 ---
 
 ## Overview
 
-Power Interview is composed of three layers:
+Power Interview has three layers:
 
-1. **Electron Desktop App** - the user interface, window control, and configuration
-2. **Python Agents** - lightweight local processes for audio capture
-3. **Cloud Backend** - AI inference and ASR transcription
+1. **Desktop App** - interface, session controls, settings, and local state
+2. **Local Runtime** - audio capture and OS-level integrations
+3. **Cloud Services** - transcription, LLM inference, and account/payment APIs
 
-These layers communicate in real time using ZeroMQ (local inter-process), WebSocket (streaming), and HTTPS REST (configuration and auth).
+Together these layers provide low-latency transcription, suggestion streaming, and export workflows while keeping local configuration on your device.
 
 ---
 
@@ -22,141 +22,65 @@ These layers communicate in real time using ZeroMQ (local inter-process), WebSoc
 
 ---
 
-## Desktop App (Electron)
+## Desktop App
 
-The desktop app runs as an Electron process with two main parts:
+The desktop app is built with Electron + React and includes:
 
-### Main Process
-
-The main process (Node.js) is responsible for:
-
-- **Authentication** - login, signup, token refresh, change password
-- **Configuration store** - reads and writes user settings (profile, device names, preferences) using Electron Store (local encrypted storage)
-- **Session management** - starts and stops the Python agents as child processes
-- **IPC handlers** - receives calls from the renderer (UI) and relays them to backend services or local agents
-- **App state** - tracks `runningState` (Idle / Starting / Running / Stopping), transcript list, reply suggestions, code suggestions, and credits
-- **Health checks** - polls backend API every 5 seconds; also refreshes credit balance on each client ping
-- **Auto-updater** - checks for new releases using `electron-updater` and notifies the UI
-
-### Renderer Process
-
-The renderer (React + TypeScript) renders the UI and communicates with the main process over Electron IPC:
-
-- **Main page** - shows the transcript panel, reply suggestions panel, code suggestions panel, and video panel side by side; layout adapts based on which panels have content
-- **Control panel** - audio device selector, start/stop button, export and clear tools, profile dropdown
-- **Configuration dialog** - profile name, CV text, job context
-- **Payment page** - buy credits, payment history, payment status tabs
-- **Stealth mode** - when active, the window stops stealing focus so your keyboard and mouse stay on your coding challenge or video call; the main panel collapses to a minimal status bar showing running state, credit balance, and hotkey reference
+- Authentication and account management
+- Configuration storage (profile, CV, context, preferences)
+- Live session state (running status, transcript, suggestions, captures)
+- UI panels for transcription, reply suggestions, and code suggestions
+- Stealth mode and hotkey-driven controls
 
 ---
 
-## ASR Agent (Python)
+## Audio and Transcription Flow
 
-The ASR (Automatic Speech Recognition) agent is a compiled Python process that runs locally and coordinates all audio capture and transcription.
+During a session, the app captures:
 
-### Audio Capture - Two Channels
+- Your microphone input
+- System audio loopback (interviewer audio)
 
-The agent opens two simultaneous audio streams:
-
-| Channel    | Source                                   | Purpose                                                                                                      |
-| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Loopback   | Windows WASAPI default loopback device   | Captures whatever audio is playing through the system speakers - the interviewer's voice from the video call |
-| Microphone | Physical microphone selected by the user | Captures the user's own voice                                                                                |
-
-Both streams are sampled at 16 kHz mono (resampled from the native device rate using `scipy`).
-
-### ASR Streaming
-
-Both audio channels are forwarded to the backend ASR service over a single WebSocket connection. The backend processes each channel independently and returns:
-
-- **Partial transcripts** - low-latency intermediate results shown immediately in the UI
-- **Final transcripts** - confirmed results replacing the partial ones
-
-### ZeroMQ Publishing
-
-Finalized transcripts are published to the Electron main process over a ZeroMQ PUB socket. The main process subscribes to this socket, aggregates transcript messages into the app state, and pushes updates to the renderer via IPC.
+Both streams are sent for real-time transcription. Partial and final transcript updates are reflected in the UI as they arrive.
 
 ---
 
----
-
-## AI Suggestion Flow
+## Suggestion Flow
 
 ### Reply Suggestions
 
-When the ASR backend delivers a final transcript segment, the Electron main process forwards the latest transcript context, combined with the user's profile (name, CV) and job context, to the LLM suggestion API. The API streams back a text response which is displayed word-by-word in the reply suggestions panel.
+When new transcript context is available, the app sends relevant context (transcript + profile + job context) to the LLM service and streams suggestions back to the UI.
 
 ### Code Suggestions
 
-When the user presses `Ctrl+Shift+F9`, the main process takes a screenshot of the entire screen using `screenshot-desktop` and stores it temporarily. Up to 4 screenshots can be queued. When the user presses `Ctrl+Shift+F10`, all queued screenshots are sent as image attachments to the LLM code suggestion API. The API analyzes the images and streams back a code solution which is rendered with syntax highlighting.
-
----
-
-## Inter-Process Communication (IPC)
-
-All communication between the renderer and main process goes through Electron's IPC bridge exposed via the `preload.cjs` script. The main categories of IPC channels are:
-
-| Category         | Examples                                                |
-| ---------------- | ------------------------------------------------------- |
-| Auth             | login, logout, signup, change-password                  |
-| Config           | get-config, update-config                               |
-| App State        | get-app-state, state-update events                      |
-| Tools            | export-transcript, clear-all                            |
-| Code Suggestions | capture-screenshot, clear-images, start-generate        |
-| Health Check     | triggered automatically on startup                      |
-| Auto-Updater     | get-version, check-for-updates                          |
-| Payment          | get-currencies, create-payment, get-payment-history     |
-| Window           | toggle-stealth, set-opacity, move-window, resize-window |
+When you capture screenshots, the app sends them to the code suggestion service, then streams generated responses into the code panel with formatting.
 
 ---
 
 ## Data Storage
 
-All persistent data is stored locally on your machine:
+Persistent local data includes:
 
-| Data                                                | Storage        | Location                    |
-| --------------------------------------------------- | -------------- | --------------------------- |
-| Login token, session                                | Electron Store | `%AppData%\power-interview` |
-| Profile name, CV, job context                       | Electron Store | `%AppData%\power-interview` |
-| Device preferences (microphone)                     | Electron Store | `%AppData%\power-interview` |
+- Login/session tokens
+- Profile information (name, CV, context)
+- User preferences (theme, selected devices, UI behavior)
 
-No transcripts or suggestions are persisted to disk unless you explicitly export them. Nothing is stored on external servers after a session ends.
+Session transcript/suggestion content is retained in memory for the active app session and exported only when requested.
 
 ---
 
 ## Session Lifecycle
 
-```
-User clicks Start
-       │
-       ▼
-Main process validates config (profile, microphone)
-       │
-       ▼
-Spawns ASR Agent → ASR Agent opens microphone + loopback streams → WebSocket to backend
-       │
-       ▼
-Running state set to Running; Renderer shows active panels
-       │
-       │  (during session)
-       │  ┌─ Audio loopback → ASR → ZeroMQ → Transcript panel
-       │  ├─ Microphone → ASR → ZeroMQ → Transcript panel
-       │  ├─ Transcript final → LLM API → Reply suggestion panel (streaming)
-       │  ├─ Screenshots → LLM API → Code suggestion panel (streaming)
-       │
-User clicks Stop (or presses Ctrl+Shift+Q)
-       │
-       ▼
-Main process sends stop signal to agents → agents shut down audio/video streams
-       │
-       ▼
-Running state set to Idle; Panels retain last session data until cleared
-```
+1. User clicks **Start**
+2. App validates required configuration
+3. Audio capture and transcription begin
+4. Transcript and suggestions stream live into the UI
+5. User clicks **Stop** (or uses hotkey)
+6. Session stops and UI returns to idle state
 
 ---
 
 ## Credits System
 
-Credits are consumed while the assistant is running, covering AI inference (reply and code suggestions) and transcription. The credit balance is fetched from the backend on every health-check client ping (every 5 seconds while running). If the balance reaches zero during a session, the assistant stops and a notification is shown in the UI.
+Credits are consumed while AI-assisted features are active (including transcription and suggestion generation). Credit balance is refreshed periodically during a running session and updates after successful payments.
 
-Credits are purchased from the **Buy Credits** page inside the app, which calls the backend payment API. Payments are processed externally; the credit balance updates automatically once a payment is confirmed.

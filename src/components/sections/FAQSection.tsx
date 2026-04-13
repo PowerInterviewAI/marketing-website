@@ -29,13 +29,12 @@ const faqData = [
   },
   {
     question: 'What platforms are supported?',
-    answer:
-      'Currently, Power Interview AI is available for Windows only. We are actively working on MacOS and Linux versions. Stay tuned for updates! Follow our GitHub repository or join our Telegram channel to be notified when new platform versions are released.',
+    answer: 'Power Interview AI currently supports both Windows and macOS.',
   },
   {
     question: 'Do I need special hardware to run Power Interview AI?',
     answer:
-      'Power Interview AI runs on most modern Windows computers without special hardware requirements. A stable internet connection improves streaming performance, but you do not need a dedicated GPU.',
+      'Power Interview AI runs on most modern Windows and macOS computers without special hardware requirements. A stable internet connection improves streaming performance, but you do not need a dedicated GPU.',
   },
   {
     question: 'How accurate is the AI transcription?',

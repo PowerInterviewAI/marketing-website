@@ -10,8 +10,8 @@ This page covers the most common issues users encounter with Power Interview and
 
 **Possible causes and fixes:**
 
-- **Missing runtime**: Ensure you are on Windows 10 or Windows 11. Older Windows versions are not supported.
-- **Antivirus blocking**: Some antivirus programs quarantine Electron apps or Nuitka-compiled executables. Add the Power Interview installation folder to your antivirus exclusion list and try launching again.
+- **Missing runtime**: Ensure you are on a supported OS version (Windows 10/11 or macOS 13+).
+- **Antivirus blocking**: Some antivirus programs quarantine desktop app binaries. Add the Power Interview installation folder to your antivirus exclusion list and try launching again.
 - **Corrupted install**: Uninstall the app, delete any leftover files from `%AppData%\power-interview`, and reinstall.
 
 ### The app opens but shows a blank white screen
@@ -34,7 +34,7 @@ This typically means the renderer process failed to load.
 
 ### Session expires immediately after login
 
-- Your system clock may be out of sync. JWT tokens are time-sensitive. Open Windows settings and enable **Set time automatically**.
+- Your system clock may be out of sync. JWT tokens are time-sensitive. Enable automatic date/time sync in your OS settings.
 
 ---
 
@@ -62,16 +62,16 @@ The app checks connectivity to backend services on startup and periodically duri
 
    ![Audio Options - verify the correct microphone is selected](/media/docs/audio-options.png)
 
-3. Speak and check if your operating-system volume indicator shows sound input from the selected device (Windows Sound settings → Recording).
+3. Speak and check if your operating-system audio settings show sound input from the selected device.
 4. Ensure the backend is reachable - transcription is processed on the backend. Try visiting [powerinterviewai.com](https://www.powerinterviewai.com/) to rule out a service outage.
 5. Restart the session.
 
 ### Only your voice is being transcribed (not the interviewer's)
 
-The interviewer's voice is captured via Windows WASAPI audio loopback - whatever is playing through your system speakers is automatically picked up. If the interviewer's channel is silent:
+The interviewer's voice is captured via system audio loopback - whatever is playing through your system speakers is automatically picked up. If the interviewer's channel is silent:
 
-1. Make sure your video call is actually playing audio through your Windows default playback device (e.g., not routing audio only to a Bluetooth device that isn't the system default).
-2. Check your Windows Volume Mixer: the video call app's audio level should not be muted or at zero.
+1. Make sure your video call is actually playing audio through your default playback device (e.g., not routing audio only to a secondary device).
+2. Check your system volume mixer: the video call app's audio level should not be muted or at zero.
 3. Restart the session after verifying audio is coming through the speakers.
 
 ### Transcription is inaccurate or garbled
@@ -83,7 +83,7 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 ### Transcription has significant delay
 
 - A brief delay (1–3 seconds) is normal for streaming ASR. Longer delays indicate a network issue.
-- Check your upload bandwidth. The ASR agent streams audio data continuously to the backend.
+- Check your upload bandwidth. The transcription stream sends audio data continuously to the backend.
 - If using a VPN, try disabling it or switching to a VPN server with lower latency.
 
 ---
@@ -115,7 +115,7 @@ The interviewer's voice is captured via Windows WASAPI audio loopback - whatever
 
 - Some applications use hardware acceleration that prevents software-level screen capture.
   - In Chrome/Edge: launch with `--disable-gpu-sandbox` or use the built-in window capture workaround.
-  - For other apps: try taking a screenshot using the Windows Snip & Sketch tool first to confirm the issue is application-specific.
+  - For other apps: try taking a screenshot using your OS screenshot tool first to confirm the issue is application-specific.
 - Ensure the target window is not minimized when you press `Ctrl+Shift+F9`.
 
 ### Code suggestion is incorrect or does not address the problem
@@ -179,11 +179,11 @@ If none of the above resolves your issue:
 - **Email**: [support@powerinterviewai.com](mailto:support@powerinterviewai.com)
 - **Discord**: [discord.gg/TJJp5azK7Z](https://discord.gg/TJJp5azK7Z)
 - **Telegram**: [t.me/+uQuuBdrsIYBjY2Qx](https://t.me/+uQuuBdrsIYBjY2Qx)
-- **GitHub Issues**: Open an issue at [github.com/PowerInterviewAI/power-interview-assistant](https://github.com/PowerInterviewAI/power-interview-assistant)
+- **GitHub Issues**: Open an issue at [github.com/PowerInterviewAI/client](https://github.com/PowerInterviewAI/client)
 
 When reporting a bug, include:
 
-- Your Windows version
+- Your operating system and version
 - Power Interview version (shown in the app title bar or About screen)
 - A description of what you expected vs. what happened
 - Relevant logs from `%AppData%\power-interview\logs\` if available

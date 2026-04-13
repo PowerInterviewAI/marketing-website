@@ -10,7 +10,7 @@ This page describes how to use Power Interview during a live interview session, 
 2. Review configuration and settings to ensure your profile is complete and devices are set up correctly.
 3. Click the **Start** button to activate transcription and AI assistance.
 
-Once started, the app begins capturing audio from your configured microphone (your voice) and the system audio loopback (the interviewer's voice). Both channels are streamed to the ASR backend in real time and displayed in the transcript panel.
+Once started, the app begins capturing audio from your configured microphone (your voice) and the system audio loopback (the interviewer's voice). Both channels are streamed for real-time transcription and displayed in the transcript panel.
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
@@ -25,8 +25,8 @@ To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q
 ### How It Works
 
 - Your voice is captured through your selected physical microphone.
-- The interviewer's voice is captured automatically via Windows system audio loopback (whatever is playing through your speakers from the video call). No additional device configuration is needed.
-- Both streams are sent to the ASR backend over WebSocket and returned as live transcription.
+- The interviewer's voice is captured automatically via system audio loopback (whatever is playing through your speakers from the video call). No additional device configuration is needed.
+- Both streams are sent to the transcription service and returned as live transcription.
 - Each line is labeled by speaker name: your configured name or "Interviewer", with a timestamp.
 
 ---

@@ -89,10 +89,10 @@ Power Interview consists of three layers running together on your machine:
 | Layer            | Technology                    | Purpose                                      |
 | ---------------- | ----------------------------- | -------------------------------------------- |
 | Desktop UI       | Electron + React + TypeScript | User interface and configuration             |
-| Local Agents     | Python 3.12                   | Audio capture, virtual camera, audio routing |
+| Desktop Runtime  | Electron                       | UI, local audio capture, and system integration |
 | Backend Services | Cloud (separate)              | AI/LLM inference and ASR processing          |
 
-The desktop client communicates with the local Python agents over ZeroMQ and with cloud services over WebSocket and HTTPS. Transcripts, screenshots, and profile data are sent to the backend only when you actively request a suggestion. Nothing is stored remotely in a persistent way.
+The desktop client communicates with local services and with cloud services over secure channels. Transcripts, screenshots, and profile data are sent to the backend only when you actively request a suggestion. Nothing is stored remotely in a persistent way.
 
 ---
 
@@ -109,5 +109,5 @@ The desktop client communicates with the local Python agents over ZeroMQ and wit
 Before getting started, ensure you have the following:
 
 - A Power Interview account (sign up at using the application)
-- A Windows machine
+- A Windows or macOS machine
 - A working microphone and (optionally) webcam

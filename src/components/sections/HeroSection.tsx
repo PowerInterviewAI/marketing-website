@@ -63,12 +63,21 @@ const fetchActiveSessionsCount = async (): Promise<number | null> => {
   return null;
 };
 
-// Helper method to generate install command based on version
-const getInstallCommand = (version: string | null): string => {
-  if (!version) {
-    return 'curl -L -o PowerInterview-Setup.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup.exe && start "" "PowerInterview-Setup.exe"';
+type InstallPlatform = 'windows' | 'macos';
+
+// Generate install command by platform
+const getInstallCommand = (version: string | null, platform: InstallPlatform): string => {
+  if (platform === 'windows') {
+    if (!version) {
+      return '$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client/releases/latest"; $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1; Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name; Start-Process ".\\$($asset.name)"';
+    }
+    return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
   }
-  return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
+
+  if (version) {
+    return `curl -L -o Power.Interview-${version}-arm64.dmg https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg && open "Power.Interview-${version}-arm64.dmg"`;
+  }
+  return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o PowerInterview.dmg && open "PowerInterview.dmg"';
 };
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
@@ -78,6 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   const [version, setVersion] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [activeInstallTab, setActiveInstallTab] = useState<'cli' | 'binary' | 'source'>('cli');
+  const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('windows');
   const [interviewCount, setInterviewCount] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -132,7 +142,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
 
   // Copy install command to clipboard
   const copyInstallCommand = async () => {
-    const command = getInstallCommand(version);
+    const command = getInstallCommand(version, installPlatform);
 
     try {
       await navigator.clipboard.writeText(command);
@@ -238,7 +248,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           {/* Installation Options */}
           <div className="mx-auto mt-8 max-w-3xl">
             <div className="mb-3 text-center">
-              <h3 className="text-md text-muted-foreground">Install on Windows using:</h3>
+              <h3 className="text-md text-muted-foreground">Install on Windows or macOS using:</h3>
             </div>
 
             {/* Tab buttons */}
@@ -281,9 +291,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             {/* Tab: Command Line */}
             {activeInstallTab === 'cli' && (
               <div className="group relative rounded-lg border bg-muted/50 p-4">
+                <div className="mb-3 flex justify-center gap-2">
+                  <button
+                    onClick={() => setInstallPlatform('windows')}
+                    className={`rounded-md px-3 py-1 text-xs font-medium transition-all ${
+                      installPlatform === 'windows'
+                        ? 'bg-background text-foreground shadow'
+                        : 'bg-transparent text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Windows
+                  </button>
+                  <button
+                    onClick={() => setInstallPlatform('macos')}
+                    className={`rounded-md px-3 py-1 text-xs font-medium transition-all ${
+                      installPlatform === 'macos'
+                        ? 'bg-background text-foreground shadow'
+                        : 'bg-transparent text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    macOS
+                  </button>
+                </div>
                 <pre className="mr-8 overflow-x-auto">
                   <code className="text-md font-mono text-foreground">
-                    {version ? getInstallCommand(version) : 'Loading installation command...'}
+                    {version
+                      ? getInstallCommand(version, installPlatform)
+                      : 'Loading installation command...'}
                   </code>
                 </pre>
                 <Button
@@ -307,7 +341,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             {activeInstallTab === 'binary' && (
               <div className="rounded-lg border bg-muted/50 p-6 text-center">
                 <p className="mb-4 text-sm text-muted-foreground">
-                  Download the Windows installer and run it. No additional setup required.
+                  Download the installer for your OS and run it. No additional setup required.
                 </p>
                 <div className="flex flex-col items-center gap-3">
                   <a
@@ -332,6 +366,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                       : 'Download Latest Installer'}
                   </a>
                   <a
+                    href={
+                      version
+                        ? `https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg`
+                        : 'https://github.com/PowerInterviewAI/client/releases/latest'
+                    }
+                    className="inline-flex items-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                  >
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      />
+                    </svg>
+                    {version
+                      ? `Download Power.Interview-${version}-arm64.dmg`
+                      : 'Open Latest Release Assets (macOS)'}
+                  </a>
+                  <a
                     href="https://github.com/PowerInterviewAI/client/releases"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -347,8 +401,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             {activeInstallTab === 'source' && (
               <div className="rounded-lg border bg-muted/50 p-6 text-center">
                 <p className="mb-4 text-sm text-muted-foreground">
-                  Clone the repository and build from source. Requires Node.js&nbsp;18+,
-                  Python&nbsp;3.12, and Visual Studio build tools.
+                  Clone the repository and run from source. Requires Node.js&nbsp;18+.
                 </p>
                 <a
                   href="/docs/installation#option-c---build-from-source"
@@ -373,7 +426,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z" />
               </svg>
-              <span>Windows Only (MacOS Coming Soon)</span>
             </div>
           </div>
 
