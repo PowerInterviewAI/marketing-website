@@ -342,7 +342,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         : 'https://github.com/PowerInterviewAI/client/releases/latest'
                     }
                     download
-                    className="inline-flex w-96 items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    className="w-120 inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
@@ -354,7 +354,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     </svg>
                     {version
                       ? `Download PowerInterview-Setup-${version}.exe`
-                      : 'Download Latest Installer'}
+                      : 'Download Latest Installer'}{' '}
+                    (Windows)
                   </a>
                   <a
                     href={
@@ -362,7 +363,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         ? `https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg`
                         : 'https://github.com/PowerInterviewAI/client/releases/latest'
                     }
-                    className="inline-flex w-96 items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    className="w-120 inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
@@ -374,7 +375,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     </svg>
                     {version
                       ? `Download Power.Interview-${version}-arm64.dmg`
-                      : 'Open Latest Release Assets (macOS)'}
+                      : 'Open Latest Release Assets (macOS)'}{' '}
+                    (MacOS)
                   </a>
                   <a
                     href="https://github.com/PowerInterviewAI/client/releases"
