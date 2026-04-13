@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Seo from '@/components/Seo';
 import {
   BenefitsSection,
+  CoFoundersSection,
   ContactSection,
   FAQSection,
   FeaturesSection,
@@ -71,6 +72,9 @@ const Home: React.FC = () => {
 
         {/* Contact Form Section */}
         <ContactSection />
+
+        {/* Co-founders Section */}
+        <CoFoundersSection />
       </main>
 
       {/* Footer */}

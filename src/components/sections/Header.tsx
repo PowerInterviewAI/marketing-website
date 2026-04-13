@@ -147,6 +147,22 @@ export const Header: React.FC<HeaderProps> = ({
                 Contact
               </Link>
             )}
+
+            {location.pathname === '/' && scrollToSection ? (
+              <button
+                onClick={() => scrollToSection('co-founders')}
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
+                Our Team
+              </button>
+            ) : (
+              <Link
+                to="/#co-founders"
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
+                Our Team
+              </Link>
+            )}
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
@@ -329,6 +345,22 @@ export const Header: React.FC<HeaderProps> = ({
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
                   Contact
+                </Link>
+              )}
+
+              {location.pathname === '/' && scrollToSection ? (
+                <button
+                  onClick={() => scrollToSection('co-founders')}
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  Our Team
+                </button>
+              ) : (
+                <Link
+                  to="/#co-founders"
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  Our Team
                 </Link>
               )}
 
