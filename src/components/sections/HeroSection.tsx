@@ -342,7 +342,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         : 'https://github.com/PowerInterviewAI/client/releases/latest'
                     }
                     download
-                    className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                    className="inline-flex w-96 items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
@@ -362,7 +362,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         ? `https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg`
                         : 'https://github.com/PowerInterviewAI/client/releases/latest'
                     }
-                    className="inline-flex items-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    className="inline-flex w-96 items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
