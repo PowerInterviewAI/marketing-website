@@ -118,8 +118,8 @@ export const FeaturesSection: React.FC = () => {
               <KeyRound className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
               <CardTitle>Plan-Based Access</CardTitle>
               <CardDescription>
-                Free users get unlimited interviews with a fair-use rate limit (5 suggestions per
-                hour). Paid users unlock higher throughput and premium included models.
+                Free users can experience all features for free under rate limit (5 suggestions per
+                hour). Paid users unlock higher throughput and provided SOTA models.
               </CardDescription>
             </CardHeader>
           </Card>

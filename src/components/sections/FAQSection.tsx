@@ -64,7 +64,7 @@ const faqData = [
   },
   {
     question: 'Is there a free trial?',
-    answer: 'Yes! All new users can experience all features for free with rate limit.',
+    answer: 'Yes! All new users can experience all features for free under rate limit.',
   },
   {
     question: 'Can I get a refund?',
