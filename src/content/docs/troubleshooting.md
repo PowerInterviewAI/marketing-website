@@ -178,7 +178,7 @@ If none of the above resolves your issue:
 
 - **Email**: [support@powerinterviewai.com](mailto:support@powerinterviewai.com)
 - **Discord**: [discord.gg/TJJp5azK7Z](https://discord.gg/TJJp5azK7Z)
-- **Telegram**: [t.me/+uQuuBdrsIYBjY2Qx](https://t.me/+uQuuBdrsIYBjY2Qx)
+- **Telegram**: [t.me/+uQuuBdrsIYBjY2Qx](https://t.me/power_interview_ai)
 - **GitHub Issues**: Open an issue at [github.com/PowerInterviewAI/client](https://github.com/PowerInterviewAI/client)
 
 When reporting a bug, include:

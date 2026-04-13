@@ -39,7 +39,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 <SiGithub className="h-5 w-5" />
               </a>
               <a
-                href="https://t.me/+uQuuBdrsIYBjY2Qx"
+                href="https://t.me/power_interview_ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
@@ -165,7 +165,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://t.me/+uQuuBdrsIYBjY2Qx"
+                  href="https://t.me/power_interview_ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"

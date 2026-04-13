@@ -69,7 +69,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Telegram Card */}
             <a
-              href="https://t.me/+uQuuBdrsIYBjY2Qx"
+              href="https://t.me/power_interview_ai"
               target="_blank"
               rel="noopener noreferrer"
               className="group block transition-transform hover:scale-105"
