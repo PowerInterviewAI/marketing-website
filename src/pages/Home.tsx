@@ -9,7 +9,6 @@ import {
   FooterSection,
   Header,
   HeroSection,
-  LegalNoticeSection,
   PricingSection,
   WhyChooseSection,
 } from '@/components/sections';
@@ -72,9 +71,6 @@ const Home: React.FC = () => {
 
         {/* Contact Form Section */}
         <ContactSection />
-
-        {/* Legal Notice Section */}
-        <LegalNoticeSection />
       </main>
 
       {/* Footer */}

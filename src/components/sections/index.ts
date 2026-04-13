@@ -5,6 +5,5 @@ export * from './FeaturesSection';
 export * from './FooterSection';
 export * from './Header';
 export * from './HeroSection';
-export * from './LegalNoticeSection';
 export * from './PricingSection';
 export * from './WhyChooseSection';
