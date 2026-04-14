@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { AtSign, Mail, Send } from 'lucide-react';
+import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
+import { Mail, Send } from 'lucide-react';
 
 import Container from '@/components/Container';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -52,6 +53,12 @@ export const CoFoundersSection: React.FC = () => {
   const [profiles, setProfiles] = useState<Record<string, GitHubUser>>({});
   const [contacts, setContacts] = useState<Record<string, ContactLinks>>({});
   const [loading, setLoading] = useState(true);
+
+  const getHandleFromUrl = (url: string) => {
+    const parsed = url.replace(/\/+$/, '');
+    const segments = parsed.split('/');
+    return segments[segments.length - 1] || parsed;
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -208,14 +215,22 @@ export const CoFoundersSection: React.FC = () => {
                     <span>{profile?.public_repos ?? 0} repos</span>
                     {profile?.location ? <span>{profile.location}</span> : null}
                   </div>
-                  <div className="mt-3 flex flex-wrap gap-4 text-sm">
+                  <div className="flex flex-col gap-2 pt-4 text-sm">
+                    <a
+                      href={profile?.html_url || `https://github.com/${coFounder.username}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+                    >
+                      <SiGithub className="h-4 w-4" />@{profile?.login || coFounder.username}
+                    </a>
                     {contact?.email ? (
                       <a
                         href={`mailto:${contact.email}`}
                         className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
                       >
                         <Mail className="h-4 w-4" />
-                        Email
+                        {contact.email}
                       </a>
                     ) : null}
                     {contact?.x ? (
@@ -225,7 +240,7 @@ export const CoFoundersSection: React.FC = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
                       >
-                        <AtSign className="h-4 w-4" />X
+                        <SiX className="h-4 w-4" />@{getHandleFromUrl(contact.x)}
                       </a>
                     ) : null}
                     {contact?.telegram ? (
@@ -235,8 +250,7 @@ export const CoFoundersSection: React.FC = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
                       >
-                        <Send className="h-4 w-4" />
-                        Telegram
+                        <Send className="h-4 w-4" />@{getHandleFromUrl(contact.telegram)}
                       </a>
                     ) : null}
                   </div>
