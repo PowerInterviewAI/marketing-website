@@ -58,7 +58,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <h3 className="mb-2 text-xl font-semibold">GitHub</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-primary">
-                    PowerInterviewAI/client
+                    PowerInterviewAI/client-app
                   </p>
                   <p className="mt-3 text-xs text-muted-foreground">
                     View source code, report issues, and contribute

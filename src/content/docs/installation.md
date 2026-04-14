@@ -9,7 +9,7 @@ This page covers how to install and run Power Interview on Windows and macOS.
 ### Windows (PowerShell)
 
 ```powershell
-$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client/releases/latest"
+$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest"
 $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1
 Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name
 Start-Process ".\$($asset.name)"
@@ -18,7 +18,7 @@ Start-Process ".\$($asset.name)"
 ### macOS (Terminal)
 
 ```bash
-DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client/releases/latest | grep -Eo 'https://[^"]+\.dmg' | head -n 1)
+DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest | grep -Eo 'https://[^"]+\.dmg' | head -n 1)
 curl -L "$DMG_URL" -o PowerInterview.dmg
 open "PowerInterview.dmg"
 ```

@@ -63,7 +63,7 @@ type InstallPlatform = 'windows' | 'macos';
 const getInstallCommand = (version: string | null, platform: InstallPlatform): string => {
   if (platform === 'windows') {
     if (!version) {
-      return '$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client/releases/latest"; $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1; Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name; Start-Process ".\\$($asset.name)"';
+      return '$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest"; $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1; Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name; Start-Process ".\\$($asset.name)"';
     }
     return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
   }
@@ -71,7 +71,7 @@ const getInstallCommand = (version: string | null, platform: InstallPlatform): s
   if (version) {
     return `curl -L -o Power.Interview-${version}-arm64.dmg https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-${version}-arm64.dmg && open "Power.Interview-${version}-arm64.dmg"`;
   }
-  return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o PowerInterview.dmg && open "PowerInterview.dmg"';
+  return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o PowerInterview.dmg && open "PowerInterview.dmg"';
 };
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
@@ -119,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
     const fetchVersion = async () => {
       try {
         const response = await fetch(
-          'https://api.github.com/repos/PowerInterviewAI/client/releases/latest'
+          'https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest'
         );
         if (response.ok) {
           const data = await response.json();

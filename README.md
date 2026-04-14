@@ -185,5 +185,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 - **Discord**: [Join our Discord community](https://discord.gg/TJJp5azK7Z)
 - **Telegram**: [@power_interview_ai](https://t.me/power_interview_ai)
-- **GitHub**: [PowerInterviewAI/client](https://github.com/PowerInterviewAI/client-app)
+- **GitHub**: [PowerInterviewAI/client-app](https://github.com/PowerInterviewAI/client-app)
 - **Email**: team@vectorleappulse.xyz
