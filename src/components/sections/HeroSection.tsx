@@ -65,11 +65,11 @@ const getInstallCommand = (version: string | null, platform: InstallPlatform): s
     if (!version) {
       return '$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client/releases/latest"; $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1; Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name; Start-Process ".\\$($asset.name)"';
     }
-    return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
+    return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
   }
 
   if (version) {
-    return `curl -L -o Power.Interview-${version}-arm64.dmg https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg && open "Power.Interview-${version}-arm64.dmg"`;
+    return `curl -L -o Power.Interview-${version}-arm64.dmg https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-${version}-arm64.dmg && open "Power.Interview-${version}-arm64.dmg"`;
   }
   return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o PowerInterview.dmg && open "PowerInterview.dmg"';
 };
@@ -338,8 +338,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                   <a
                     href={
                       version
-                        ? `https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-${version}.exe`
-                        : 'https://github.com/PowerInterviewAI/client/releases/latest'
+                        ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-${version}.exe`
+                        : 'https://github.com/PowerInterviewAI/client-app/releases/latest'
                     }
                     download
                     className="w-120 inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
@@ -360,8 +360,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                   <a
                     href={
                       version
-                        ? `https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-${version}-arm64.dmg`
-                        : 'https://github.com/PowerInterviewAI/client/releases/latest'
+                        ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-${version}-arm64.dmg`
+                        : 'https://github.com/PowerInterviewAI/client-app/releases/latest'
                     }
                     className="w-120 inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
@@ -379,7 +379,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     (MacOS)
                   </a>
                   <a
-                    href="https://github.com/PowerInterviewAI/client/releases"
+                    href="https://github.com/PowerInterviewAI/client-app/releases"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-muted-foreground underline hover:text-foreground"

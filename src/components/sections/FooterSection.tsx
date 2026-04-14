@@ -30,7 +30,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/PowerInterviewAI/client"
+                href="https://github.com/PowerInterviewAI/client-app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
@@ -114,7 +114,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://github.com/PowerInterviewAI/client/releases/latest"
+                  href="https://github.com/PowerInterviewAI/client-app/releases/latest"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
@@ -155,7 +155,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://github.com/PowerInterviewAI/client"
+                  href="https://github.com/PowerInterviewAI/client-app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
@@ -224,7 +224,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <a
-                  href="https://github.com/PowerInterviewAI/client/blob/main/LICENSE"
+                  href="https://github.com/PowerInterviewAI/client-app/blob/main/LICENSE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"

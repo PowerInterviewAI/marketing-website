@@ -46,7 +46,7 @@ export const ContactSection: React.FC = () => {
 
             {/* GitHub Card */}
             <a
-              href="https://github.com/PowerInterviewAI/client"
+              href="https://github.com/PowerInterviewAI/client-app"
               target="_blank"
               rel="noopener noreferrer"
               className="group block transition-transform hover:scale-105"

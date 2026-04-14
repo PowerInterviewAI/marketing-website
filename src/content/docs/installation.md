@@ -31,9 +31,9 @@ These commands download the latest installer and open it immediately.
 
 Use the latest release binaries from GitHub:
 
-- [Windows installer (.exe)](https://github.com/PowerInterviewAI/client/releases/latest/download/PowerInterview-Setup-1.4.0.exe)
-- [macOS installer (.dmg)](https://github.com/PowerInterviewAI/client/releases/latest/download/Power.Interview-1.4.0-arm64.dmg)
-- [All release assets (latest)](https://github.com/PowerInterviewAI/client/releases/latest)
+- [Windows installer (.exe)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-1.4.0.exe)
+- [macOS installer (.dmg)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-1.4.0-arm64.dmg)
+- [All release assets (latest)](https://github.com/PowerInterviewAI/client-app/releases/latest)
 
 After installation, launch **Power Interview**, sign in, and proceed to first-run setup.
 
@@ -52,7 +52,7 @@ After installation, launch **Power Interview**, sign in, and proceed to first-ru
 ### Setup
 
 ```bash
-git clone https://github.com/PowerInterviewAI/client
+git clone https://github.com/PowerInterviewAI/client-app
 cd client
 npm install
 npm run start

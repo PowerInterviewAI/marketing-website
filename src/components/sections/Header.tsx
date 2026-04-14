@@ -195,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
             </Button>
             <Button variant="ghost" size="sm" asChild>
               <a
-                href="https://github.com/PowerInterviewAI/client"
+                href="https://github.com/PowerInterviewAI/client-app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
@@ -371,7 +371,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-col gap-2 pt-4">
                 <Button variant="ghost" size="sm" asChild>
                   <a
-                    href="https://github.com/PowerInterviewAI/client"
+                    href="https://github.com/PowerInterviewAI/client-app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
