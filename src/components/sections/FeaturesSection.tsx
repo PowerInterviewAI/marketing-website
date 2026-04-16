@@ -119,7 +119,7 @@ export const FeaturesSection: React.FC = () => {
               <CardTitle>Plan-Based Access</CardTitle>
               <CardDescription>
                 Free users can experience all features for free under rate limit (5 suggestions per
-                hour). Paid users unlock higher throughput and provided SOTA models.
+                hour). Paid users unlock no limit and provided SOTA models.
               </CardDescription>
             </CardHeader>
           </Card>
