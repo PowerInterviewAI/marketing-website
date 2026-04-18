@@ -24,16 +24,20 @@ export default function Seo({ title, description, url, image, noIndex }: SeoProp
     const baseTitle = 'Power Interview AI';
     const resolvedUrl = url || 'https://www.powerinterviewai.com/';
     const resolvedImage = image || 'https://www.powerinterviewai.com/logo.png';
+    const resolvedDescription =
+      description ||
+      'Privacy-first AI interview coach and meeting note taker — live transcription, AI reply suggestions, mock interview practice, and smart exports for Google Meet, Zoom, Teams, and more.';
+
     if (title) {
       document.title = `${title.charAt(0).toUpperCase() + title.slice(1)} - ${baseTitle}`;
     } else {
-      document.title = `${baseTitle} - Privacy-First AI Interview Assistant`;
+      document.title = `${baseTitle} - Privacy-First Interview Coach & AI Note Taker`;
     }
 
-    setMeta('description', description);
+    setMeta('description', resolvedDescription);
     setMeta('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
     setMeta('og:title', title || baseTitle, 'property');
-    setMeta('og:description', description, 'property');
+    setMeta('og:description', resolvedDescription, 'property');
     setMeta('og:type', 'website', 'property');
     setMeta('og:site_name', baseTitle, 'property');
     setMeta('og:locale', 'en_US', 'property');
@@ -41,7 +45,7 @@ export default function Seo({ title, description, url, image, noIndex }: SeoProp
     setMeta('og:image', resolvedImage, 'property');
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title || baseTitle);
-    setMeta('twitter:description', description);
+    setMeta('twitter:description', resolvedDescription);
     setMeta('twitter:image', resolvedImage);
     setMeta('twitter:url', resolvedUrl);
 

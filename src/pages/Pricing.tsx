@@ -10,7 +10,7 @@ const PricingPage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const description =
-    'See Power Interview AI pricing plans and credit packs - secure crypto payments, flexible options for interview practice and live assistance.';
+    'See Power Interview AI pricing plans and credit packs - secure crypto payments, flexible options for interview practice, mock interviews, meeting note taking, and live AI assistance.';
 
   return (
     <div className="min-h-screen bg-background">

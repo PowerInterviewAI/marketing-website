@@ -20,7 +20,7 @@ const FAQPage: React.FC = () => {
   };
 
   const description =
-    'Frequently asked questions about Power Interview AI - features, privacy, payments, and usage.';
+    'Frequently asked questions about Power Interview AI - features, mock interviews, meeting note taking, privacy, payments, and usage.';
 
   return (
     <div className="min-h-screen bg-background">

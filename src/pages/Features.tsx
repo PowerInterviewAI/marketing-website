@@ -10,7 +10,7 @@ const FeaturesPage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const description =
-    'Explore Power Interview AI features: real-time transcription, intelligent reply suggestions, live coding assistance, bring-your-own LLM providers, and exportable interview reports.';
+    'Explore Power Interview AI features: real-time transcription, intelligent reply suggestions, mock interview practice, meeting note taker, live coding assistance, bring-your-own LLM providers, and exportable interview and meeting reports.';
 
   return (
     <div className="min-h-screen bg-background">

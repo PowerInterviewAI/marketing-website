@@ -10,7 +10,7 @@ const BenefitsPage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const description =
-    'Benefits of using Power Interview AI for interview practice, confidence building, and coding prep.';
+    'Benefits of using Power Interview AI for interview practice, mock interviews, meeting note taking, confidence building, and coding prep.';
 
   return (
     <div className="min-h-screen bg-background">
