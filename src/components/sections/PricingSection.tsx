@@ -121,8 +121,8 @@ export const PricingSection: React.FC = () => {
               </CardDescription>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <span className="font-semibold text-foreground">AI suggestions:</span> 5
-                  suggestions per hour
+                  <span className="font-semibold text-foreground">Rate Limit:</span> 5 suggestions
+                  per hour
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span>{' '}
@@ -144,7 +144,7 @@ export const PricingSection: React.FC = () => {
               <CardDescription>Higher throughput plus provided SOTA models.</CardDescription>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <span className="font-semibold text-foreground">AI suggestions:</span> no limits
+                  <span className="font-semibold text-foreground">Rate Limit:</span> no limits
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span>{' '}
