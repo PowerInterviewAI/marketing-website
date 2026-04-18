@@ -73,6 +73,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.powerinterviewai.com/docs/mock-interview</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.powerinterviewai.com/docs/beta-tester</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.powerinterviewai.com/why-choose</loc>
     <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
