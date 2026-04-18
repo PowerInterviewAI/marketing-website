@@ -10,6 +10,7 @@ const ORDER = [
   'best-practices',
   'troubleshooting',
   'mock-interview',
+  'beta-tester',
 ];
 
 const docPaths = Object.keys(import.meta.glob('/src/content/docs/*.md'));
