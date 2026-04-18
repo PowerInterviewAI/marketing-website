@@ -9,6 +9,7 @@ const ORDER = [
   'how-it-works',
   'best-practices',
   'troubleshooting',
+  'mock-interview',
 ];
 
 const docPaths = Object.keys(import.meta.glob('/src/content/docs/*.md'));
