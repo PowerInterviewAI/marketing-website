@@ -34,7 +34,7 @@ export const FeaturesSection: React.FC = () => {
             Powerful Features
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to ace your interviews with confidence
+            Everything you need to ace your interviews and capture meeting insights with AI
           </p>
         </div>
 
@@ -89,14 +89,13 @@ export const FeaturesSection: React.FC = () => {
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
               <FileDown className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
-              <CardTitle>Export Transcript</CardTitle>
+              <CardTitle>AI Note Taker Export</CardTitle>
               <CardDescription>
-                <span className="font-semibold text-foreground">Smart transcript export</span> with
-                AI-powered summarization, analysis, and insights. Review your conversations to
-                identify communication patterns, understand your strengths, and improve for future
-                interviews. Exports to{' '}
-                <span className="font-semibold text-foreground">DOCX format</span> - widely
-                compatible with all word processing software.
+                <span className="font-semibold text-foreground">Smart meeting export</span> for
+                interviews, mock interviews, and video calls. AI-generated summaries, action items,
+                speaker-labeled transcripts, and follow-up notes. Exports to{' '}
+                <span className="font-semibold text-foreground">DOCX format</span> for easy sharing
+                across individuals and enterprise teams.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -104,11 +103,25 @@ export const FeaturesSection: React.FC = () => {
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
               <SiSuperuser className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
-              <CardTitle>Bring Your Own LLM</CardTitle>
+              <CardTitle>Mock Interview</CardTitle>
               <CardDescription>
-                Use your own provider (OpenAI, Anthropic, Google, and more) with API keys you
-                control. We also include a default model based on your plan so you can get started
-                instantly.
+                Practice with AI-guided mock interviews and get exportable performance notes. Learn
+                more in the{' '}
+                <a className="font-semibold text-primary underline" href="/docs/mock-interview">
+                  mock interview guide
+                </a>
+                .
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="transition-shadow hover:shadow-lg">
+            <CardHeader>
+              <KeyRound className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
+              <CardTitle>Plan-Based Access</CardTitle>
+              <CardDescription>
+                Free users can experience all features for free under rate limit (5 suggestions per
+                hour). Paid users unlock no limit and provided SOTA models.
               </CardDescription>
             </CardHeader>
           </Card>

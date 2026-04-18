@@ -10,9 +10,9 @@ import { Plan } from '@/types';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
 
 const planDescriptions: Record<string, string> = {
-  starter: 'Perfect for trying out the platform',
-  pro: 'Best value for serious job seekers',
-  enterprise: 'For heavy users and teams',
+  starter: 'Ideal for individuals and first-time AI note takers',
+  pro: 'Best value for professionals and serious job seekers',
+  enterprise: 'Enterprise-ready meeting and interview note taking for teams',
 };
 
 const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number => {

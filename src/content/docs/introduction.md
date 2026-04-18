@@ -1,6 +1,6 @@
 # Introduction
 
-Power Interview is a privacy-first AI assistant that helps you perform confidently during live technical and behavioral interviews. It runs as a desktop application on your machine and combines real-time transcription and intelligent AI suggestions - all designed to keep your data under your control.
+Power Interview is a privacy-first AI assistant that helps you perform confidently during live interviews, mock interviews, meetings, and business calls. It runs as a desktop application on your machine and combines real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
 
 | Normal Mode                                                                   | Stealth Mode                                                                          |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -49,10 +49,11 @@ You can connect your own LLM provider (OpenAI, Anthropic, Google, etc.) using AP
 
 ![Stealth mode status bar](/media/docs/stealth-mode.png)
 
-### Interview Export
+### Smart Meeting Notes & Export
 
-- After a session, export a complete interview report as a Word document (`.docx`)
-- Report includes an AI-generated summary, full timestamped transcript with speaker labels, and all reply suggestions
+- After a meeting or interview session, export a complete AI-generated report as a Word document (`.docx`)
+- Report includes a summary, timestamped transcript with speaker labels, action items, follow-up notes, and any reply suggestions
+- Works across Google Meet, Zoom, Microsoft Teams, and other meeting platforms, so you can capture notes for both individuals and enterprise workflows
 
 ### Credits & Payments
 

@@ -220,18 +220,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Your Personal AI-Powered
-            <span className="block text-primary">Interview Coach</span>
+            <span className="block text-primary">Interview Coach & Meeting Note Taker</span>
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Ace any type of interviews with our{' '}
-            <span className="font-bold uppercase text-foreground">live suggestions, </span>
-            <span className="font-bold uppercase text-foreground">
-              coding challenge assistant,{' '}
-            </span>
-            plus plan-based included models and support for{' '}
-            <span className="font-bold uppercase text-foreground">your own LLM provider</span> - all
-            while keeping your data private with our{' '}
-            <span className="font-bold uppercase text-primary">privacy-first</span> design.
+            Capture live interviews, mock interviews, meetings, and business calls with AI-powered
+            suggestions, transcription, and smart export. Includes coding challenge assistance,
+            support for your own LLM provider, and a privacy-first design built for individuals and
+            enterprise use.
           </p>
 
           {/* Installation Options */}
