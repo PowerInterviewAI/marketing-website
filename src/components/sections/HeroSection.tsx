@@ -217,7 +217,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           <InterviewCountBanner count={interviewCount} />
           <h1
             id="hero-heading"
-            className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mb-6 mt-20 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Your Personal AI-Powered
             <span className="block text-primary">Interview Coach & Meeting Note Taker</span>

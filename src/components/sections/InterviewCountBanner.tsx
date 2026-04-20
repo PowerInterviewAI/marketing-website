@@ -16,7 +16,7 @@ export function InterviewCountBanner({
   className,
 }: InterviewCountBannerProps) {
   return (
-    <div>
+    <div className="hidden">
       <div
         className={cn(
           floating ? 'fixed left-1/2 top-24 z-50 -translate-x-1/2 shadow-lg' : 'mx-auto mb-6',
