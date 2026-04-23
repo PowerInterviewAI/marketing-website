@@ -26,7 +26,7 @@ export default function Seo({ title, description, url, image, noIndex }: SeoProp
     const resolvedImage = image || 'https://www.powerinterviewai.com/logo.png';
     const resolvedDescription =
       description ||
-      'Privacy-first AI interview coach and meeting note taker — live transcription, AI reply suggestions, mock interview practice, and smart exports for Google Meet, Zoom, Teams, and more.';
+      'New users get a full 1-hour free trial with Llama-4-Scout - no rate limits, no interruptions. Privacy-first AI interview coach and meeting note taker - live transcription, AI reply suggestions, mock interview practice, and smart exports for Google Meet, Zoom, Teams, and more.';
 
     if (title) {
       document.title = `${title.charAt(0).toUpperCase() + title.slice(1)} - ${baseTitle}`;

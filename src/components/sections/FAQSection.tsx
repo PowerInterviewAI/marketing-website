@@ -63,7 +63,8 @@ const faqData = [
   },
   {
     question: 'Is there a free trial?',
-    answer: 'Yes! All new users can experience all features for free under rate limit.',
+    answer:
+      'Yes! New users get a full 1-hour free trial powered by the Llama-4-Scout model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
   },
   {
     question: 'Can I get a refund?',

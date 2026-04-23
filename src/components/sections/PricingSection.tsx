@@ -96,7 +96,7 @@ export const PricingSection: React.FC = () => {
   return (
     <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
       <Container>
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <div className="mx-auto mb-4 max-w-2xl text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Simple, Transparent Pricing
           </h2>
@@ -112,17 +112,39 @@ export const PricingSection: React.FC = () => {
           </div>
         </div>
 
+        <div className="mx-auto mb-4 flex justify-center">
+          <div className="flex items-center gap-2 rounded-xl border border-green-500/30 bg-green-500/10 px-5 py-2.5 text-sm font-medium text-foreground">
+            <span className="rounded-full bg-green-500 px-2 py-0.5 text-xs font-bold text-white">
+              NEW USERS
+            </span>
+            Full{' '}
+            <span className="mx-1 font-semibold text-green-600 dark:text-green-400">
+              1-hour free trial
+            </span>{' '}
+            with Llama-4-Scout -
+            <span className="text-green-600 dark:text-green-400">
+              no rate limits, no interruptions
+            </span>
+          </div>
+        </div>
+
         <div className="mx-auto mb-10 grid max-w-5xl gap-6 md:grid-cols-2">
           <Card className="border-primary/30 bg-primary/5">
             <CardHeader>
-              <CardTitle className="text-2xl">Free</CardTitle>
+              <CardTitle className="text-2xl">Free Trial</CardTitle>
               <CardDescription>
-                Unlimited interviews with fair-use limits for suggestions.
+                Full 1-hour trial experience - no rate limits, no interruptions.
               </CardDescription>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <span className="font-semibold text-foreground">Rate Limit:</span> 5 suggestions
-                  per hour
+                  <span className="font-semibold text-foreground">Trial duration:</span> 1 hour for
+                  new users
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Rate Limit:</span>{' '}
+                  <span className="font-medium text-green-600 dark:text-green-400">
+                    None during trial
+                  </span>
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span>{' '}
