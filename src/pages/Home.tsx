@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   };
 
   const longDescription =
-    'Transform your interview performance with Power Interview AI - a privacy-first AI interview assistant and meeting note taker with real-time transcription, intelligent reply and code suggestions, and exportable session reports. Use your own LLM provider (OpenAI, Anthropic, Google, etc.) and get started instantly with included models based on your plan. Perfect for technical interviews, mock interviews, coding assessments, behavioral interviews, and meeting note taking.';
+    'New users get a full 1-hour free trial with Llama-4-Scout - no rate limits, no interruptions. Transform your interview performance with Power Interview AI, a privacy-first AI interview assistant and meeting note taker with real-time transcription, intelligent reply and code suggestions, and exportable session reports. Use your own LLM provider (OpenAI, Anthropic, Google, etc.) and get started instantly with included models based on your plan. Perfect for technical interviews, mock interviews, coding assessments, behavioral interviews, and meeting note taking.';
 
   return (
     <div className="min-h-screen bg-background">
