@@ -180,7 +180,7 @@ export const CoFoundersSection: React.FC = () => {
             id="co-founders-heading"
             className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
           >
-            Co-founders
+            Our Team
           </h2>
           <p className="text-lg text-muted-foreground">
             Meet the builders behind Power Interview AI.
