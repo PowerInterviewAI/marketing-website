@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
-import { Mail, Send } from 'lucide-react';
+import { LinkedinIcon, Mail, Send } from 'lucide-react';
 
 import Container from '@/components/Container';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +10,9 @@ interface CoFounderConfig {
   username: string;
   role: string;
   email?: string;
+  linkedin?: string;
+  twitter?: string;
+  telegram?: string;
 }
 
 interface GitHubUser {
@@ -34,6 +37,7 @@ interface ContactLinks {
   email: string | null;
   x: string | null;
   telegram: string | null;
+  linkedin: string | null;
 }
 
 const coFounders: CoFounderConfig[] = [
@@ -41,11 +45,19 @@ const coFounders: CoFounderConfig[] = [
     username: 'alpha5611331',
     role: 'Full Stack Developer',
     email: 'alpha5611331@gmail.com',
+    twitter: 'https://x.com/alpha5611331',
+    telegram: 'https://t.me/alpha5611331',
   },
   {
     username: 'anton-karlovskiy',
     role: 'Full Stack Developer',
     email: 'antonkarlovskiy@outlook.com',
+  },
+  {
+    username: 'user2745',
+    role: 'Full Stack Developer',
+    linkedin: 'https://www.linkedin.com/in/kevin-kamto',
+    twitter: 'https://twitter.com/theregoeskevin',
   },
 ];
 
@@ -99,6 +111,9 @@ export const CoFoundersSection: React.FC = () => {
             const telegramFromSocial = socialAccounts.find((account) =>
               /(?:t\.me|telegram\.me)/i.test(account.url)
             )?.url;
+            const linkedinFromSocial = socialAccounts.find((account) =>
+              /linkedin\.com/i.test(account.url)
+            )?.url;
 
             const xFromText =
               extractByRegex(profile.bio, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i) ||
@@ -111,8 +126,9 @@ export const CoFoundersSection: React.FC = () => {
               profile,
               contacts: {
                 email: profile.email || coFounder.email || null,
-                x: xFromSocial || xFromText,
-                telegram: telegramFromSocial || telegramFromText,
+                x: xFromSocial || xFromText || coFounder.twitter || null,
+                telegram: telegramFromSocial || telegramFromText || coFounder.telegram || null,
+                linkedin: linkedinFromSocial || coFounder.linkedin || null,
               },
             };
           })
@@ -171,7 +187,7 @@ export const CoFoundersSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {coFounders.map((coFounder) => {
             const profile = profiles[coFounder.username];
             const contact = contacts[coFounder.username];
@@ -251,6 +267,17 @@ export const CoFoundersSection: React.FC = () => {
                         className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
                       >
                         <Send className="h-4 w-4" />@{getHandleFromUrl(contact.telegram)}
+                      </a>
+                    ) : null}
+                    {contact?.linkedin ? (
+                      <a
+                        href={contact.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+                      >
+                        <LinkedinIcon className="h-4 w-4" />
+                        {getHandleFromUrl(contact.linkedin)}
                       </a>
                     ) : null}
                   </div>
