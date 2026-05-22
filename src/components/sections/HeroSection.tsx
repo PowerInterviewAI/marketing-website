@@ -252,6 +252,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             enterprise use.
           </p>
 
+          {/* PeerPush badges */}
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="https://peerpush.net/p/power-interview-ai" target="_blank" rel="noopener">
+              <img
+                src="https://peerpush.net/p/power-interview-ai/badge.png"
+                alt="Power Interview AI on PeerPush"
+                style={{ width: '230px' }}
+              />
+            </a>
+            <a href="https://peerpush.net/p/power-interview-ai" target="_blank" rel="noopener">
+              <img
+                src="https://peerpush.net/p/power-interview-ai/rating-badge.png"
+                alt="Power Interview AI rating on PeerPush"
+                style={{ width: '400px' }}
+              />
+            </a>
+          </div>
+
           {/* Installation Options */}
           <div className="mx-auto mt-4 max-w-3xl">
             <div className="mb-3 text-center">
