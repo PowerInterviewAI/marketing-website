@@ -6,9 +6,12 @@ import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-reac
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
+import { ENV } from '@/config/constants';
 import { cn } from '@/lib/utils';
 
 import { InterviewCountBanner } from './InterviewCountBanner';
+
+const API_BASE_URL = ENV.apiBaseUrl || 'https://api.powerinterviewai.com/';
 
 // Media carousel data
 const mediaItems = [
@@ -33,15 +36,12 @@ interface HeroSectionProps {
 
 const fetchActiveSessionsCount = async (): Promise<number | null> => {
   try {
-    const response = await fetch(
-      'https://api.powerinterviewai.com/api/health-check/active-sessions',
-      {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-        },
-      }
-    );
+    const response = await fetch(`${API_BASE_URL}api/health-check/active-sessions`, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+      },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
