@@ -74,48 +74,53 @@ function extractByRegex(value: string | null | undefined, pattern: RegExp): stri
 async function getCoFounderProfile(
   coFounder: CoFounderConfig
 ): Promise<{ profile: GitHubUser; contacts: ContactLinks } | null> {
-  const [profileResponse, socialResponse] = await Promise.all([
-    fetch(`https://api.github.com/users/${coFounder.username}`, {
-      headers: { accept: 'application/vnd.github+json' },
-    }),
-    fetch(`https://api.github.com/users/${coFounder.username}/social_accounts`, {
-      headers: { accept: 'application/vnd.github+json' },
-    }),
-  ]);
+  try {
+    const [profileResponse, socialResponse] = await Promise.all([
+      fetch(`https://api.github.com/users/${coFounder.username}`, {
+        headers: { accept: 'application/vnd.github+json' },
+      }),
+      fetch(`https://api.github.com/users/${coFounder.username}/social_accounts`, {
+        headers: { accept: 'application/vnd.github+json' },
+      }),
+    ]);
 
-  if (!profileResponse.ok) return null;
+    if (!profileResponse.ok) return null;
 
-  const profile = (await profileResponse.json()) as GitHubUser;
-  const socialAccounts = socialResponse.ok
-    ? ((await socialResponse.json()) as GitHubSocialAccount[])
-    : [];
+    const profile = (await profileResponse.json()) as GitHubUser;
+    const socialAccounts = socialResponse.ok
+      ? ((await socialResponse.json()) as GitHubSocialAccount[])
+      : [];
 
-  const xFromSocial = socialAccounts.find((account) =>
-    /(?:x\.com|twitter\.com)/i.test(account.url)
-  )?.url;
-  const telegramFromSocial = socialAccounts.find((account) =>
-    /(?:t\.me|telegram\.me)/i.test(account.url)
-  )?.url;
-  const linkedinFromSocial = socialAccounts.find((account) =>
-    /linkedin\.com/i.test(account.url)
-  )?.url;
+    const xFromSocial = socialAccounts.find((account) =>
+      /(?:x\.com|twitter\.com)/i.test(account.url)
+    )?.url;
+    const telegramFromSocial = socialAccounts.find((account) =>
+      /(?:t\.me|telegram\.me)/i.test(account.url)
+    )?.url;
+    const linkedinFromSocial = socialAccounts.find((account) =>
+      /linkedin\.com/i.test(account.url)
+    )?.url;
 
-  const xFromText =
-    extractByRegex(profile.bio, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i) ||
-    extractByRegex(profile.blog, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i);
-  const telegramFromText =
-    extractByRegex(profile.bio, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i) ||
-    extractByRegex(profile.blog, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i);
+    const xFromText =
+      extractByRegex(profile.bio, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i) ||
+      extractByRegex(profile.blog, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i);
+    const telegramFromText =
+      extractByRegex(profile.bio, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i) ||
+      extractByRegex(profile.blog, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i);
 
-  return {
-    profile,
-    contacts: {
-      email: profile.email || coFounder.email || null,
-      x: xFromSocial || xFromText || coFounder.twitter || null,
-      telegram: telegramFromSocial || telegramFromText || coFounder.telegram || null,
-      linkedin: linkedinFromSocial || coFounder.linkedin || null,
-    },
-  };
+    return {
+      profile,
+      contacts: {
+        email: profile.email || coFounder.email || null,
+        x: xFromSocial || xFromText || coFounder.twitter || null,
+        telegram: telegramFromSocial || telegramFromText || coFounder.telegram || null,
+        linkedin: linkedinFromSocial || coFounder.linkedin || null,
+      },
+    };
+  } catch (error) {
+    console.warn(`Failed to fetch GitHub profile for ${coFounder.username}:`, error);
+    return null;
+  }
 }
 
 export const CoFoundersSection = async () => {
