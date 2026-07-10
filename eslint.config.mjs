@@ -1,6 +1,5 @@
 import js from '@eslint/js';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -15,20 +14,9 @@ export default tseslint.config(
     },
     plugins: {
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    },
-  },
-  {
-    // Next.js App Router files export non-component values (metadata,
-    // generateMetadata, generateStaticParams, etc.) by convention; the
-    // Vite-era react-refresh rule doesn't recognize them.
-    files: ['src/app/**/*.{ts,tsx}'],
-    rules: {
-      'react-refresh/only-export-components': 'off',
     },
   }
 );
