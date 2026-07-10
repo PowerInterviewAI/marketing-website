@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
 
 import { HomeContent } from '@/components/HomeContent';
+import {
+  BenefitsSection,
+  CoFoundersSection,
+  ContactSection,
+  FeaturesSection,
+  PricingSection,
+  WhyChooseSection,
+} from '@/components/sections';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -11,5 +19,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function Home() {
-  return <HomeContent />;
+  return (
+    <HomeContent
+      featuresSection={<FeaturesSection />}
+      benefitsSection={<BenefitsSection />}
+      whyChooseSection={<WhyChooseSection />}
+      pricingSection={<PricingSection />}
+      contactSection={<ContactSection />}
+      coFoundersSection={<CoFoundersSection />}
+    />
+  );
 }

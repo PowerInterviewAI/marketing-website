@@ -1,18 +1,13 @@
-'use client';
-
 import React from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 import { ArrowRight } from 'lucide-react';
 
 import Container from '@/components/Container';
-import { Button } from '@/components/ui/button';
+import { GoHomeButton } from '@/components/GoHomeButton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useGoHome } from '@/hooks';
 
 export const WhyChooseSection: React.FC = () => {
-  const handleButtonClick = useGoHome();
-
   return (
     <section className="py-16 md:py-24" aria-labelledby="why-choose-heading">
       <Container>
@@ -147,10 +142,10 @@ export const WhyChooseSection: React.FC = () => {
               privacy-focused, and feature-rich AI assistant built specifically for real interview
               scenarios.
             </p>
-            <Button size="lg" className="mt-6" onClick={handleButtonClick}>
+            <GoHomeButton size="lg" className="mt-6">
               Experience the Difference
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            </GoHomeButton>
           </div>
         </div>
       </Container>

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import { SiSuperuser } from '@icons-pack/react-simple-icons';
@@ -14,12 +12,10 @@ import {
 } from 'lucide-react';
 
 import Container from '@/components/Container';
-import { Button } from '@/components/ui/button';
+import { GoHomeButton } from '@/components/GoHomeButton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useGoHome } from '@/hooks';
 
 export const FeaturesSection: React.FC = () => {
-  const goHome = useGoHome();
   return (
     <section
       id="features"
@@ -140,12 +136,12 @@ export const FeaturesSection: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button size="lg" onClick={goHome}>
+          <GoHomeButton size="lg">
             Get Started Now
             <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </Button>
+          </GoHomeButton>
         </div>
       </Container>
     </section>
