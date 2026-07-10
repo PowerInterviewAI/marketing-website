@@ -112,7 +112,7 @@ export const PricingSection: React.FC = () => {
             <span className="mx-1 font-semibold text-green-600 dark:text-green-400">
               1-hour free trial
             </span>{' '}
-            with Llama-4-Scout -
+            with Qwen3.6 27B -
             <span className="text-green-600 dark:text-green-400">
               no rate limits, no interruptions
             </span>
@@ -140,7 +140,7 @@ export const PricingSection: React.FC = () => {
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span>{' '}
                   <code className="rounded bg-background px-1 py-0.5">
-                    meta-llama/llama-4-scout-17b-16e-instruct
+                    meta-llama/Qwen3.6 27B-17b-16e-instruct
                   </code>
                 </li>
                 <li>

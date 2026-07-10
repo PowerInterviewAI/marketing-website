@@ -10,11 +10,11 @@
 While your beta tester status is active (before the expiration date), you will enjoy the following benefits:
 
 - **No rate limits** applied to your usage.
-- Access to the **Llama-4-Scout** model.
+- Access to the **Qwen3.6 27B** model.
 - Ability to use your **own API Key** with no rate limits.
 
 > **Note**:  
-> Llama-4-Scout is an open-source LLM. Its performance is generally **lower** than **GPT-5.4**, which is provided to paid users.
+> Qwen3.6 27B is an open-source LLM. Its performance is generally **lower** than **GPT-5.4**, which is provided to paid users.
 
 ## What Happens After Beta Tester Expires
 - Once the expiration date passes, your role will automatically revert to **normal user**.

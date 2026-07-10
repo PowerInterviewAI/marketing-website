@@ -64,7 +64,7 @@ const faqData = [
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! New users get a full 1-hour free trial powered by the Llama-4-Scout model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
+      'Yes! New users get a full 1-hour free trial powered by the Qwen3.6 27B model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
   },
   {
     question: 'Can I get a refund?',
