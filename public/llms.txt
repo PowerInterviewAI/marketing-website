@@ -1,0 +1,32 @@
+# Power Interview AI
+
+> Privacy-first, desktop AI interview coach and meeting note taker for Windows and macOS - live transcription, AI reply and code suggestions, mock interview practice, and smart session exports for Zoom, Google Meet, and Microsoft Teams.
+
+Power Interview AI is a standalone desktop application, not a browser extension or cloud service. All sensitive data (transcripts, screenshots) stays on the user's device by default. New users get a full 1-hour free trial with the product's free model, no rate limits. Paid plans add a SOTA (state-of-the-art) model with no usage limits. Users can also bring their own LLM provider (OpenAI, Anthropic, Google, or others) using API keys they control. Payment is cryptocurrency-only - no credit card, PayPal, or bank details required. macOS builds are temporarily unavailable while the team works on bringing them back online; Windows is fully supported today.
+
+## Product pages
+
+- [Home](https://www.powerinterviewai.com/): overview, free trial offer, and product demo.
+- [Features](https://www.powerinterviewai.com/features): live transcription, AI reply suggestions, stealth mode, code suggestions, meeting note export, mock interviews.
+- [Pricing](https://www.powerinterviewai.com/pricing): free trial, credit-based paid plans, and cryptocurrency payment details.
+- [Why Choose](https://www.powerinterviewai.com/why-choose): privacy and stealth-mode differentiation versus other interview-assistant and interview-practice tools.
+- [Benefits](https://www.powerinterviewai.com/benefits): outcomes for job seekers using the product.
+- [FAQ](https://www.powerinterviewai.com/faq): platform support, privacy model, billing, and usage questions.
+- [Contact](https://www.powerinterviewai.com/contact): support and community channels (email, GitHub, Telegram, X, Discord).
+
+## Documentation
+
+- [Docs index](https://www.powerinterviewai.com/docs): full documentation listing.
+- [Introduction](https://www.powerinterviewai.com/docs/introduction)
+- [Installation](https://www.powerinterviewai.com/docs/installation)
+- [Usage](https://www.powerinterviewai.com/docs/usage)
+- [How It Works](https://www.powerinterviewai.com/docs/how-it-works)
+- [Mock Interview](https://www.powerinterviewai.com/docs/mock-interview)
+- [Best Practices](https://www.powerinterviewai.com/docs/best-practices)
+- [Troubleshooting](https://www.powerinterviewai.com/docs/troubleshooting)
+- [Beta Tester Program](https://www.powerinterviewai.com/docs/beta-tester)
+
+## Legal
+
+- [Privacy Policy](https://www.powerinterviewai.com/privacy)
+- [Terms of Service](https://www.powerinterviewai.com/terms)
