@@ -139,9 +139,7 @@ export const PricingSection: React.FC = () => {
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span>{' '}
-                  <code className="rounded bg-background px-1 py-0.5">
-                    meta-llama/Qwen3.6 27B-17b-16e-instruct
-                  </code>
+                  <code className="rounded bg-background px-1 py-0.5">qwen/qwen3.6-27b</code>
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
