@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { SiProtonmail } from '@icons-pack/react-simple-icons';
 
@@ -8,8 +8,6 @@ import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 
 interface FAQSectionProps {
-  openFaqIndex: number | null;
-  setOpenFaqIndex: (index: number | null) => void;
   scrollToSection: (sectionId: string) => void;
 }
 
@@ -31,7 +29,8 @@ const faqData = [
   },
   {
     question: 'What platforms are supported?',
-    answer: 'Power Interview AI currently supports both Windows and macOS.',
+    answer:
+      'Power Interview AI supports both Windows and macOS. macOS builds are temporarily unavailable while we work on bringing them back online - Windows downloads are unaffected.',
   },
   {
     question: 'Do I need special hardware to run Power Interview AI?',
@@ -66,7 +65,7 @@ const faqData = [
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! New users get a full 1-hour free trial powered by the Qwen3.6 27B model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
+      'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
   },
   {
     question: 'Can I get a refund?',
@@ -75,11 +74,9 @@ const faqData = [
   },
 ];
 
-export const FAQSection: React.FC<FAQSectionProps> = ({
-  openFaqIndex,
-  setOpenFaqIndex,
-  scrollToSection,
-}) => {
+export const FAQSection: React.FC<FAQSectionProps> = ({ scrollToSection }) => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
   return (
     <section id="faq" className="py-16 md:py-24" aria-labelledby="faq-heading">
       <Container>

@@ -1,26 +1,25 @@
-import React from 'react';
-
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import Container from '@/components/Container';
-import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { buildMetadata } from '@/lib/metadata';
 
-const TermsOfService: React.FC = () => {
-  const description =
-    "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform.";
+export const metadata: Metadata = buildMetadata({
+  title: 'Terms of Service',
+  description:
+    "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform.",
+  path: '/terms',
+});
+
+export default function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-      <Seo
-        title="Terms of Service"
-        description={description}
-        url="https://www.powerinterviewai.com/terms"
-      />
       <Container>
         <div className="py-12">
-          <Link to="/" className="mb-8 inline-block">
+          <Link href="/" className="mb-8 inline-block">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -169,7 +168,7 @@ const TermsOfService: React.FC = () => {
                 <h2 className="mb-4 text-2xl font-semibold">9. Privacy and Data Protection</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   Your use of the Service is also governed by our Privacy Policy. Please review our{' '}
-                  <Link to="/privacy" className="text-blue-600 underline dark:text-blue-400">
+                  <Link href="/privacy" className="text-blue-600 underline dark:text-blue-400">
                     Privacy Policy
                   </Link>{' '}
                   to understand our data practices.
@@ -299,6 +298,4 @@ const TermsOfService: React.FC = () => {
       </Container>
     </div>
   );
-};
-
-export default TermsOfService;
+}

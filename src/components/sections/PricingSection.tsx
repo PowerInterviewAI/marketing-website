@@ -5,11 +5,12 @@ import React, { useEffect, useState } from 'react';
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ENV } from '@/config/constants';
 import { useGoHome } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
+const API_BASE_URL = ENV.apiBaseUrl || 'https://api.powerinterviewai.com/';
 
 const planDescriptions: Record<string, string> = {
   starter: 'Ideal for individuals and first-time AI note takers',
@@ -114,7 +115,7 @@ export const PricingSection: React.FC = () => {
             <span className="mx-1 font-semibold text-green-600 dark:text-green-400">
               1-hour free trial
             </span>{' '}
-            with Qwen3.6 27B -
+            with our free model -
             <span className="text-green-600 dark:text-green-400">
               no rate limits, no interruptions
             </span>
@@ -140,8 +141,8 @@ export const PricingSection: React.FC = () => {
                   </span>
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
-                  <code className="rounded bg-background px-1 py-0.5">qwen/qwen3.6-27b</code>
+                  <span className="font-semibold text-foreground">Provided model:</span> our free
+                  model
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
@@ -160,8 +161,8 @@ export const PricingSection: React.FC = () => {
                   <span className="font-semibold text-foreground">Rate Limit:</span> no limits
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
-                  <code className="rounded bg-background px-1 py-0.5">openai/gpt-5.4</code>
+                  <span className="font-semibold text-foreground">Provided model:</span> our SOTA
+                  model
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,

@@ -1,26 +1,25 @@
-import React from 'react';
-
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import Container from '@/components/Container';
-import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { buildMetadata } from '@/lib/metadata';
 
-const PrivacyPolicy: React.FC = () => {
-  const description =
-    "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation.";
+export const metadata: Metadata = buildMetadata({
+  title: 'Privacy Policy',
+  description:
+    "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation.",
+  path: '/privacy',
+});
+
+export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-      <Seo
-        title="Privacy Policy"
-        description={description}
-        url="https://www.powerinterviewai.com/privacy"
-      />
       <Container>
         <div className="py-12">
-          <Link to="/" className="mb-8 inline-block">
+          <Link href="/" className="mb-8 inline-block">
             <Button variant="ghost" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -210,6 +209,4 @@ const PrivacyPolicy: React.FC = () => {
       </Container>
     </div>
   );
-};
-
-export default PrivacyPolicy;
+}
