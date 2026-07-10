@@ -4,17 +4,17 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import ScrollToTop from '@/components/ScrollToTop';
 
-import Benefits from './pages/Benefits';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
-import Features from './pages/Features';
-import Home from './pages/Home';
-import Pricing from './pages/Pricing';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import WhyChoose from './pages/WhyChoose';
-import DocsIndex from './pages/docs';
-import DocsPage from './pages/docs/[slug]';
+import Benefits from './legacy-pages/Benefits';
+import Contact from './legacy-pages/Contact';
+import FAQ from './legacy-pages/FAQ';
+import Features from './legacy-pages/Features';
+import Home from './legacy-pages/Home';
+import Pricing from './legacy-pages/Pricing';
+import PrivacyPolicy from './legacy-pages/PrivacyPolicy';
+import TermsOfService from './legacy-pages/TermsOfService';
+import WhyChoose from './legacy-pages/WhyChoose';
+import DocsIndex from './legacy-pages/docs';
+import DocsPage from './legacy-pages/docs/[slug]';
 
 const App: React.FC = () => {
   const showUpgradeOverlay = false;
