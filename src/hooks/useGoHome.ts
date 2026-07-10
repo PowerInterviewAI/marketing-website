@@ -1,15 +1,17 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+'use client';
+
+import { usePathname, useRouter } from 'next/navigation';
 
 // Scrolls to top when already on the home page, otherwise navigates there.
 export function useGoHome() {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   return () => {
-    if (location.pathname === '/') {
+    if (pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      navigate('/');
+      router.push('/');
     }
   };
 }

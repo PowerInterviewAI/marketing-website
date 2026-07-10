@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface SectionNavLinkProps {
   label: string;
@@ -25,7 +27,7 @@ export const SectionNavLink: React.FC<SectionNavLinkProps> = ({
       {label}
     </button>
   ) : (
-    <Link to={to} className={className}>
+    <Link href={to} className={className}>
       {label}
     </Link>
   );

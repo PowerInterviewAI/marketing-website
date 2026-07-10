@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 
 import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-react';
@@ -244,8 +246,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           {/* Trial promotion banner */}
           <div className="mx-auto mb-6 flex w-fit flex-col items-center gap-1 rounded-xl border border-primary/30 bg-gradient-to-r from-primary/10 via-sky-500/10 to-primary/10 px-5 py-3 shadow-sm">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              New users get a full <span className="text-primary">1-hour free trial</span> with{' '}
-              <span className="text-primary">Llama-4-Scout</span>
+              New users get a full <span className="text-primary">1-hour free trial</span> with our{' '}
+              <span className="text-primary">free model</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span className="flex items-center gap-1">
@@ -511,7 +513,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     ref={videoRef}
                     key={mediaItems[currentMediaIndex].src}
                     className="h-full w-full object-contain"
-                    src={`${import.meta.env.BASE_URL}${mediaItems[currentMediaIndex].src}`}
+                    src={`/${mediaItems[currentMediaIndex].src}`}
                     autoPlay={isPlaying}
                     onEnded={handleVideoEnded}
                     playsInline
@@ -520,7 +522,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                 ) : (
                   <img
                     key={mediaItems[currentMediaIndex].src}
-                    src={`${import.meta.env.BASE_URL}${mediaItems[currentMediaIndex].src}`}
+                    src={`/${mediaItems[currentMediaIndex].src}`}
                     alt={mediaItems[currentMediaIndex].title}
                     className="h-full w-full object-contain"
                   />

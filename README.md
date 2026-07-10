@@ -1,10 +1,10 @@
 # Power Interview AI
 
-A modern interview preparation platform built with React, TypeScript, Vite, and Tailwind CSS.
+A modern interview preparation platform built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
-- ⚡️ **Vite** - Lightning-fast development and build tool
+- ▲ **Next.js 16 (App Router)** - server-rendered routes, per-page SEO metadata
 - ⚛️ **React 18** - Latest React features
 - 🎨 **Tailwind CSS** - Utility-first CSS framework
 - 🎭 **shadcn/ui** - Beautiful, accessible components built with Radix UI
@@ -19,22 +19,20 @@ A modern interview preparation platform built with React, TypeScript, Vite, and 
 ```
 power-interview-hero/
 ├── src/
-│   ├── assets/         # Static assets (images, fonts, etc.)
-│   ├── components/     # Reusable React components
-│   │   └── ui/         # shadcn/ui components
-│   ├── config/         # Configuration files
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility libraries (cn function)
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles
-│   ├── types/          # TypeScript type definitions
-│   ├── utils/          # Utility functions
-│   ├── App.tsx         # Main App component
-│   ├── main.tsx        # Application entry point
-│   └── vite-env.d.ts   # Vite type definitions
-├── public/             # Public static files
-├── index.html          # HTML template
-└── package.json        # Project dependencies and scripts
+│   ├── app/             # Routes (Next.js App Router - file-based routing)
+│   ├── assets/          # Static assets (images, fonts, etc.)
+│   ├── components/      # Reusable React components
+│   │   ├── docs/        # Docs section layout/sidebar/markdown rendering
+│   │   ├── sections/    # Home page section components
+│   │   └── ui/          # shadcn/ui components
+│   ├── config/          # Configuration files
+│   ├── content/docs/    # Markdown documentation content
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility libraries (cn function, metadata, docs)
+│   ├── styles/          # Global styles
+│   └── types/           # TypeScript type definitions
+├── public/               # Public static files
+└── package.json          # Project dependencies and scripts
 ```
 
 ## 🛠️ Getting Started
@@ -75,10 +73,10 @@ Build the application:
 pnpm build
 ```
 
-Preview the production build:
+Serve the production build locally:
 
 ```bash
-pnpm preview
+pnpm start
 ```
 
 ### Code Quality
@@ -147,23 +145,13 @@ import { Button, Card, CardContent, CardHeader, CardTitle } from '@/components';
 
 ## 📦 Deployment
 
-This project is configured for GitHub Pages deployment. The build will be automatically deployed when you push to the main branch.
-
-### Manual Deployment
-
-1. Build the project:
-
-   ```bash
-   pnpm build
-   ```
-
-2. The `dist` folder contains the production build ready for deployment.
+This project deploys to [Vercel](https://vercel.com), which auto-detects Next.js - no custom build configuration needed beyond `vercel.json`'s build command.
 
 ## 🔧 Configuration
 
-### Vite Configuration
+### Next.js Configuration
 
-See [vite.config.ts](vite.config.ts) for Vite configuration options.
+See [next.config.ts](next.config.ts) for Next.js configuration options.
 
 ### Tailwind Configuration
 

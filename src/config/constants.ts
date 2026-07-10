@@ -14,7 +14,7 @@ export const APP_CONFIG = {
  * Environment Variables
  */
 export const ENV = {
-  isDevelopment: import.meta.env.DEV,
-  isProduction: import.meta.env.PROD,
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || '',
+  isDevelopment: process.env.NODE_ENV === 'development',
+  isProduction: process.env.NODE_ENV === 'production',
+  apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || '',
 } as const;

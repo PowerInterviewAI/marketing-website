@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
 import { LinkedinIcon, Mail, Send } from 'lucide-react';
 
@@ -61,116 +59,72 @@ const coFounders: CoFounderConfig[] = [
   },
 ];
 
-export const CoFoundersSection: React.FC = () => {
-  const [profiles, setProfiles] = useState<Record<string, GitHubUser>>({});
-  const [contacts, setContacts] = useState<Record<string, ContactLinks>>({});
-  const [loading, setLoading] = useState(true);
+function getHandleFromUrl(url: string) {
+  const parsed = url.replace(/\/+$/, '');
+  const segments = parsed.split('/');
+  return segments[segments.length - 1] || parsed;
+}
 
-  const getHandleFromUrl = (url: string) => {
-    const parsed = url.replace(/\/+$/, '');
-    const segments = parsed.split('/');
-    return segments[segments.length - 1] || parsed;
-  };
+function extractByRegex(value: string | null | undefined, pattern: RegExp): string | null {
+  if (!value) return null;
+  const match = value.match(pattern);
+  return match?.[0] || null;
+}
 
-  useEffect(() => {
-    let isMounted = true;
+async function getCoFounderProfile(
+  coFounder: CoFounderConfig
+): Promise<{ profile: GitHubUser; contacts: ContactLinks } | null> {
+  try {
+    const [profileResponse, socialResponse] = await Promise.all([
+      fetch(`https://api.github.com/users/${coFounder.username}`, {
+        headers: { accept: 'application/vnd.github+json' },
+      }),
+      fetch(`https://api.github.com/users/${coFounder.username}/social_accounts`, {
+        headers: { accept: 'application/vnd.github+json' },
+      }),
+    ]);
 
-    const extractByRegex = (value: string | null | undefined, pattern: RegExp): string | null => {
-      if (!value) return null;
-      const match = value.match(pattern);
-      return match?.[0] || null;
+    if (!profileResponse.ok) return null;
+
+    const profile = (await profileResponse.json()) as GitHubUser;
+    const socialAccounts = socialResponse.ok
+      ? ((await socialResponse.json()) as GitHubSocialAccount[])
+      : [];
+
+    const xFromSocial = socialAccounts.find((account) =>
+      /(?:x\.com|twitter\.com)/i.test(account.url)
+    )?.url;
+    const telegramFromSocial = socialAccounts.find((account) =>
+      /(?:t\.me|telegram\.me)/i.test(account.url)
+    )?.url;
+    const linkedinFromSocial = socialAccounts.find((account) =>
+      /linkedin\.com/i.test(account.url)
+    )?.url;
+
+    const xFromText =
+      extractByRegex(profile.bio, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i) ||
+      extractByRegex(profile.blog, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i);
+    const telegramFromText =
+      extractByRegex(profile.bio, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i) ||
+      extractByRegex(profile.blog, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i);
+
+    return {
+      profile,
+      contacts: {
+        email: profile.email || coFounder.email || null,
+        x: xFromSocial || xFromText || coFounder.twitter || null,
+        telegram: telegramFromSocial || telegramFromText || coFounder.telegram || null,
+        linkedin: linkedinFromSocial || coFounder.linkedin || null,
+      },
     };
+  } catch (error) {
+    console.warn(`Failed to fetch GitHub profile for ${coFounder.username}:`, error);
+    return null;
+  }
+}
 
-    const fetchProfiles = async () => {
-      try {
-        const profileResponses = await Promise.all(
-          coFounders.map(async (coFounder) => {
-            const [profileResponse, socialResponse] = await Promise.all([
-              fetch(`https://api.github.com/users/${coFounder.username}`, {
-                headers: {
-                  accept: 'application/vnd.github+json',
-                },
-              }),
-              fetch(`https://api.github.com/users/${coFounder.username}/social_accounts`, {
-                headers: {
-                  accept: 'application/vnd.github+json',
-                },
-              }),
-            ]);
-
-            if (!profileResponse.ok) return null;
-
-            const profile = (await profileResponse.json()) as GitHubUser;
-            const socialAccounts = socialResponse.ok
-              ? ((await socialResponse.json()) as GitHubSocialAccount[])
-              : [];
-
-            const xFromSocial = socialAccounts.find((account) =>
-              /(?:x\.com|twitter\.com)/i.test(account.url)
-            )?.url;
-            const telegramFromSocial = socialAccounts.find((account) =>
-              /(?:t\.me|telegram\.me)/i.test(account.url)
-            )?.url;
-            const linkedinFromSocial = socialAccounts.find((account) =>
-              /linkedin\.com/i.test(account.url)
-            )?.url;
-
-            const xFromText =
-              extractByRegex(profile.bio, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i) ||
-              extractByRegex(profile.blog, /https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+/i);
-            const telegramFromText =
-              extractByRegex(profile.bio, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i) ||
-              extractByRegex(profile.blog, /https?:\/\/(?:t\.me|telegram\.me)\/[A-Za-z0-9_]+/i);
-
-            return {
-              profile,
-              contacts: {
-                email: profile.email || coFounder.email || null,
-                x: xFromSocial || xFromText || coFounder.twitter || null,
-                telegram: telegramFromSocial || telegramFromText || coFounder.telegram || null,
-                linkedin: linkedinFromSocial || coFounder.linkedin || null,
-              },
-            };
-          })
-        );
-
-        if (!isMounted) return;
-
-        const mappedProfiles = profileResponses
-          .filter(
-            (result): result is { profile: GitHubUser; contacts: ContactLinks } => result !== null
-          )
-          .reduce<Record<string, GitHubUser>>((acc, result) => {
-            acc[result.profile.login] = result.profile;
-            return acc;
-          }, {});
-
-        const mappedContacts = profileResponses
-          .filter(
-            (result): result is { profile: GitHubUser; contacts: ContactLinks } => result !== null
-          )
-          .reduce<Record<string, ContactLinks>>((acc, result) => {
-            acc[result.profile.login] = result.contacts;
-            return acc;
-          }, {});
-
-        setProfiles(mappedProfiles);
-        setContacts(mappedContacts);
-      } catch (error) {
-        console.warn('Failed to fetch co-founder GitHub profiles:', error);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchProfiles();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+export const CoFoundersSection = async () => {
+  const results = await Promise.all(coFounders.map(getCoFounderProfile));
 
   return (
     <section id="co-founders" className="py-16 md:py-24" aria-labelledby="co-founders-heading">
@@ -188,9 +142,10 @@ export const CoFoundersSection: React.FC = () => {
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          {coFounders.map((coFounder) => {
-            const profile = profiles[coFounder.username];
-            const contact = contacts[coFounder.username];
+          {coFounders.map((coFounder, i) => {
+            const result = results[i];
+            const profile = result?.profile;
+            const contact = result?.contacts;
 
             return (
               <Card key={coFounder.username} className="border-primary/30 bg-primary/5">
@@ -221,9 +176,7 @@ export const CoFoundersSection: React.FC = () => {
                   </div>
 
                   <p className="min-h-12 text-sm text-muted-foreground">
-                    {loading
-                      ? 'Loading profile details...'
-                      : profile?.bio || 'Building AI products and developer tools.'}
+                    {profile?.bio || 'Building AI products and developer tools.'}
                   </p>
 
                   <div className="mt-2 flex gap-4 text-sm text-muted-foreground">

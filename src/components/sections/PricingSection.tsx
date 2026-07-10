@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-
 import Container from '@/components/Container';
-import { Button } from '@/components/ui/button';
+import { GoHomeButton } from '@/components/GoHomeButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useGoHome } from '@/hooks';
+import { ENV } from '@/config/constants';
 import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
+const API_BASE_URL = ENV.apiBaseUrl || 'https://api.powerinterviewai.com/';
 
 const planDescriptions: Record<string, string> = {
   starter: 'Ideal for individuals and first-time AI note takers',
@@ -21,50 +19,23 @@ const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number =>
   return Math.round(discount);
 };
 
-export const PricingSection: React.FC = () => {
-  const handleGetStarted = useGoHome();
-  const [plans, setPlans] = useState<Plan[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`${API_BASE_URL}api/payment/plans`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch plans');
-        }
-        const data: Plan[] = await response.json();
-        setPlans(data);
-        setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-        console.error('Error fetching plans:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlans();
-  }, []);
-
-  if (loading) {
-    return (
-      <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
-        <Container>
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg text-muted-foreground">Loading plans...</p>
-          </div>
-        </Container>
-      </section>
-    );
+async function getPlans(): Promise<Plan[] | null> {
+  try {
+    const response = await fetch(`${API_BASE_URL}api/payment/plans`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch plans');
+    }
+    return (await response.json()) as Plan[];
+  } catch (err) {
+    console.error('Error fetching plans:', err);
+    return null;
   }
+}
 
-  if (error) {
+export const PricingSection = async () => {
+  const plans = await getPlans();
+
+  if (!plans) {
     return (
       <section id="pricing" className="py-16 md:py-24" aria-labelledby="pricing-heading">
         <Container>
@@ -112,7 +83,7 @@ export const PricingSection: React.FC = () => {
             <span className="mx-1 font-semibold text-green-600 dark:text-green-400">
               1-hour free trial
             </span>{' '}
-            with Llama-4-Scout -
+            with our free model -
             <span className="text-green-600 dark:text-green-400">
               no rate limits, no interruptions
             </span>
@@ -138,10 +109,8 @@ export const PricingSection: React.FC = () => {
                   </span>
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
-                  <code className="rounded bg-background px-1 py-0.5">
-                    meta-llama/llama-4-scout-17b-16e-instruct
-                  </code>
+                  <span className="font-semibold text-foreground">Provided model:</span> our free
+                  model
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
@@ -160,8 +129,8 @@ export const PricingSection: React.FC = () => {
                   <span className="font-semibold text-foreground">Rate Limit:</span> no limits
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">Provided model:</span>{' '}
-                  <code className="rounded bg-background px-1 py-0.5">openai/gpt-5.4</code>
+                  <span className="font-semibold text-foreground">Provided model:</span> our SOTA
+                  model
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
@@ -222,13 +191,12 @@ export const PricingSection: React.FC = () => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <Button
+                  <GoHomeButton
                     className="mt-6 w-full"
                     variant={plan.popular ? 'default' : 'outline'}
-                    onClick={handleGetStarted}
                   >
                     Get Started
-                  </Button>
+                  </GoHomeButton>
                 </CardContent>
               </Card>
             );

@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm dev             # Start dev server at http://localhost:3000
-pnpm build           # TypeScript check + Vite production build
-pnpm preview         # Preview production build locally
+pnpm build           # TypeScript check + Next.js production build
+pnpm start           # Serve the production build locally
 pnpm lint            # ESLint (strict, zero warnings allowed)
 pnpm format          # Prettier format (auto-sorts imports + Tailwind classes)
 pnpm format:check    # Check formatting without writing
@@ -17,46 +17,59 @@ Pre-commit hooks run Prettier + ESLint on staged TypeScript files automatically 
 
 ## Architecture
 
-This is a **static React SPA marketing site** for Power Interview AI — no backend, no database, deployed as static files (Vite → `dist/`). Deployment config is in `vercel.json`.
+This is a **Next.js App Router marketing site** for Power Interview AI — no database, deployed to Vercel with normal server rendering. All routes live under `src/app/`.
 
 ### Routing & Pages
 
-React Router DOM handles client-side routing. `App.tsx` defines all routes. Pages live in `src/pages/`:
+File-based routing under `src/app/`:
 
-- `Home.tsx` — main landing page, composed entirely of section components from `src/components/sections/`
-- Standalone pages: `Benefits`, `Contact`, `FAQ`, `Features`, `Pricing`, `WhyChoose`, `PrivacyPolicy`, `TermsOfService`
-- `pages/docs/index.tsx` — docs listing (uses `import.meta.glob` to discover markdown files)
-- `pages/docs/[slug].tsx` — individual doc page with dynamic routing
+- `src/app/page.tsx` — home route (`/`), thin Server Component rendering `HomeContent` (a client component composing all the `sections/*` components, since it needs a DOM-based `scrollToSection` threaded through Header/Hero/FAQ)
+- `src/app/features/`, `pricing/`, `benefits/`, `contact/`, `why-choose/`, `privacy/`, `terms/` — standalone pages
+- `src/app/faq/` — has its own `FAQPageContent.tsx` client wrapper, since the FAQ page's "Contact Us" button routes to `/contact` instead of scrolling (FAQ has no in-page sections)
+- `src/app/docs/page.tsx` + `src/app/docs/[slug]/page.tsx` — docs listing and individual doc pages (Server Components, `generateStaticParams` prerenders all slugs)
+- `src/app/not-found.tsx` — 404 page for unmatched paths (previously a silent redirect to `/`; this is a deliberate improvement, not a straight port)
+- `src/app/sitemap.ts` / `src/app/robots.ts` — generated from the real route list + `src/lib/docs.ts`'s slug list, not hand-maintained
+
+Most pages use a shared `PageChrome` client component (`src/components/PageChrome.tsx`) for the Header/Footer + theme/mobile-menu state that's otherwise identical across every route.
 
 ### Documentation System
 
-Markdown files live in `src/content/docs/`. The docs system uses Vite's `import.meta.glob` to load them at build time, renders with `react-markdown` + `remark-gfm`, and uses a hardcoded `ORDER` array in `[slug].tsx` to control sidebar order. Adding a new doc requires placing the `.md` file in `src/content/docs/` and adding its slug to the `ORDER` array.
+Markdown files live in `src/content/docs/`. `src/lib/docs.ts` reads them via Node `fs` (there's no `import.meta.glob` equivalent in Next.js) and holds the **single canonical `ORDER` array** used by both the docs index and the sidebar — don't add a second one. Adding a new doc: drop the `.md` file in `src/content/docs/` and add its slug to `ORDER` in `src/lib/docs.ts`.
+
+The markdown render pipeline (`src/app/docs/[slug]/page.tsx`) uses `react-markdown` + `remark-gfm` server-side; only the image renderer (`src/components/docs/MarkdownImage.tsx`) is a client component, since it's the only genuinely interactive piece (click-to-preview lightbox; `.mp4` sources render as `<video>` instead).
 
 ### Component Architecture
 
-- `src/components/sections/` — all modular sections composing the Home page (Header, Hero, Features, Pricing, FAQ, Footer, etc.)
+- `src/components/sections/` — all modular sections composing the Home page (Header, Hero, Features, Pricing, FAQ, Footer, etc.) — all client components (`'use client'`), since they use hooks/handlers
 - `src/components/ui/` — shadcn/ui base components (Button, Card) with `cva` variants
-- `src/layouts/` — `DocsLayout.tsx` + `DocsSidebar.tsx` for the docs section
+- `src/components/docs/` — `DocsLayout.tsx` + `DocsSidebar.tsx` for the docs section (client components; the doc slug list is resolved server-side in the page and passed down as a prop, since `fs` isn't available in a browser bundle)
 - `cn()` utility in `src/lib/utils.ts` (clsx + tailwind-merge) — always use this for conditional classnames
+- Prefer `next/link`'s `Link` (`href` prop) and `next/navigation`'s `usePathname`/`useRouter` — not `react-router-dom`, which isn't a dependency anymore
+
+### SEO / Metadata
+
+Every route exports `metadata` (static pages) or `generateMetadata` (the dynamic `/docs/[slug]` route) — see `src/lib/metadata.ts`'s `buildMetadata()` helper, which every page should use for consistent title/description/canonical/OG/Twitter output. There's no `Seo.tsx` component anymore; that pattern (a client `useEffect` mutating `document.title`) meant non-JS crawlers only ever saw the homepage's tags for every route, which is exactly what `generateMetadata`/`metadata` fixes.
+
+The root layout (`src/app/layout.tsx`) holds the sitewide default metadata, the three JSON-LD `<script>` blocks (SoftwareApplication/Organization/FAQPage schemas), the anti-FOUC theme-init script, and Google Analytics via `next/script`.
+
+### Model naming
+
+Power Interview AI's own included/default models are referred to generically as **"free model"** (free-trial and beta-tester tiers) and **"SOTA model"** (paid tier) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy; vendor names in "bring your own provider" lists (OpenAI, Anthropic, Google) are a different thing and are fine to name.
 
 ### Theme System
 
-`src/hooks/useTheme.ts` manages light/dark/system theme via localStorage. Dark mode uses Tailwind's `class` strategy — the `dark` class is toggled on `<html>`.
+`src/hooks/useTheme.ts` manages light/dark/system theme via localStorage. It defaults to `'dark'` during the initial render (matching the root layout's anti-FOUC script) and only reads `localStorage` inside a `useEffect` — reading it in a `useState` lazy initializer crashes during server rendering, since client components are still rendered server-side for their initial HTML.
 
 ### Configuration
 
-- `src/config/constants.ts` — `APP_CONFIG`, `ENV` (reads `VITE_*` env vars)
+- `src/config/constants.ts` — `APP_CONFIG`, `ENV` (reads `NEXT_PUBLIC_*` env vars and `process.env.NODE_ENV`)
 - `src/types/index.ts` — shared types: `Status`, `ApiResponse<T>`, `User`, `Plan`, `Theme`
-- Path alias `@/*` maps to `src/*` (configured in both `vite.config.ts` and `tsconfig.json`)
+- Path alias `@/*` maps to `src/*` (configured in `tsconfig.json`)
 
 ### Environment Variables
 
-Copy `.env.example` to `.env.local`. All variables must be prefixed `VITE_` to be exposed to client code and accessed via `import.meta.env.VITE_*`.
+Copy `.env.example` to `.env.local`. Variables must be prefixed `NEXT_PUBLIC_` to be exposed to client code, accessed via `process.env.NEXT_PUBLIC_*`.
 
 ### Styling
 
-Tailwind CSS with custom HSL CSS variables for theming (defined in `src/styles/index.css`). Custom scrollbar and markdown prose styles are also in that file. Tailwind config in `tailwind.config.js` uses `darkMode: 'class'`.
-
-### SEO
-
-`src/components/Seo.tsx` handles per-page meta tags. `index.html` contains global JSON-LD structured data, Open Graph tags, and Google Analytics (`gtag`).
+Tailwind CSS with custom HSL CSS variables for theming (defined in `src/styles/index.css`, imported globally in `src/app/layout.tsx`). Custom scrollbar and markdown prose styles are also in that file. Tailwind config in `tailwind.config.js` uses `darkMode: 'class'`.

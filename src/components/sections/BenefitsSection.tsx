@@ -3,12 +3,10 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 import Container from '@/components/Container';
-import { Button } from '@/components/ui/button';
+import { GoHomeButton } from '@/components/GoHomeButton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useGoHome } from '@/hooks';
 
 export const BenefitsSection: React.FC = () => {
-  const goHome = useGoHome();
   return (
     <section className="py-16 md:py-24" aria-labelledby="benefits-heading">
       <Container>
@@ -192,10 +190,10 @@ export const BenefitsSection: React.FC = () => {
             Join thousands of successful candidates who've used PowerInterviewAI to land their dream
             jobs
           </p>
-          <Button size="lg" onClick={goHome}>
+          <GoHomeButton size="lg">
             Start for Free to try all features
             <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          </GoHomeButton>
         </div>
       </Container>
     </section>

@@ -1,8 +1,11 @@
+'use client';
+
 import React from 'react';
 
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
 import { SectionNavLink } from '@/components/SectionNavLink';
@@ -37,8 +40,8 @@ export const Header: React.FC<HeaderProps> = ({
   toggleTheme,
   setMobileMenuOpen,
 }) => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const handleGetStarted = useGoHome();
 
   return (
@@ -49,11 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
       <Container>
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Power Interview AI Logo"
-              className="h-8 w-8 rounded-xl"
-            />
+            <img src="/logo.png" alt="Power Interview AI Logo" className="h-8 w-8 rounded-xl" />
             <span className="text-xl font-bold">Power Interview AI</span>
           </div>
 
@@ -68,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
               />
             ))}
 
-            <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link href="/docs" className="text-sm font-medium transition-colors hover:text-primary">
               Docs
             </Link>
 
@@ -188,7 +187,10 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               ))}
 
-              <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
+              <Link
+                href="/docs"
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
                 Docs
               </Link>
 
