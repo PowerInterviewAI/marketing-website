@@ -4,13 +4,17 @@ import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/
 import { Link, useLocation } from 'react-router-dom';
 
 import Container from '@/components/Container';
+import { SectionNavLink } from '@/components/SectionNavLink';
 
 interface FooterSectionProps {
   scrollToSection?: (sectionId: string) => void; // optional; if provided we still support in-page scroll on home
 }
 
+const FOOTER_LINK_CLASS = 'text-muted-foreground transition-colors hover:text-primary';
+
 export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection }) => {
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <footer className="border-t py-12 md:py-16" role="contentinfo">
@@ -79,38 +83,24 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <h3 className="mb-4 font-semibold">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
-                    onClick={() => scrollToSection('features')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Features
-                  </button>
-                ) : (
-                  <Link
-                    to="/features"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Features
-                  </Link>
-                )}
+                <SectionNavLink
+                  label="Features"
+                  sectionId="features"
+                  to="/features"
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                  className={FOOTER_LINK_CLASS}
+                />
               </li>
               <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
-                    onClick={() => scrollToSection('pricing')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Pricing
-                  </button>
-                ) : (
-                  <Link
-                    to="/pricing"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Pricing
-                  </Link>
-                )}
+                <SectionNavLink
+                  label="Pricing"
+                  sectionId="pricing"
+                  to="/pricing"
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                  className={FOOTER_LINK_CLASS}
+                />
               </li>
               <li>
                 <a
@@ -137,21 +127,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <h3 className="mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
-                    onClick={() => scrollToSection('faq')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    FAQ
-                  </button>
-                ) : (
-                  <Link
-                    to="/faq"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    FAQ
-                  </Link>
-                )}
+                <SectionNavLink
+                  label="FAQ"
+                  sectionId="faq"
+                  to="/faq"
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                  className={FOOTER_LINK_CLASS}
+                />
               </li>
               <li>
                 <a
@@ -184,21 +167,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 </a>
               </li>
               <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Support
-                  </button>
-                ) : (
-                  <Link
-                    to="/contact"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Support
-                  </Link>
-                )}
+                <SectionNavLink
+                  label="Support"
+                  sectionId="contact"
+                  to="/contact"
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                  className={FOOTER_LINK_CLASS}
+                />
               </li>
             </ul>
           </div>
@@ -233,21 +209,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
                 </a>
               </li>
               <li>
-                {location.pathname === '/' && scrollToSection ? (
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Contact
-                  </button>
-                ) : (
-                  <Link
-                    to="/contact"
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    Contact
-                  </Link>
-                )}
+                <SectionNavLink
+                  label="Contact"
+                  sectionId="contact"
+                  to="/contact"
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                  className={FOOTER_LINK_CLASS}
+                />
               </li>
             </ul>
           </div>

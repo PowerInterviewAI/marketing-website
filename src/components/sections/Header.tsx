@@ -2,10 +2,12 @@ import React from 'react';
 
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { X } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Container from '@/components/Container';
+import { SectionNavLink } from '@/components/SectionNavLink';
 import { Button } from '@/components/ui/button';
+import { useGoHome } from '@/hooks';
 
 interface HeaderProps {
   theme: string;
@@ -15,6 +17,19 @@ interface HeaderProps {
   setMobileMenuOpen: (open: boolean) => void;
 }
 
+const NAV_LINKS = [
+  { label: 'Home', sectionId: 'home', to: '/' },
+  { label: 'Features', sectionId: 'features', to: '/features' },
+  { label: 'Why Us', sectionId: 'why-choose-heading', to: '/why-choose' },
+  { label: 'Pricing', sectionId: 'pricing', to: '/pricing' },
+  { label: 'FAQ', sectionId: 'faq', to: '/faq' },
+] as const;
+
+const NAV_LINKS_TAIL = [
+  { label: 'Contact', sectionId: 'contact', to: '/contact' },
+  { label: 'Our Team', sectionId: 'co-founders', to: '/#co-founders' },
+] as const;
+
 export const Header: React.FC<HeaderProps> = ({
   theme,
   mobileMenuOpen,
@@ -23,15 +38,8 @@ export const Header: React.FC<HeaderProps> = ({
   setMobileMenuOpen,
 }) => {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleGetStarted = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate('/');
-    }
-  };
+  const isHome = location.pathname === '/';
+  const handleGetStarted = useGoHome();
 
   return (
     <header
@@ -51,118 +59,27 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('home')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-                aria-label="Navigate to home section"
-              >
-                Home
-              </button>
-            ) : (
-              <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-                Home
-              </Link>
-            )}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('features')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Features
-              </button>
-            ) : (
-              <Link
-                to="/features"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Features
-              </Link>
-            )}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('why-choose-heading')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Why Us
-              </button>
-            ) : (
-              <Link
-                to="/why-choose"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Why Us
-              </Link>
-            )}
-
-            {/* 'How to Use' moved into Docs; link removed */}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Pricing
-              </button>
-            ) : (
-              <Link
-                to="/pricing"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Pricing
-              </Link>
-            )}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('faq')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                FAQ
-              </button>
-            ) : (
-              <Link to="/faq" className="text-sm font-medium transition-colors hover:text-primary">
-                FAQ
-              </Link>
-            )}
+            {NAV_LINKS.map((link) => (
+              <SectionNavLink
+                key={link.sectionId}
+                {...link}
+                isHome={isHome}
+                scrollToSection={scrollToSection}
+              />
+            ))}
 
             <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
               Docs
             </Link>
 
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Contact
-              </button>
-            ) : (
-              <Link
-                to="/contact"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Contact
-              </Link>
-            )}
-
-            {location.pathname === '/' && scrollToSection ? (
-              <button
-                onClick={() => scrollToSection('co-founders')}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Our Team
-              </button>
-            ) : (
-              <Link
-                to="/#co-founders"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                Our Team
-              </Link>
-            )}
+            {NAV_LINKS_TAIL.map((link) => (
+              <SectionNavLink
+                key={link.sectionId}
+                {...link}
+                isHome={isHome}
+                scrollToSection={scrollToSection}
+              />
+            ))}
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
@@ -253,116 +170,23 @@ export const Header: React.FC<HeaderProps> = ({
         {mobileMenuOpen && (
           <div className="border-t py-4 md:hidden">
             <nav className="flex flex-col gap-4" aria-label="Mobile navigation">
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('home')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Home
-                </button>
-              ) : (
-                <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-                  Home
-                </Link>
-              )}
+              {NAV_LINKS.map((link) => (
+                <SectionNavLink
+                  key={link.sectionId}
+                  {...link}
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                />
+              ))}
 
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('features')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Features
-                </button>
-              ) : (
-                <Link
-                  to="/features"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Features
-                </Link>
-              )}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('why-choose-heading')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Why Us
-                </button>
-              ) : (
-                <Link
-                  to="/why-choose"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Why Us
-                </Link>
-              )}
-
-              {/* 'How to Use' moved into Docs; link removed */}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('pricing')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Pricing
-                </button>
-              ) : (
-                <Link
-                  to="/pricing"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Pricing
-                </Link>
-              )}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  FAQ
-                </button>
-              ) : (
-                <Link
-                  to="/faq"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  FAQ
-                </Link>
-              )}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Contact
-                </button>
-              ) : (
-                <Link
-                  to="/contact"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Contact
-                </Link>
-              )}
-
-              {location.pathname === '/' && scrollToSection ? (
-                <button
-                  onClick={() => scrollToSection('co-founders')}
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Our Team
-                </button>
-              ) : (
-                <Link
-                  to="/#co-founders"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Our Team
-                </Link>
-              )}
+              {NAV_LINKS_TAIL.map((link) => (
+                <SectionNavLink
+                  key={link.sectionId}
+                  {...link}
+                  isHome={isHome}
+                  scrollToSection={scrollToSection}
+                />
+              ))}
 
               <Link to="/docs" className="text-sm font-medium transition-colors hover:text-primary">
                 Docs

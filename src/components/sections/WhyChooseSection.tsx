@@ -2,24 +2,14 @@ import React from 'react';
 
 import { SiCheckmarx } from '@icons-pack/react-simple-icons';
 import { ArrowRight } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useGoHome } from '@/hooks';
 
 export const WhyChooseSection: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      // send user back to homepage; include hash for features section if desired
-      navigate('/');
-    }
-  };
+  const handleButtonClick = useGoHome();
 
   return (
     <section className="py-16 md:py-24" aria-labelledby="why-choose-heading">
