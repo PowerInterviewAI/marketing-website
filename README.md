@@ -41,7 +41,7 @@ power-interview-hero/
 
 ### Prerequisites
 
-- Node.js 18+ and npm/pnpm/yarn
+- Node.js 18+ and [pnpm](https://pnpm.io/)
 
 ### Installation
 
@@ -54,7 +54,7 @@ power-interview-hero/
 
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 
 ### Development
@@ -62,7 +62,7 @@ power-interview-hero/
 Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 The application will be available at `http://localhost:3000`
@@ -72,13 +72,13 @@ The application will be available at `http://localhost:3000`
 Build the application:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Preview the production build:
 
 ```bash
-npm run preview
+pnpm preview
 ```
 
 ### Code Quality
@@ -86,19 +86,19 @@ npm run preview
 Format code with Prettier:
 
 ```bash
-npm run format
+pnpm format
 ```
 
 Check formatting:
 
 ```bash
-npm run format:check
+pnpm format:check
 ```
 
 Lint code:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ## 🎨 shadcn/ui Components
@@ -117,7 +117,7 @@ Due to peer dependency conflicts, components are added manually:
 1. Install required dependencies:
 
    ```bash
-   npm install @radix-ui/[package-name] --legacy-peer-deps
+   pnpm add @radix-ui/[package-name]
    ```
 
 2. Copy component code from [ui.shadcn.com](https://ui.shadcn.com/) to `src/components/ui/`
@@ -154,7 +154,7 @@ This project is configured for GitHub Pages deployment. The build will be automa
 1. Build the project:
 
    ```bash
-   npm run build
+   pnpm build
    ```
 
 2. The `dist` folder contains the production build ready for deployment.
