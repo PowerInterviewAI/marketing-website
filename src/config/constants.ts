@@ -16,5 +16,5 @@ export const APP_CONFIG = {
 export const ENV = {
   isDevelopment: process.env.NODE_ENV === 'development',
   isProduction: process.env.NODE_ENV === 'production',
-  apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || '',
+  apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.powerinterviewai.com/',
 } as const;

@@ -5,8 +5,6 @@ import { ENV } from '@/config/constants';
 import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
 
-const API_BASE_URL = ENV.apiBaseUrl || 'https://api.powerinterviewai.com/';
-
 const planDescriptions: Record<string, string> = {
   starter: 'Ideal for individuals and first-time AI note takers',
   pro: 'Best value for professionals and serious job seekers',
@@ -21,7 +19,7 @@ const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number =>
 
 async function getPlans(): Promise<Plan[] | null> {
   try {
-    const response = await fetch(`${API_BASE_URL}api/payment/plans`);
+    const response = await fetch(`${ENV.apiBaseUrl}api/payment/plans`);
     if (!response.ok) {
       throw new Error('Failed to fetch plans');
     }
