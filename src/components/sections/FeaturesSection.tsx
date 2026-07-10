@@ -10,15 +10,14 @@ import {
   MessageSquareText,
   UserLock,
 } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useGoHome } from '@/hooks';
 
 export const FeaturesSection: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const goHome = useGoHome();
   return (
     <section
       id="features"
@@ -128,17 +127,6 @@ export const FeaturesSection: React.FC = () => {
 
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
-              <KeyRound className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
-              <CardTitle>Plan-Based Access</CardTitle>
-              <CardDescription>
-                Free users can experience all features for free under rate limit (5 suggestions per
-                hour). Paid users unlock no limit and provided SOTA models.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-
-          <Card className="transition-shadow hover:shadow-lg">
-            <CardHeader>
               <UserLock className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
               <CardTitle>Privacy First</CardTitle>
               <CardDescription>
@@ -150,16 +138,7 @@ export const FeaturesSection: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button
-            size="lg"
-            onClick={() => {
-              if (location.pathname === '/') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                navigate('/');
-              }
-            }}
-          >
+          <Button size="lg" onClick={goHome}>
             Get Started Now
             <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

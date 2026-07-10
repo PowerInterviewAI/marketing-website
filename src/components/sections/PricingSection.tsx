@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { useLocation, useNavigate } from 'react-router-dom';
-
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useGoHome } from '@/hooks';
+import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.powerinterviewai.com/';
@@ -22,19 +22,10 @@ const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number =>
 };
 
 export const PricingSection: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const handleGetStarted = useGoHome();
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const handleGetStarted = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate('/');
-    }
-  };
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -192,9 +183,10 @@ export const PricingSection: React.FC = () => {
             return (
               <Card
                 key={plan.plan}
-                className={`relative flex flex-col transition-shadow ${
+                className={cn(
+                  'relative flex flex-col transition-shadow',
                   plan.popular ? 'border-primary shadow-lg hover:shadow-xl' : 'hover:shadow-lg'
-                }`}
+                )}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-0 right-0 flex justify-center">
@@ -203,7 +195,7 @@ export const PricingSection: React.FC = () => {
                     </span>
                   </div>
                 )}
-                <CardHeader className={'flex-1' + (plan.popular ? 'pt-8' : '')}>
+                <CardHeader className={cn('flex-1', plan.popular && 'pt-8')}>
                   <CardTitle className="text-2xl">{planName}</CardTitle>
                   <CardDescription>{description}</CardDescription>
                   <div className="mt-4 flex flex-wrap items-baseline gap-3">

@@ -4,6 +4,7 @@ import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-reac
 
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 import { InterviewCountBanner } from './InterviewCountBanner';
 
@@ -56,6 +57,30 @@ const fetchActiveSessionsCount = async (): Promise<number | null> => {
 
   return null;
 };
+
+interface TabButtonProps {
+  active: boolean;
+  onClick: () => void;
+  size?: 'md' | 'sm';
+  children: React.ReactNode;
+}
+
+const TabButton: React.FC<TabButtonProps> = ({ active, onClick, size = 'md', children }) => (
+  <button
+    onClick={onClick}
+    className={cn(
+      'rounded-md font-medium transition-all',
+      size === 'md' ? 'flex-1 px-3 py-1.5 text-sm' : 'px-3 py-1 text-xs',
+      active
+        ? 'bg-background text-foreground shadow'
+        : size === 'md'
+          ? 'text-muted-foreground hover:text-foreground'
+          : 'bg-transparent text-muted-foreground hover:text-foreground'
+    )}
+  >
+    {children}
+  </button>
+);
 
 type InstallPlatform = 'windows' | 'macos';
 
@@ -280,65 +305,47 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
 
             {/* Tab buttons */}
             <div className="mb-3 flex rounded-lg border bg-muted/30 p-1">
-              <button
+              <TabButton
+                active={activeInstallTab === 'cli'}
                 onClick={() => setActiveInstallTab('cli')}
-                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
-                  activeInstallTab === 'cli'
-                    ? 'bg-background text-foreground shadow'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
               >
                 Command Line{' '}
                 <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
                   Recommended
                 </span>
-              </button>
-              <button
+              </TabButton>
+              <TabButton
+                active={activeInstallTab === 'binary'}
                 onClick={() => setActiveInstallTab('binary')}
-                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
-                  activeInstallTab === 'binary'
-                    ? 'bg-background text-foreground shadow'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
               >
                 Prebuilt Installer
-              </button>
-              <button
+              </TabButton>
+              <TabButton
+                active={activeInstallTab === 'source'}
                 onClick={() => setActiveInstallTab('source')}
-                className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${
-                  activeInstallTab === 'source'
-                    ? 'bg-background text-foreground shadow'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
               >
                 Build from Source
-              </button>
+              </TabButton>
             </div>
 
             {/* Tab: Command Line */}
             {activeInstallTab === 'cli' && (
               <div className="group relative rounded-lg border bg-muted/50 p-4">
                 <div className="mb-3 flex justify-center gap-2">
-                  <button
+                  <TabButton
+                    size="sm"
+                    active={installPlatform === 'windows'}
                     onClick={() => setInstallPlatform('windows')}
-                    className={`rounded-md px-3 py-1 text-xs font-medium transition-all ${
-                      installPlatform === 'windows'
-                        ? 'bg-background text-foreground shadow'
-                        : 'bg-transparent text-muted-foreground hover:text-foreground'
-                    }`}
                   >
                     Windows
-                  </button>
-                  <button
+                  </TabButton>
+                  <TabButton
+                    size="sm"
+                    active={installPlatform === 'macos'}
                     onClick={() => setInstallPlatform('macos')}
-                    className={`rounded-md px-3 py-1 text-xs font-medium transition-all ${
-                      installPlatform === 'macos'
-                        ? 'bg-background text-foreground shadow'
-                        : 'bg-transparent text-muted-foreground hover:text-foreground'
-                    }`}
                   >
                     macOS
-                  </button>
+                  </TabButton>
                 </div>
                 {installPlatform === 'macos' && (
                   <div className="mb-3 rounded-md border border-yellow-400/50 bg-yellow-400/10 px-3 py-2 text-center text-xs text-yellow-600 dark:text-yellow-400">
@@ -383,7 +390,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         : 'https://github.com/PowerInterviewAI/client-app/releases/latest'
                     }
                     download
-                    className="w-120 inline-flex items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    className="inline-flex w-full max-w-[30rem] items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
@@ -398,7 +405,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                       : 'Download Latest Installer'}{' '}
                     (Windows)
                   </a>
-                  <div className="w-120 flex flex-col items-center gap-1.5">
+                  <div className="flex w-full max-w-[30rem] flex-col items-center gap-1.5">
                     <a
                       href={
                         version
