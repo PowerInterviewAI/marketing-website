@@ -18,12 +18,3 @@ export const ENV = {
   isProduction: import.meta.env.PROD,
   apiBaseUrl: import.meta.env.VITE_API_BASE_URL || '',
 } as const;
-
-/**
- * Route Constants
- */
-export const ROUTES = {
-  home: '/',
-  about: '/about',
-  contact: '/contact',
-} as const;

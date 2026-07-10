@@ -14,10 +14,11 @@ const ORDER = [
   'troubleshooting',
 ];
 
-const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
-  string,
-  string
->;
+const docs = import.meta.glob('/src/content/docs/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
 
 type DocItem = { slug: string; title: string; excerpt: string };
 

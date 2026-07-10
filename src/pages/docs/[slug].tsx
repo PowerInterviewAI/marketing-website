@@ -35,10 +35,11 @@ const heading =
 
 // Dark-mode-aware table components
 
-const docs = import.meta.glob('/src/content/docs/*.md', { as: 'raw', eager: true }) as Record<
-  string,
-  string
->;
+const docs = import.meta.glob('/src/content/docs/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
 
 const DocsPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
