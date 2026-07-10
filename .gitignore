@@ -48,6 +48,6 @@ coverage
 
 # Misc
 *.tsbuildinfo
-CLAUDE.md
-.claude
 
+# Claude Code local-only config (shared skills/commands/agents stay tracked)
+.claude/settings.local.json
