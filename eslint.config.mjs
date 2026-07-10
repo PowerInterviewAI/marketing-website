@@ -21,5 +21,14 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
+  },
+  {
+    // Next.js App Router files export non-component values (metadata,
+    // generateMetadata, generateStaticParams, etc.) by convention; the
+    // Vite-era react-refresh rule doesn't recognize them.
+    files: ['src/app/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
   }
 );
