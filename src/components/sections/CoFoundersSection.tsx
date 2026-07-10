@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons';

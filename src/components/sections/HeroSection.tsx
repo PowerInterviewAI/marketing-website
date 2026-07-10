@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 
 import { Check, ChevronLeft, ChevronRight, Copy, Pause, Play } from 'lucide-react';
@@ -511,7 +513,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     ref={videoRef}
                     key={mediaItems[currentMediaIndex].src}
                     className="h-full w-full object-contain"
-                    src={`${import.meta.env.BASE_URL}${mediaItems[currentMediaIndex].src}`}
+                    src={`/${mediaItems[currentMediaIndex].src}`}
                     autoPlay={isPlaying}
                     onEnded={handleVideoEnded}
                     playsInline
@@ -520,7 +522,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                 ) : (
                   <img
                     key={mediaItems[currentMediaIndex].src}
-                    src={`${import.meta.env.BASE_URL}${mediaItems[currentMediaIndex].src}`}
+                    src={`/${mediaItems[currentMediaIndex].src}`}
                     alt={mediaItems[currentMediaIndex].title}
                     className="h-full w-full object-contain"
                   />

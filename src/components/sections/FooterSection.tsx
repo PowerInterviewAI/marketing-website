@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 
 import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
 import { SectionNavLink } from '@/components/SectionNavLink';
@@ -13,8 +16,8 @@ interface FooterSectionProps {
 const FOOTER_LINK_CLASS = 'text-muted-foreground transition-colors hover:text-primary';
 
 export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection }) => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   return (
     <footer className="border-t py-12 md:py-16" role="contentinfo">
@@ -22,11 +25,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <img
-                src={`${import.meta.env.BASE_URL}logo.png`}
-                alt="Power Interview AI Logo"
-                className="h-6 w-6"
-              />
+              <img src="/logo.png" alt="Power Interview AI Logo" className="h-6 w-6" />
               <span className="text-lg font-bold">Power Interview AI</span>
             </div>
             <p className="mb-4 text-sm text-muted-foreground">
@@ -184,7 +183,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  to="/privacy"
+                  href="/privacy"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   Privacy Policy
@@ -192,7 +191,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ scrollToSection })
               </li>
               <li>
                 <Link
-                  to="/terms"
+                  href="/terms"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   Terms of Service

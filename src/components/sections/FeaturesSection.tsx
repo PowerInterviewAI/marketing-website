@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { SiSuperuser } from '@icons-pack/react-simple-icons';
