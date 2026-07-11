@@ -54,7 +54,7 @@ The root layout (`src/app/layout.tsx`) holds the sitewide default metadata, the 
 
 ### Model naming
 
-Power Interview AI's own included/default models are referred to generically as **"free model"** (free-trial and beta-tester tiers) and **"SOTA model"** (paid tier) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy; vendor names in "bring your own provider" lists (OpenAI, Anthropic, Google) are a different thing and are fine to name.
+Power Interview AI's own included/default models are referred to generically as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy; vendor names in "bring your own provider" lists (OpenAI, Anthropic, Google) are a different thing and are fine to name.
 
 ### Theme System
 

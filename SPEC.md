@@ -49,7 +49,6 @@ Markdown docs live in `src/content/docs/`:
 - `usage.md`
 - `mock-interview.md`
 - `best-practices.md`
-- `beta-tester.md`
 - `troubleshooting.md`
 
 Rendered server-side with `react-markdown` + `remark-gfm`. Adding a doc requires: drop the `.md` file in `src/content/docs/` and add its slug to the `ORDER` array in `src/lib/docs.ts` (the single source of truth for both the index listing and sidebar order).
@@ -74,7 +73,7 @@ Every page exports `metadata` or `generateMetadata` via the shared `buildMetadat
 
 ## Model naming
 
-Power Interview AI's own included/default models are referred to generically in all marketing copy as **"free model"** (free-trial and beta-tester tiers) and **"SOTA model"** (paid tier), not by a specific underlying model name — those change over time and the copy shouldn't need to chase them. "Bring your own provider" vendor names (OpenAI, Anthropic, Google) are unaffected by this and can be named directly.
+Power Interview AI's own included/default models are referred to generically in all marketing copy as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier), not by a specific underlying model name — those change over time and the copy shouldn't need to chase them. "Bring your own provider" vendor names (OpenAI, Anthropic, Google) are unaffected by this and can be named directly.
 
 ## Non-goals
 

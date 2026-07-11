@@ -13,7 +13,6 @@ const ORDER = [
   'best-practices',
   'troubleshooting',
   'mock-interview',
-  'beta-tester',
 ];
 
 const DOCS_DIR = path.join(process.cwd(), 'src/content/docs');

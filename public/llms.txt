@@ -24,7 +24,6 @@ Power Interview AI is a standalone desktop application, not a browser extension 
 - [Mock Interview](https://www.powerinterviewai.com/docs/mock-interview)
 - [Best Practices](https://www.powerinterviewai.com/docs/best-practices)
 - [Troubleshooting](https://www.powerinterviewai.com/docs/troubleshooting)
-- [Beta Tester Program](https://www.powerinterviewai.com/docs/beta-tester)
 
 ## Legal
 
