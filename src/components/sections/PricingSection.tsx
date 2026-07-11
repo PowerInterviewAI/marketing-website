@@ -111,6 +111,14 @@ export const PricingSection = async () => {
                   model
                 </li>
                 <li>
+                  <span className="font-semibold text-foreground">Live suggestions:</span>{' '}
+                  <span className="font-medium text-green-600 dark:text-green-400">Included</span>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Triggered suggestions:</span>{' '}
+                  <span className="font-medium">Not included in trial</span>
+                </li>
+                <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,
                   Anthropic, Google, etc.
                 </li>
@@ -129,6 +137,14 @@ export const PricingSection = async () => {
                 <li>
                   <span className="font-semibold text-foreground">Provided model:</span> our SOTA
                   model
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Live suggestions:</span>{' '}
+                  <span className="font-medium text-green-600 dark:text-green-400">Included</span>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Triggered suggestions:</span>{' '}
+                  <span className="font-medium text-green-600 dark:text-green-400">Included</span>
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">Bring your own:</span> OpenAI,

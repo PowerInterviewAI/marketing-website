@@ -117,8 +117,8 @@ export const FeaturesSection: React.FC = () => {
               <KeyRound className="mb-2 h-10 w-10 text-primary" aria-hidden="true" />
               <CardTitle>Plan-Based Access</CardTitle>
               <CardDescription>
-                Free users can experience all features for free under rate limit (5 suggestions per
-                hour). Paid users unlock no limit and provided SOTA models.
+                Trial users get live suggestions free under rate limit (5 suggestions per hour).
+                Paid users unlock no limit, triggered suggestions, and provided SOTA models.
               </CardDescription>
             </CardHeader>
           </Card>

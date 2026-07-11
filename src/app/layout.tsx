@@ -242,7 +242,7 @@ const faqPageJsonLd = {
       name: 'Is there a free trial?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. Experience every feature at its full potential before committing.',
+        text: 'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. The trial includes live suggestions; triggered suggestions are available on paid plans.',
       },
     },
     {

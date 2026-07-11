@@ -65,7 +65,7 @@ const faqData = [
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. Experience every feature at its full potential before committing to a paid plan.',
+      'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. The trial includes live suggestions; triggered suggestions are available on paid plans.',
   },
   {
     question: 'Can I get a refund?',
