@@ -1,5 +1,6 @@
 import React from 'react';
 
+import 'github-markdown-css/github-markdown.css';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
