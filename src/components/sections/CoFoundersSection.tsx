@@ -78,9 +78,11 @@ async function getCoFounderProfile(
     const [profileResponse, socialResponse] = await Promise.all([
       fetch(`https://api.github.com/users/${coFounder.username}`, {
         headers: { accept: 'application/vnd.github+json' },
+        next: { revalidate: 3600 },
       }),
       fetch(`https://api.github.com/users/${coFounder.username}/social_accounts`, {
         headers: { accept: 'application/vnd.github+json' },
+        next: { revalidate: 3600 },
       }),
     ]);
 

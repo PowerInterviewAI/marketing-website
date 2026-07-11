@@ -11,6 +11,38 @@ import { cn } from '@/lib/utils';
 
 import { InterviewCountBanner } from './InterviewCountBanner';
 
+// This fetch runs client-side (inside a useEffect), so Next.js's server-side
+// fetch cache (`next: { revalidate }`) doesn't apply - cache the result in
+// localStorage instead, keyed with a fetch timestamp.
+const RELEASE_VERSION_CACHE_KEY = 'pia-latest-release-version';
+const RELEASE_VERSION_CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+function readCachedVersion(): string | null | undefined {
+  try {
+    const cached = window.localStorage.getItem(RELEASE_VERSION_CACHE_KEY);
+    if (!cached) return undefined;
+    const { version, fetchedAt } = JSON.parse(cached) as {
+      version: string | null;
+      fetchedAt: number;
+    };
+    if (Date.now() - fetchedAt > RELEASE_VERSION_CACHE_TTL_MS) return undefined;
+    return version;
+  } catch {
+    return undefined;
+  }
+}
+
+function writeCachedVersion(version: string | null): void {
+  try {
+    window.localStorage.setItem(
+      RELEASE_VERSION_CACHE_KEY,
+      JSON.stringify({ version, fetchedAt: Date.now() })
+    );
+  } catch {
+    // storage unavailable (e.g. private browsing) or full - non-fatal
+  }
+}
+
 // Media carousel data
 const mediaItems = [
   {
@@ -142,6 +174,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
   // Fetch latest version from GitHub releases API
   useEffect(() => {
     const fetchVersion = async () => {
+      const cachedVersion = readCachedVersion();
+      if (cachedVersion !== undefined) {
+        setVersion(cachedVersion);
+        return;
+      }
+
       try {
         const response = await fetch(
           'https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest'
@@ -150,6 +188,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           const data = await response.json();
           const version = data.tag_name?.replace(/^v/, '') || null;
           setVersion(version);
+          writeCachedVersion(version);
         }
       } catch (error) {
         console.error('Failed to fetch version:', error);
