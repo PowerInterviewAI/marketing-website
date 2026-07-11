@@ -122,13 +122,13 @@ const getInstallCommand = (version: string | null, platform: InstallPlatform): s
     if (!version) {
       return '$release = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest"; $asset = $release.assets | Where-Object { $_.name -like "*Setup*.exe" } | Select-Object -First 1; Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $asset.name; Start-Process ".\\$($asset.name)"';
     }
-    return `curl -L -o PowerInterview-Setup-${version}.exe https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-${version}.exe && start "" "PowerInterview-Setup-${version}.exe"`;
+    return `curl -L -o PowerInterviewAI-Setup-${version}.exe https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterviewAI-Setup-${version}.exe && start "" "PowerInterviewAI-Setup-${version}.exe"`;
   }
 
   if (version) {
-    return `curl -L -o Power.Interview-${version}-arm64.dmg https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-${version}-arm64.dmg && open "Power.Interview-${version}-arm64.dmg"`;
+    return `curl -L -o Power.Interview.AI-${version}-arm64.dmg https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview.AI-${version}-arm64.dmg && open "Power.Interview.AI-${version}-arm64.dmg"`;
   }
-  return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o PowerInterview.dmg && open "PowerInterview.dmg"';
+  return 'DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest | grep -Eo \'https://[^"]+\\.dmg\' | head -n 1) && curl -L "$DMG_URL" -o Power.Interview.AI.dmg && open "Power.Interview.AI.dmg"';
 };
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
@@ -425,7 +425,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                   <a
                     href={
                       version
-                        ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-${version}.exe`
+                        ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterviewAI-Setup-${version}.exe`
                         : 'https://github.com/PowerInterviewAI/client-app/releases/latest'
                     }
                     download
@@ -440,7 +440,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                       />
                     </svg>
                     {version
-                      ? `Download PowerInterview-Setup-${version}.exe`
+                      ? `Download PowerInterviewAI-Setup-${version}.exe`
                       : 'Download Latest Installer'}{' '}
                     (Windows)
                   </a>
@@ -448,7 +448,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                     <a
                       href={
                         version
-                          ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-${version}-arm64.dmg`
+                          ? `https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview.AI-${version}-arm64.dmg`
                           : 'https://github.com/PowerInterviewAI/client-app/releases/latest'
                       }
                       aria-disabled="true"
@@ -469,7 +469,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
                         />
                       </svg>
                       {version
-                        ? `Download Power.Interview-${version}-arm64.dmg`
+                        ? `Download Power.Interview.AI-${version}-arm64.dmg`
                         : 'Open Latest Release Assets (macOS)'}{' '}
                       (MacOS)
                     </a>

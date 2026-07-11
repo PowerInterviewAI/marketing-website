@@ -19,8 +19,8 @@ Start-Process ".\$($asset.name)"
 
 ```bash
 DMG_URL=$(curl -s https://api.github.com/repos/PowerInterviewAI/client-app/releases/latest | grep -Eo 'https://[^"]+\.dmg' | head -n 1)
-curl -L "$DMG_URL" -o PowerInterview.dmg
-open "PowerInterview.dmg"
+curl -L "$DMG_URL" -o Power.Interview.AI.dmg
+open "Power.Interview.AI.dmg"
 ```
 
 These commands download the latest installer and open it immediately.
@@ -31,8 +31,8 @@ These commands download the latest installer and open it immediately.
 
 Use the latest release binaries from GitHub:
 
-- [Windows installer (.exe)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterview-Setup-1.4.0.exe)
-- [macOS installer (.dmg)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview-1.4.0-arm64.dmg)
+- [Windows installer (.exe)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/PowerInterviewAI-Setup-1.5.3.exe)
+- [macOS installer (.dmg)](https://github.com/PowerInterviewAI/client-app/releases/latest/download/Power.Interview.AI-1.5.3-arm64.dmg)
 - [All release assets (latest)](https://github.com/PowerInterviewAI/client-app/releases/latest)
 
 After installation, launch **Power Interview**, sign in, and proceed to first-run setup.
