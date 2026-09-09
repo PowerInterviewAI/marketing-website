@@ -5,6 +5,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
 import Script from 'next/script';
 
+import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { organizationJsonLd } from '@/lib/jsonLd';
 import { cn } from '@/lib/utils';
@@ -153,7 +154,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <InlineScript html={themeInitScript} />
         {/* Organization is the only schema true of every route. The
             SoftwareApplication and FAQPage blocks moved to the pages whose
             content they describe - see src/lib/jsonLd.ts. */}
