@@ -96,6 +96,14 @@ export const FooterSection: React.FC = () => {
               <ul className="space-y-2.5">
                 <li>
                   <NavLink
+                    label="Mock interview"
+                    href={ROUTES.mockInterview}
+                    className={LINK_CLASS}
+                    prefetch={false}
+                  />
+                </li>
+                <li>
+                  <NavLink
                     label="How it works"
                     href={ROUTES.howItWorks}
                     className={LINK_CLASS}

@@ -1,16 +1,17 @@
 # Power Interview AI
 
-> Privacy-first, desktop AI interview coach and meeting note taker for Windows and macOS - live transcription, AI reply and code suggestions, mock interview practice, and smart session exports for Zoom, Google Meet, and Microsoft Teams.
+> Privacy-first, desktop AI interview coach and meeting note taker for Windows and macOS - spoken mock interviews with a scored report first, then live transcription, AI reply and code suggestions, and smart session exports for Zoom, Google Meet, and Microsoft Teams.
 
-Power Interview AI is a standalone desktop application, not a browser extension or cloud service. All sensitive data (transcripts, screenshots) stays on the user's device by default. New users get a full 1-hour free trial with the product's free model, no rate limits. Paid plans add a SOTA (state-of-the-art) model with no usage limits. Users can also bring their own LLM provider (OpenAI, Anthropic, Google, or others) using API keys they control. Payment is cryptocurrency-only - no credit card, PayPal, or bank details required. macOS builds are temporarily unavailable while the team works on bringing them back online; Windows is fully supported today.
+Power Interview AI is a standalone desktop application, not a browser extension or cloud service. All sensitive data (transcripts, screenshots) stays on the user's device by default. New users get a full 1-hour free trial with the product's free model, no rate limits. Paid plans add a SOTA (state-of-the-art) model with no usage limits. Users can also bring their own LLM provider (OpenAI, Anthropic, Google, or others) using API keys they control. The app does two things, in this order. First, it runs its own spoken mock interview: an AI interviewer asks questions out loud, listens to the spoken answers, and produces a scored, exportable report; a mock session is priced per question, follow-up and report rather than per minute. Second, it assists during the real, live call with transcription and suggestions, metered per minute. Both halves read the same profile - the user's CV and the job description saved to their account. Payment is cryptocurrency-only - no credit card, PayPal, or bank details required. macOS builds are temporarily unavailable while the team works on bringing them back online; Windows is fully supported today.
 
 ## Product pages
 
 - [Home](https://www.powerinterviewai.com/): overview, free trial offer, and product demo.
-- [Features](https://www.powerinterviewai.com/#features): live transcription, AI reply suggestions, stealth mode, code suggestions, meeting note export, mock interviews.
-- [How it works](https://www.powerinterviewai.com/how-it-works): install, set up your CV and the job description, and run a live call.
+- [How it works](https://www.powerinterviewai.com/how-it-works): install, set up your CV and the job description, rehearse with a mock interview, then run the live call.
+- [Mock interview](https://www.powerinterviewai.com/mock-interview): the in-app spoken mock interview - setup options, how a session runs, what the scored report contains, and how it is priced.
+- [Features](https://www.powerinterviewai.com/#features): mock interviews, live transcription, AI reply suggestions, stealth mode, code suggestions, and meeting note export.
 - [Pricing](https://www.powerinterviewai.com/pricing): free trial, credit-based paid plans, and cryptocurrency payment details.
-- [Why Choose](https://www.powerinterviewai.com/#why-choose): privacy and stealth-mode differentiation versus other interview-assistant and interview-practice tools.
+- [Why Choose](https://www.powerinterviewai.com/#why-choose): how the combination of spoken mock practice and live in-call help compares with interview-practice tools and coding platforms, plus privacy and stealth-mode differentiation.
 - [Benefits](https://www.powerinterviewai.com/#benefits): outcomes for job seekers using the product.
 - [FAQ](https://www.powerinterviewai.com/faq): platform support, privacy model, billing, and usage questions.
 - [Team](https://www.powerinterviewai.com/team): the developers building Power Interview AI.
@@ -21,9 +22,9 @@ Power Interview AI is a standalone desktop application, not a browser extension 
 - [Docs index](https://www.powerinterviewai.com/docs): full documentation listing.
 - [Introduction](https://www.powerinterviewai.com/docs/introduction)
 - [Installation](https://www.powerinterviewai.com/docs/installation)
+- [Mock Interview](https://www.powerinterviewai.com/docs/mock-interview)
 - [Usage](https://www.powerinterviewai.com/docs/usage)
 - [How It Works](https://www.powerinterviewai.com/docs/how-it-works)
-- [Mock Interview](https://www.powerinterviewai.com/docs/mock-interview)
 - [Best Practices](https://www.powerinterviewai.com/docs/best-practices)
 - [Troubleshooting](https://www.powerinterviewai.com/docs/troubleshooting)
 

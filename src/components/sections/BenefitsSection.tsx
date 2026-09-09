@@ -25,24 +25,24 @@ interface Benefit {
 
 const BENEFITS: Benefit[] = [
   {
-    icon: MessagesSquare,
-    title: 'Communicate more clearly',
-    body: 'Real-time, context-aware suggestions help you articulate your thoughts more clearly and professionally. Exported transcripts reveal the communication patterns you would otherwise never see.',
+    icon: Sparkles,
+    title: 'Walk in already warmed up',
+    body: 'Run the spoken mock the night before and the first question of the real interview is not the first time you have said any of it out loud. The uncertainty of a cold question is the thing rehearsal removes.',
   },
   {
-    icon: Sparkles,
-    title: 'Walk in with confidence',
-    body: 'Live support, intelligent suggestions, and full conversation-history awareness remove the uncertainty of a cold question, so you can present your best self instead of scrambling.',
+    icon: TrendingUp,
+    title: 'Find the weak answer before they do',
+    body: 'The mock scorecard grades every answer on its own, says why it landed where it did, and writes a stronger version back. That is the gap you would otherwise only discover from a rejection email.',
+  },
+  {
+    icon: MessagesSquare,
+    title: 'Communicate more clearly',
+    body: 'Real-time, context-aware suggestions on the live call help you articulate your thoughts more clearly and professionally. Exported transcripts reveal the communication patterns you would otherwise never see.',
   },
   {
     icon: Gauge,
     title: 'Cover every kind of question',
-    body: 'From technical coding challenges to behavioural questions, the assistance spans the whole interview. Transcript analysis then shows you where you were strong and where you were not.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Learn faster between rounds',
-    body: 'Review exported transcripts to understand what worked and what did not. AI-generated insights surface patterns you would miss on your own, so each interview improves the next.',
+    body: 'Behavioural, technical, situational and closing questions in the mock; coding challenges and everything else in the live call. Both halves are scored or transcribed, so you can see where you were strong and where you were not.',
   },
   {
     icon: EyeOff,
@@ -62,7 +62,7 @@ export const BenefitsSection: React.FC = () => (
       id="benefits-heading"
       eyebrow="Benefits"
       title="Transform your interview performance"
-      description="What actually changes once the assistant is running alongside your calls."
+      description="What actually changes once you have rehearsed against the AI interviewer and kept it running through the real call."
     />
 
     <div className="mx-auto mt-14 grid max-w-5xl gap-x-12 gap-y-10 sm:grid-cols-2">
@@ -87,10 +87,11 @@ export const BenefitsSection: React.FC = () => (
         Ready to transform your job search?
       </p>
       <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-        One hour on the free model to try it against a real call. No card, no bank details.
+        One hour on the free model, enough for a couple of full mock sessions or a real call. No
+        card, no bank details.
       </p>
       <DownloadCta size="lg" className="mt-6">
-        Start free with live suggestions
+        Start with a free mock interview
         <ArrowRight />
       </DownloadCta>
     </div>

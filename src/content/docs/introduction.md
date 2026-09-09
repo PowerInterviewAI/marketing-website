@@ -1,6 +1,6 @@
 # Introduction
 
-Power Interview is a privacy-first AI assistant that helps you perform confidently during live interviews, mock interviews, meetings, and business calls. It runs as a desktop application on your machine and combines real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
+Power Interview is a privacy-first AI interview coach that works in two stages: you rehearse against a spoken mock interview it runs itself, then it sits the real interview with you. It is a desktop application on your machine, combining an AI interviewer with a scored report, real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
 
 | Normal Mode                                                                   | Stealth Mode                                                                          |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -10,13 +10,26 @@ Power Interview is a privacy-first AI assistant that helps you perform confident
 
 ## What It Does
 
-Power Interview listens to your interview conversation, transcribes it in real time, and surfaces contextual suggestions so you can respond with clarity. For technical roles, it can analyze coding problems on your screen and generate solution. For behavioral rounds, it draws on your profile - your name, CV, and the job description - to generate personalized, natural-sounding responses.
+**Before the interview**, it runs a mock one. An AI interviewer speaks its questions out loud, listens while you answer into your microphone, presses with a follow-up when an answer leaves something open, and hands back a scored report on every answer you gave - including a stronger version of each one.
+
+**During the interview**, it listens to the conversation, transcribes it in real time, and surfaces contextual suggestions so you can respond with clarity. For technical roles, it can analyze coding problems on your screen and generate a solution. For behavioral rounds, it draws on your profile - your name, CV, and the job description - to generate personalized, natural-sounding responses.
+
+Both stages read the same profile, so the questions you rehearse against and the answers you are prompted with are about the role you are actually interviewing for.
 
 You can connect your own LLM provider (OpenAI, Anthropic, Groq, Google) using API keys you control. Depending on your plan, a default model is also included so you can get started instantly.
 
 ---
 
 ## Core Features
+
+### Mock Interview
+
+- A full practice interview inside the app: the AI interviewer **speaks its questions**, listens to your spoken answers, and scores them
+- Choose a seniority (junior to staff), a difficulty and a length of 3, 5, 8 or 12 questions; the role comes from the job context already on your account
+- Behavioural, technical, situational and closing questions, with up to two follow-ups on an answer that leaves something open
+- Ends in a scored report: an overall score with strengths and gaps, then every question scored on its own with a justification and a stronger version of your answer, exportable to `.docx` or Markdown
+- Runs in all 28 interview languages; where a language has no voice the interviewer writes its questions instead
+- See the [Mock Interview](/docs/mock-interview) guide for the full walkthrough
 
 ### Real-Time Transcription
 
@@ -67,6 +80,7 @@ You can connect your own LLM provider (OpenAI, Anthropic, Groq, Google) using AP
 ### Credits & Payments
 
 - Credits are consumed while the assistant is running (AI suggestions and transcription)
+- A mock interview is priced per question, follow-up and report instead of by the minute, so think-time is free
 - Credit balance is displayed live inside the app
 - Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
 

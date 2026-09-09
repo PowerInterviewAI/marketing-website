@@ -119,12 +119,24 @@ Any fumbling with shortcuts during an interview will be distracting and costly.
 
 ---
 
+## Rehearse With a Mock Interview
+
+The assistant is at its best when it is confirming an answer you were already going to give, not supplying one you have never said out loud. A [mock interview](/docs/mock-interview) is how you get there: it runs on the same profile and job context as the real session, so the questions are the ones the role will actually ask.
+
+- **Run one against the same context you will interview with.** A mock session for the job description you just pasted in rehearses that role, not interviewing in general.
+- **Run it at the seniority on the job ad, not the one you hold.** The gap between the two is the thing to practice.
+- **Read the report before the checklist below.** Its gaps section is a list of what to prepare, written from what you actually said.
+- **Keep live suggestions off the first time.** They show what the assistant would have answered, which is worth comparing against your own answer - but only after you have produced one.
+
+---
+
 ## Pre-Interview Checklist
 
 Before every interview, run through this checklist:
 
 - [ ] Profile (name, CV) is up to date
 - [ ] Context field has the correct job description for this role
+- [ ] A mock interview has been run against that context, and its report read
 - [ ] **Power Interview is started before joining the meeting**
 - [ ] Microphone is selected and producing transcript output (test session run)
 - [ ] Interview language is set to the language the interview will actually be conducted in

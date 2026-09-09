@@ -12,6 +12,7 @@ import {
 interface HomeContentProps {
   featuresSection: ReactNode;
   howItWorksSection: ReactNode;
+  mockInterviewSection: ReactNode;
   benefitsSection: ReactNode;
   whyChooseSection: ReactNode;
   pricingSection: ReactNode;
@@ -20,6 +21,12 @@ interface HomeContentProps {
   teamSection: ReactNode;
 }
 
+// Section order tells the product's story in the order a reader lives it:
+// the four-step walkthrough, then the mock interview they rehearse in, then
+// the live-call features. Mock used to sit below the features grid, which
+// read as a footnote to the live assistant rather than the half of the
+// product you reach for first.
+//
 // The sections that fetch data are async Server Components, so the page
 // (src/app/page.tsx) renders them and passes them in as already-resolved
 // elements. The rest are imported directly.
@@ -31,6 +38,7 @@ interface HomeContentProps {
 export function HomeContent({
   featuresSection,
   howItWorksSection,
+  mockInterviewSection,
   benefitsSection,
   whyChooseSection,
   pricingSection,
@@ -47,6 +55,7 @@ export function HomeContent({
       <main id="main" className="flex-1 scroll-mt-20">
         <HeroSection />
         {howItWorksSection}
+        {mockInterviewSection}
         {featuresSection}
         {benefitsSection}
         {whyChooseSection}

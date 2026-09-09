@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { Check, Coins } from 'lucide-react';
+import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
-import { SECTIONS } from '@/config/routes';
+import { ROUTES, SECTIONS } from '@/config/routes';
+import { CREDIT_RATES, mockSessionPrice } from '@/lib/plans';
 
 import { PricingCards } from './PricingCards';
 
@@ -48,6 +50,49 @@ export const PricingSkeleton: React.FC = () => (
       ))}
     </div>
   </Section>
+);
+
+/**
+ * How the two kinds of session are metered.
+ *
+ * The heading above quotes the per-minute rate, which is the whole story for a
+ * live interview and none of it for a mock one: that is charged per question,
+ * per follow-up and once for the report, and its transcription isn't metered
+ * at all. Rates come from CREDIT_RATES so this and the mock interview page
+ * can't quote different numbers at each other.
+ */
+const MeteringNote: React.FC = () => (
+  <Reveal className="mx-auto mt-6 max-w-3xl">
+    <div className="rounded-xl border border-border-subtle bg-surface-1 p-5">
+      <h3 className="text-sm font-semibold">What a session spends</h3>
+      <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+        <div>
+          <dt className="text-sm font-medium text-foreground">Live interview</dt>
+          <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {CREDIT_RATES.livePerMinute} credits a minute while the assistant is running, so a
+            30-minute call is about {CREDIT_RATES.livePerMinute * 30}.
+          </dd>
+        </div>
+        <div>
+          <dt className="text-sm font-medium text-foreground">
+            <Link
+              href={ROUTES.mockInterview}
+              prefetch={false}
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              Mock interview
+            </Link>
+          </dt>
+          <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {CREDIT_RATES.mockPerQuestion} credits a question, {CREDIT_RATES.mockPerFollowUp} a
+            follow-up and {CREDIT_RATES.mockPerReport} for the report, with the transcription
+            unmetered - so an 8-question session is {mockSessionPrice(8)} before follow-ups and
+            thinking time is free.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </Reveal>
 );
 
 interface PricingSectionProps {
@@ -129,6 +174,8 @@ export const PricingSection = ({ standalone = false }: PricingSectionProps) => (
         </table>
       </div>
     </Reveal>
+
+    <MeteringNote />
 
     <PricingCards />
   </Section>

@@ -28,7 +28,10 @@ interface Feature {
   icon: LucideIcon | typeof SiSuperuser;
   title: string;
   description: React.ReactNode;
-  /** Column span at lg and up - drives the bento rhythm. */
+  /** Column span at lg and up - drives the bento rhythm. A wide card fills
+   *  two of the three columns, so every one of them is followed by exactly
+   *  one narrow card in FEATURES; reorder them in a pair or the row before
+   *  the next wide card is left with an empty cell. */
   wide?: boolean;
   footer?: React.ReactNode;
 }
@@ -37,7 +40,46 @@ const Em: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <span className="font-medium text-foreground">{children}</span>
 );
 
+/*
+ * Mock interview leads the grid. It used to sit seventh, below every
+ * live-call feature, which put the half of the product a reader can use
+ * tonight - no scheduled interview required - underneath the half they
+ * cannot try until one is booked.
+ */
 const FEATURES: Feature[] = [
+  {
+    id: 'mock',
+    icon: SiSuperuser,
+    title: 'Mock interview',
+    description: (
+      <>
+        An AI interviewer that <Em>speaks its questions</Em>, presses on a thin answer, and scores
+        every one of yours against your CV and the job description. Export the report as DOCX or
+        Markdown.{' '}
+        <Link
+          className="font-medium text-primary underline-offset-4 hover:underline"
+          href={ROUTES.mockInterview}
+          prefetch={false}
+        >
+          How mock interviews work
+        </Link>
+        .
+      </>
+    ),
+    wide: true,
+  },
+  {
+    id: 'transcription',
+    icon: Captions,
+    title: 'Live transcription',
+    description: (
+      <>
+        Dual-channel transcription with automatic speaker detection and full conversation history.
+        Change your microphone <Em>mid-interview</Em> without stopping the session - no gap in the
+        transcript, nothing to restart.
+      </>
+    ),
+  },
   {
     id: 'stealth',
     icon: Ghost,
@@ -57,14 +99,15 @@ const FEATURES: Feature[] = [
     ),
   },
   {
-    id: 'transcription',
-    icon: Captions,
-    title: 'Live transcription',
+    id: 'languages',
+    icon: Languages,
+    title: '28 interview languages',
     description: (
       <>
-        Dual-channel transcription with automatic speaker detection and full conversation history.
-        Change your microphone <Em>mid-interview</Em> without stopping the session - no gap in the
-        transcript, nothing to restart.
+        One setting drives all three: which speech model transcribes the call, the language your
+        suggestions come back in, and the language of your exported report. Switch it{' '}
+        <Em>mid-interview</Em>, not just before you start. Full right-to-left support for Arabic and
+        Hebrew.
       </>
     ),
   },
@@ -92,19 +135,6 @@ const FEATURES: Feature[] = [
     ),
   },
   {
-    id: 'languages',
-    icon: Languages,
-    title: '28 interview languages',
-    description: (
-      <>
-        One setting drives all three: which speech model transcribes the call, the language your
-        suggestions come back in, and the language of your exported report. Switch it{' '}
-        <Em>mid-interview</Em>, not just before you start. Full right-to-left support for Arabic and
-        Hebrew.
-      </>
-    ),
-  },
-  {
     id: 'code',
     icon: MessageSquareCode,
     title: 'Code suggestions',
@@ -124,25 +154,6 @@ const FEATURES: Feature[] = [
         <Em>Smart meeting export</Em> for interviews, mock interviews, and video calls. AI-generated
         summaries, action items, speaker-labelled transcripts, and follow-up notes. Exports to{' '}
         <Em>DOCX</Em> for easy sharing across individuals and enterprise teams.
-      </>
-    ),
-    wide: true,
-  },
-  {
-    id: 'mock',
-    icon: SiSuperuser,
-    title: 'Mock interview',
-    description: (
-      <>
-        Practice with AI-guided mock interviews and get exportable performance notes. Learn more in
-        the{' '}
-        <Link
-          className="font-medium text-primary underline-offset-4 hover:underline"
-          href={`${ROUTES.docs}/mock-interview`}
-        >
-          mock interview guide
-        </Link>
-        .
       </>
     ),
   },
@@ -175,8 +186,8 @@ export const FeaturesSection: React.FC = () => (
     <SectionHeading
       id="features-heading"
       eyebrow="Features"
-      title="Everything the call needs, nothing it can see"
-      description="Built for live interviews, mock practice, and meeting notes alike."
+      title="Everything the rehearsal needs, and everything the call can't see"
+      description="One app for the mock interview you practice in and the live call you sit afterwards, plus the notes both leave behind."
     />
 
     <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

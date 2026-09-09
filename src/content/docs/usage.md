@@ -2,6 +2,8 @@
 
 This page describes how to use Power Interview during a live interview session, including transcription, AI suggestions, code assistance, stealth mode, and window management.
 
+If the interview has not happened yet, start with the [Mock Interview](/docs/mock-interview) guide instead: the app runs a spoken practice session of its own, and rehearsing in it is the step before this one.
+
 ---
 
 ## Starting a Session
@@ -238,6 +240,8 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 ## Credits & Payments
 
 Credits are consumed while the assistant is running - covering AI reply suggestions and transcription. Your remaining credit balance is shown live in the titlebar, and in the status bar while in stealth mode.
+
+A [mock interview](/docs/mock-interview) is charged differently: per question, follow-up and report rather than by the minute, with its transcription unmetered. The price of a session is quoted in its setup dialog before it starts.
 
 To buy credits:
 

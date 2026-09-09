@@ -30,30 +30,32 @@ export const HeroSection: React.FC = () => (
           id="hero-heading"
           className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]"
         >
-          Your AI interview coach, <span className="text-primary">invisible on the call</span>
+          Your AI interview coach, <span className="text-primary">before and during the call</span>
         </h1>
 
         <p className="text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Live transcription, reply suggestions grounded in your CV and the job description, and
-          coding-challenge help - in a desktop window that stays hidden from screen share. Works
-          with Zoom, Google Meet and Teams.
+          Rehearse against an AI interviewer that speaks its questions and scores every answer you
+          give. Then keep the same desktop app open for the real call, hidden from screen share, for
+          live transcription and suggestions grounded in your CV. Zoom, Google Meet and Teams.
         </p>
 
         <div className="mt-2 flex flex-col items-center gap-4">
           <DownloadButton />
-          {/* Scrolls to the home page's condensed HowItWorksSection, not the
-              standalone /how-it-works page. */}
+          {/* Scrolls to the home page's MockInterviewSection, not the
+              standalone /mock-interview page. Points at the rehearsal rather
+              than the walkthrough: it is the half of the product a reader can
+              use tonight, without a scheduled interview to use it on. */}
           <Button variant="ghost" size="sm" asChild>
-            <Link href={homeAnchor(SECTIONS.howItWorks)}>
-              See how it works
+            <Link href={homeAnchor(SECTIONS.mockInterview)}>
+              Start with a mock interview
               <ArrowRight />
             </Link>
           </Button>
         </div>
 
         <p className="text-sm text-muted-foreground">
-          Start free with live suggestions - triggered suggestions unlock on paid plans. Pay with
-          coins only, no credit card required.
+          One free hour covers both: practice sessions and live suggestions alike - triggered
+          suggestions unlock on paid plans. Pay with coins only, no credit card required.
         </p>
       </div>
 

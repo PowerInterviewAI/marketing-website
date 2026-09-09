@@ -63,6 +63,19 @@ When you capture screenshots, the app sends them to the code suggestion service,
 
 ---
 
+## Mock Interview Flow
+
+A [mock interview](/docs/mock-interview) reuses the transcription and LLM layers above, wired into a different loop and a different audio path.
+
+- **One channel, not two.** There is no call to capture, so the app never opens the loopback channel. Only your microphone is transcribed.
+- **The interviewer's turn is generated, then spoken.** The next question is written from your profile, the job context, the setup you chose and the questions asked so far, then synthesized to speech and streamed back in chunks. Your microphone is gated for as long as it plays, plus a short tail for room reverb, so the question cannot be transcribed as part of your answer.
+- **Your turn is transcribed and scored.** When you submit an answer - or a long enough pause submits it for you - the turn is evaluated, and the interviewer either follows up on the same question or moves to the next one.
+- **The report is a final pass over the whole session.** Every question and answer is scored together at the end, which is why it takes a moment and why leaving early scores only what was answered.
+
+Where the interview language has no voice available, synthesis is skipped entirely: the question is written instead of spoken and the session goes straight to listening.
+
+---
+
 ## Data Storage
 
 Persistent local data includes:
@@ -89,3 +102,5 @@ Session transcript/suggestion content is retained in memory for the active app s
 ## Credits System
 
 Credits are consumed while AI-assisted features are active (including transcription and suggestion generation). Credit balance is refreshed periodically during a running session and updates after successful payments.
+
+A mock interview is metered differently, because its wall clock is a poor measure of the work delivered: it is charged per question, per follow-up and once for the report, and its transcription is not metered at all. The client quotes the price before the session begins and the balance is checked against it up front, so a session that starts can reach its report.

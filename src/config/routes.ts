@@ -16,6 +16,7 @@
 export const ROUTES = {
   home: '/',
   howItWorks: '/how-it-works',
+  mockInterview: '/mock-interview',
   pricing: '/pricing',
   faq: '/faq',
   team: '/team',
@@ -35,6 +36,7 @@ export const SECTIONS = {
   hero: 'home',
   howItWorks: 'how-it-works',
   features: 'features',
+  mockInterview: 'mock-interview',
   benefits: 'benefits',
   whyChoose: 'why-choose',
   pricing: 'pricing',
@@ -105,6 +107,7 @@ export const NAV_LINKS: readonly NavLinkDef[] = [
 export const SITEMAP_ROUTES: readonly string[] = [
   ROUTES.home,
   ROUTES.howItWorks,
+  ROUTES.mockInterview,
   ROUTES.pricing,
   ROUTES.faq,
   ROUTES.team,

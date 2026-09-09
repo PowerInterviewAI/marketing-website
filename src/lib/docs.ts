@@ -5,14 +5,18 @@ import path from 'node:path';
 // Previously the index page and sidebar each hardcoded their own list and
 // had drifted out of sync (the index was missing two slugs) - this is now
 // the single source of truth for both.
+//
+// mock-interview sits ahead of usage on purpose: a reader who has just
+// installed the app can run a practice session tonight, while the live-session
+// guide is only useful once a real interview is booked.
 const ORDER = [
   'introduction',
   'installation',
+  'mock-interview',
   'usage',
   'how-it-works',
   'best-practices',
   'troubleshooting',
-  'mock-interview',
 ];
 
 const DOCS_DIR = path.join(process.cwd(), 'src/content/docs');

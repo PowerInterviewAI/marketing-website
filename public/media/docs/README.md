@@ -32,8 +32,24 @@ Overwrite the file in place and the markdown needs no edit.
 `export-example.docx`, `mock-interview-1..4.png`, and the four
 `macos-update-*.png` permission screenshots.
 
+`mock-interview-1..4.png` are captures of ChatGPT's voice mode, not of this
+app. They belong to the "Practising without a session" section at the foot of
+`mock-interview.md`, which is the credit-free fallback — the rest of that page
+now documents the app's own mock interview and has no screenshots yet.
+
 `architecture-diagram.svg` and `window-positioning.svg` are hand-authored
 diagrams, not captures — edit the SVG rather than re-shooting.
+
+## Wanted captures
+
+Not placeholders — nothing references these yet, so adding the file means
+adding the figure to the markdown too. In `mock-interview.md`:
+
+| Suggested file | Should show |
+|---|---|
+| `mock-interview-setup.png` | The mock interview setup dialog — seniority, difficulty, question count with prices |
+| `mock-interview-session.png` | A session mid-question: transcript panel, status line, control bar |
+| `mock-interview-report.png` | The report screen — overall score, strengths and gaps, one expanded question |
 
 ## Demo clips
 

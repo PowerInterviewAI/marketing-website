@@ -31,6 +31,12 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Power Interview AI is designed for legitimate educational and interview preparation purposes. However, you are responsible for ensuring your use complies with applicable laws and the terms of service of platforms you use. Always use ethically and legally.',
   },
   {
+    question: 'Can I practice with a mock interview?',
+    category: 'Product',
+    answer:
+      'Yes, and it runs inside the app rather than sending you to another tool. Pick a seniority, a difficulty and a length of 3, 5, 8 or 12 questions, and an AI interviewer speaks its questions out loud in your interview language, presses with up to two follow-ups when an answer leaves something open, and listens while you answer into your microphone. The questions and the scoring both use the CV and job description already saved to your account. At the end you get an overall score with strengths and gaps, plus every question scored on its own with a justification and a stronger version of your answer, exportable as DOCX or Markdown.',
+  },
+  {
     question: 'How does the privacy protection work?',
     category: 'Privacy & data',
     answer:
@@ -78,10 +84,16 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Stealth mode allows you to operate the assistant discreetly during interviews. You can control everything via hotkeys, adjust window opacity, and position windows strategically-all without losing focus on your interview tab or application. Additionally, the window is not capturable in screenshots and remains invisible during full screen sharing, ensuring complete privacy during your interview.',
   },
   {
+    question: 'What does a mock interview cost?',
+    category: 'Plans & billing',
+    answer:
+      'A mock interview is priced per question rather than per minute, so thinking about your answer is free. Each question costs 20 credits, each follow-up 10, and the report at the end 40; the transcription that runs throughout is not metered at all. A 5-question session is therefore 140 credits before follow-ups and an 8-question session 200, and the app quotes the price and checks your balance before the interview starts. Your 1-hour free trial is 600 credits, which covers a couple of full sessions.',
+  },
+  {
     question: 'How do credits work?',
     category: 'Plans & billing',
     answer:
-      'Credits are consumed at a rate of 10 credits per minute when using AI-powered features like reply suggestions, code analysis, and transcription. For example, a 30-minute interview session would use approximately 300 credits. You can purchase credit packs starting from 600 credits ($9 for ~60 minutes) up to 60,000 credits ($500 for ~6,000 minutes).',
+      'A live session is metered by the clock: 10 credits per minute of reply suggestions, code analysis and transcription, so a 30-minute interview costs roughly 300 credits. A mock interview is priced by the work delivered instead - see the question above. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($150 for ~3,000 minutes).',
   },
   {
     question: 'What payment methods do you accept?',

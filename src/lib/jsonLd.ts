@@ -55,7 +55,7 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
     // back once the macOS build is supported again.
     operatingSystem: 'Windows',
     description:
-      'Privacy-first AI interview assistant and meeting note taker with real-time transcription, mock interview practice, live AI suggestions, coding challenge assistance, and smart exports for Zoom, Google Meet, and Microsoft Teams.',
+      'Privacy-first AI interview coach and meeting note taker: spoken mock interviews with a scored report, then real-time transcription, live AI suggestions and coding challenge assistance for Zoom, Google Meet, and Microsoft Teams.',
     author: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -80,9 +80,9 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
     }),
     featureList: [
       '1-hour free trial with our free model - no rate limits, no interruptions',
+      'Spoken mock interviews with a scored, exportable report',
       'Live transcription with speaker detection',
       'AI-powered reply and code suggestions',
-      'Mock interview practice',
       'AI-powered meeting note taker for Zoom, Google Meet, Microsoft Teams',
       'Smart export with AI summaries and action items',
       'Bring your own LLM provider',
@@ -99,7 +99,7 @@ export const organizationJsonLd = {
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo.png`,
   description:
-    'Privacy-first AI interview assistant and meeting note taker for interviews, mock interviews, and business calls. Supports Zoom, Google Meet, Microsoft Teams, and more.',
+    'Privacy-first AI interview coach and meeting note taker for mock interviews, live interviews, and business calls. Supports Zoom, Google Meet, Microsoft Teams, and more.',
   email: 'team@vectorleappulse.xyz',
   sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
   contactPoint: {

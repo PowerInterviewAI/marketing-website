@@ -26,7 +26,7 @@ This is a **Next.js App Router marketing site** for Power Interview AI — no da
 File-based routing under `src/app/`:
 
 - `src/app/page.tsx` — home route (`/`), a Server Component rendering `HomeContent`. Both are Server Components; the async data-fetching sections are rendered by the page and passed to `HomeContent` as already-resolved elements
-- `src/app/how-it-works/`, `pricing/`, `faq/`, `privacy/`, `terms/` — standalone pages
+- `src/app/how-it-works/`, `mock-interview/`, `pricing/`, `faq/`, `team/`, `privacy/`, `terms/` — standalone pages
 - `src/app/docs/page.tsx` + `src/app/docs/[slug]/page.tsx` — docs listing and individual doc pages (Server Components, `generateStaticParams` prerenders all slugs)
 - `src/app/not-found.tsx` — 404 for unmatched paths, rendered inside `PageChrome` so it still offers the full nav
 - `src/app/sitemap.ts` / `src/app/robots.ts` — generated from `SITEMAP_ROUTES` + `src/lib/docs.ts`'s slug list, not hand-maintained
@@ -37,11 +37,11 @@ Every page except the docs (which have their own sidebar layout) uses `PageChrom
 
 **1. Every navigation destination is a link.** `NavLink` (`src/components/NavLink.tsx`) always renders a `next/link`. Its predecessor, `SectionNavLink`, rendered a `<button>` calling `scrollIntoView` whenever the target was a section of the page you were already on — so the same nav item was a link on `/pricing` and not a link on `/`. That cost the URL in the status bar, middle-click and cmd-click, copy-link, crawlability, and left the address bar reading `/` after you'd scrolled to Features. **Never render a nav destination as a `<button>`.**
 
-**2. The primary nav is routes only; anchors live in the footer.** `NAV_LINKS` is How it works / Pricing / FAQ / Docs — all real pages. Features, Why Us and Contact are still home-page sections, reached by scrolling and linked from the footer as `/#features` etc., which is conventional there and is a real, shareable URL. The bar used to mix the two with identical styling, which meant one nav with two behaviours and an active state that needed two rules to describe it (`pathname` for pages, a scroll-spy for anchors). Active state is now `pathname` alone — `useScrollSpy` is gone, along with the document-wide `MutationObserver` it ran.
+**2. The primary nav is routes only; anchors live in the footer.** `NAV_LINKS` is Home / How it works / Pricing / FAQ / Team / Docs — all real pages. Mock interview is a real page too and deliberately stays out of it, even though it now leads the home page: seven items is more than the bar fits at `md`, and the section is reached from the hero's secondary CTA, the head of the Features grid, the top of the footer's Product column and the docs. Add it to `NAV_LINKS` only alongside a nav that can hold it. Features, Why Us and Contact are still home-page sections, reached by scrolling and linked from the footer as `/#features` etc., which is conventional there and is a real, shareable URL. The bar used to mix the two with identical styling, which meant one nav with two behaviours and an active state that needed two rules to describe it (`pathname` for pages, a scroll-spy for anchors). Active state is now `pathname` alone — `useScrollSpy` is gone, along with the document-wide `MutationObserver` it ran.
 
 **3. Hash scrolling is the browser's job.** `<Link href="/#features">` emits a real `<a>` and the browser scrolls to the id. `html { scroll-behavior: smooth }` and `:target { scroll-margin-top: 5rem }` in `src/styles/index.css`, plus `scroll-mt-20` on the `Section` variants, are what used to be a `scrollToSection` callback threaded from the page down through Header/Hero/FAQ/Footer — except that version also dropped every target behind the 4rem sticky header. **Don't reintroduce a `scrollToSection` prop.**
 
-**4. Full content lives on exactly one URL.** Sections with a page of their own take a `preview` prop for the home page — `<PricingSection preview />` drops the trial-vs-paid table, `<FAQSection preview />` shows the first five questions, `<HowItWorksSection preview />` shows one-line step summaries — and link across to the full treatment. `next.config.ts` 308s the old `/features`, `/benefits`, `/why-choose` and `/contact` routes to home-page anchors; they were exact duplicates of the home sections and competed with the home page for ranking. A sitemap must never list a URL that 3xx's, so `SITEMAP_ROUTES` excludes them.
+**4. A section with a page of its own renders in full in both places.** `HowItWorksSection`, `MockInterviewSection`, `PricingSection`, `FAQSection` and `TeamSection` each take a single `standalone` prop, and it only moves the heading from `h2` to `h1` so the route owns its own `h1`. There is no `preview` prop any more: the sections used to render a condensed version on the home page and link across to the full one, but the header nav points every one of those items at its home anchor (see `NAV_LINKS.section`), so a reader who clicked "Pricing" arrived at a summary of the page they had just asked for and had to click again. Don't reintroduce a `preview` prop. `next.config.ts` 308s the old `/features`, `/benefits`, `/why-choose` and `/contact` routes to home-page anchors; they were exact duplicates of the home sections and competed with the home page for ranking. A sitemap must never list a URL that 3xx's, so `SITEMAP_ROUTES` excludes them.
 
 **5. An anchor target must be unique and must survive.** `PricingSkeleton` deliberately carries no `id`: it used to be `id="pricing"` as well, so the streamed HTML held two elements with that id and `/#pricing` resolved to the fallback, which is then thrown away.
 
@@ -71,6 +71,28 @@ The six pending docs screenshots are still placeholders, generated by `node scri
 - `cn()` utility in `src/lib/utils.ts` (clsx + tailwind-merge) — always use this for conditional classnames
 - Always use `next/link`'s `Link` for internal navigation, never a raw `<a href="/...">` (a full page reload) and never a `<button>` with a scroll handler. `react-router-dom` isn't a dependency anymore
 - Never nest a `<Button>` inside a `<Link>` — that renders a `<button>` inside an `<a>`. Use `<Button asChild><Link …/></Button>`
+
+### The two things the product does, in order
+
+The site sells a mock interview *and* a live assistant, and both are first-party features of the desktop app. **The mock interview comes first everywhere** - it is the half a reader can use the evening they download the app, without a scheduled interview to use it on, and the live assistant is what the rehearsal is for. Concretely, that ordering is carried by:
+
+- `HomeContent` renders `MockInterviewSection` above `FeaturesSection` (it used to sit below it, reading as a footnote to the live assistant)
+- `HowItWorksSection` is four steps, not three: install, add your CV and the job description, rehearse as a mock interview, then join the real call. The stealth hotkey callout hangs off the live step, which is now index 3
+- `FeaturesSection` leads with the `mock` card. Note the bento constraint: a `wide` card spans two of three columns, so each is followed by exactly one narrow card - reorder them in pairs or you leave an empty cell
+- `FAQ_ITEMS` leads its Product category with the mock question and its Plans & billing category with mock pricing (the credits answer cross-references it as "the question above")
+- `ORDER` in `src/lib/docs.ts` puts `mock-interview` ahead of `usage`, and `public/llms.txt` matches
+- Hero, `WhyChooseSection` and `BenefitsSection` copy all open on the rehearsal
+
+Don't reorder any of those back without moving all of them: half the site leading with practice and half with the live call is how the copy drifted the first time. That is recent: `mock-interview.md` used to tell readers to open ChatGPT's voice mode and paste a prompt, because the app could not run a session itself, and the marketing copy still promised "AI-guided mock interviews" over the top of it. The workaround now survives only as the last section of that doc, for readers who would rather not spend credits.
+
+Anything describing the mock interview has to match the client (`../client`), which is where the behaviour actually lives:
+
+- Setup is seniority (junior/mid/senior/staff), difficulty (easy/standard/hard) and 3/5/8/12 questions. The role is **not** collected: it comes from the account's job context, and the same profile drives the questions and the scoring
+- The interviewer speaks its questions, gates the microphone while it does, and can follow up **twice** on one question. A language with no voice makes it write them instead
+- The session ends in a scored report: overall score, strengths, gaps, then per-question score, justification and a stronger answer, exportable as DOCX or Markdown
+- Pricing is per unit of work, not per minute: 20 credits a question, 10 a follow-up, 40 for the report, and its transcription is unmetered (`app/cfg/payment.py` in `../backend`). Quote both halves whenever the site talks about credits, or the copy implies a mock session is metered by the clock
+
+`CREDIT_RATES` in `src/lib/plans.ts` mirrors those rates for the components (the pricing section's metering note reads it, alongside the credit packs it already mirrored from the same backend file). Markdown can't import it, so `src/content/docs/mock-interview.md` restates the numbers and `src/config/faq.ts` restates them again for the JSON-LD; a rate change is those three places plus the backend.
 
 ### SEO / Metadata
 

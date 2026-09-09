@@ -7,6 +7,7 @@ import {
   ContactSection,
   FeaturesSection,
   HowItWorksSection,
+  MockInterviewSection,
   PricingSection,
   TeamSection,
   TestimonialsSection,
@@ -18,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
   title: 'Power Interview AI - AI Interview Coach & Meeting Note Taker',
   absoluteTitle: true,
   description:
-    'Privacy-first AI interview coach for Zoom, Google Meet and Teams. Live transcription, reply and code suggestions, hidden from screen share. 1 hour free.',
+    'Rehearse with a spoken AI mock interview that scores every answer, then get live suggestions on the real Zoom, Meet or Teams call. 1 hour free.',
   path: '/',
 });
 
@@ -29,6 +30,7 @@ export default function Home() {
       <SoftwareApplicationJsonLd />
       <HomeContent
         howItWorksSection={<HowItWorksSection />}
+        mockInterviewSection={<MockInterviewSection />}
         featuresSection={<FeaturesSection />}
         benefitsSection={<BenefitsSection />}
         whyChooseSection={<WhyChooseSection />}

@@ -26,6 +26,22 @@ interface ComparisonRow {
  * dated. The named examples live in the column headers as examples only.
  */
 const ROWS: ComparisonRow[] = [
+  {
+    // Leads the table, because the rehearsal is where a reader starts. The
+    // claim is the combination, not the rehearsal itself: rehearsing is what
+    // those tools are for, and saying they can't would be the kind of
+    // competitor claim the note above rules out.
+    capability: 'Spoken mock practice and live help in one app',
+    us: true,
+    practice: 'Practice only',
+    coding: false,
+  },
+  {
+    capability: 'Every answer scored, with a stronger version written back',
+    us: true,
+    practice: 'Varies',
+    coding: false,
+  },
   { capability: 'Helps during a real, live interview', us: true, practice: false, coding: false },
   {
     capability: 'Hidden from screen share and screenshots',
@@ -108,8 +124,8 @@ export const WhyChooseSection: React.FC = () => (
     <SectionHeading
       id="why-choose-heading"
       eyebrow="Why us"
-      title="Built for the interview, not the rehearsal"
-      description="Practice platforms coach you beforehand and coding sites drill you on problems. Neither is there when the interviewer is actually on the call."
+      title="Built for the rehearsal first, and the interview after it"
+      description="Practice platforms coach you beforehand and coding sites drill you on problems, then leave when it matters. This one runs the spoken mock session, scores what you said, and is still open when the real interviewer joins the call."
     />
 
     <Reveal className="mx-auto mt-14 max-w-5xl">
@@ -171,8 +187,9 @@ export const WhyChooseSection: React.FC = () => (
     <div className="relative isolate mx-auto mt-14 max-w-3xl overflow-hidden rounded-xl border border-border bg-card px-6 py-10 text-center">
       <Glow position="center" intensity="subtle" />
       <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-        A standalone desktop app built for the live interview - download, install, start. No API
-        wiring, no browser extension asking for permissions, no bot joining the call on your behalf.
+        One standalone desktop app for both halves - practice tonight, sit the interview next week.
+        Download, install, start. No API wiring, no browser extension asking for permissions, no bot
+        joining the call on your behalf.
       </p>
       <DownloadCta size="lg" className="mt-6">
         Experience the difference
