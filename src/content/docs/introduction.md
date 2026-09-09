@@ -1,10 +1,10 @@
 # Introduction
 
-Power Interview is a privacy-first AI interview coach that works in two stages: you rehearse against a spoken mock interview it runs itself, then it sits the real interview with you. It is a desktop application on your machine, combining an AI interviewer with a scored report, real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
+Power Interview AI is a privacy-first AI interview coach that works in two stages: you rehearse against a spoken mock interview it runs itself, then it sits the real interview with you. It is a desktop application on your machine, combining an AI interviewer with a scored report, real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
 
 | Normal Mode                                                                   | Stealth Mode                                                                          |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| ![Power Interview - Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview - Main Application Interface](/media/docs/app-overview-stealth.jpg) |
+| ![Power Interview AI - Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview AI - Main Application Interface](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
@@ -63,7 +63,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 ### Stealth Mode
 
-- The Power Interview window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
+- The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
 - Stealth mode keeps the window from receiving focus, so your keyboard and mouse stay locked on your coding challenge or video call
 - A minimal status bar shows running state, credit balance, and active hotkeys
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus
@@ -86,7 +86,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 ### Global Hotkeys
 
-Every function in Power Interview is accessible from any window via keyboard shortcuts:
+Every function in Power Interview AI is accessible from any window via keyboard shortcuts:
 
 | Action                                      | Windows / Linux                 | macOS         |
 | ------------------------------------------- | ------------------------------- | ------------- |
@@ -112,7 +112,7 @@ On macOS the base modifier is **Control+Option** (`⌃⌥`) rather than `Ctrl+Sh
 
 ## How It Is Built
 
-Power Interview consists of three layers running together on your machine:
+Power Interview AI consists of three layers running together on your machine:
 
 | Layer            | Technology                    | Purpose                                         |
 | ---------------- | ----------------------------- | ----------------------------------------------- |
@@ -136,6 +136,6 @@ The desktop client communicates with local services and with cloud services over
 
 Before getting started, ensure you have the following:
 
-- A Power Interview account (sign up at using the application)
+- A Power Interview AI account (sign up from within the application)
 - A Windows or macOS machine
 - A working microphone and (optionally) webcam

@@ -1,12 +1,12 @@
 # How It Works
 
-This page explains the high-level architecture of Power Interview: what runs on your machine, what runs in the cloud, and how core features are delivered in real time.
+This page explains the high-level architecture of Power Interview AI: what runs on your machine, what runs in the cloud, and how core features are delivered in real time.
 
 ---
 
 ## Overview
 
-Power Interview has three layers:
+Power Interview AI has three layers:
 
 1. **Desktop App** - interface, session controls, settings, and local state
 2. **Local Runtime** - audio capture and OS-level integrations

@@ -2,11 +2,11 @@
 
 > **Be Careful:**
 >
-> Always start the Power Interview Assistant **before** joining the call so transcription and suggestions are ready from the first question.
+> Always start the Power Interview AI assistant **before** joining the call so transcription and suggestions are ready from the first question.
 >
-> Getting the most from Power Interview requires more than just turning it on. The following practices will help you achieve accurate transcription, relevant AI suggestions, and a seamless interview experience.
+> Getting the most from Power Interview AI requires more than just turning it on. The following practices will help you achieve accurate transcription, relevant AI suggestions, and a seamless interview experience.
 >
-> Shortcuts below are written in their Windows and Linux form. On macOS the base modifier is **Control+Option** (`⌃⌥`) instead of `Ctrl+Shift`, so `Ctrl+Shift+M` is `⌃⌥M`. See the [complete hotkey reference](/docs/usage) for both columns side by side.
+> Shortcuts below are written in their Windows and Linux form. On macOS the base modifier is **Control+Option** (`⌃⌥`) instead of `Ctrl+Shift`, so `Ctrl+Shift+M` is `⌃⌥M`. See the [complete hotkey reference](/docs/live-interview) for both columns side by side.
 
 ---
 
@@ -50,7 +50,7 @@ The built-in laptop microphone often picks up keyboard sounds, fan noise, and ro
 
 ### How Interviewer Audio is Captured
 
-Power Interview captures the interviewer's voice via system audio loopback - it reads whatever audio is playing through your system speakers automatically. No extra routing software is needed for transcription to work for both channels.
+Power Interview AI captures the interviewer's voice via system audio loopback - it reads whatever audio is playing through your system speakers automatically. No extra routing software is needed for transcription to work for both channels.
 
 ### Test Audio Before the Interview
 
@@ -88,11 +88,11 @@ Press `Ctrl+Shift+F9` for each capture, then `Ctrl+Shift+F11` to submit (use `Ct
 
 ## Stealth Mode & Window Placement
 
-The Power Interview window is always excluded from screen capture and screen share - interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
+The Power Interview AI window is always excluded from screen capture and screen share - interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
 
 ### Set Up Your Window Position Before the Interview
 
-Decide where the Power Interview window will sit on your screen before the interview begins. Use `Ctrl+Shift+1–9` to snap it to your preferred screen zone. The bottom-right or top-right corners are often least intrusive.
+Decide where the Power Interview AI window will sit on your screen before the interview begins. Use `Ctrl+Shift+1–9` to snap it to your preferred screen zone. The bottom-right or top-right corners are often least intrusive.
 
 Position it so it is:
 
@@ -101,11 +101,11 @@ Position it so it is:
 
 ### Enable Stealth Mode During Coding Challenges
 
-Turn on stealth mode (`Ctrl+Shift+M`) whenever you need to type or interact with your IDE without the Power Interview window accidentally capturing focus. This keeps your keystrokes going to the right place.
+Turn on stealth mode (`Ctrl+Shift+M`) whenever you need to type or interact with your IDE without the Power Interview AI window accidentally capturing focus. This keeps your keystrokes going to the right place.
 
 ### Use a Dual-Monitor Setup
 
-If you have two monitors, run your video call on one screen and Power Interview on the other for maximum comfort - the assistant is always on a separate display.
+If you have two monitors, run your video call on one screen and Power Interview AI on the other for maximum comfort - the assistant is always on a separate display.
 
 ### Practice Hotkeys Beforehand
 
@@ -137,10 +137,10 @@ Before every interview, run through this checklist:
 - [ ] Profile (name, CV) is up to date
 - [ ] Context field has the correct job description for this role
 - [ ] A mock interview has been run against that context, and its report read
-- [ ] **Power Interview is started before joining the meeting**
+- [ ] **Power Interview AI is started before joining the meeting**
 - [ ] Microphone is selected and producing transcript output (test session run)
 - [ ] Interview language is set to the language the interview will actually be conducted in
-- [ ] Power Interview window is positioned and hotkeys tested
+- [ ] Power Interview AI window is positioned and hotkeys tested
 
 ---
 

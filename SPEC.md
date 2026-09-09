@@ -46,7 +46,7 @@ Markdown docs live in `src/content/docs/`:
 - `introduction.md`
 - `installation.md`
 - `how-it-works.md`
-- `usage.md`
+- `live-interview.md`
 - `mock-interview.md`
 - `best-practices.md`
 - `troubleshooting.md`

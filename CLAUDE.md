@@ -80,7 +80,7 @@ The site sells a mock interview *and* a live assistant, and both are first-party
 - `HowItWorksSection` is four steps, not three: install, add your CV and the job description, rehearse as a mock interview, then join the real call. The stealth hotkey callout hangs off the live step, which is now index 3
 - `FeaturesSection` leads with the `mock` card. Note the bento constraint: a `wide` card spans two of three columns, so each is followed by exactly one narrow card - reorder them in pairs or you leave an empty cell
 - `FAQ_ITEMS` leads its Product category with the mock question and its Plans & billing category with mock pricing (the credits answer cross-references it as "the question above")
-- `ORDER` in `src/lib/docs.ts` puts `mock-interview` ahead of `usage`, and `public/llms.txt` matches
+- `ORDER` in `src/lib/docs.ts` puts `mock-interview` ahead of `live-interview`, and `public/llms.txt` matches
 - Hero, `WhyChooseSection` and `BenefitsSection` copy all open on the rehearsal
 
 Don't reorder any of those back without moving all of them: half the site leading with practice and half with the live call is how the copy drifted the first time. That is recent: `mock-interview.md` used to tell readers to open ChatGPT's voice mode and paste a prompt, because the app could not run a session itself, and the marketing copy still promised "AI-guided mock interviews" over the top of it. The workaround now survives only as the last section of that doc, for readers who would rather not spend credits.

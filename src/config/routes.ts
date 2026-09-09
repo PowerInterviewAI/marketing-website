@@ -130,3 +130,15 @@ export const LEGACY_ANCHOR_REDIRECTS = [
   { source: '/why-choose', destination: homeAnchor(SECTIONS.whyChoose) },
   { source: '/contact', destination: homeAnchor(SECTIONS.contact) },
 ] as const;
+
+/**
+ * /docs/usage is now /docs/live-interview: the sidebar entry read "usage"
+ * where every other doc names what it covers, and the page is the guide to
+ * the real interview as opposed to the mock one.
+ *
+ * The old URL is indexed and linked to from outside the site, so it 308s to
+ * the new slug rather than 404ing.
+ */
+export const LEGACY_DOC_REDIRECTS = [
+  { source: docPath('usage'), destination: docPath('live-interview') },
+] as const;

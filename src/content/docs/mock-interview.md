@@ -4,7 +4,7 @@ A mock interview is a full practice session inside the app: an AI interviewer sp
 
 It uses the same profile and job context your live sessions do, so the questions are about the role you are actually interviewing for and the scoring is about the experience you actually have.
 
-This is the half of the app to reach for first: you can run a session tonight, whereas the [live assistant](/docs/usage) only earns its keep once a real interview is booked.
+This is the half of the app to reach for first: you can run a session tonight, whereas the [live assistant](/docs/live-interview) only earns its keep once a real interview is booked.
 
 ---
 

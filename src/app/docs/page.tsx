@@ -10,7 +10,7 @@ import { buildMetadata } from '@/lib/metadata';
 export const metadata: Metadata = buildMetadata({
   title: 'Documentation',
   description:
-    'Guides and reference for Power Interview AI: installation, everyday usage, mock interviews, hotkeys, best practices and troubleshooting.',
+    'Guides and reference for Power Interview AI: installation, mock interviews, live interview sessions, hotkeys, best practices and troubleshooting.',
   path: '/docs',
 });
 

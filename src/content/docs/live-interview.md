@@ -1,6 +1,6 @@
-# Usage
+# Live Interview
 
-This page describes how to use Power Interview during a live interview session, including transcription, AI suggestions, code assistance, stealth mode, and window management.
+This page describes how to use Power Interview AI during a live interview session, including transcription, AI suggestions, code assistance, stealth mode, and window management.
 
 If the interview has not happened yet, start with the [Mock Interview](/docs/mock-interview) guide instead: the app runs a spoken practice session of its own, and rehearsing in it is the step before this one.
 
@@ -8,7 +8,7 @@ If the interview has not happened yet, start with the [Mock Interview](/docs/moc
 
 ## Starting a Session
 
-1. Launch Power Interview.
+1. Launch Power Interview AI.
 2. Review configuration and settings to ensure your profile is complete and devices are set up correctly.
 3. Click the **Start** button to activate transcription and AI assistance.
 
@@ -18,7 +18,7 @@ To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q
 
 | Main UI during active session                                                    | Main UI during active session - Stealth Mode                                                            |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ![Power Interview - Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview - Main UI during active session - Stealth Mode](/media/docs/app-overview-stealth.jpg) |
+| ![Power Interview AI - Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview AI - Main UI during active session - Stealth Mode](/media/docs/app-overview-stealth.jpg) |
 
 ---
 
@@ -97,7 +97,7 @@ You can use the keyboard to scroll through reply suggestion content without leav
 
 ## AI Code Suggestions
 
-For technical interviews with coding problems, Power Interview can analyze your screen and suggest solutions.
+For technical interviews with coding problems, Power Interview AI can analyze your screen and suggest solutions.
 
 ### Workflow
 
@@ -123,7 +123,7 @@ You can also jump to the end of the code panel using the third shortcut (O).
 
 ## Stealth Mode
 
-The Power Interview window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
+The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
 
 Stealth mode is about **focus control**. When active, the window will not steal focus from your coding challenge, IDE, or video call. You stay in full control of your keyboard and mouse at all times.
 
@@ -147,7 +147,7 @@ Press `Ctrl+Shift+F7` (or click the toggle in the control panel toolbar, next to
 
 ## Window Management
 
-Because you cannot use the mouse to interact with Power Interview while focused on your interview, all window controls are available via keyboard shortcuts.
+Because you cannot use the mouse to interact with Power Interview AI while focused on your interview, all window controls are available via keyboard shortcuts.
 
 ### Positioning the Window
 
@@ -269,4 +269,4 @@ On macOS the base modifier is **Control+Option** (`⌃⌥`) rather than `Ctrl+Sh
 | Trigger without captures                    | `Ctrl+Shift+F11`                | `⌃⌥F11`       |
 | Trigger with captures                       | `Ctrl+Shift+F12`                | `⌃⌥F12`       |
 
-> The canonical list of hotkeys is maintained in `src/config/hotkeys.ts` for the application; update both the code and documentation when making changes.
+> The canonical list of hotkeys is maintained in `src/main/hotkeys.ts` in the desktop app; update both the code and documentation when making changes.
