@@ -43,10 +43,10 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Your interview configuration - full name, profile/CV, and context - is saved to your account so it follows you across devices. Transcripts and screenshots are sent to our AI services when you request a suggestion, and transcripts are never persisted on our servers: they exist only for the length of your session. Your session token and device settings stay on your machine. We never sell or share your personal information.',
   },
   {
-    question: 'Can I use my own LLM provider?',
+    question: 'Which AI model powers the suggestions?',
     category: 'Product',
     answer:
-      'Yes. All users can bring their own provider (OpenAI, Anthropic, Google, and more) using API keys they control. Depending on your plan, we also include a default model so you can get started instantly.',
+      'The model is provided for you - there is nothing to connect or configure. New accounts run on our free model for the length of the 1-hour trial, and buying credits moves you to our SOTA model with no rate limit.',
   },
   {
     question: 'What platforms are supported?',

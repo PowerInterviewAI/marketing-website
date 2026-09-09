@@ -73,7 +73,9 @@ Every page exports `metadata` or `generateMetadata` via the shared `buildMetadat
 
 ## Model naming
 
-Power Interview AI's own included/default models are referred to generically in all marketing copy as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier), not by a specific underlying model name — those change over time and the copy shouldn't need to chase them. "Bring your own provider" vendor names (OpenAI, Anthropic, Google) are unaffected by this and can be named directly.
+Power Interview AI's own included/default models are referred to generically in all marketing copy as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier), not by a specific underlying model name — those change over time and the copy shouldn't need to chase them.
+
+Bring-your-own-key is not a product feature and must not appear in the copy. The model is always the provided one, so there are no LLM-vendor names (OpenAI, Anthropic, Groq, Google) presented as something the user connects, and no BYOK row in the pricing or comparison tables.
 
 ## Non-goals
 

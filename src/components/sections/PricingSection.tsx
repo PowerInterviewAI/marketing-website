@@ -18,7 +18,6 @@ const TIER_ROWS: { label: string; trial: string | true; paid: string | true }[] 
   { label: 'Live suggestions', trial: true, paid: true },
   { label: 'Triggered suggestions', trial: 'Not included', paid: true },
   { label: 'Rate limit', trial: 'None during trial', paid: 'None' },
-  { label: 'Bring your own provider', trial: true, paid: true },
 ];
 
 const TierValue: React.FC<{ value: string | true }> = ({ value }) =>

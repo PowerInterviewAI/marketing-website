@@ -67,7 +67,6 @@ const ROWS: ComparisonRow[] = [
     practice: false,
     coding: 'Practice problems',
   },
-  { capability: 'Bring your own LLM provider key', us: true, practice: false, coding: false },
   {
     capability: 'Runs as a desktop app - no extension, no meeting bot',
     us: true,

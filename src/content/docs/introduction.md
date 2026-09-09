@@ -16,7 +16,7 @@ Power Interview is a privacy-first AI interview coach that works in two stages: 
 
 Both stages read the same profile, so the questions you rehearse against and the answers you are prompted with are about the role you are actually interviewing for.
 
-You can connect your own LLM provider (OpenAI, Anthropic, Groq, Google) using API keys you control. Depending on your plan, a default model is also included so you can get started instantly.
+The model is provided for you - there is nothing to connect or configure. New accounts start on the free model for the first hour, and buying credits moves you to the SOTA model with no rate limit.
 
 ---
 

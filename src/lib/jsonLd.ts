@@ -85,7 +85,6 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
       'AI-powered reply and code suggestions',
       'AI-powered meeting note taker for Zoom, Google Meet, Microsoft Teams',
       'Smart export with AI summaries and action items',
-      'Bring your own LLM provider',
       'Stealth mode with hotkeys',
       'Privacy-first local data storage',
     ],

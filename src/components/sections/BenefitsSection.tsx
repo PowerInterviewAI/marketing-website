@@ -52,7 +52,7 @@ const BENEFITS: Benefit[] = [
   {
     icon: ShieldCheck,
     title: 'Keep control of your data',
-    body: 'Bring your own OpenAI, Anthropic, or Google key and your prompts go to a provider you already trust. Payment is crypto-only, so there are no card details to store either.',
+    body: 'Payment is crypto-only, so there are no card details to store and no subscription to cancel. Your session token and device settings stay on your machine rather than on our servers.',
   },
 ];
 

@@ -191,12 +191,6 @@ Both can be changed **while a session is running**. The microphone swap is insta
 
 If a microphone you pick cannot be opened - unplugged, held by another app, or refused by permissions - the session stays on the one it was already using, and the control bar flags the device that failed rather than leaving you to work it out from silence.
 
-### LLM Options
-
-Click the **brain icon** in the control panel toolbar to connect your own LLM provider - OpenAI, Anthropic, Groq, or Google - with an API key you control. Enter the API key and pick a model; the app validates the key against the selected provider and model before letting you save. Turn "Use my own API key" off to fall back to Power Interview's hosted models: the **SOTA model** while you have a credit balance, switching to the **free model** once credits are exhausted.
-
-![LLM Options - connect your own provider and API key](/media/docs/llm-options.png)
-
 ### Menu
 
 Click the **menu icon** (☰) in the titlebar to access:

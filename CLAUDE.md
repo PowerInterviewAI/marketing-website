@@ -115,7 +115,9 @@ The root layout (`src/app/layout.tsx`) holds the sitewide default metadata, `met
 
 ### Model naming
 
-Power Interview AI's own included/default models are referred to generically as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy; vendor names in "bring your own provider" lists (OpenAI, Anthropic, Google) are a different thing and are fine to name.
+Power Interview AI's own included/default models are referred to generically as **"free model"** (free-trial tier) and **"SOTA model"** (paid tier) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy.
+
+Bring-your-own-key was removed from the product, so the site no longer offers it anywhere: no "bring your own provider/key" copy, no LLM-vendor names (OpenAI, Anthropic, Groq, Google) as a thing the user connects, and no BYOK entry in the pricing tables, comparison table, JSON-LD `featureList`, metadata keywords, `public/llms.txt`, or the docs. The model is always the provided one.
 
 ### Theme System
 
