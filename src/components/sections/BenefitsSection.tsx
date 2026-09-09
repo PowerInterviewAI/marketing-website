@@ -23,6 +23,12 @@ interface Benefit {
   body: string;
 }
 
+/*
+ * Two mock-interview benefits, then two live-interview ones, then the two that
+ * hold for both - the same mock-before-live order the rest of the page runs
+ * in. It used to interleave them, so a reader could not tell which half of the
+ * app any given promise came from.
+ */
 const BENEFITS: Benefit[] = [
   {
     icon: Sparkles,
@@ -36,18 +42,18 @@ const BENEFITS: Benefit[] = [
   },
   {
     icon: MessagesSquare,
-    title: 'Communicate more clearly',
+    title: 'Communicate more clearly, live',
     body: 'Real-time, context-aware suggestions on the live call help you articulate your thoughts more clearly and professionally. Exported transcripts reveal the communication patterns you would otherwise never see.',
   },
   {
     icon: Gauge,
-    title: 'Cover every kind of question',
-    body: 'Behavioural, technical, situational and closing questions in the mock; coding challenges and everything else in the live call. Both halves are scored or transcribed, so you can see where you were strong and where you were not.',
+    title: 'Whatever the round throws at you',
+    body: 'A competency panel, a case study, a clinical scenario, a portfolio review, a coding challenge: the live assistant reads the conversation and the job description rather than a bank of software questions, so the help fits the interview you are actually in.',
   },
   {
     icon: EyeOff,
     title: 'Stay private throughout',
-    body: 'Stealth mode keeps the assistant invisible during screen sharing and screenshots, and your transcripts are never retained on our servers after the session ends.',
+    body: 'Stealth mode keeps the assistant invisible during screen sharing and screenshots, and your transcripts are never retained on our servers after the session ends - mock sessions and real calls alike.',
   },
   {
     icon: ShieldCheck,
@@ -62,7 +68,7 @@ export const BenefitsSection: React.FC = () => (
       id="benefits-heading"
       eyebrow="Benefits"
       title="Transform your interview performance"
-      description="What actually changes once you have rehearsed against the AI interviewer and kept it running through the real call."
+      description="What actually changes once you have rehearsed against the AI interviewer and kept it running through the real call - in whatever field you interview in."
     />
 
     <div className="mx-auto mt-14 grid max-w-5xl gap-x-12 gap-y-10 sm:grid-cols-2">

@@ -12,12 +12,23 @@ import { cn } from '@/lib/utils';
 /** true = yes, false = no, string = a qualified answer rendered as-is. */
 type Cell = boolean | string;
 
+/**
+ * Which half of the product a row is about. The table used to be a flat list
+ * of eleven capabilities, so the two things the app does - the mock interview
+ * and the live interview - had to be inferred from the wording of each row.
+ */
+type RowGroup = 'Mock interview' | 'Live interview' | 'Both';
+
 interface ComparisonRow {
+  group: RowGroup;
   capability: string;
   us: Cell;
   practice: Cell;
   coding: Cell;
 }
+
+/** Rendered in this order, mock before live, matching the rest of the page. */
+const GROUPS: RowGroup[] = ['Mock interview', 'Live interview', 'Both'];
 
 /*
  * Compared against categories rather than named products on purpose: a claim
@@ -27,60 +38,94 @@ interface ComparisonRow {
  */
 const ROWS: ComparisonRow[] = [
   {
-    // Leads the table, because the rehearsal is where a reader starts. The
-    // claim is the combination, not the rehearsal itself: rehearsing is what
-    // those tools are for, and saying they can't would be the kind of
-    // competitor claim the note above rules out.
-    capability: 'Spoken mock practice and live help in one app',
+    group: 'Mock interview',
+    capability: 'An interviewer that speaks its questions and follows up',
     us: true,
-    practice: 'Practice only',
+    practice: 'Varies',
     coding: false,
   },
   {
+    group: 'Mock interview',
     capability: 'Every answer scored, with a stronger version written back',
     us: true,
     practice: 'Varies',
     coding: false,
   },
-  { capability: 'Helps during a real, live interview', us: true, practice: false, coding: false },
   {
+    group: 'Live interview',
+    capability: 'Helps during a real, live interview',
+    us: true,
+    practice: false,
+    coding: false,
+  },
+  {
+    group: 'Live interview',
     capability: 'Hidden from screen share and screenshots',
     us: true,
     practice: false,
     coding: false,
   },
   {
+    group: 'Live interview',
     capability: 'Dual-channel transcription with speaker detection',
     us: true,
     practice: 'Practice only',
     coding: false,
   },
   {
-    capability: 'Answers grounded in your CV and the job description',
-    us: true,
-    practice: 'Generic',
-    coding: false,
-  },
-  {
+    group: 'Live interview',
     capability: 'Screenshot-based coding solutions in the moment',
     us: true,
     practice: false,
     coding: 'Practice problems',
   },
   {
+    // Leads the shared group, because the claim is the combination: rehearsing
+    // is what practice tools are for, and saying they can't would be the kind
+    // of competitor claim the note above rules out.
+    group: 'Both',
+    capability: 'Spoken mock practice and live help in one app',
+    us: true,
+    practice: 'Practice only',
+    coding: false,
+  },
+  {
+    group: 'Both',
+    capability: 'Works for any role, not just software engineering',
+    us: true,
+    practice: 'Varies',
+    coding: false,
+  },
+  {
+    group: 'Both',
+    capability: 'Answers grounded in your CV and the job description',
+    us: true,
+    practice: 'Generic',
+    coding: false,
+  },
+  {
+    group: 'Both',
     capability: 'Runs as a desktop app - no extension, no meeting bot',
     us: true,
     practice: 'Varies',
     coding: 'Varies',
   },
   {
+    group: 'Both',
     capability: 'Transcripts never retained after the session',
     us: true,
     practice: 'Varies',
     coding: 'Varies',
   },
-  { capability: 'Pay per use - no subscription', us: true, practice: false, coding: false },
   {
+    group: 'Both',
+    capability: 'Pay per use - no subscription',
+    us: true,
+    practice: false,
+    coding: false,
+  },
+  {
+    group: 'Both',
     capability: 'Crypto-only payment, no card details stored',
     us: true,
     practice: false,
@@ -124,7 +169,7 @@ export const WhyChooseSection: React.FC = () => (
       id="why-choose-heading"
       eyebrow="Why us"
       title="Built for the rehearsal first, and the interview after it"
-      description="Practice platforms coach you beforehand and coding sites drill you on problems, then leave when it matters. This one runs the spoken mock session, scores what you said, and is still open when the real interviewer joins the call."
+      description="Practice platforms coach you beforehand and coding sites drill you on problems, then leave when it matters. This one runs the spoken mock session, scores what you said, and is still open when the real interviewer joins the call - for whatever job you are interviewing for."
     />
 
     <Reveal className="mx-auto mt-14 max-w-5xl">
@@ -156,24 +201,38 @@ export const WhyChooseSection: React.FC = () => (
               </th>
             </tr>
           </thead>
-          <tbody>
-            {ROWS.map((row) => (
-              <tr key={row.capability} className="border-b border-border-subtle last:border-b-0">
-                <th scope="row" className="px-5 py-3.5 text-left font-normal text-foreground">
-                  {row.capability}
+          {/* One tbody per feature, each headed by the feature it covers, so
+              the table says which half of the app a capability comes from
+              rather than leaving it to the wording of each row. */}
+          {GROUPS.map((group) => (
+            <tbody key={group}>
+              <tr className="border-b border-border-subtle bg-surface-1">
+                <th
+                  scope="colgroup"
+                  colSpan={4}
+                  className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-[0.14em] text-primary"
+                >
+                  {group}
                 </th>
-                <td className="bg-primary/5 px-4 py-3.5 text-center">
-                  <CellValue value={row.us} emphasis />
-                </td>
-                <td className="px-4 py-3.5 text-center">
-                  <CellValue value={row.practice} />
-                </td>
-                <td className="px-4 py-3.5 text-center">
-                  <CellValue value={row.coding} />
-                </td>
               </tr>
-            ))}
-          </tbody>
+              {ROWS.filter((row) => row.group === group).map((row) => (
+                <tr key={row.capability} className="border-b border-border-subtle last:border-b-0">
+                  <th scope="row" className="px-5 py-3.5 text-left font-normal text-foreground">
+                    {row.capability}
+                  </th>
+                  <td className="bg-primary/5 px-4 py-3.5 text-center">
+                    <CellValue value={row.us} emphasis />
+                  </td>
+                  <td className="px-4 py-3.5 text-center">
+                    <CellValue value={row.practice} />
+                  </td>
+                  <td className="px-4 py-3.5 text-center">
+                    <CellValue value={row.coding} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          ))}
         </table>
       </div>
 
@@ -186,9 +245,9 @@ export const WhyChooseSection: React.FC = () => (
     <div className="relative isolate mx-auto mt-14 max-w-3xl overflow-hidden rounded-xl border border-border bg-card px-6 py-10 text-center">
       <Glow position="center" intensity="subtle" />
       <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-        One standalone desktop app for both halves - practice tonight, sit the interview next week.
-        Download, install, start. No API wiring, no browser extension asking for permissions, no bot
-        joining the call on your behalf.
+        One standalone desktop app for both halves, and for any field - practice tonight, sit the
+        interview next week. Download, install, start. No API wiring, no browser extension asking
+        for permissions, no bot joining the call on your behalf.
       </p>
       <DownloadCta size="lg" className="mt-6">
         Experience the difference

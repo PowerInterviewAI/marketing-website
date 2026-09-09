@@ -55,7 +55,7 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
     // back once the macOS build is supported again.
     operatingSystem: 'Windows',
     description:
-      'Privacy-first AI interview coach and meeting note taker: spoken mock interviews with a scored report, then real-time transcription, live AI suggestions and coding challenge assistance for Zoom, Google Meet, and Microsoft Teams.',
+      'Privacy-first AI interview coach and meeting note taker with two features: spoken mock interviews with a scored report, then real-time transcription and live AI suggestions on Zoom, Google Meet and Microsoft Teams. Built from your own CV and job description, so it works for any role, with optional coding challenge assistance for technical rounds.',
     author: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -78,15 +78,22 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
         offerCount: String(prices.length),
       },
     }),
+    // Grouped the way the page groups them: the mock interview first, the
+    // live interview second, then what holds for both. A flat list here while
+    // the page is organised around two named features is markup that no longer
+    // describes the page it sits on.
     featureList: [
+      'Mock interview: an AI interviewer that speaks its questions and follows up',
+      'Mock interview: every answer scored, with a stronger version written back and exported as DOCX or Markdown',
+      'Live interview: dual-channel transcription with speaker detection',
+      'Live interview: AI reply suggestions grounded in your CV and the job description',
+      'Live interview: stealth mode with hotkeys, hidden from screen share and screenshots',
+      'Live interview: optional screenshot-based coding assistance for technical rounds',
+      'Works for any role, not just software engineering - questions and scoring come from the job description you paste in',
+      'AI meeting note taker for Zoom, Google Meet and Microsoft Teams, with AI summaries and action items',
+      '28 interview languages across both the mock session and the live call',
       '1-hour free trial with our free model - no rate limits, no interruptions',
-      'Spoken mock interviews with a scored, exportable report',
-      'Live transcription with speaker detection',
-      'AI-powered reply and code suggestions',
-      'AI-powered meeting note taker for Zoom, Google Meet, Microsoft Teams',
-      'Smart export with AI summaries and action items',
-      'Stealth mode with hotkeys',
-      'Privacy-first local data storage',
+      'Privacy-first: transcripts never retained after the session',
     ],
   };
 }

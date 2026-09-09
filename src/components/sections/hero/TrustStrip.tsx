@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Languages, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import { Briefcase, Languages, MonitorSmartphone, ShieldCheck } from 'lucide-react';
 
 /**
  * Facts under the hero CTA.
@@ -28,6 +28,15 @@ export const TrustStrip: React.FC = () => (
         <dd>
           <span className="font-semibold text-foreground">28</span> interview languages
         </dd>
+      </div>
+
+      <div className="flex items-center gap-2">
+        <Briefcase className="size-4 shrink-0" aria-hidden="true" />
+        <dt className="sr-only">Roles</dt>
+        {/* Sits directly under a carousel that is three parts coding
+            challenge. Without this line the demo is the only answer a reader
+            gets to "is this for my job?", and it answers wrongly. */}
+        <dd>Any role, not just tech</dd>
       </div>
 
       <div className="flex items-center gap-2">

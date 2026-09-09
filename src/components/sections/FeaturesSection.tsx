@@ -16,6 +16,7 @@ import {
 import Link from 'next/link';
 
 import { DownloadCta } from '@/components/DownloadCta';
+import { Badge } from '@/components/ui/badge';
 import { Kbd } from '@/components/ui/kbd';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
@@ -23,10 +24,20 @@ import { HOTKEYS, Hotkey } from '@/config/hotkeys';
 import { ROUTES, SECTIONS } from '@/config/routes';
 import { cn } from '@/lib/utils';
 
+/**
+ * Which half of the product a capability belongs to. The app does two things -
+ * the mock interview and the live interview - and the grid used to be a flat
+ * list of nine cards that never said which was which, so "stealth mode" and
+ * "an interviewer that speaks its questions" read as one undifferentiated
+ * feature set.
+ */
+type FeatureScope = 'Mock interview' | 'Live interview' | 'Both';
+
 interface Feature {
   id: string;
   icon: LucideIcon | typeof SiSuperuser;
   title: string;
+  scope: FeatureScope;
   description: React.ReactNode;
   /** Column span at lg and up - drives the bento rhythm. A wide card fills
    *  two of the three columns, so every one of them is followed by exactly
@@ -51,11 +62,13 @@ const FEATURES: Feature[] = [
     id: 'mock',
     icon: SiSuperuser,
     title: 'Mock interview',
+    scope: 'Mock interview',
     description: (
       <>
         An AI interviewer that <Em>speaks its questions</Em>, presses on a thin answer, and scores
-        every one of yours against your CV and the job description. Export the report as DOCX or
-        Markdown.{' '}
+        every one of yours against your CV and the job description. Behavioural, technical,
+        situational and closing questions, written for the role you pasted in - a nursing post or a
+        sales one as readily as an engineering one. Export the report as DOCX or Markdown.{' '}
         <Link
           className="font-medium text-primary underline-offset-4 hover:underline"
           href={ROUTES.mockInterview}
@@ -72,6 +85,7 @@ const FEATURES: Feature[] = [
     id: 'transcription',
     icon: Captions,
     title: 'Live transcription',
+    scope: 'Live interview',
     description: (
       <>
         Dual-channel transcription with automatic speaker detection and full conversation history.
@@ -84,6 +98,7 @@ const FEATURES: Feature[] = [
     id: 'stealth',
     icon: Ghost,
     title: 'Stealth mode',
+    scope: 'Live interview',
     description: (
       <>
         Operate discreetly with hotkeys, opacity control, and smart window positioning. The window
@@ -102,6 +117,7 @@ const FEATURES: Feature[] = [
     id: 'languages',
     icon: Languages,
     title: '28 interview languages',
+    scope: 'Both',
     description: (
       <>
         One setting drives all three: which speech model transcribes the call, the language your
@@ -115,6 +131,7 @@ const FEATURES: Feature[] = [
     id: 'suggestions',
     icon: MessageSquareText,
     title: 'AI reply suggestions',
+    scope: 'Live interview',
     description: (
       <>
         Personalised, context-aware responses grounded in your CV, the job description, and your{' '}
@@ -138,10 +155,13 @@ const FEATURES: Feature[] = [
     id: 'code',
     icon: MessageSquareCode,
     title: 'Code suggestions',
+    scope: 'Live interview',
     description: (
       <>
-        Screenshot analysis with LLM-powered solutions for coding problems, complete with syntax
-        highlighting.
+        For the interviews that include a technical round: screenshot analysis with LLM-powered
+        solutions for coding problems, complete with syntax highlighting. <Em>Optional</Em> - the
+        rest of the live assistant works exactly the same on an interview that never shows you any
+        code.
       </>
     ),
   },
@@ -149,6 +169,7 @@ const FEATURES: Feature[] = [
     id: 'export',
     icon: FileDown,
     title: 'AI note taker export',
+    scope: 'Both',
     description: (
       <>
         <Em>Smart meeting export</Em> for interviews, mock interviews, and video calls. AI-generated
@@ -161,6 +182,7 @@ const FEATURES: Feature[] = [
     id: 'plans',
     icon: KeyRound,
     title: 'Plan-based access',
+    scope: 'Both',
     description: (
       <>
         Trial users get live suggestions free under rate limit (5 suggestions per hour). Paid users
@@ -172,10 +194,11 @@ const FEATURES: Feature[] = [
     id: 'privacy',
     icon: UserLock,
     title: 'Privacy first',
+    scope: 'Both',
     description: (
       <>
-        Transcripts are never retained after your session. No data mining, and full control over
-        your information.
+        Transcripts are never retained after your session - from a mock session and a real call
+        alike. No data mining, and full control over your information.
       </>
     ),
   },
@@ -187,7 +210,7 @@ export const FeaturesSection: React.FC = () => (
       id="features-heading"
       eyebrow="Features"
       title="Everything the rehearsal needs, and everything the call can't see"
-      description="One app for the mock interview you practice in and the live call you sit afterwards, plus the notes both leave behind."
+      description="Every capability, labelled with the half of the app it belongs to: the mock interview you rehearse in, the live interview you sit afterwards, or both. It runs off your own CV and job description, so the role can be anything - the coding help is one feature among nine, not the point of the app."
     />
 
     <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -198,9 +221,21 @@ export const FeaturesSection: React.FC = () => (
           className={cn(feature.wide && 'lg:col-span-2')}
         >
           <article className="group flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
-            <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
-              <feature.icon className="size-5" aria-hidden="true" />
-            </span>
+            <div className="flex items-center justify-between gap-3">
+              <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
+                <feature.icon className="size-5" aria-hidden="true" />
+              </span>
+              {/* Which half of the product this belongs to. `default` for the
+                  cross-cutting ones so the two named scopes stay the ones that
+                  catch the eye. */}
+              <Badge
+                variant={feature.scope === 'Both' ? 'default' : 'outline'}
+                size="sm"
+                className="shrink-0"
+              >
+                {feature.scope}
+              </Badge>
+            </div>
 
             <h3 className="text-lg font-semibold">{feature.title}</h3>
 

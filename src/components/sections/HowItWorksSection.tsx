@@ -18,17 +18,17 @@ const STEPS = [
   {
     icon: FileText,
     title: 'Add your CV and the job description',
-    body: 'Paste your profile and the role you are interviewing for. One profile drives both halves of the app: it writes the questions your mock interview asks and scores the answers, and it grounds the suggestions on the live call in your own experience. Your configuration follows you across devices.',
+    body: 'Paste your profile and the role you are interviewing for - any role, from a nursing post to a finance one to a staff engineering one. One profile drives both halves of the app: it writes the questions your mock interview asks and scores the answers, and it grounds the suggestions on the live call in your own experience. Your configuration follows you across devices.',
   },
   {
     icon: Volume2,
     title: 'Rehearse it as a mock interview',
-    body: 'An AI interviewer asks its questions out loud, presses on a thin answer the way a real one would, and hands back a scored report on every answer you gave. Do that in the days before the call, not in the post-mortem after it.',
+    body: 'The first of the two features. An AI interviewer asks its questions out loud, presses on a thin answer the way a real one would, and hands back a scored report on every answer you gave. Do that in the days before the call, not in the post-mortem after it.',
   },
   {
     icon: Radio,
-    title: 'Then join the real call',
-    body: 'Dual-channel transcription with speaker detection runs alongside Zoom, Google Meet or Teams. Suggestions stream into an overlay that stays out of screen shares and screenshots, driven entirely by hotkeys.',
+    title: 'Then sit the live interview',
+    body: 'The second feature, in the same app. Dual-channel transcription with speaker detection runs alongside Zoom, Google Meet or Teams, and suggestions stream into an overlay that stays out of screen shares and screenshots, driven entirely by hotkeys.',
   },
 ] as const;
 
@@ -58,7 +58,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ standalone
       as={standalone ? 'h1' : 'h2'}
       eyebrow="How it works"
       title="Practice it first, then sit it with backup"
-      description="Four steps, in the order you actually take them: install, add your context, rehearse against the AI interviewer, then keep the same app open for the interview itself. No browser extension, no meeting bot joining the call on your behalf."
+      description="Four steps, in the order you actually take them: install, add your context, rehearse against the AI interviewer, then keep the same app open for the interview itself. Whatever the job, and with no browser extension and no meeting bot joining the call on your behalf."
     />
 
     <ol className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">

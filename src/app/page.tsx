@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
   title: 'Power Interview AI - AI Interview Coach & Meeting Note Taker',
   absoluteTitle: true,
   description:
-    'Rehearse with a spoken AI mock interview that scores every answer, then get live suggestions on the real Zoom, Meet or Teams call. 1 hour free.',
+    'Two features, any job: a spoken AI mock interview that scores every answer, then live suggestions on the real Zoom, Meet or Teams call. 1 hour free.',
   path: '/',
 });
 
