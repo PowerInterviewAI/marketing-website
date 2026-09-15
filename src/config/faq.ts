@@ -46,7 +46,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: 'Which AI model powers the suggestions?',
     category: 'Product',
     answer:
-      'The model is provided for you - there is nothing to connect or configure. New accounts run on our free model for the length of the 1-hour trial, and buying credits moves you to our SOTA model with no rate limit.',
+      'The model is provided for you - there is nothing to connect or configure. New accounts run on our free model for the length of the 1-hour trial, and buying credits moves you to our SOTA model with no practical rate limit.',
   },
   {
     question: 'What platforms are supported?',
@@ -105,7 +105,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: 'Is there a free trial?',
     category: 'Plans & billing',
     answer:
-      'Yes! New users get a full 1-hour free trial powered by our free model - with no rate limits and no interruptions. The trial includes every feature: live suggestions, triggered suggestions and mock interview practice. Buying credits moves you to the SOTA model.',
+      'Yes! New users get a full 1-hour free trial powered by our free model - with no practical rate limit and no interruptions. The trial includes every feature: live suggestions, triggered suggestions and mock interview practice. Buying credits moves you to the SOTA model.',
   },
   {
     question: 'Can I get a refund?',

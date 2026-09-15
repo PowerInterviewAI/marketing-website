@@ -41,7 +41,7 @@ const SITE_NAME = 'Power Interview AI';
 const DEFAULT_TITLE =
   'Power Interview AI - Interview Coach & AI Meeting Note Taker | Zoom, Google Meet, Teams';
 const DEFAULT_DESCRIPTION =
-  'New users get a full 1-hour free trial with our free model - no rate limits, no interruptions. Privacy-first AI interview coach and meeting note taker for Zoom, Google Meet, Microsoft Teams. Real-time transcription, AI reply suggestions, mock interview practice, and smart exports.';
+  'New users get a full 1-hour free trial with our free model - no practical rate limit, no interruptions. Privacy-first AI interview coach and meeting note taker for Zoom, Google Meet, Microsoft Teams. Real-time transcription, AI reply suggestions, mock interview practice, and smart exports.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     'free trial',
     '1-hour free trial',
     'free model',
-    'no rate limits',
+    'no practical rate limit',
     'technical interview help',
     'coding interview assistant',
     'live coding challenge',
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Power Interview AI - Interview Coach & AI Note Taker',
     description:
-      'New users get a full 1-hour free trial with our free model - no rate limits, no interruptions. Privacy-first AI interview coach for Zoom, Google Meet, Teams. Real-time transcription, AI suggestions, mock interviews, and smart exports.',
+      'New users get a full 1-hour free trial with our free model - no practical rate limit, no interruptions. Privacy-first AI interview coach for Zoom, Google Meet, Teams. Real-time transcription, AI suggestions, mock interviews, and smart exports.',
     images: ['/open-graph.png'],
   },
 };

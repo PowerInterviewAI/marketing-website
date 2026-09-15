@@ -84,7 +84,7 @@ export const PricingCards: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-                  Provided SOTA model, no rate limit
+                  Provided SOTA model, no practical rate limit
                 </li>
                 <li className="flex items-start gap-2">
                   <Minus

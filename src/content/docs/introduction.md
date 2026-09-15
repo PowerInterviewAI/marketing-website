@@ -16,7 +16,7 @@ Power Interview AI is a privacy-first AI interview coach that works in two stage
 
 Both stages read the same profile, so the questions you rehearse against and the answers you are prompted with are about the role you are actually interviewing for.
 
-The model is provided for you - there is nothing to connect or configure. New accounts start on the free model for the first hour, and buying credits moves you to the SOTA model with no rate limit.
+The model is provided for you - there is nothing to connect or configure. New accounts start on the free model for the first hour, and buying credits moves you to the SOTA model with no practical rate limit.
 
 ---
 

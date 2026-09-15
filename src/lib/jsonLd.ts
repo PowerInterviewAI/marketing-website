@@ -92,7 +92,7 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
       'Works for any role, not just software engineering - questions and scoring come from the job description you paste in',
       'AI meeting note taker for Zoom, Google Meet and Microsoft Teams, with AI summaries and action items',
       '28 interview languages across both the mock session and the live call',
-      '1-hour free trial with our free model - no rate limits, no interruptions',
+      '1-hour free trial with our free model - no practical rate limit, no interruptions',
       'Privacy-first: transcripts never retained after the session',
     ],
   };

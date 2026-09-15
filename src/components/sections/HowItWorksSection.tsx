@@ -13,7 +13,7 @@ const STEPS = [
   {
     icon: Download,
     title: 'Install and start your trial',
-    body: 'Download the desktop app for Windows or macOS and sign in. New accounts get a full hour on the free model - no rate limits, no interruptions.',
+    body: 'Download the desktop app for Windows or macOS and sign in. New accounts get a full hour on the free model - no practical rate limit, no interruptions.',
   },
   {
     icon: FileText,
