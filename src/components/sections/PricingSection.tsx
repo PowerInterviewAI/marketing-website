@@ -16,7 +16,7 @@ const TIER_ROWS: { label: string; trial: string | true; paid: string | true }[] 
   { label: 'Duration', trial: '1 hour, new accounts', paid: 'As long as your credits last' },
   { label: 'Provided model', trial: 'Free model', paid: 'SOTA model' },
   { label: 'Live suggestions', trial: true, paid: true },
-  { label: 'Triggered suggestions', trial: 'Not included', paid: true },
+  { label: 'Triggered suggestions', trial: true, paid: true },
   { label: 'Rate limit', trial: 'None during trial', paid: 'None' },
 ];
 

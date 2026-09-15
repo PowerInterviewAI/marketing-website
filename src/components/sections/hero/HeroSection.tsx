@@ -85,8 +85,8 @@ export const HeroSection: React.FC = () => (
         </div>
 
         <p className="text-sm text-muted-foreground">
-          One free hour covers both: practice sessions and live suggestions alike - triggered
-          suggestions unlock on paid plans. Pay with coins only, no credit card required.
+          One free hour covers everything: practice sessions, live suggestions and triggered
+          suggestions alike. Pay with coins only, no credit card required.
         </p>
       </div>
 

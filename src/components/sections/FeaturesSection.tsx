@@ -181,12 +181,13 @@ const FEATURES: Feature[] = [
   {
     id: 'plans',
     icon: KeyRound,
-    title: 'Plan-based access',
+    title: 'Every plan, every feature',
     scope: 'Both',
     description: (
       <>
-        Trial users get live suggestions free under rate limit (5 suggestions per hour). Paid users
-        unlock no limit, triggered suggestions, and provided SOTA models.
+        No feature is paywalled. The free hour runs the whole app on the <Em>free model</Em> - live
+        suggestions, triggered suggestions and mock interviews alike. Credits move you to the{' '}
+        <Em>SOTA model</Em>, and suggestions keep working on the free model once they run out.
       </>
     ),
   },
