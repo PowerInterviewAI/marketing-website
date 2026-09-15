@@ -94,6 +94,16 @@ Anything describing the mock interview has to match the client (`../client`), wh
 
 `CREDIT_RATES` in `src/lib/plans.ts` mirrors those rates for the components (the pricing section's metering note reads it, alongside the credit packs it already mirrored from the same backend file). Markdown can't import it, so `src/content/docs/mock-interview.md` restates the numbers and `src/config/faq.ts` restates them again for the JSON-LD; a rate change is those three places plus the backend.
 
+### The language list is data, not copy
+
+`src/config/languages.ts` is the site's single source of truth for every language an interview can run in, hand-mirrored from `Language` / `DEEPGRAM_TTS_VOICES` in `../backend/app/schemas/language.py` and `LANGUAGES` in `../client/src/renderer/types/language.ts`. There is no shared package across the three repos, so adding a language to the product is this file plus those two, the same way `CREDIT_RATES` is mirrored above.
+
+**The two columns are two different guarantees and must not be collapsed.** The transcription set is total: every entry is a language the speech model streams, and the backend rejects a streaming handshake for anything outside it. `hasVoice` is a strict subset of seven, and a language without a voice is a fully supported state rather than a gap - the mock interviewer writes its questions instead of speaking them, and the follow-ups, the scoring and the report are identical. That is why `LanguagesSection` marks the seven rather than warning on the twenty-one.
+
+**Nothing writes the count as a literal any more.** `LANGUAGE_COUNT` and `VOICE_LANGUAGE_COUNT` are derived from the array and read by the hero's `TrustStrip`, the `languages` card in `FeaturesSection`, the `All N interview languages` detail in `MockInterviewSection` and the JSON-LD `featureList`. A hardcoded `28` in four files is four chances to add a language and ship three of them. Markdown and `public/llms.txt` can't import it, so `llms.txt` restates the list in full - it is what an assistant answering "does it support Korean?" actually reads - and the docs restate the count; a language change is those places plus the two repos above.
+
+`LanguagesSection` (`/#languages`, rendered under the features grid) prints the whole list rather than the number, because "28 interview languages" is not an answer to the only question a reader who does not interview in English has. It is a Server Component with no filter box on purpose, and `dir` on each endonym comes from `isRtl()` in the config rather than `dir="auto"`: `auto` is right for Arabic and Hebrew today and stops being right, silently, for the first name added that opens with a Latin word or a digit.
+
 ### SEO / Metadata
 
 Every route exports `metadata` (static pages) or `generateMetadata` (`/docs/[slug]`) via `src/lib/metadata.ts`'s `buildMetadata()`, which produces consistent title/description/canonical/OG/Twitter output. There's no `Seo.tsx` component; that pattern (a client `useEffect` mutating `document.title`) meant non-JS crawlers only ever saw the homepage's tags for every route.

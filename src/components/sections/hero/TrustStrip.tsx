@@ -1,6 +1,10 @@
 import React from 'react';
 
 import { Briefcase, Languages, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+
+import { LANGUAGE_COUNT } from '@/config/languages';
+import { SECTIONS, homeAnchor } from '@/config/routes';
 
 /**
  * Facts under the hero CTA.
@@ -25,8 +29,17 @@ export const TrustStrip: React.FC = () => (
       <div className="flex items-center gap-2">
         <Languages className="size-4 shrink-0" aria-hidden="true" />
         <dt className="sr-only">Interview languages</dt>
+        {/* The one fact in this strip a reader can disagree with, so it is the
+            one that links: the full list is a section down the page, and
+            "which 28?" is unanswerable from a number. */}
         <dd>
-          <span className="font-semibold text-foreground">28</span> interview languages
+          <Link
+            href={homeAnchor(SECTIONS.languages)}
+            className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          >
+            <span className="font-semibold text-foreground">{LANGUAGE_COUNT}</span> interview
+            languages
+          </Link>
         </dd>
       </div>
 

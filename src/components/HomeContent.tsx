@@ -7,6 +7,7 @@ import {
   Header,
   HeroSection,
   InstallPanel,
+  LanguagesSection,
 } from '@/components/sections';
 
 interface HomeContentProps {
@@ -26,6 +27,9 @@ interface HomeContentProps {
 // the live-call features. Mock used to sit below the features grid, which
 // read as a footnote to the live assistant rather than the half of the
 // product you reach for first.
+//
+// The language list sits directly under the features grid, which is where
+// the "28 interview languages" card leaves a reader wanting the actual list.
 //
 // The sections that fetch data are async Server Components, so the page
 // (src/app/page.tsx) renders them and passes them in as already-resolved
@@ -57,6 +61,7 @@ export function HomeContent({
         {howItWorksSection}
         {mockInterviewSection}
         {featuresSection}
+        <LanguagesSection />
         {benefitsSection}
         {whyChooseSection}
         {pricingSection}

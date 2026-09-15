@@ -16,6 +16,7 @@
  * Search policy violation, and the penalty lands on the whole domain.
  */
 import { FAQ_ITEMS } from '@/config/faq';
+import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
 import { Plan } from '@/types';
 
 const SITE_URL = 'https://www.powerinterviewai.com';
@@ -91,7 +92,7 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
       'Live interview: optional screenshot-based coding assistance for technical rounds',
       'Works for any role, not just software engineering - questions and scoring come from the job description you paste in',
       'AI meeting note taker for Zoom, Google Meet and Microsoft Teams, with AI summaries and action items',
-      '28 interview languages across both the mock session and the live call',
+      `${LANGUAGE_COUNT} interview languages across both the mock session and the live call, ${VOICE_LANGUAGE_COUNT} of them spoken aloud by the mock interviewer`,
       '1-hour free trial with our free model - no practical rate limit, no interruptions',
       'Privacy-first: transcripts never retained after the session',
     ],

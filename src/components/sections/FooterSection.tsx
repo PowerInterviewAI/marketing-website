@@ -120,6 +120,14 @@ export const FooterSection: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
+                    label="Languages"
+                    href={homeAnchor(SECTIONS.languages)}
+                    className={LINK_CLASS}
+                    prefetch={false}
+                  />
+                </li>
+                <li>
+                  <NavLink
                     label="Pricing"
                     href={ROUTES.pricing}
                     className={LINK_CLASS}

@@ -37,6 +37,7 @@ export const SECTIONS = {
   howItWorks: 'how-it-works',
   features: 'features',
   mockInterview: 'mock-interview',
+  languages: 'languages',
   benefits: 'benefits',
   whyChoose: 'why-choose',
   pricing: 'pricing',

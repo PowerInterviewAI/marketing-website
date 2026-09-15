@@ -21,7 +21,8 @@ import { Kbd } from '@/components/ui/kbd';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { HOTKEYS, Hotkey } from '@/config/hotkeys';
-import { ROUTES, SECTIONS } from '@/config/routes';
+import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
+import { ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
 import { cn } from '@/lib/utils';
 
 /**
@@ -116,15 +117,24 @@ const FEATURES: Feature[] = [
   {
     id: 'languages',
     icon: Languages,
-    title: '28 interview languages',
+    title: `${LANGUAGE_COUNT} interview languages`,
     scope: 'Both',
     description: (
       <>
         One setting drives all three: which speech model transcribes the call, the language your
         suggestions come back in, and the language of your exported report. Switch it{' '}
         <Em>mid-interview</Em>, not just before you start. Full right-to-left support for Arabic and
-        Hebrew.
+        Hebrew, and <Em>{VOICE_LANGUAGE_COUNT}</Em> of them the mock interviewer speaks aloud.
       </>
+    ),
+    footer: (
+      <Link
+        href={homeAnchor(SECTIONS.languages)}
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-primary underline-offset-4 hover:underline"
+      >
+        See all {LANGUAGE_COUNT} languages
+        <ArrowRight className="size-4" aria-hidden="true" />
+      </Link>
     ),
   },
   {

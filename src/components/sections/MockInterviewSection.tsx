@@ -19,6 +19,7 @@ import { DownloadCta } from '@/components/DownloadCta';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
+import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
 import { ROUTES, SECTIONS, docPath } from '@/config/routes';
 
 interface Step {
@@ -71,8 +72,8 @@ const DETAILS: Detail[] = [
   },
   {
     icon: Languages,
-    title: 'All 28 interview languages',
-    body: 'One setting covers the live assistant and the mock alike. Where a language has no voice available the interviewer writes its questions instead of speaking them, and the scoring is unchanged.',
+    title: `All ${LANGUAGE_COUNT} interview languages`,
+    body: `One setting covers the live assistant and the mock alike. ${VOICE_LANGUAGE_COUNT} of them the interviewer speaks aloud; where a language has no voice available it writes its questions instead, and the follow-ups and the scoring are unchanged.`,
   },
   {
     icon: Coins,
