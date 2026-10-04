@@ -33,8 +33,8 @@ export default async function Home(props: LocaleParams) {
       <SoftwareApplicationJsonLd />
       <HomeContent
         locale={locale}
-        howItWorksSection={<HowItWorksSection />}
-        mockInterviewSection={<MockInterviewSection />}
+        howItWorksSection={<HowItWorksSection locale={locale} />}
+        mockInterviewSection={<MockInterviewSection locale={locale} />}
         featuresSection={<FeaturesSection />}
         benefitsSection={<BenefitsSection />}
         whyChooseSection={<WhyChooseSection />}

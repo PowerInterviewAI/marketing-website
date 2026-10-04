@@ -24,12 +24,6 @@ export const hero: Hero = {
     platformsLabel: 'Платформы',
     platforms: 'Windows сейчас, macOS скоро',
     languagesLabel: 'Языки собеседования',
-    languageNoun: {
-      one: 'язык собеседования',
-      few: 'языка собеседования',
-      many: 'языков собеседования',
-      other: 'языка собеседования',
-    },
     rolesLabel: 'Профессии',
     roles: 'Любая профессия, не только IT',
     privacyLabel: 'Конфиденциальность',

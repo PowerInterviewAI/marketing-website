@@ -1,5 +1,3 @@
-import type { PluralForms } from '@/i18n/format';
-
 /** The hero block, its demo carousel, trust strip and the install panel below it. */
 export const hero = {
   badge: 'Mock interview + live interview, 1 hour free',
@@ -23,7 +21,6 @@ export const hero = {
     platformsLabel: 'Platforms',
     platforms: 'Windows now, macOS coming soon',
     languagesLabel: 'Interview languages',
-    languageNoun: { one: 'interview language', other: 'interview languages' } as PluralForms,
     rolesLabel: 'Roles',
     roles: 'Any role, not just tech',
     privacyLabel: 'Privacy',

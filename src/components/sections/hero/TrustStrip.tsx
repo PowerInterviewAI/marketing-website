@@ -20,7 +20,8 @@ import { pluralize } from '@/i18n/format';
  * is wanted back, it needs an actual live source, not a hardcoded one.
  */
 export const TrustStrip: React.FC = () => {
-  const t = useMessages().hero.trust;
+  const { hero, common } = useMessages();
+  const t = hero.trust;
   const locale = useLocale();
 
   return (
@@ -46,7 +47,7 @@ export const TrustStrip: React.FC = () => {
               className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               <span className="font-semibold text-foreground">{LANGUAGE_COUNT}</span>{' '}
-              {pluralize(locale, LANGUAGE_COUNT, t.languageNoun)}
+              {pluralize(locale, LANGUAGE_COUNT, common.languageNoun)}
             </LocalizedLink>
           </dd>
         </div>
