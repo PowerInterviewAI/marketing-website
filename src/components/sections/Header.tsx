@@ -160,7 +160,7 @@ export const Header: React.FC = () => {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent title={header.menuTitle}>
+              <SheetContent title={header.menuTitle} closeLabel={header.closeMenu}>
                 <nav className="mt-8 flex flex-col gap-5" aria-label={header.mobileNavigation}>
                   {NAV_LINKS.map((link) => (
                     <NavLink

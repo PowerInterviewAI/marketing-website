@@ -14,6 +14,7 @@ export const chrome: Chrome = {
     mainNavigation: 'Основная навигация',
     mobileNavigation: 'Мобильная навигация',
     openMenu: 'Открыть меню',
+    closeMenu: 'Закрыть меню',
     menuTitle: 'Меню навигации',
     githubAria: 'Power Interview AI на GitHub',
     github: 'GitHub',

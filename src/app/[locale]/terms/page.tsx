@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 import { EnglishOnlyNotice } from '@/components/EnglishOnlyNotice';
 import { PageChrome } from '@/components/PageChrome';
 import { Section } from '@/components/ui/section';
 import { ROUTES } from '@/config/routes';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -161,14 +161,14 @@ export default function TermsOfServicePage() {
               <h2 className="mb-4 text-xl font-semibold">9. Privacy and Data Protection</h2>
               <p className="mb-4 text-muted-foreground">
                 Your use of the Service is also governed by our Privacy Policy. Please review our{' '}
-                <Link
+                <LocalizedLink
                   href={ROUTES.privacy}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline-offset-4 hover:underline"
                 >
                   Privacy Policy
-                </Link>{' '}
+                </LocalizedLink>{' '}
                 to understand our data practices.
               </p>
             </section>

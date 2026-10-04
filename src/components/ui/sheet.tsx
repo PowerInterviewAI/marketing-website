@@ -41,12 +41,14 @@ interface SheetContentProps extends React.ComponentPropsWithoutRef<typeof Dialog
   /** Accessible name for the panel. Rendered visually hidden. */
   title: string;
   description?: string;
+  /** Accessible name of the close button. */
+  closeLabel?: string;
 }
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   SheetContentProps
->(({ className, children, title, description, ...props }, ref) => (
+>(({ className, children, title, description, closeLabel = 'Close menu', ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
     <DialogPrimitive.Content
@@ -72,7 +74,7 @@ const SheetContent = React.forwardRef<
 
       <DialogPrimitive.Close
         className="absolute right-4 top-4 rounded-md p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        aria-label="Close menu"
+        aria-label={closeLabel}
       >
         <X className="size-5" />
       </DialogPrimitive.Close>

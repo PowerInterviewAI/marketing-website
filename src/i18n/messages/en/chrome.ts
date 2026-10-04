@@ -13,6 +13,7 @@ export const chrome = {
     mainNavigation: 'Main navigation',
     mobileNavigation: 'Mobile navigation',
     openMenu: 'Open menu',
+    closeMenu: 'Close menu',
     menuTitle: 'Navigation menu',
     githubAria: 'Power Interview AI on GitHub',
     github: 'GitHub',

@@ -43,9 +43,3 @@ export function stripLocale(pathname: string): string {
   }
   return pathname;
 }
-
-/** The locale a pathname is served in. */
-export function localeFromPathname(pathname: string): Locale {
-  const first = pathname.split('/')[1] ?? '';
-  return isLocale(first) && first !== DEFAULT_LOCALE ? first : DEFAULT_LOCALE;
-}
