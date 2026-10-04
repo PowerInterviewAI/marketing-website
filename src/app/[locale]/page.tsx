@@ -13,16 +13,22 @@ import {
   TestimonialsSection,
   WhyChooseSection,
 } from '@/components/sections';
+import { getMessages } from '@/i18n/messages';
 import { type LocaleParams, getLocale } from '@/i18n/server';
 import { buildMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Power Interview AI - AI Interview Coach & Meeting Note Taker',
-  absoluteTitle: true,
-  description:
-    'Two features, any job: a spoken AI mock interview that scores every answer, then live suggestions on the real Zoom, Meet or Teams call. 1 hour free.',
-  path: '/',
-});
+export async function generateMetadata(props: LocaleParams): Promise<Metadata> {
+  const locale = await getLocale(props);
+  const t = getMessages(locale).meta.home;
+
+  return buildMetadata({
+    title: t.title,
+    description: t.description,
+    path: '/',
+    locale,
+    absoluteTitle: true,
+  });
+}
 
 export default async function Home(props: LocaleParams) {
   const locale = await getLocale(props);
@@ -30,7 +36,7 @@ export default async function Home(props: LocaleParams) {
   return (
     <>
       {/* The page that is actually about the app carries its schema. */}
-      <SoftwareApplicationJsonLd />
+      <SoftwareApplicationJsonLd locale={locale} />
       <HomeContent
         locale={locale}
         howItWorksSection={<HowItWorksSection locale={locale} />}

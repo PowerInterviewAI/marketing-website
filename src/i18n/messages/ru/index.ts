@@ -8,6 +8,7 @@ import { features } from './features';
 import { hero } from './hero';
 import { howItWorks } from './howItWorks';
 import { languages } from './languages';
+import { meta } from './meta';
 import { mockInterview } from './mockInterview';
 import { pricing } from './pricing';
 import { team } from './team';
@@ -24,6 +25,7 @@ export const ru: Messages = {
   features,
   howItWorks,
   languages,
+  meta,
   mockInterview,
   pricing,
   team,

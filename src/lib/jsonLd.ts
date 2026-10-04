@@ -18,6 +18,8 @@
 import { getFaqItems } from '@/config/faq';
 import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
 import type { Locale } from '@/i18n/config';
+import { format } from '@/i18n/format';
+import { getMessages } from '@/i18n/messages';
 import { Plan } from '@/types';
 
 const SITE_URL = 'https://www.powerinterviewai.com';
@@ -42,22 +44,23 @@ const SITE_NAME = 'Power Interview AI';
  * this block was the violation it was warning about. Restore it only when real
  * ratings are collected and shown, and derive it from that same data.
  */
-export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
+export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Locale) {
+  const { structured } = getMessages(locale).meta;
   const prices = (plans ?? []).map((plan) => plan.price_usd).filter((n) => Number.isFinite(n));
 
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: SITE_NAME,
-    url: `${SITE_URL}/`,
+    url: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`,
+    inLanguage: locale,
     applicationCategory: 'BusinessApplication',
     // macOS isn't ready to ship yet (see MACOS_SUPPORTED in DownloadButton.tsx)
     // - claiming a platform that isn't actually downloadable is exactly the
     // kind of drift this file's other comments already warn against. Add it
     // back once the macOS build is supported again.
     operatingSystem: 'Windows',
-    description:
-      'Privacy-first AI interview coach and meeting note taker with two features: spoken mock interviews with a scored report, then real-time transcription and live AI suggestions on Zoom, Google Meet and Microsoft Teams. Built from your own CV and job description, so it works for any role, with optional coding challenge assistance for technical rounds.',
+    description: structured.softwareDescription,
     author: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -84,30 +87,19 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null) {
     // live interview second, then what holds for both. A flat list here while
     // the page is organised around two named features is markup that no longer
     // describes the page it sits on.
-    featureList: [
-      'Mock interview: an AI interviewer that speaks its questions and follows up',
-      'Mock interview: every answer scored, with a stronger version written back and exported as DOCX or Markdown',
-      'Live interview: dual-channel transcription with speaker detection',
-      'Live interview: AI reply suggestions grounded in your CV and the job description',
-      'Live interview: stealth mode with hotkeys, hidden from screen share and screenshots',
-      'Live interview: optional screenshot-based coding assistance for technical rounds',
-      'Works for any role, not just software engineering - questions and scoring come from the job description you paste in',
-      'AI meeting note taker for Zoom, Google Meet and Microsoft Teams, with AI summaries and action items',
-      `${LANGUAGE_COUNT} interview languages across both the mock session and the live call, ${VOICE_LANGUAGE_COUNT} of them spoken aloud by the mock interviewer`,
-      '1-hour free trial with our free model - no practical rate limit, no interruptions',
-      'Privacy-first: transcripts never retained after the session',
-    ],
+    featureList: structured.featureList.map((feature) =>
+      format(feature, { languages: LANGUAGE_COUNT, voices: VOICE_LANGUAGE_COUNT })
+    ),
   };
 }
 
-export const organizationJsonLd = {
+export const buildOrganizationJsonLd = (locale: Locale) => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo.png`,
-  description:
-    'Privacy-first AI interview coach and meeting note taker for mock interviews, live interviews, and business calls. Supports Zoom, Google Meet, Microsoft Teams, and more.',
+  description: getMessages(locale).meta.structured.organizationDescription,
   email: 'team@vectorleappulse.xyz',
   sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
   contactPoint: {
@@ -115,7 +107,7 @@ export const organizationJsonLd = {
     email: 'team@vectorleappulse.xyz',
     contactType: 'Customer Support',
   },
-};
+});
 
 /**
  * FAQPage for /faq (and /ru/faq). Derived from the same array FAQSection

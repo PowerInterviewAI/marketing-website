@@ -9,9 +9,9 @@ import Script from 'next/script';
 import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
-import { LOCALES, LOCALE_META, isLocale } from '@/i18n/config';
-import { getClientMessages } from '@/i18n/messages';
-import { organizationJsonLd } from '@/lib/jsonLd';
+import { LOCALES, LOCALE_META, isLocale, localizePath } from '@/i18n/config';
+import { getClientMessages, getMessages } from '@/i18n/messages';
+import { buildOrganizationJsonLd } from '@/lib/jsonLd';
 import { cn } from '@/lib/utils';
 import '@/styles/index.css';
 
@@ -42,92 +42,60 @@ const fontMono = JetBrains_Mono({
 
 const SITE_URL = 'https://www.powerinterviewai.com';
 const SITE_NAME = 'Power Interview AI';
-const DEFAULT_TITLE =
-  'Power Interview AI - Interview Coach & AI Meeting Note Taker | Zoom, Google Meet, Teams';
-const DEFAULT_DESCRIPTION =
-  'New users get a full 1-hour free trial with our free model - no practical rate limit, no interruptions. Privacy-first AI interview coach and meeting note taker for Zoom, Google Meet, Microsoft Teams. Real-time transcription, AI reply suggestions, mock interview practice, and smart exports.';
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const { site } = getMessages(locale).meta;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: DEFAULT_TITLE,
-  description: DEFAULT_DESCRIPTION,
-  keywords: [
-    'AI interview assistant',
-    'interview coach',
-    'meeting note taker',
-    'AI note taker',
-    'mock interview',
-    'free trial',
-    '1-hour free trial',
-    'free model',
-    'no practical rate limit',
-    'technical interview help',
-    'coding interview assistant',
-    'live coding challenge',
-    'real-time transcription',
-    'AI reply suggestions',
-    'behavioral interview practice',
-    'Zoom meeting notes',
-    'Google Meet transcript',
-    'Microsoft Teams recording',
-    'smart export',
-    'interview transcription',
-    'stealth mode',
-    'privacy-first',
-    'cryptocurrency payment',
-    'interview practice software',
-    'desktop application',
-    'Windows',
-    'Mac',
-    'interview companion',
-    'interview preparation',
-    'FAANG interview prep',
-    'coding interview prep',
-    'system design interview',
-    'interview confidence',
-    'get hired faster',
-    'ace interviews',
-  ],
-  authors: [{ name: SITE_NAME }],
-  robots: { index: true, follow: true },
-  alternates: { canonical: '/' },
-  applicationName: SITE_NAME,
-  manifest: '/manifest.json',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black-translucent',
-    title: SITE_NAME,
-  },
-  formatDetection: { telephone: false },
-  openGraph: {
-    type: 'website',
-    url: SITE_URL,
-    title: 'Power Interview AI - Interview Coach & Meeting Note Taker',
-    description: DEFAULT_DESCRIPTION,
-    images: [
-      {
-        url: '/open-graph.png',
-        width: 1200,
-        height: 630,
-        alt: 'Power Interview AI - AI interview coach and meeting note taker',
-      },
-    ],
-    siteName: SITE_NAME,
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Power Interview AI - Interview Coach & AI Note Taker',
-    description:
-      'New users get a full 1-hour free trial with our free model - no practical rate limit, no interruptions. Privacy-first AI interview coach for Zoom, Google Meet, Teams. Real-time transcription, AI suggestions, mock interviews, and smart exports.',
-    images: ['/open-graph.png'],
-  },
-};
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: site.title,
+    description: site.description,
+    keywords: site.keywords,
+    authors: [{ name: SITE_NAME }],
+    robots: { index: true, follow: true },
+    alternates: { canonical: localizePath(locale, '/') },
+    applicationName: SITE_NAME,
+    manifest: '/manifest.json',
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+    },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: SITE_NAME,
+    },
+    formatDetection: { telephone: false },
+    openGraph: {
+      type: 'website',
+      url: localizePath(locale, '/'),
+      title: site.ogTitle,
+      description: site.description,
+      images: [
+        {
+          url: '/open-graph.png',
+          width: 1200,
+          height: 630,
+          alt: site.ogAlt,
+        },
+      ],
+      siteName: SITE_NAME,
+      locale: LOCALE_META[locale].ogLocale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: site.twitterTitle,
+      description: site.twitterDescription,
+      images: ['/open-graph.png'],
+    },
+  };
+}
 
 // Kept in sync with --background in src/styles/index.css and with
 // public/manifest.json - all three used to disagree.
@@ -181,7 +149,7 @@ export default async function RootLayout({
             content they describe - see src/lib/jsonLd.ts. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd(locale)) }}
         />
       </head>
       <body suppressHydrationWarning>

@@ -9,6 +9,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Read Power Interview AI's Privacy Policy to understand how we protect your data, handle information, and ensure your privacy during interview preparation.",
   path: '/privacy',
+  translated: false,
 });
 
 export default function PrivacyPolicyPage() {

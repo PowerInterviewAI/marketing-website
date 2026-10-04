@@ -2,15 +2,21 @@ import type { Metadata } from 'next';
 
 import { PageChrome } from '@/components/PageChrome';
 import { PricingSection } from '@/components/sections';
+import { getMessages } from '@/i18n/messages';
 import { type LocaleParams, getLocale } from '@/i18n/server';
 import { buildMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Pricing',
-  description:
-    'Power Interview AI pricing: a 1-hour free trial, then credit packs with no subscription. Paid in coins only - no card, PayPal or bank details.',
-  path: '/pricing',
-});
+export async function generateMetadata(props: LocaleParams): Promise<Metadata> {
+  const locale = await getLocale(props);
+  const t = getMessages(locale).meta.pricing;
+
+  return buildMetadata({
+    title: t.title,
+    description: t.description,
+    path: '/pricing',
+    locale,
+  });
+}
 
 export default async function PricingPage(props: LocaleParams) {
   const locale = await getLocale(props);

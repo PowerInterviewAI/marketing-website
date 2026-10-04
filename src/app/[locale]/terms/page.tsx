@@ -11,6 +11,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Review Power Interview AI's Terms of Service to understand your rights, responsibilities, and the rules for using our AI-powered interview assistance platform.",
   path: '/terms',
+  translated: false,
 });
 
 export default function TermsOfServicePage() {

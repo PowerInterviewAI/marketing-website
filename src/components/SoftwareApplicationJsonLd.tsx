@@ -1,3 +1,4 @@
+import type { Locale } from '@/i18n/config';
 import { buildSoftwareApplicationJsonLd } from '@/lib/jsonLd';
 import { getPlans } from '@/lib/plans';
 
@@ -7,14 +8,14 @@ import { getPlans } from '@/lib/plans';
  * but keeping the schema generation in its own small component still keeps
  * page.tsx focused on layout.
  */
-export function SoftwareApplicationJsonLd() {
+export function SoftwareApplicationJsonLd({ locale }: { locale: Locale }) {
   const plans = getPlans();
 
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(buildSoftwareApplicationJsonLd(plans)),
+        __html: JSON.stringify(buildSoftwareApplicationJsonLd(plans, locale)),
       }}
     />
   );

@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       title: 'Not Found',
       description: 'No documentation found for this page.',
       path: docPath(slug),
+      translated: false,
     });
   }
   const title = getDocTitle(slug, raw);
@@ -44,6 +45,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
     title,
     description: getDocDescription(slug),
     path: docPath(slug),
+    translated: false,
   });
 }
 

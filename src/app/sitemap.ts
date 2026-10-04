@@ -1,9 +1,20 @@
 import type { MetadataRoute } from 'next';
 
-import { SITEMAP_ROUTES, docPath } from '@/config/routes';
+import { SITEMAP_ROUTES, docPath, isEnglishOnly } from '@/config/routes';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localizePath } from '@/i18n/config';
 import { getDocLastModified, getDocSlugs } from '@/lib/docs';
 
 const SITE_URL = 'https://www.powerinterviewai.com';
+
+const absolute = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
+
+/** hreflang map for a translated page, `x-default` pointing at the English URL. */
+const languagesFor = (route: string) => ({
+  ...Object.fromEntries(
+    LOCALES.map((locale) => [LOCALE_META[locale].htmlLang, absolute(localizePath(locale, route))])
+  ),
+  'x-default': absolute(localizePath(DEFAULT_LOCALE, route)),
+});
 
 // Generated from src/config/routes.ts + the docs system's own slug list, so it
 // can't drift out of sync with the actual routes the way the old
@@ -11,16 +22,28 @@ const SITE_URL = 'https://www.powerinterviewai.com';
 // URL with no corresponding page). SITEMAP_ROUTES holds only pages in their own
 // right - a sitemap should never list a URL that 3xx's, which rules out the
 // four legacy routes that now redirect to home-page anchors.
+//
+// A translated page is listed once per locale, each entry carrying the full
+// hreflang set. English-only pages (see ENGLISH_ONLY_ROUTES) are listed once,
+// in English: /ru/privacy is the same English text and is not a URL to promote.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticEntries: MetadataRoute.Sitemap = SITEMAP_ROUTES.map((route) => {
+  const staticEntries: MetadataRoute.Sitemap = SITEMAP_ROUTES.flatMap((route) => {
     const isHome = route === '/';
-    return {
-      // '/' would otherwise produce a trailing-slash duplicate of the canonical.
-      url: isHome ? SITE_URL : `${SITE_URL}${route}`,
+    const entry = {
       lastModified: new Date(),
       changeFrequency: isHome ? ('weekly' as const) : ('monthly' as const),
       priority: isHome ? 1 : 0.7,
     };
+
+    if (isEnglishOnly(route)) {
+      return [{ url: absolute(route), ...entry }];
+    }
+
+    return LOCALES.map((locale) => ({
+      url: absolute(localizePath(locale, route)),
+      ...entry,
+      alternates: { languages: languagesFor(route) },
+    }));
   });
 
   // lastModified comes off the markdown file itself rather than the clock, so

@@ -12,6 +12,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'Guides and reference for Power Interview AI: installation, mock interviews, live interview sessions, hotkeys, best practices and troubleshooting.',
   path: '/docs',
+  translated: false,
 });
 
 export default function DocsIndexPage() {

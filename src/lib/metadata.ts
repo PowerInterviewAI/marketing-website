@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 
-const SITE_URL = 'https://www.powerinterviewai.com';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, type Locale, localizePath } from '@/i18n/config';
+
 const SITE_NAME = 'Power Interview AI';
 
 interface PageMetadataInput {
   title: string;
   description: string;
+  /** Locale-neutral path of the page, e.g. `/pricing`. The locale prefix is added here. */
   path: string;
+  locale?: Locale;
   /**
    * Use `title` verbatim instead of appending " - Power Interview AI".
    *
@@ -15,11 +18,23 @@ interface PageMetadataInput {
    * spending its first four characters on the word "Home".
    */
   absoluteTitle?: boolean;
+  /**
+   * False for a page whose body is still English under a non-default locale
+   * (the legal pages and the docs). Such a page canonicalises to its English
+   * URL and advertises no hreflang alternates: claiming `ru` for English text
+   * is a mismatch crawlers penalise, and two indexable copies of one text
+   * compete with each other.
+   */
+  translated?: boolean;
 }
 
 /**
  * Builds per-page title/description/canonical/OG/Twitter metadata, consistent
  * with the defaults set in the root layout (which this overrides per-route).
+ *
+ * Every translated page declares itself and its siblings: a self-referencing
+ * canonical plus `hreflang` alternates for each locale and `x-default`, so
+ * search engines serve /ru/... to Russian-language searches and / to the rest.
  *
  * Keep `description` to roughly 150-160 characters. Google truncates the
  * snippet around there, so anything past it is invisible and the sentence gets
@@ -29,19 +44,38 @@ export function buildMetadata({
   title,
   description,
   path,
+  locale = DEFAULT_LOCALE,
   absoluteTitle = false,
+  translated = true,
 }: PageMetadataInput): Metadata {
   const fullTitle = absoluteTitle ? title : `${title} - ${SITE_NAME}`;
-  const url = `${SITE_URL}${path}`;
+  const pageLocale = translated ? locale : DEFAULT_LOCALE;
+  const canonical = localizePath(pageLocale, path);
+
+  const alternates: Metadata['alternates'] = translated
+    ? {
+        canonical,
+        languages: {
+          ...Object.fromEntries(
+            LOCALES.map((alt) => [LOCALE_META[alt].htmlLang, localizePath(alt, path)])
+          ),
+          'x-default': localizePath(DEFAULT_LOCALE, path),
+        },
+      }
+    : { canonical };
 
   return {
     title: fullTitle,
     description,
-    alternates: { canonical: path },
+    alternates,
     openGraph: {
       title: fullTitle,
       description,
-      url,
+      url: canonical,
+      locale: LOCALE_META[pageLocale].ogLocale,
+      alternateLocale: translated
+        ? LOCALES.filter((alt) => alt !== pageLocale).map((alt) => LOCALE_META[alt].ogLocale)
+        : undefined,
       images: [
         {
           url: '/open-graph.png',

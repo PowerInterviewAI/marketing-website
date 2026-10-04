@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 import { LEGACY_ANCHOR_REDIRECTS, LEGACY_DOC_REDIRECTS } from './src/config/routes';
+import { LOCALES, localizePath } from './src/i18n/config';
 
 const nextConfig: NextConfig = {
   // Sourced from src/config/routes.ts so the redirect table, the sitemap and
@@ -15,11 +16,16 @@ const nextConfig: NextConfig = {
   // the same path can't work this way; Home's `/#home` link (see NAV_LINKS)
   // has to be enough on its own.
   async redirects() {
-    return [...LEGACY_ANCHOR_REDIRECTS, ...LEGACY_DOC_REDIRECTS].map(({ source, destination }) => ({
-      source,
-      destination,
-      permanent: true,
-    }));
+    // Each legacy URL also existed, or could be guessed, under /ru, so every
+    // locale gets its own copy that stays inside that locale.
+    return [...LEGACY_ANCHOR_REDIRECTS, ...LEGACY_DOC_REDIRECTS].flatMap(
+      ({ source, destination }) =>
+        LOCALES.map((locale) => ({
+          source: localizePath(locale, source),
+          destination: localizePath(locale, destination),
+          permanent: true,
+        }))
+    );
   },
 };
 

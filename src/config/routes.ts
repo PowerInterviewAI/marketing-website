@@ -105,6 +105,18 @@ export const NAV_LINKS: readonly NavLinkDef[] = [
   { id: 'docs', href: ROUTES.docs, matchSubtree: true, newTab: true },
 ] as const;
 
+/**
+ * Pages whose body is still English under every locale: the two legal texts
+ * and the documentation (markdown in src/content/docs). Their chrome - header,
+ * footer, sidebar - is translated, but their metadata canonicalises to the
+ * English URL and the sitemap lists only the English one. A page leaves this
+ * list the day its text is translated.
+ */
+export const ENGLISH_ONLY_ROUTES: readonly string[] = [ROUTES.privacy, ROUTES.terms, ROUTES.docs];
+
+export const isEnglishOnly = (path: string): boolean =>
+  ENGLISH_ONLY_ROUTES.some((route) => path === route || path.startsWith(`${route}/`));
+
 /** Routes listed in the sitemap - pages in their own right, nothing that 3xx's. */
 export const SITEMAP_ROUTES: readonly string[] = [
   ROUTES.home,
