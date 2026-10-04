@@ -6,6 +6,9 @@ import { ArrowUpRight } from 'lucide-react';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
+import type { Locale } from '@/i18n/config';
+import { getMessages } from '@/i18n/messages';
+import type { Contact } from '@/i18n/messages/en/contact';
 
 interface Channel {
   icon: typeof SiGithub;
@@ -16,12 +19,12 @@ interface Channel {
   external?: boolean;
 }
 
-const CHANNELS: Channel[] = [
+const getChannels = (copy: Contact): Channel[] => [
   {
     icon: SiDiscord,
     name: 'Discord',
-    handle: 'Community server',
-    blurb: 'Chat with other candidates and the team',
+    handle: copy.discord.handle,
+    blurb: copy.discord.blurb,
     href: 'https://discord.gg/TJJp5azK7Z',
     external: true,
   },
@@ -29,7 +32,7 @@ const CHANNELS: Channel[] = [
     icon: SiTelegram,
     name: 'Telegram',
     handle: '@power_interview_ai',
-    blurb: 'Announcements and quick questions',
+    blurb: copy.telegram.blurb,
     href: 'https://t.me/power_interview_ai',
     external: true,
   },
@@ -37,67 +40,71 @@ const CHANNELS: Channel[] = [
     icon: SiX,
     name: 'X',
     handle: '@power_interview',
-    blurb: 'Product updates',
+    blurb: copy.x.blurb,
     href: 'https://x.com/power_interview',
     external: true,
   },
   {
     icon: SiProtonmail,
-    name: 'Email',
+    name: copy.email.name,
     handle: 'team@vectorleappulse.xyz',
-    blurb: 'Detailed enquiries, billing, and refunds',
+    blurb: copy.email.blurb,
     href: 'mailto:team@vectorleappulse.xyz',
   },
   {
     icon: SiGithub,
     name: 'GitHub',
     handle: 'PowerInterviewAI/client-app',
-    blurb: 'Releases, issues, and source',
+    blurb: copy.github.blurb,
     href: 'https://github.com/PowerInterviewAI/client-app',
     external: true,
   },
 ];
 
-export const ContactSection: React.FC = () => (
-  <Section id={SECTIONS.contact} tone="muted" aria-labelledby="contact-heading">
-    <SectionHeading
-      id="contact-heading"
-      eyebrow="Contact"
-      title="Get in touch"
-      description="Questions, billing, or a bug during a call - pick whichever channel suits you."
-    />
+export const ContactSection: React.FC<{ locale: Locale }> = ({ locale }) => {
+  const copy = getMessages(locale).contact;
 
-    <div className="mx-auto mt-14 grid max-w-4xl gap-3 sm:grid-cols-2">
-      {CHANNELS.map((channel, index) => (
-        <Reveal key={channel.name} delay={Math.min(index, 4) * 60}>
-          <a
-            href={channel.href}
-            target={channel.external ? '_blank' : undefined}
-            rel={channel.external ? 'noopener noreferrer' : undefined}
-            className="group flex h-full items-start gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
-              <channel.icon className="size-5" />
-            </span>
+  return (
+    <Section id={SECTIONS.contact} tone="muted" aria-labelledby="contact-heading">
+      <SectionHeading
+        id="contact-heading"
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+      />
 
-            <span className="min-w-0 flex-1">
-              <span className="flex items-center gap-1.5">
-                <span className="font-medium text-foreground">{channel.name}</span>
-                <ArrowUpRight
-                  className="size-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
-                  aria-hidden="true"
-                />
+      <div className="mx-auto mt-14 grid max-w-4xl gap-3 sm:grid-cols-2">
+        {getChannels(copy).map((channel, index) => (
+          <Reveal key={channel.name} delay={Math.min(index, 4) * 60}>
+            <a
+              href={channel.href}
+              target={channel.external ? '_blank' : undefined}
+              rel={channel.external ? 'noopener noreferrer' : undefined}
+              className="group flex h-full items-start gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
+                <channel.icon className="size-5" />
               </span>
-              <span className="mt-0.5 block truncate font-mono text-xs text-primary">
-                {channel.handle}
+
+              <span className="min-w-0 flex-1">
+                <span className="flex items-center gap-1.5">
+                  <span className="font-medium text-foreground">{channel.name}</span>
+                  <ArrowUpRight
+                    className="size-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="mt-0.5 block truncate font-mono text-xs text-primary">
+                  {channel.handle}
+                </span>
+                <span className="mt-1.5 block text-sm text-muted-foreground">{channel.blurb}</span>
               </span>
-              <span className="mt-1.5 block text-sm text-muted-foreground">{channel.blurb}</span>
-            </span>
-          </a>
-        </Reveal>
-      ))}
-    </div>
-  </Section>
-);
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+};
 
 export default ContactSection;

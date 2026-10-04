@@ -3,15 +3,12 @@ import { Check, Minus } from 'lucide-react';
 import { DownloadCta } from '@/components/DownloadCta';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
+import type { Locale } from '@/i18n/config';
+import { format, pluralize } from '@/i18n/format';
+import { getMessages } from '@/i18n/messages';
 import { getPlans } from '@/lib/plans';
 import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
-
-const planDescriptions: Record<string, string> = {
-  starter: 'Ideal for individuals and first-time AI note takers',
-  pro: 'Best value for professionals and serious job seekers',
-  enterprise: 'Enterprise-ready meeting and interview note taking for teams',
-};
 
 const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number => {
   const pricePerCredit = plan.price_usd / plan.credits;
@@ -24,7 +21,8 @@ const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number =>
 // be slow, rate-limited or hit a cold start. It's a hardcoded constant now
 // (see plans.ts), so this reads it directly rather than through a client
 // fetch-and-skeleton dance that no longer has anything to wait for.
-export const PricingCards: React.FC = () => {
+export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
+  const { pricing: copy } = getMessages(locale);
   const plans = getPlans();
   const starterPlan = plans.find((p) => p.plan.toLowerCase() === 'starter');
   const starterPricePerCredit = starterPlan ? starterPlan.price_usd / starterPlan.credits : 0;
@@ -32,9 +30,11 @@ export const PricingCards: React.FC = () => {
   return (
     <div className="mx-auto mt-14 grid max-w-5xl items-start gap-6 md:grid-cols-3">
       {plans.map((plan, index) => {
-        const planName = plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
+        const key = plan.plan.toLowerCase() as keyof typeof copy.plans;
+        const planName =
+          copy.planNames[key] ?? plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
         const minutes = plan.credits / 10;
-        const description = planDescriptions[plan.plan.toLowerCase()] || '';
+        const description = copy.plans[key] || '';
         const discount =
           starterPricePerCredit > 0 ? calculateDiscount(plan, starterPricePerCredit) : 0;
 
@@ -51,7 +51,7 @@ export const PricingCards: React.FC = () => {
               {plan.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge variant="solid" size="md">
-                    Most popular
+                    {copy.popular}
                   </Badge>
                 </span>
               )}
@@ -68,30 +68,35 @@ export const PricingCards: React.FC = () => {
                   </span>
                   {discount > 0 && (
                     <Badge variant="success" size="sm">
-                      Save {discount}%
+                      {format(copy.save, { percent: discount })}
                     </Badge>
                   )}
                 </div>
                 <p className="font-mono text-xs text-muted-foreground">
-                  {plan.credits.toLocaleString()} credits · ~{minutes.toLocaleString()} minutes
+                  {format(copy.creditsLine, {
+                    credits: plan.credits.toLocaleString(locale),
+                    creditNoun: pluralize(locale, plan.credits, copy.creditNoun),
+                    minutes: minutes.toLocaleString(locale),
+                    minuteNoun: pluralize(locale, minutes, copy.minuteNoun),
+                  })}
                 </p>
               </div>
 
               <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-                  Live and triggered suggestions
+                  {copy.features.suggestions}
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-                  Provided SOTA model, no practical rate limit
+                  {copy.features.model}
                 </li>
                 <li className="flex items-start gap-2">
                   <Minus
                     className="mt-0.5 size-4 shrink-0 text-muted-foreground/60"
                     aria-hidden="true"
                   />
-                  One-off purchase - no recurring charge
+                  {copy.features.oneOff}
                 </li>
               </ul>
 
@@ -99,7 +104,7 @@ export const PricingCards: React.FC = () => {
                 className="mt-auto w-full"
                 variant={plan.popular ? 'default' : 'outline'}
               >
-                Get started
+                {copy.getStarted}
               </DownloadCta>
             </div>
           </Reveal>

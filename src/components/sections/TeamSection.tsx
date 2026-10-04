@@ -1,46 +1,15 @@
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
+import type { Locale } from '@/i18n/config';
+import { getMessages } from '@/i18n/messages';
 
 import { TeamCards } from './TeamCards';
 
 interface TeamSectionProps {
+  locale: Locale;
   /** Set on the standalone /team route so the section owns the h1. */
   standalone?: boolean;
 }
-
-/**
- * Rendered as the route-level loading.tsx fallback for /team while its JS
- * chunk loads - the only gap left to cover, now that TeamCards reads
- * hardcoded profile data instead of fetching it from GitHub.
- * Deliberately carries no id, same reasoning as PricingSkeleton: TeamSection
- * itself owns `id={SECTIONS.team}`, and an anchor target has to be the
- * element that survives.
- */
-export const TeamSkeleton = () => (
-  <Section aria-label="Loading team">
-    <SectionHeading
-      eyebrow="Team"
-      title="Our Team"
-      description="Meet the builders behind Power Interview AI."
-    />
-    <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
-      {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6"
-        >
-          <div className="flex items-center gap-3">
-            <div className="size-14 shrink-0 animate-pulse rounded-full bg-muted" />
-            <div className="flex min-w-0 flex-1 flex-col gap-2">
-              <div className="h-4 w-2/5 animate-pulse rounded bg-muted" />
-              <div className="h-3 w-1/4 animate-pulse rounded bg-muted" />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </Section>
-);
 
 /**
  * Full team profiles (bio, stats, contact links), on the home page and /team
@@ -58,19 +27,25 @@ export const TeamSkeleton = () => (
  * removed the dependency entirely rather than just deferring it - see
  * TeamCards.tsx for the trade-off (a snapshot that goes stale until updated
  * by hand).
+ *
+ * The route-level loading fallback lives in Skeletons.tsx.
  */
-export const TeamSection = ({ standalone = false }: TeamSectionProps) => (
-  <Section id={SECTIONS.team} tone="muted" aria-labelledby="team-heading">
-    <SectionHeading
-      id="team-heading"
-      as={standalone ? 'h1' : 'h2'}
-      eyebrow="Team"
-      title="Our Team"
-      description="Meet the builders behind Power Interview AI."
-    />
+export const TeamSection = ({ locale, standalone = false }: TeamSectionProps) => {
+  const copy = getMessages(locale).team;
 
-    <TeamCards />
-  </Section>
-);
+  return (
+    <Section id={SECTIONS.team} tone="muted" aria-labelledby="team-heading">
+      <SectionHeading
+        id="team-heading"
+        as={standalone ? 'h1' : 'h2'}
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+      />
+
+      <TeamCards locale={locale} />
+    </Section>
+  );
+};
 
 export default TeamSection;

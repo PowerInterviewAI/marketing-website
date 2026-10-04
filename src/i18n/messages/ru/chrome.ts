@@ -58,6 +58,15 @@ export const chrome: Chrome = {
     rights: 'Все права защищены.',
     madeTo: 'Создано, чтобы вы блестяще проходили собеседования и сохраняли приватность.',
   },
+  loading: {
+    pricing: { aria: 'Загрузка цен', eyebrow: 'Цены', title: 'Простые и прозрачные цены' },
+    team: {
+      aria: 'Загрузка команды',
+      eyebrow: 'Команда',
+      title: 'Наша команда',
+      description: 'Познакомьтесь с создателями Power Interview AI.',
+    },
+  },
   notFound: {
     title: 'Страница не найдена',
     heading: 'Страница не найдена',

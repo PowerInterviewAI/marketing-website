@@ -56,6 +56,15 @@ export const chrome = {
     rights: 'All rights reserved.',
     madeTo: 'Made to help you ace your interviews while protecting your privacy.',
   },
+  loading: {
+    pricing: { aria: 'Loading pricing', eyebrow: 'Pricing', title: 'Simple, transparent pricing' },
+    team: {
+      aria: 'Loading team',
+      eyebrow: 'Team',
+      title: 'Our Team',
+      description: 'Meet the builders behind Power Interview AI.',
+    },
+  },
   notFound: {
     title: 'Page Not Found',
     heading: 'Page not found',

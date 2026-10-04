@@ -38,10 +38,10 @@ export default async function Home(props: LocaleParams) {
         featuresSection={<FeaturesSection locale={locale} />}
         benefitsSection={<BenefitsSection locale={locale} />}
         whyChooseSection={<WhyChooseSection locale={locale} />}
-        pricingSection={<PricingSection />}
-        testimonialsSection={<TestimonialsSection />}
-        contactSection={<ContactSection />}
-        teamSection={<TeamSection />}
+        pricingSection={<PricingSection locale={locale} />}
+        testimonialsSection={<TestimonialsSection locale={locale} />}
+        contactSection={<ContactSection locale={locale} />}
+        teamSection={<TeamSection locale={locale} />}
       />
     </>
   );

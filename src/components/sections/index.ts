@@ -8,6 +8,7 @@ export * from './HowItWorksSection';
 export * from './LanguagesSection';
 export * from './MockInterviewSection';
 export * from './PricingSection';
+export * from './Skeletons';
 export * from './TeamSection';
 export * from './TestimonialsSection';
 export * from './WhyChooseSection';

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { PageChrome } from '@/components/PageChrome';
 import { PricingSection } from '@/components/sections';
+import { type LocaleParams, getLocale } from '@/i18n/server';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -11,10 +12,12 @@ export const metadata: Metadata = buildMetadata({
   path: '/pricing',
 });
 
-export default function PricingPage() {
+export default async function PricingPage(props: LocaleParams) {
+  const locale = await getLocale(props);
+
   return (
     <PageChrome>
-      <PricingSection standalone />
+      <PricingSection locale={locale} standalone />
     </PageChrome>
   );
 }

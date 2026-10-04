@@ -6,6 +6,8 @@ import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
 import { TESTIMONIALS } from '@/config/testimonials';
+import type { Locale } from '@/i18n/config';
+import { getMessages } from '@/i18n/messages';
 
 /**
  * Renders nothing until src/config/testimonials.ts holds real quotes.
@@ -13,16 +15,14 @@ import { TESTIMONIALS } from '@/config/testimonials';
  * The layout is finished and waiting - drop entries into TESTIMONIALS and the
  * section appears. See the comment in that file before adding any.
  */
-export const TestimonialsSection: React.FC = () => {
+export const TestimonialsSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   if (TESTIMONIALS.length === 0) return null;
+
+  const copy = getMessages(locale).testimonials;
 
   return (
     <Section id={SECTIONS.testimonials} tone="muted" aria-labelledby="testimonials-heading">
-      <SectionHeading
-        id="testimonials-heading"
-        eyebrow="Testimonials"
-        title="What candidates say"
-      />
+      <SectionHeading id="testimonials-heading" eyebrow={copy.eyebrow} title={copy.title} />
 
       <ul className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {TESTIMONIALS.map((testimonial, index) => (
@@ -60,7 +60,7 @@ export const TestimonialsSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="ml-auto shrink-0 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
                   >
-                    Source
+                    {copy.source}
                   </a>
                 )}
               </figcaption>

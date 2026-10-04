@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { PageChrome } from '@/components/PageChrome';
 import { TeamSection } from '@/components/sections';
+import { type LocaleParams, getLocale } from '@/i18n/server';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -11,10 +12,12 @@ export const metadata: Metadata = buildMetadata({
   path: '/team',
 });
 
-export default function TeamPage() {
+export default async function TeamPage(props: LocaleParams) {
+  const locale = await getLocale(props);
+
   return (
     <PageChrome>
-      <TeamSection standalone />
+      <TeamSection locale={locale} standalone />
     </PageChrome>
   );
 }
