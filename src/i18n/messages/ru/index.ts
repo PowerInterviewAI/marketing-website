@@ -3,6 +3,7 @@ import { benefits } from './benefits';
 import { chrome } from './chrome';
 import { common } from './common';
 import { contact } from './contact';
+import { faq } from './faq';
 import { features } from './features';
 import { hero } from './hero';
 import { howItWorks } from './howItWorks';
@@ -19,6 +20,7 @@ export const ru: Messages = {
   common,
   contact,
   hero,
+  faq,
   features,
   howItWorks,
   languages,

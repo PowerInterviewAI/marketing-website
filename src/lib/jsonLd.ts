@@ -15,8 +15,9 @@
  * prices that don't match the ones rendered, platforms with no build - is a
  * Search policy violation, and the penalty lands on the whole domain.
  */
-import { FAQ_ITEMS } from '@/config/faq';
+import { getFaqItems } from '@/config/faq';
 import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
+import type { Locale } from '@/i18n/config';
 import { Plan } from '@/types';
 
 const SITE_URL = 'https://www.powerinterviewai.com';
@@ -116,12 +117,17 @@ export const organizationJsonLd = {
   },
 };
 
-export const faqPageJsonLd = {
+/**
+ * FAQPage for /faq (and /ru/faq). Derived from the same array FAQSection
+ * renders, in the page's own language, so the rich result can't drift from the
+ * page the way two hand-maintained copies did - and a Russian page never
+ * carries English questions it does not show.
+ */
+export const buildFaqPageJsonLd = (locale: Locale) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  // Derived from the same array FAQSection renders, so the rich result can't
-  // drift from the page the way two hand-maintained copies did.
-  mainEntity: FAQ_ITEMS.map((item) => ({
+  inLanguage: locale,
+  mainEntity: getFaqItems(locale).map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: {
@@ -129,4 +135,4 @@ export const faqPageJsonLd = {
       text: item.answer,
     },
   })),
-};
+});

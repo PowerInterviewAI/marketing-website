@@ -70,7 +70,7 @@ export function HomeContent({
         {pricingSection}
         {testimonialsSection}
         <InstallPanel />
-        <FAQSection />
+        <FAQSection locale={locale} />
         {contactSection}
         {teamSection}
       </main>
