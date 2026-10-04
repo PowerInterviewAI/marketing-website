@@ -8,7 +8,9 @@ import Script from 'next/script';
 
 import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { LocaleProvider } from '@/i18n/LocaleProvider';
 import { LOCALES, LOCALE_META, isLocale } from '@/i18n/config';
+import { getClientMessages } from '@/i18n/messages';
 import { organizationJsonLd } from '@/lib/jsonLd';
 import { cn } from '@/lib/utils';
 import '@/styles/index.css';
@@ -183,7 +185,9 @@ export default async function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <ThemeProvider>{children}</ThemeProvider>
+        <LocaleProvider locale={locale} messages={getClientMessages(locale)}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </LocaleProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V6LKZ75M3J"
           strategy="afterInteractive"

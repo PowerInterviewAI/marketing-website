@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Link from 'next/link';
-
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { DOWNLOAD_HREF } from '@/config/routes';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
 
 type DownloadCtaProps = Omit<ButtonProps, 'asChild' | 'onClick'> & {
   children: React.ReactNode;
@@ -25,7 +24,7 @@ type DownloadCtaProps = Omit<ButtonProps, 'asChild' | 'onClick'> & {
  */
 export const DownloadCta: React.FC<DownloadCtaProps> = ({ children, ...props }) => (
   <Button asChild {...props}>
-    <Link href={DOWNLOAD_HREF}>{children}</Link>
+    <LocalizedLink href={DOWNLOAD_HREF}>{children}</LocalizedLink>
   </Button>
 );
 

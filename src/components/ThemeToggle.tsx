@@ -6,6 +6,8 @@ import { Monitor, Moon, Sun } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/useTheme';
+import { useMessages } from '@/i18n/LocaleProvider';
+import { format } from '@/i18n/format';
 import { cn } from '@/lib/utils';
 
 const ICONS = {
@@ -14,7 +16,7 @@ const ICONS = {
   system: Monitor,
 } as const;
 
-const NEXT_LABEL = {
+const NEXT_THEME = {
   light: 'dark',
   dark: 'system',
   system: 'light',
@@ -33,6 +35,7 @@ interface ThemeToggleProps {
  */
 export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
   const { theme, cycleTheme, mounted } = useTheme();
+  const { theme: t } = useMessages().chrome;
   const Icon = ICONS[theme];
 
   return (
@@ -40,8 +43,12 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
       variant="ghost"
       size="icon"
       onClick={cycleTheme}
-      aria-label={mounted ? `Theme: ${theme}. Switch to ${NEXT_LABEL[theme]}.` : 'Toggle theme'}
-      title={mounted ? `Theme: ${theme}` : undefined}
+      aria-label={
+        mounted
+          ? format(t.switchTo, { theme: t.names[theme], next: t.names[NEXT_THEME[theme]] })
+          : t.toggle
+      }
+      title={mounted ? format(t.current, { theme: t.names[theme] }) : undefined}
       // The base button variant pins descendant svgs to size-4 with a
       // descendant selector, which outranks a class on the icon itself.
       className={cn('text-muted-foreground hover:text-foreground [&_svg]:size-5', className)}

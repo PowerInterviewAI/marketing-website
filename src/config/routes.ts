@@ -58,7 +58,8 @@ export const homeAnchor = (section: (typeof SECTIONS)[keyof typeof SECTIONS]) =>
 export const DOWNLOAD_HREF = homeAnchor(SECTIONS.install);
 
 export interface NavLinkDef {
-  label: string;
+  /** Key into the `chrome.nav` messages - the label is translated, not stored here. */
+  id: 'home' | 'howItWorks' | 'pricing' | 'faq' | 'team' | 'docs';
   /** The item's own indexable route. Still a real, standalone page - still
    *  what search results, bookmarks and the footer's own links land on -
    *  even for an item the header always links to as `/#section` instead
@@ -96,12 +97,12 @@ export interface NavLinkDef {
  * anchors are conventional.
  */
 export const NAV_LINKS: readonly NavLinkDef[] = [
-  { label: 'Home', href: ROUTES.home, section: SECTIONS.hero },
-  { label: 'How it works', href: ROUTES.howItWorks, section: SECTIONS.howItWorks },
-  { label: 'Pricing', href: ROUTES.pricing, section: SECTIONS.pricing },
-  { label: 'FAQ', href: ROUTES.faq, section: SECTIONS.faq },
-  { label: 'Team', href: ROUTES.team, section: SECTIONS.team },
-  { label: 'Docs', href: ROUTES.docs, matchSubtree: true, newTab: true },
+  { id: 'home', href: ROUTES.home, section: SECTIONS.hero },
+  { id: 'howItWorks', href: ROUTES.howItWorks, section: SECTIONS.howItWorks },
+  { id: 'pricing', href: ROUTES.pricing, section: SECTIONS.pricing },
+  { id: 'faq', href: ROUTES.faq, section: SECTIONS.faq },
+  { id: 'team', href: ROUTES.team, section: SECTIONS.team },
+  { id: 'docs', href: ROUTES.docs, matchSubtree: true, newTab: true },
 ] as const;
 
 /** Routes listed in the sitemap - pages in their own right, nothing that 3xx's. */

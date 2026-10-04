@@ -1,15 +1,18 @@
+'use client';
+
 import React from 'react';
 
 import { SiDiscord, SiGithub, SiProtonmail, SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Container from '@/components/Container';
 import { DownloadCta } from '@/components/DownloadCta';
 import { NavLink } from '@/components/NavLink';
 import { Glow } from '@/components/ui/glow';
 import { DOWNLOAD_HREF, ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
+import { useMessages } from '@/i18n/LocaleProvider';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
 
 const LINK_CLASS = 'text-sm text-muted-foreground transition-colors hover:text-foreground';
 
@@ -22,9 +25,9 @@ const SOCIALS = [
 ] as const;
 
 const RESOURCE_LINKS = [
-  { label: 'GitHub', href: 'https://github.com/PowerInterviewAI/client-app' },
-  { label: 'Telegram channel', href: 'https://t.me/power_interview_ai' },
-  { label: 'Discord server', href: 'https://discord.gg/TJJp5azK7Z' },
+  { key: 'githubLink', href: 'https://github.com/PowerInterviewAI/client-app' },
+  { key: 'telegram', href: 'https://t.me/power_interview_ai' },
+  { key: 'discord', href: 'https://discord.gg/TJJp5azK7Z' },
 ] as const;
 
 /**
@@ -35,6 +38,8 @@ const RESOURCE_LINKS = [
  * routes only; see src/config/routes.ts.
  */
 export const FooterSection: React.FC = () => {
+  const t = useMessages().chrome.footer;
+
   return (
     <>
       {/* Pre-footer CTA band */}
@@ -43,13 +48,11 @@ export const FooterSection: React.FC = () => {
         <Container>
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
             <h2 className="text-balance font-display text-3xl font-semibold tracking-tight md:text-4xl">
-              Your next interview is the one to get right
+              {t.ctaTitle}
             </h2>
-            <p className="text-pretty text-muted-foreground">
-              One hour free on us, running against a real call. Windows and macOS.
-            </p>
+            <p className="text-pretty text-muted-foreground">{t.ctaBody}</p>
             <DownloadCta size="lg">
-              Download Power Interview AI
+              {t.ctaButton}
               <ArrowRight />
             </DownloadCta>
           </div>
@@ -60,7 +63,7 @@ export const FooterSection: React.FC = () => {
         <Container>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="lg:col-span-1">
-              <Link href={ROUTES.home} className="mb-4 flex w-fit items-center gap-2.5">
+              <LocalizedLink href={ROUTES.home} className="mb-4 flex w-fit items-center gap-2.5">
                 <Image
                   src="/logo.png"
                   alt=""
@@ -69,10 +72,8 @@ export const FooterSection: React.FC = () => {
                   className="size-7 rounded-md"
                 />
                 <span className="font-display font-semibold">Power Interview AI</span>
-              </Link>
-              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                Your personal AI-powered interview coach. Privacy-first, and invisible on the call.
-              </p>
+              </LocalizedLink>
+              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{t.tagline}</p>
               <div className="flex gap-3">
                 {SOCIALS.map((social) => (
                   <a
@@ -81,7 +82,7 @@ export const FooterSection: React.FC = () => {
                     target={social.href.startsWith('mailto:') ? undefined : '_blank'}
                     rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                     className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    aria-label={social.label}
+                    aria-label={social.label === 'Email' ? t.email : social.label}
                   >
                     <social.icon className="size-4" />
                   </a>
@@ -91,12 +92,12 @@ export const FooterSection: React.FC = () => {
 
             <nav aria-labelledby="footer-product">
               <h3 id="footer-product" className="mb-4 text-sm font-semibold">
-                Product
+                {t.product}
               </h3>
               <ul className="space-y-2.5">
                 <li>
                   <NavLink
-                    label="Mock interview"
+                    label={t.mockInterview}
                     href={ROUTES.mockInterview}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -104,7 +105,7 @@ export const FooterSection: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
-                    label="How it works"
+                    label={t.howItWorks}
                     href={ROUTES.howItWorks}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -112,7 +113,7 @@ export const FooterSection: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
-                    label="Features"
+                    label={t.features}
                     href={homeAnchor(SECTIONS.features)}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -120,7 +121,7 @@ export const FooterSection: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
-                    label="Languages"
+                    label={t.languages}
                     href={homeAnchor(SECTIONS.languages)}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -128,7 +129,7 @@ export const FooterSection: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
-                    label="Pricing"
+                    label={t.pricing}
                     href={ROUTES.pricing}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -139,20 +140,20 @@ export const FooterSection: React.FC = () => {
                       two used to disagree - the header scrolled to the top of
                       the home page, this one left for GitHub. */}
                   <NavLink
-                    label="Download"
+                    label={t.download}
                     href={DOWNLOAD_HREF}
                     className={LINK_CLASS}
                     prefetch={false}
                   />
                 </li>
                 <li>
-                  <Link href={ROUTES.docs} prefetch={false} className={LINK_CLASS}>
-                    Documentation
-                  </Link>
+                  <LocalizedLink href={ROUTES.docs} prefetch={false} className={LINK_CLASS}>
+                    {t.documentation}
+                  </LocalizedLink>
                 </li>
                 <li>
                   <NavLink
-                    label="Our Team"
+                    label={t.team}
                     href={ROUTES.team}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -163,27 +164,32 @@ export const FooterSection: React.FC = () => {
 
             <nav aria-labelledby="footer-resources">
               <h3 id="footer-resources" className="mb-4 text-sm font-semibold">
-                Resources
+                {t.resources}
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <NavLink label="FAQ" href={ROUTES.faq} className={LINK_CLASS} prefetch={false} />
+                  <NavLink
+                    label={t.faq}
+                    href={ROUTES.faq}
+                    className={LINK_CLASS}
+                    prefetch={false}
+                  />
                 </li>
                 {RESOURCE_LINKS.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={LINK_CLASS}
                     >
-                      {link.label}
+                      {t[link.key]}
                     </a>
                   </li>
                 ))}
                 <li>
                   <NavLink
-                    label="Support"
+                    label={t.support}
                     href={homeAnchor(SECTIONS.contact)}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -194,30 +200,30 @@ export const FooterSection: React.FC = () => {
 
             <nav aria-labelledby="footer-legal">
               <h3 id="footer-legal" className="mb-4 text-sm font-semibold">
-                Legal
+                {t.legal}
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link
+                  <LocalizedLink
                     href={ROUTES.privacy}
                     prefetch={false}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={LINK_CLASS}
                   >
-                    Privacy policy
-                  </Link>
+                    {t.privacy}
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link
+                  <LocalizedLink
                     href={ROUTES.terms}
                     prefetch={false}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={LINK_CLASS}
                   >
-                    Terms of service
-                  </Link>
+                    {t.terms}
+                  </LocalizedLink>
                 </li>
                 <li>
                   <a
@@ -226,12 +232,12 @@ export const FooterSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className={LINK_CLASS}
                   >
-                    License
+                    {t.license}
                   </a>
                 </li>
                 <li>
                   <NavLink
-                    label="Contact"
+                    label={t.contact}
                     href={homeAnchor(SECTIONS.contact)}
                     className={LINK_CLASS}
                     prefetch={false}
@@ -243,10 +249,9 @@ export const FooterSection: React.FC = () => {
 
           <div className="mt-12 flex flex-col items-center gap-2 border-t border-border pt-8 text-center text-sm text-muted-foreground sm:flex-row sm:justify-between sm:text-left">
             <p>
-              &copy; {new Date().getFullYear()} VectorLeap Pulse Innovation LTD. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} VectorLeap Pulse Innovation LTD. {t.rights}
             </p>
-            <p>Made to help you ace your interviews while protecting your privacy.</p>
+            <p>{t.madeTo}</p>
           </div>
         </Container>
       </footer>

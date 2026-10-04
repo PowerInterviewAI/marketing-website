@@ -5,16 +5,19 @@ import React, { useEffect, useState } from 'react';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { Menu } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { NavLink } from '@/components/NavLink';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { DOWNLOAD_HREF, NAV_LINKS, ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
 import { useScrolled } from '@/hooks/useScrolled';
+import { useMessages } from '@/i18n/LocaleProvider';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
+import { stripLocale } from '@/i18n/config';
 import { cn } from '@/lib/utils';
 
 const GITHUB_URL = 'https://github.com/PowerInterviewAI/client-app';
@@ -39,7 +42,10 @@ const GITHUB_URL = 'https://github.com/PowerInterviewAI/client-app';
  * /faq directly still lights up FAQ correctly.
  */
 export const Header: React.FC = () => {
-  const pathname = usePathname();
+  const rawPathname = usePathname();
+  // Routes in NAV_LINKS are locale-neutral; compare against the path without /ru.
+  const pathname = stripLocale(rawPathname);
+  const { nav, header } = useMessages().chrome;
   const scrolled = useScrolled();
   const [menuOpen, setMenuOpen] = useState(false);
   const [hash, setHash] = useState('');
@@ -94,7 +100,7 @@ export const Header: React.FC = () => {
     >
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
-          <Link
+          <LocalizedLink
             href={ROUTES.home}
             className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
@@ -109,13 +115,14 @@ export const Header: React.FC = () => {
             <span className="font-display text-base font-semibold tracking-tight">
               Power Interview AI
             </span>
-          </Link>
+          </LocalizedLink>
 
-          <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
+          <nav className="hidden items-center gap-7 md:flex" aria-label={header.mainNavigation}>
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.href}
                 {...link}
+                label={nav[link.id]}
                 href={linkHref(link)}
                 underline
                 active={isActive(link)}
@@ -126,37 +133,40 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="hidden items-center gap-1 md:flex">
+            <LanguageSwitcher className="mr-1" />
             <ThemeToggle />
             <Button variant="ghost" size="icon" asChild>
               <a
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Power Interview AI on GitHub"
+                aria-label={header.githubAria}
                 className="text-muted-foreground hover:text-foreground"
               >
                 <SiGithub className="size-4" />
               </a>
             </Button>
             <Button size="sm" className="ml-2" asChild>
-              <Link href={DOWNLOAD_HREF}>Download</Link>
+              <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
             </Button>
           </div>
 
           <div className="flex items-center gap-1 md:hidden">
+            <LanguageSwitcher />
             <ThemeToggle />
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button variant="ghost" size="icon" aria-label={header.openMenu}>
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent title="Navigation menu">
-                <nav className="mt-8 flex flex-col gap-5" aria-label="Mobile navigation">
+              <SheetContent title={header.menuTitle}>
+                <nav className="mt-8 flex flex-col gap-5" aria-label={header.mobileNavigation}>
                   {NAV_LINKS.map((link) => (
                     <NavLink
                       key={link.href}
                       {...link}
+                      label={nav[link.id]}
                       href={linkHref(link)}
                       onNavigate={closeMenu}
                       active={isActive(link)}
@@ -171,12 +181,12 @@ export const Header: React.FC = () => {
                   <Button variant="outline" asChild>
                     <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
                       <SiGithub className="size-4" />
-                      GitHub
+                      {header.github}
                     </a>
                   </Button>
                   <SheetClose asChild>
                     <Button asChild>
-                      <Link href={DOWNLOAD_HREF}>Download</Link>
+                      <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
                     </Button>
                   </SheetClose>
                 </div>

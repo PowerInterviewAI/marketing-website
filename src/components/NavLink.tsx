@@ -2,8 +2,9 @@
 
 import React from 'react';
 
-import Link from 'next/link';
-
+import { useLocale } from '@/i18n/LocaleProvider';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
+import { localizePath } from '@/i18n/config';
 import { cn } from '@/lib/utils';
 
 interface NavLinkProps {
@@ -71,6 +72,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
   newTab = false,
   plainAnchor = false,
 }) => {
+  const locale = useLocale();
   const content = (
     <>
       {label}
@@ -91,7 +93,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
   if (plainAnchor) {
     return (
       <a
-        href={href}
+        href={localizePath(locale, href)}
         onClick={onNavigate}
         aria-current={active ? 'page' : undefined}
         className={sharedClassName}
@@ -102,7 +104,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
   }
 
   return (
-    <Link
+    <LocalizedLink
       href={href}
       prefetch={prefetch}
       onClick={onNavigate}
@@ -112,7 +114,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
       className={sharedClassName}
     >
       {content}
-    </Link>
+    </LocalizedLink>
   );
 };
 
