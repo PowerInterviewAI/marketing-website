@@ -56,6 +56,10 @@ export const chrome = {
     rights: 'All rights reserved.',
     madeTo: 'Made to help you ace your interviews while protecting your privacy.',
   },
+  englishOnly: {
+    text: 'This page is currently available in English only.',
+    link: 'Read it in English',
+  },
   loading: {
     pricing: { aria: 'Loading pricing', eyebrow: 'Pricing', title: 'Simple, transparent pricing' },
     team: {

@@ -2,6 +2,7 @@ import { benefits } from './benefits';
 import { chrome } from './chrome';
 import { common } from './common';
 import { contact } from './contact';
+import { docs } from './docs';
 import { faq } from './faq';
 import { features } from './features';
 import { hero } from './hero';
@@ -20,6 +21,7 @@ export const en = {
   common,
   contact,
   hero,
+  docs,
   faq,
   features,
   howItWorks,

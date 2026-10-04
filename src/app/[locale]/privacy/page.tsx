@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { EnglishOnlyNotice } from '@/components/EnglishOnlyNotice';
 import { PageChrome } from '@/components/PageChrome';
 import { Section } from '@/components/ui/section';
 import { buildMetadata } from '@/lib/metadata';
@@ -17,6 +18,7 @@ export default function PrivacyPolicyPage() {
     <PageChrome>
       <Section size="sm">
         <div className="mx-auto max-w-3xl">
+          <EnglishOnlyNotice className="mb-8" />
           <div className="border-b border-border pb-8">
             <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Privacy Policy

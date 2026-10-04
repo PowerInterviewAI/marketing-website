@@ -9,6 +9,8 @@ import { DocsLayout } from '@/components/docs/DocsLayout';
 import { DocsPager } from '@/components/docs/DocsPager';
 import { MarkdownImage } from '@/components/docs/MarkdownImage';
 import { docPath } from '@/config/routes';
+import { getMessages } from '@/i18n/messages';
+import { getLocale } from '@/i18n/server';
 import {
   getDocContent,
   getDocDescription,
@@ -22,7 +24,7 @@ import { buildMetadata } from '@/lib/metadata';
 import { applyReleaseTokens, getLatestVersion } from '@/lib/release';
 
 interface DocPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -58,7 +60,7 @@ const slugify = (text: React.ReactNode): string =>
     .replace(/\s+/g, '-');
 
 const heading =
-  (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') =>
+  (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6', linkLabel: string) =>
   ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => {
     const id = slugify(children);
     return (
@@ -67,7 +69,7 @@ const heading =
         <a
           href={`#${id}`}
           className="ml-2 text-primary no-underline opacity-0 transition-opacity group-hover:opacity-60"
-          aria-label="Link to section"
+          aria-label={linkLabel}
         >
           #
         </a>
@@ -85,13 +87,13 @@ interface MarkdownNode {
   children?: { type: string; tagName?: string; value?: string }[];
 }
 
-const markdownComponents = {
-  h1: heading('h1'),
-  h2: heading('h2'),
-  h3: heading('h3'),
-  h4: heading('h4'),
-  h5: heading('h5'),
-  h6: heading('h6'),
+const buildMarkdownComponents = (linkLabel: string) => ({
+  h1: heading('h1', linkLabel),
+  h2: heading('h2', linkLabel),
+  h3: heading('h3', linkLabel),
+  h4: heading('h4', linkLabel),
+  h5: heading('h5', linkLabel),
+  h6: heading('h6', linkLabel),
   table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-4 w-full overflow-x-auto">
       <table className="w-full border-collapse text-sm">{children}</table>
@@ -165,10 +167,12 @@ const markdownComponents = {
       />
     );
   },
-};
+});
 
 export default async function DocPage({ params }: DocPageProps) {
-  const { slug } = await params;
+  const { locale: localeParam, slug } = await params;
+  const locale = await getLocale({ params: Promise.resolve({ locale: localeParam }) });
+  const t = getMessages(locale).docs;
   const content = getDocContent(slug);
   const navItems = getDocNavItems();
 
@@ -188,7 +192,10 @@ export default async function DocPage({ params }: DocPageProps) {
         <DocsBreadcrumb current={getDocTitle(slug, content)} />
 
         <article className="markdown-body">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={buildMarkdownComponents(t.linkToSection)}
+          >
             {rendered}
           </ReactMarkdown>
         </article>

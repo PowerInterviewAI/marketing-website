@@ -12,10 +12,11 @@ const MESSAGES: Record<Locale, Messages> = { en, ru };
 export const getMessages = (locale: Locale): Messages => MESSAGES[locale];
 
 /** The slice Client Components render, passed through <LocaleProvider>. */
-export type ClientMessages = Pick<Messages, 'chrome' | 'common' | 'hero'>;
+export type ClientMessages = Pick<Messages, 'chrome' | 'common' | 'docs' | 'hero'>;
 
 export const getClientMessages = (locale: Locale): ClientMessages => ({
   chrome: MESSAGES[locale].chrome,
   common: MESSAGES[locale].common,
+  docs: MESSAGES[locale].docs,
   hero: MESSAGES[locale].hero,
 });

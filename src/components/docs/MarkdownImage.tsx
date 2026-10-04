@@ -4,6 +4,9 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Maximize2, X } from 'lucide-react';
 
+import { useMessages } from '@/i18n/LocaleProvider';
+import { format } from '@/i18n/format';
+
 interface MarkdownImageProps {
   src?: string;
   alt?: string;
@@ -35,6 +38,7 @@ const isGeneric = (alt?: string) => !alt || GENERIC_ALTS.has(alt.trim().toLowerC
  * page underneath doesn't scroll while it's open.
  */
 export function MarkdownImage({ src, alt, width, height, poster }: MarkdownImageProps) {
+  const t = useMessages().docs.image;
   const [previewOpen, setPreviewOpen] = useState(false);
   const close = useCallback(() => setPreviewOpen(false), []);
 
@@ -94,7 +98,7 @@ export function MarkdownImage({ src, alt, width, height, poster }: MarkdownImage
       <button
         type="button"
         onClick={() => setPreviewOpen(true)}
-        aria-label={alt ? `Enlarge image: ${alt}` : 'Enlarge image'}
+        aria-label={alt ? format(t.enlargeNamed, { alt }) : t.enlarge}
         className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-border bg-surface-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <img
@@ -125,14 +129,14 @@ export function MarkdownImage({ src, alt, width, height, poster }: MarkdownImage
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={alt ? `Image preview: ${alt}` : 'Image preview'}
+          aria-label={alt ? format(t.previewNamed, { alt }) : t.preview}
           className="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
           onClick={close}
         >
           <button
             type="button"
             onClick={close}
-            aria-label="Close preview"
+            aria-label={t.close}
             autoFocus
             className="absolute right-4 top-4 rounded-md bg-white/10 p-2 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
