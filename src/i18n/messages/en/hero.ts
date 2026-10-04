@@ -4,18 +4,16 @@ export const hero = {
   titleLead: 'Rehearse the interview, then',
   titleAccent: 'sit the real one with live help',
   mockLabel: 'Mock interview:',
-  mockText:
-    'an AI interviewer speaks its questions, presses on a thin answer, and scores every one you give.',
+  mockText: 'an AI interviewer asks aloud, presses on weak answers, and scores each one.',
   liveLabel: 'Live interview:',
   liveText:
-    'the same desktop app stays open on the real Zoom, Google Meet or Teams call, hidden from screen share, transcribing both sides and suggesting what to say.',
-  rolePre: 'Both are built from the CV and job description you paste in, so it fits',
+    'the same app runs on your real Zoom, Meet or Teams call, hidden from screen share, and suggests what to say.',
+  rolePre: 'Both use your CV and job description, so they fit',
   roleStrong: 'any role',
-  rolePost: '- sales, finance, nursing, teaching, consulting, engineering - not just software.',
+  rolePost: '- sales, finance, nursing, teaching, engineering, not just software.',
   ctaMock: 'Start with a mock interview',
   ctaLive: 'See the live interview features',
-  freeNote:
-    'One free hour covers everything: practice sessions, live suggestions and triggered suggestions alike. Pay with coins only, no credit card required.',
+  freeNote: 'One free hour covers practice and live help. Pay with coins only, no credit card.',
 
   trust: {
     platformsLabel: 'Platforms',
@@ -52,22 +50,21 @@ export const hero = {
     {
       title: 'Live Interview Assistant & Smart Export',
       description:
-        'Real-time AI-powered interview assistance with instant suggestions and smart export of interview summaries and insights',
+        'Instant suggestions during the call, then a smart export of the summary and insights',
     },
     {
       title: 'Coding Challenge - Graph Traversal',
       description:
-        'Capture the problem from your screen and read a syntax-highlighted solution streamed into the stealth overlay while you type',
+        'Capture the problem from your screen and read the solution in the stealth overlay',
     },
     {
       title: 'Coding Challenge - Connected Components',
-      description:
-        'Multi-screenshot context lets the AI pick up the full problem statement, constraints, and starter signature before it answers',
+      description: 'Several screenshots give the AI the full statement, constraints and signature',
     },
     {
       title: 'Coding Challenge - Binary Tree Recursion',
       description:
-        'Scroll the code panel with hotkeys alone - the overlay stays hidden from screen share and never steals focus from your editor',
+        'Scroll the code with hotkeys alone - hidden from screen share, never steals focus',
     },
   ],
 
