@@ -9,8 +9,10 @@ import {
   InstallPanel,
   LanguagesSection,
 } from '@/components/sections';
+import type { Locale } from '@/i18n/config';
 
 interface HomeContentProps {
+  locale: Locale;
   featuresSection: ReactNode;
   howItWorksSection: ReactNode;
   mockInterviewSection: ReactNode;
@@ -40,6 +42,7 @@ interface HomeContentProps {
 // nav could scroll rather than navigate. Those are all ordinary links now, so
 // the callback - and the client boundary around the whole home page - is gone.
 export function HomeContent({
+  locale,
   featuresSection,
   howItWorksSection,
   mockInterviewSection,
@@ -57,7 +60,7 @@ export function HomeContent({
       <Header />
 
       <main id="main" className="flex-1 scroll-mt-20">
-        <HeroSection />
+        <HeroSection locale={locale} />
         {howItWorksSection}
         {mockInterviewSection}
         {featuresSection}

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Apple, Download, Monitor } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { useMessages } from '@/i18n/LocaleProvider';
 import { cn } from '@/lib/utils';
 
 import { MACOS_SUPPORTED, RELEASES_URL, getDownloadUrl } from './constants';
@@ -36,6 +37,7 @@ interface DownloadButtonProps {
 }
 
 export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size = 'xl' }) => {
+  const t = useMessages().hero.download;
   const version = useLatestVersion();
   // Starts as 'other' so the server render and the first client render agree;
   // the effect narrows it once we're in the browser.
@@ -47,12 +49,12 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
 
   const primary = {
     windows: {
-      label: 'Download for Windows',
+      label: t.forWindows,
       href: getDownloadUrl(version, 'windows'),
       Icon: Monitor,
     },
     other: {
-      label: 'Download',
+      label: t.generic,
       href: RELEASES_URL,
       Icon: Download,
     },
@@ -65,12 +67,12 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
       <div className={cn('flex flex-col items-center gap-3', className)}>
         <div className="max-w-sm rounded-lg border border-border bg-card px-4 py-3 text-center text-sm text-muted-foreground">
           <Apple className="mx-auto mb-1.5 size-5" aria-hidden="true" />
-          macOS support isn&rsquo;t ready yet &mdash; we&rsquo;re actively working on it.
+          {t.macosNotReady}
         </div>
         <Button size={size} variant="outline" asChild>
           <a href={getDownloadUrl(version, 'windows')} download={version ? '' : undefined}>
             <Monitor />
-            Download for Windows instead
+            {t.windowsInstead}
           </a>
         </Button>
         <p className="text-xs text-muted-foreground">
@@ -80,7 +82,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
             rel="noopener noreferrer"
             className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
-            All releases
+            {t.allReleases}
           </a>
         </p>
       </div>
@@ -100,7 +102,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
         {version ? (
           <span className="font-mono">v{version}</span>
         ) : (
-          <span className="font-mono">latest</span>
+          <span className="font-mono">{t.latest}</span>
         )}
         {' · '}
         {os !== 'windows' && (
@@ -109,12 +111,12 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
               href={getDownloadUrl(version, 'windows')}
               className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
-              Windows
+              {t.windows}
             </a>
             {' · '}
           </>
         )}
-        <span title="Actively being worked on">macOS (coming soon)</span>
+        <span title={t.macosSoonTitle}>{t.macosSoon}</span>
         {' · '}
         <a
           href={RELEASES_URL}
@@ -122,7 +124,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ className, size 
           rel="noopener noreferrer"
           className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          All releases
+          {t.allReleases}
         </a>
       </p>
     </div>

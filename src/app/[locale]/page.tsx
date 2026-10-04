@@ -13,6 +13,7 @@ import {
   TestimonialsSection,
   WhyChooseSection,
 } from '@/components/sections';
+import { type LocaleParams, getLocale } from '@/i18n/server';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -23,12 +24,15 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 });
 
-export default function Home() {
+export default async function Home(props: LocaleParams) {
+  const locale = await getLocale(props);
+
   return (
     <>
       {/* The page that is actually about the app carries its schema. */}
       <SoftwareApplicationJsonLd />
       <HomeContent
+        locale={locale}
         howItWorksSection={<HowItWorksSection />}
         mockInterviewSection={<MockInterviewSection />}
         featuresSection={<FeaturesSection />}

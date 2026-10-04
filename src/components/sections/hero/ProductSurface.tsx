@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
+import { useMessages } from '@/i18n/LocaleProvider';
 import { cn } from '@/lib/utils';
 
 import { MEDIA_ITEMS } from './constants';
@@ -17,11 +18,12 @@ import { MEDIA_ITEMS } from './constants';
  * obscured by chrome.
  */
 export const ProductSurface: React.FC<{ className?: string }> = ({ className }) => {
+  const t = useMessages().hero;
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const current = MEDIA_ITEMS[index];
+  const current = { ...MEDIA_ITEMS[index], ...t.demos[index] };
 
   const go = (next: number) => setIndex((next + MEDIA_ITEMS.length) % MEDIA_ITEMS.length);
 
@@ -92,26 +94,30 @@ export const ProductSurface: React.FC<{ className?: string }> = ({ className }) 
           <div className="flex shrink-0 items-center gap-1">
             <button
               onClick={() => setPlaying((p) => !p)}
-              aria-label={playing ? 'Pause demo' : 'Play demo'}
+              aria-label={playing ? t.surface.pause : t.surface.play}
               className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {playing ? <Pause className="size-4" /> : <Play className="size-4" />}
             </button>
             <button
               onClick={() => go(index - 1)}
-              aria-label="Previous demo"
+              aria-label={t.surface.previous}
               className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <ChevronLeft className="size-4" />
             </button>
 
-            <div className="flex items-center gap-1.5 px-1" role="tablist" aria-label="Demo clips">
+            <div
+              className="flex items-center gap-1.5 px-1"
+              role="tablist"
+              aria-label={t.surface.clips}
+            >
               {MEDIA_ITEMS.map((item, i) => (
                 <button
                   key={item.src}
                   role="tab"
                   aria-selected={i === index}
-                  aria-label={item.title}
+                  aria-label={t.demos[i].title}
                   onClick={() => setIndex(i)}
                   className={cn(
                     'h-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
@@ -123,7 +129,7 @@ export const ProductSurface: React.FC<{ className?: string }> = ({ className }) 
 
             <button
               onClick={() => go(index + 1)}
-              aria-label="Next demo"
+              aria-label={t.surface.next}
               className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <ChevronRight className="size-4" />

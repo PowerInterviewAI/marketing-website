@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 
 import { Check, Copy, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ROUTES, SECTIONS } from '@/config/routes';
+import { useMessages } from '@/i18n/LocaleProvider';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
 
 import {
   DOWNLOAD_BASE_URL,
@@ -50,6 +51,7 @@ const DownloadRow: React.FC<DownloadRowProps> = ({ href, label, note }) => (
  * button and the detail lives here.
  */
 export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install }) => {
+  const t = useMessages().hero.install;
   const version = useLatestVersion();
   const [platform, setPlatform] = useState<InstallPlatform>('windows');
   const [shell, setShell] = useState<WindowsShell>('cmd');
@@ -69,23 +71,19 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
 
   return (
     <Section id={id} tone="muted" size="sm">
-      <SectionHeading
-        eyebrow="Install"
-        title="Three ways to get it running"
-        description="Pick whichever fits how you work. The one-liner downloads the latest release and launches the installer for you."
-      />
+      <SectionHeading eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <div className="mx-auto mt-10 max-w-3xl">
         <Tabs defaultValue="cli">
           <TabsList className="w-full">
             <TabsTrigger value="cli" className="flex-1">
-              Command line
+              {t.tabCli}
             </TabsTrigger>
             <TabsTrigger value="binary" className="flex-1">
-              Installer
+              {t.tabInstaller}
             </TabsTrigger>
             <TabsTrigger value="source" className="flex-1">
-              From source
+              {t.tabSource}
             </TabsTrigger>
           </TabsList>
 
@@ -97,8 +95,8 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                   onValueChange={(value) => setPlatform(value as InstallPlatform)}
                 >
                   <TabsList>
-                    <TabsTrigger value="windows">Windows</TabsTrigger>
-                    <TabsTrigger value="macos">macOS</TabsTrigger>
+                    <TabsTrigger value="windows">{t.windows}</TabsTrigger>
+                    <TabsTrigger value="macos">{t.macos}</TabsTrigger>
                   </TabsList>
                 </Tabs>
 
@@ -129,23 +127,18 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                   variant="ghost"
                   className="m-2 shrink-0"
                   onClick={copyCommand}
-                  aria-label={copied ? 'Copied' : 'Copy install command'}
-                  title={copied ? 'Copied' : 'Copy install command'}
+                  aria-label={copied ? t.copied : t.copy}
+                  title={copied ? t.copied : t.copy}
                 >
                   {copied ? <Check className="size-4 text-success" /> : <Copy className="size-4" />}
                 </Button>
               </div>
 
               {platform === 'macos' && !MACOS_SUPPORTED && (
-                <p className="mt-2 text-xs text-muted-foreground">
-                  macOS support isn&rsquo;t ready yet &mdash; we&rsquo;re actively working on it.
-                  This command is left here for reference but may not produce a working install.
-                </p>
+                <p className="mt-2 text-xs text-muted-foreground">{t.macosReference}</p>
               )}
               {platform === 'windows' && !version && (
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Showing the version-agnostic command - the release lookup runs at install time.
-                </p>
+                <p className="mt-2 text-xs text-muted-foreground">{t.versionAgnostic}</p>
               )}
             </div>
           </TabsContent>
@@ -158,8 +151,8 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                     ? `${DOWNLOAD_BASE_URL}/PowerInterviewAI-Setup-${version}.exe`
                     : RELEASES_LATEST_URL
                 }
-                label="Windows installer"
-                note={version ? `PowerInterviewAI-Setup-${version}.exe` : 'latest release'}
+                label={t.windowsInstaller}
+                note={version ? `PowerInterviewAI-Setup-${version}.exe` : t.latestRelease}
               />
               {MACOS_SUPPORTED ? (
                 <>
@@ -169,8 +162,8 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                         ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-arm64.dmg`
                         : RELEASES_LATEST_URL
                     }
-                    label="macOS - Apple Silicon"
-                    note={version ? `Power.Interview.AI-${version}-arm64.dmg` : 'latest release'}
+                    label={t.macArm}
+                    note={version ? `Power.Interview.AI-${version}-arm64.dmg` : t.latestRelease}
                   />
                   <DownloadRow
                     href={
@@ -178,14 +171,13 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                         ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-x64.dmg`
                         : RELEASES_LATEST_URL
                     }
-                    label="macOS - Intel"
-                    note={version ? `Power.Interview.AI-${version}-x64.dmg` : 'latest release'}
+                    label={t.macIntel}
+                    note={version ? `Power.Interview.AI-${version}-x64.dmg` : t.latestRelease}
                   />
                 </>
               ) : (
                 <div className="rounded-lg border border-dashed border-border px-4 py-3 text-center text-sm text-muted-foreground">
-                  macOS installers aren&rsquo;t ready yet &mdash; we&rsquo;re actively working on
-                  it.
+                  {t.macosInstallersNotReady}
                 </div>
               )}
               <a
@@ -194,20 +186,18 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                 rel="noopener noreferrer"
                 className="mt-1 text-center text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
-                View all releases on GitHub
+                {t.viewReleases}
               </a>
             </div>
           </TabsContent>
 
           <TabsContent value="source">
             <div className="rounded-lg border border-border bg-card p-6 text-center">
-              <p className="mb-4 text-sm text-muted-foreground">
-                Clone the repository and run from source. Requires Node.js&nbsp;22.15+.
-              </p>
+              <p className="mb-4 text-sm text-muted-foreground">{t.sourceText}</p>
               <Button variant="outline" asChild>
-                <Link href={`${ROUTES.docs}/installation#option-c---build-from-source`}>
-                  View build instructions
-                </Link>
+                <LocalizedLink href={`${ROUTES.docs}/installation#option-c---build-from-source`}>
+                  {t.viewBuild}
+                </LocalizedLink>
               </Button>
             </div>
           </TabsContent>
