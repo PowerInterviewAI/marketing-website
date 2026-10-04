@@ -64,7 +64,7 @@ export function HomeContent({
         {howItWorksSection}
         {mockInterviewSection}
         {featuresSection}
-        <LanguagesSection />
+        <LanguagesSection locale={locale} />
         {benefitsSection}
         {whyChooseSection}
         {pricingSection}

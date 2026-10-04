@@ -35,7 +35,7 @@ export default async function Home(props: LocaleParams) {
         locale={locale}
         howItWorksSection={<HowItWorksSection locale={locale} />}
         mockInterviewSection={<MockInterviewSection locale={locale} />}
-        featuresSection={<FeaturesSection />}
+        featuresSection={<FeaturesSection locale={locale} />}
         benefitsSection={<BenefitsSection />}
         whyChooseSection={<WhyChooseSection />}
         pricingSection={<PricingSection />}
