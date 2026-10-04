@@ -17,7 +17,7 @@
  */
 import { getFaqItems } from '@/config/faq';
 import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
-import type { Locale } from '@/i18n/config';
+import { LOCALES, LOCALE_META, type Locale } from '@/i18n/config';
 import { format } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { Plan } from '@/types';
@@ -106,6 +106,7 @@ export const buildOrganizationJsonLd = (locale: Locale) => ({
     '@type': 'ContactPoint',
     email: 'team@vectorleappulse.xyz',
     contactType: 'Customer Support',
+    availableLanguage: LOCALES.map((l) => LOCALE_META[l].label),
   },
 });
 

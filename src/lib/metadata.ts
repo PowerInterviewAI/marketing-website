@@ -69,6 +69,8 @@ export function buildMetadata({
     description,
     alternates,
     openGraph: {
+      type: 'website',
+      siteName: SITE_NAME,
       title: fullTitle,
       description,
       url: canonical,

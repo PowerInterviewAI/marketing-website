@@ -11,7 +11,7 @@ export const meta = {
     title:
       'Power Interview AI - Interview Coach & AI Meeting Note Taker | Zoom, Google Meet, Teams',
     description:
-      'New users get a full 1-hour free trial with our free model - no practical rate limit, no interruptions. Privacy-first AI interview coach and meeting note taker for Zoom, Google Meet, Microsoft Teams. Real-time transcription, AI reply suggestions, mock interview practice, and smart exports.',
+      'Privacy-first AI interview coach for Zoom, Google Meet and Teams: mock interviews, real-time transcription and reply suggestions. 1 hour free.',
     ogTitle: 'Power Interview AI - Interview Coach & Meeting Note Taker',
     ogAlt: 'Power Interview AI - AI interview coach and meeting note taker',
     twitterTitle: 'Power Interview AI - Interview Coach & AI Note Taker',
