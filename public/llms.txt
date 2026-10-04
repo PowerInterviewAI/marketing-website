@@ -33,3 +33,14 @@ Power Interview AI is a standalone desktop application, not a browser extension 
 
 - [Privacy Policy](https://www.powerinterviewai.com/privacy)
 - [Terms of Service](https://www.powerinterviewai.com/terms)
+
+## Russian (Русский)
+
+The product pages are also published in Russian under /ru. Each has an English counterpart at the same path without the prefix, linked with hreflang. The documentation and the legal pages are English only for now.
+
+- [Главная](https://www.powerinterviewai.com/ru): обзор, бесплатный пробный час и демонстрация продукта.
+- [Как это работает](https://www.powerinterviewai.com/ru/how-it-works): установка, резюме и описание вакансии, пробное собеседование, затем живой звонок.
+- [Пробное собеседование](https://www.powerinterviewai.com/ru/mock-interview): голосовое пробное собеседование в приложении, оценённый отчёт и тарификация.
+- [Цены](https://www.powerinterviewai.com/ru/pricing): бесплатный пробный период, пакеты кредитов и оплата криптовалютой.
+- [Вопросы и ответы](https://www.powerinterviewai.com/ru/faq): платформы, конфиденциальность, оплата и использование.
+- [Команда](https://www.powerinterviewai.com/ru/team): разработчики Power Interview AI.

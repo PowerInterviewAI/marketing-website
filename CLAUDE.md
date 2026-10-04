@@ -17,25 +17,25 @@ Pre-commit hooks run Prettier + ESLint on staged TypeScript files automatically 
 
 ## Architecture
 
-This is a **Next.js App Router marketing site** for Power Interview AI — no database, deployed to Vercel with normal server rendering. All routes live under `src/app/`.
+This is a **Next.js App Router marketing site** for Power Interview AI — no database, deployed to Vercel with normal server rendering. All routes live under `src/app/[locale]/` - see **Localization** below.
 
 ### Routing & Pages
 
 **`src/config/routes.ts` is the single source of truth for every internal destination.** `ROUTES` (page paths), `SECTIONS` (home-page anchor ids), `NAV_LINKS`, `SITEMAP_ROUTES` and `LEGACY_ANCHOR_REDIRECTS` all live there, and the header, footer, `sitemap.ts` and `next.config.ts` read from it. They each used to keep their own hand-written list and had already drifted — the footer pointed "Pricing" at a scroll target while the header pointed it at `/pricing`. Add a route in one place; don't reintroduce a second list.
 
-File-based routing under `src/app/`:
+File-based routing under `src/app/[locale]/` (the `[locale]` segment is `en` or `ru`; English URLs carry no prefix):
 
-- `src/app/page.tsx` — home route (`/`), a Server Component rendering `HomeContent`. Both are Server Components; the async data-fetching sections are rendered by the page and passed to `HomeContent` as already-resolved elements
-- `src/app/how-it-works/`, `mock-interview/`, `pricing/`, `faq/`, `team/`, `privacy/`, `terms/` — standalone pages
-- `src/app/docs/page.tsx` + `src/app/docs/[slug]/page.tsx` — docs listing and individual doc pages (Server Components, `generateStaticParams` prerenders all slugs)
-- `src/app/not-found.tsx` — 404 for unmatched paths, rendered inside `PageChrome` so it still offers the full nav
+- `src/app/[locale]/page.tsx` — home route (`/`), a Server Component rendering `HomeContent`. Both are Server Components; the async data-fetching sections are rendered by the page and passed to `HomeContent` as already-resolved elements
+- `src/app/[locale]/how-it-works/`, `mock-interview/`, `pricing/`, `faq/`, `team/`, `privacy/`, `terms/` — standalone pages
+- `src/app/[locale]/docs/page.tsx` + `src/app/[locale]/docs/[slug]/page.tsx` — docs listing and individual doc pages (Server Components, `generateStaticParams` prerenders all slugs)
+- `src/app/[locale]/not-found.tsx` — 404 for unmatched paths, rendered inside `PageChrome` so it still offers the full nav. Reached through the `[locale]/[...rest]` catch-all, which calls `notFound()`
 - `src/app/sitemap.ts` / `src/app/robots.ts` — generated from `SITEMAP_ROUTES` + `src/lib/docs.ts`'s slug list, not hand-maintained
 
 Every page except the docs (which have their own sidebar layout) uses `PageChrome` (`src/components/PageChrome.tsx`) for the Header/Footer.
 
 ### The routing rules
 
-**1. Every navigation destination is a link.** `NavLink` (`src/components/NavLink.tsx`) always renders a `next/link`. Its predecessor, `SectionNavLink`, rendered a `<button>` calling `scrollIntoView` whenever the target was a section of the page you were already on — so the same nav item was a link on `/pricing` and not a link on `/`. That cost the URL in the status bar, middle-click and cmd-click, copy-link, crawlability, and left the address bar reading `/` after you'd scrolled to Features. **Never render a nav destination as a `<button>`.**
+**1. Every navigation destination is a link.** `NavLink` (`src/components/NavLink.tsx`) always renders a link (a `LocalizedLink`, i.e. `next/link` that keeps the active locale). Its predecessor, `SectionNavLink`, rendered a `<button>` calling `scrollIntoView` whenever the target was a section of the page you were already on — so the same nav item was a link on `/pricing` and not a link on `/`. That cost the URL in the status bar, middle-click and cmd-click, copy-link, crawlability, and left the address bar reading `/` after you'd scrolled to Features. **Never render a nav destination as a `<button>`.**
 
 **2. The primary nav is routes only; anchors live in the footer.** `NAV_LINKS` is Home / How it works / Pricing / FAQ / Team / Docs — all real pages. Mock interview is a real page too and deliberately stays out of it, even though it now leads the home page: seven items is more than the bar fits at `md`, and the section is reached from the hero's secondary CTA, the head of the Features grid, the top of the footer's Product column and the docs. Add it to `NAV_LINKS` only alongside a nav that can hold it. Features, Why Us and Contact are still home-page sections, reached by scrolling and linked from the footer as `/#features` etc., which is conventional there and is a real, shareable URL. The bar used to mix the two with identical styling, which meant one nav with two behaviours and an active state that needed two rules to describe it (`pathname` for pages, a scroll-spy for anchors). Active state is now `pathname` alone — `useScrollSpy` is gone, along with the document-wide `MutationObserver` it ran.
 
@@ -49,13 +49,28 @@ Every page except the docs (which have their own sidebar layout) uses `PageChrom
 
 JSON-LD is scoped the same way (`src/lib/jsonLd.ts`): `Organization` is site-wide and stays in the root layout, `SoftwareApplication` is on the home page, `FAQPage` is on `/faq`. Structured data has to describe the page it sits on — all three used to be emitted on every route, including `/privacy` and every docs page.
 
+### Localization (English + Russian)
+
+The site ships in English (default, unprefixed: `/pricing`) and Russian (`/ru/pricing`). Everything about it hangs off `src/i18n/`:
+
+- **Routing.** Every page lives under `src/app/[locale]/`. `src/proxy.ts` rewrites unprefixed requests onto the hidden `/en` segment and 308s `/en/...` back to the clean URL, so there is one URL per page. There is deliberately **no `Accept-Language` redirect**: a crawler and a person must get the same page from the same URL; the header's EN | RU switcher (`LanguageSwitcher`, real `<a hreflang>` links that keep the hash) is how a reader chooses. `src/i18n/config.ts` is the single source of truth (`LOCALES`, `localizePath`, `stripLocale`) and, like `routes.ts`, must stay free of imports because the proxy and `next.config.ts` read it outside the app bundle.
+- **Copy lives in the catalogue, not in components.** `src/i18n/messages/<locale>/<namespace>.ts`, one namespace per area (`chrome`, `hero`, `features`, `faq`, `meta` ...), aggregated by each locale's `index.ts`. **English is the source type**: `Messages = typeof en`, and every Russian file is annotated with the English type, so a missing or extra key is a `tsc` error. Adding a namespace is four edits: the `en` file, the `ru` file, and both `index.ts`.
+- **Server vs client.** Server Components take a `locale` prop and call `getMessages(locale)`; pages get it from `getLocale(props)` (`src/i18n/server.ts`). Client Components cannot take the full catalogue (it would ship both languages), so `<LocaleProvider>` in the `[locale]` layout hands them only the slice in `getClientMessages` (`chrome`, `common`, `docs`, `hero`) via `useMessages()` / `useLocale()`. A string a Client Component renders must live in one of those namespaces. `not-found.tsx` and `loading.tsx` receive **no route params**, so their text is rendered by client components (`NotFoundContent`, `Skeletons`, `DocsNotFoundBody`) that read the provider.
+- **Strings are plain data.** No functions in messages (they cannot cross the server/client boundary). `{name}` placeholders go through `format()`; `**phrase**` marks emphasis and is rendered by `RichText` so a translation can bold the right words; counts that agree with a noun go through `pluralize()` (Russian needs four forms: 1 язык, 2 языка, 5 языков), and `LANGUAGE_COUNT` / `CREDIT_RATES` stay the source of every derived number - pass them in, don't write them into a message. The restated-number exceptions are the same as before: the FAQ answers and `mock-interview.md` quote credit rates as text, so a rate change is now `src/lib/plans.ts`, `faq.ts` in **each** locale, the markdown, and the backend.
+- **Language names** in the Languages section come from `Intl.DisplayNames` for non-English locales instead of a second hand-written table.
+- **English-only pages.** The legal pages and the docs (markdown in `src/content/docs/`) are not translated yet. Their *chrome* is, and under `/ru` an `EnglishOnlyNotice` links to the English page. They are listed in `ENGLISH_ONLY_ROUTES` (`src/config/routes.ts`): `buildMetadata({ translated: false })` canonicalises `/ru/privacy` to `/privacy` with no hreflang, and `sitemap.ts` lists them once, in English - claiming `ru` for English text is a mismatch, and two indexable copies compete. **When a page gets translated, remove it from that list and drop `translated: false`.**
+- **SEO.** `buildMetadata` takes `locale` and emits a self-referencing canonical plus hreflang for every locale and `x-default`; the sitemap lists each translated page once per locale with the same alternates. JSON-LD (`Organization`, `SoftwareApplication`, `FAQPage`) is built per locale from the catalogue, so a Russian page never carries English structured data. The legacy anchor and doc redirects in `next.config.ts` are generated for every locale.
+- **Adding a locale** (`de`, ...): add it to `LOCALES` and `LOCALE_META`, add the files to every namespace (tsc lists what is missing), add its `Intl` plural forms where `PluralForms` are written, and check `public/llms.txt`.
+
+`public/llms.txt` is hand-written and carries the `/ru` URLs in its own section.
+
 ### Documentation System
 
 Markdown files live in `src/content/docs/`. `src/lib/docs.ts` reads them via Node `fs` (there's no `import.meta.glob` equivalent in Next.js) and holds the **single canonical `ORDER` array** used by both the docs index and the sidebar — don't add a second one. Adding a new doc: drop the `.md` file in `src/content/docs/` and add its slug to `ORDER` in `src/lib/docs.ts`.
 
-The markdown render pipeline (`src/app/docs/[slug]/page.tsx`) uses `react-markdown` + `remark-gfm` server-side; only the image renderer (`src/components/docs/MarkdownImage.tsx`) is a client component, since it's the only genuinely interactive piece (click-to-preview lightbox; `.mp4` sources render as a `<video>` with `controls` + `preload="metadata"` instead). Alt text doubles as the visible figure caption, so write a real description — obvious filler (`![Image](…)`) is detected and suppressed from the caption.
+The markdown render pipeline (`src/app/[locale]/docs/[slug]/page.tsx`) uses `react-markdown` + `remark-gfm` server-side; only the image renderer (`src/components/docs/MarkdownImage.tsx`) is a client component, since it's the only genuinely interactive piece (click-to-preview lightbox; `.mp4` sources render as a `<video>` with `controls` + `preload="metadata"` instead). Alt text doubles as the visible figure caption, so write a real description — obvious filler (`![Image](…)`) is detected and suppressed from the caption.
 
-**Every doc surface must offer a route back to `/docs`.** The docs root is reachable from the sidebar's "All documentation" entry (`DocsSidebar`), the breadcrumb (`DocsBreadcrumb`), the foot-of-page pager (`DocsPager`, which also does prev/next from `getDocNeighbours`), and the docs-scoped 404 at `src/app/docs/[slug]/not-found.tsx`. Don't drop one without replacing it — a reader landing on a doc from search previously had no way to the index at all on mobile.
+**Every doc surface must offer a route back to `/docs`.** The docs root is reachable from the sidebar's "All documentation" entry (`DocsSidebar`), the breadcrumb (`DocsBreadcrumb`), the foot-of-page pager (`DocsPager`, which also does prev/next from `getDocNeighbours`), and the docs-scoped 404 at `src/app/[locale]/docs/[slug]/not-found.tsx`. Don't drop one without replacing it — a reader landing on a doc from search previously had no way to the index at all on mobile.
 
 `.markdown-body` (github-markdown-css) is scoped to the `<article>` holding the rendered markdown, **not** to the whole content column. It restyles every `ol`/`ul`/`a` beneath it, which turned the breadcrumb into a numbered list and put bullets on the index cards. Keep page chrome outside it.
 
@@ -69,8 +84,8 @@ The six pending docs screenshots are still placeholders, generated by `node scri
 - `src/components/ui/` — shadcn/ui base components (Button, Card) with `cva` variants
 - `src/components/docs/` — `DocsLayout.tsx` + `DocsSidebar.tsx` for the docs section (client components; the doc slug list is resolved server-side in the page and passed down as a prop, since `fs` isn't available in a browser bundle)
 - `cn()` utility in `src/lib/utils.ts` (clsx + tailwind-merge) — always use this for conditional classnames
-- Always use `next/link`'s `Link` for internal navigation, never a raw `<a href="/...">` (a full page reload) and never a `<button>` with a scroll handler. `react-router-dom` isn't a dependency anymore
-- Never nest a `<Button>` inside a `<Link>` — that renders a `<button>` inside an `<a>`. Use `<Button asChild><Link …/></Button>`
+- Always use `LocalizedLink` (`src/i18n/LocalizedLink.tsx`, a `next/link` that prefixes the active locale) for internal navigation, never a bare `next/link` `Link` (it would drop a Russian reader back into English) and never a raw `<a href="/...">` (a full page reload) and never a `<button>` with a scroll handler. `react-router-dom` isn't a dependency anymore
+- Never nest a `<Button>` inside a `<Link>` — that renders a `<button>` inside an `<a>`. Use `<Button asChild><LocalizedLink …/></Button>`
 
 ### The two things the product does, in order
 
@@ -79,7 +94,7 @@ The site sells a mock interview *and* a live assistant, and both are first-party
 - `HomeContent` renders `MockInterviewSection` above `FeaturesSection` (it used to sit below it, reading as a footnote to the live assistant)
 - `HowItWorksSection` is four steps, not three: install, add your CV and the job description, rehearse as a mock interview, then join the real call. The stealth hotkey callout hangs off the live step, which is now index 3
 - `FeaturesSection` leads with the `mock` card. Note the bento constraint: a `wide` card spans two of three columns, so each is followed by exactly one narrow card - reorder them in pairs or you leave an empty cell
-- `FAQ_ITEMS` leads its Product category with the mock question and its Plans & billing category with mock pricing (the credits answer cross-references it as "the question above")
+- The `faq.items` array in `src/i18n/messages/<locale>/faq.ts` (read through `getFaqItems` in `src/config/faq.ts`) leads its Product category with the mock question and its Plans & billing category with mock pricing (the credits answer cross-references it as "the question above")
 - `ORDER` in `src/lib/docs.ts` puts `mock-interview` ahead of `live-interview`, and `public/llms.txt` matches
 - Hero, `WhyChooseSection` and `BenefitsSection` copy all open on the rehearsal
 
@@ -111,7 +126,7 @@ Every route exports `metadata` (static pages) or `generateMetadata` (`/docs/[slu
 - **Descriptions belong in the 120–160 character band.** Google truncates the snippet around there. Home used to run 566 characters, `/how-it-works` 262, `/pricing` 182 — everything past the cut is invisible and the sentence ends mid-clause.
 - **The home page passes `absoluteTitle: true`** so its title is the brand-and-value line rather than `Home - Power Interview AI`. The most valuable title on the site was spending its first four characters on the word "Home".
 - **Doc descriptions come from the doc.** `getDocDescription()` in `src/lib/docs.ts` reuses `getDocExcerpt()` to take the opening paragraph as plain text. They used to be `Documentation: ${title}` — 27–39 characters, identical in shape across all seven pages, which is a snippet Google discards.
-- **Any page that 404s must be `noindex`.** Both `src/app/not-found.tsx` and `src/app/docs/[slug]/not-found.tsx` set it; without it they inherit the root layout's `index, follow`.
+- **Any page that 404s must be `noindex`.** Both `src/app/[locale]/not-found.tsx` and `src/app/[locale]/docs/[slug]/not-found.tsx` set it; without it they inherit the root layout's `index, follow`.
 - **`sitemap.ts` never lists a URL that 3xx's**, and doc `lastModified` comes from the markdown file's mtime (`getDocLastModified`), not `new Date()` — a lastmod that moves for pages that didn't change is a signal crawlers learn to ignore.
 - **`public/llms.txt` lists routes too.** It is not generated; update it when routes change. It had been advertising `/features`, `/benefits`, `/why-choose` and `/contact` as canonical URLs long after they became redirects.
 
@@ -121,7 +136,7 @@ Every route exports `metadata` (static pages) or `generateMetadata` (`/docs/[slu
 - **There is deliberately no `aggregateRating`.** It claimed 4.8 from 156 ratings while `src/config/testimonials.ts` is an empty array and no rating or review appears anywhere on the site. Google requires review markup to reflect ratings genuinely visible on the page; inventing them risks a manual action against the domain. Restore it only when real ratings are collected and shown, and derive it from that data — the same rule `testimonials.ts` already states for quotes.
 - Don't claim a platform there's no build for (`operatingSystem` was `Windows, macOS, Linux`) or pass a logo off as a `screenshot`.
 
-The root layout (`src/app/layout.tsx`) holds the sitewide default metadata, `metadataBase`, the `Organization` JSON-LD, the anti-FOUC theme-init script, and Google Analytics via `next/script`.
+The root layout (`src/app/[locale]/layout.tsx`) holds the sitewide default metadata, `metadataBase`, the `Organization` JSON-LD, the anti-FOUC theme-init script, and Google Analytics via `next/script`.
 
 ### Model naming
 
@@ -146,4 +161,4 @@ Copy `.env.example` to `.env.local`. Variables must be prefixed `NEXT_PUBLIC_` t
 
 ### Styling
 
-Tailwind CSS with custom HSL CSS variables for theming (defined in `src/styles/index.css`, imported globally in `src/app/layout.tsx`). Custom scrollbar and markdown prose styles are also in that file. Tailwind config in `tailwind.config.js` uses `darkMode: 'class'`.
+Tailwind CSS with custom HSL CSS variables for theming (defined in `src/styles/index.css`, imported globally in `src/app/[locale]/layout.tsx`). Custom scrollbar and markdown prose styles are also in that file. Tailwind config in `tailwind.config.js` uses `darkMode: 'class'`.
