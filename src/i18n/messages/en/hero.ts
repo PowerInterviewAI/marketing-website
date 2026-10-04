@@ -31,7 +31,7 @@ export const hero = {
   download: {
     forWindows: 'Download for Windows',
     generic: 'Download',
-    macosNotReady: 'macOS support isn’t ready yet — we’re actively working on it.',
+    macosNotReady: 'macOS support isn’t ready yet - we’re actively working on it.',
     windowsInstead: 'Download for Windows instead',
     allReleases: 'All releases',
     latest: 'latest',
@@ -84,14 +84,14 @@ export const hero = {
     copy: 'Copy install command',
     copied: 'Copied',
     macosReference:
-      'macOS support isn’t ready yet — we’re actively working on it. This command is left here for reference but may not produce a working install.',
+      'macOS support isn’t ready yet - we’re actively working on it. This command is left here for reference but may not produce a working install.',
     versionAgnostic:
       'Showing the version-agnostic command - the release lookup runs at install time.',
     windowsInstaller: 'Windows installer',
     latestRelease: 'latest release',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady: 'macOS installers aren’t ready yet — we’re actively working on it.',
+    macosInstallersNotReady: 'macOS installers aren’t ready yet - we’re actively working on it.',
     viewReleases: 'View all releases on GitHub',
     sourceText: 'Clone the repository and run from source. Requires Node.js 22.15+.',
     viewBuild: 'View build instructions',
