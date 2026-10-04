@@ -3,10 +3,12 @@ import React from 'react';
 import 'github-markdown-css/github-markdown.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { notFound } from 'next/navigation';
 import Script from 'next/script';
 
 import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { LOCALES, LOCALE_META, isLocale } from '@/i18n/config';
 import { organizationJsonLd } from '@/lib/jsonLd';
 import { cn } from '@/lib/utils';
 import '@/styles/index.css';
@@ -146,10 +148,27 @@ const themeInitScript = `
 })();
 `;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// Only the configured locales exist; src/proxy.ts rewrites everything else onto
+// /en, where the catch-all route renders the 404.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+
   return (
     <html
-      lang="en"
+      lang={LOCALE_META[locale].htmlLang}
       className={cn(fontSans.variable, fontDisplay.variable, fontMono.variable)}
       suppressHydrationWarning
     >
