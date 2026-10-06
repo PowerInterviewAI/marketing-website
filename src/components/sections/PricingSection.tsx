@@ -41,6 +41,8 @@ const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
   const t = pricing.metering;
   // Each amount carries its own noun: "1 кредит", "10 кредитов", "40 кредитов".
   const credits = (n: number) => `${n} ${pluralize(locale, n, pricing.creditNoun)}`;
+  const minutes = (n: number) => `${n} ${pluralize(locale, n, pricing.minuteNoun)}`;
+  const mockMinutes = mockSessionMinutes(8);
 
   return (
     <Reveal className="mx-auto mt-6 max-w-3xl">
@@ -69,8 +71,8 @@ const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
             <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {format(t.mockText, {
                 rate: credits(CREDIT_RATES.perMinute),
-                minutes: mockSessionMinutes(8),
-                session: credits(CREDIT_RATES.perMinute * mockSessionMinutes(8)),
+                minutes: minutes(mockMinutes),
+                session: credits(CREDIT_RATES.perMinute * mockMinutes),
               })}
             </dd>
           </div>

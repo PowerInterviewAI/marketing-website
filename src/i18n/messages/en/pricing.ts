@@ -34,7 +34,7 @@ export const pricing = {
       '{rate} a minute while the assistant is running, so a 30-minute call is about {thirty}. It stops when your credits run out.',
     mock: 'Mock interview',
     mockText:
-      '{rate} a minute from the first question to the report, so an 8-question session of about {minutes} minutes is about {session}. If your credits run out, it ends and you still get your report.',
+      '{rate} a minute from the first question to the report, so an 8-question session of about {minutes} costs about {session}. If your credits run out, it ends and you still get your report.',
   },
 
   plans: {
