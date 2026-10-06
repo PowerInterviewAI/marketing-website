@@ -94,7 +94,7 @@ export const faq = {
       question: 'How do credits work?',
       category: 'billing',
       answer:
-        'A live session is metered by the clock: 10 credits per minute of reply suggestions, code analysis and transcription, so a 30-minute interview costs roughly 300 credits. A mock interview is priced by the work delivered instead - see the question above. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($150 for ~3,000 minutes).',
+        'A live session is metered by the clock: 10 credits per minute of reply suggestions, code analysis and transcription, so a 30-minute interview costs roughly 300 credits. A mock interview is priced by the work delivered instead - see the question above. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($175 for ~3,000 minutes).',
     },
     {
       question: 'What payment methods do you accept?',
