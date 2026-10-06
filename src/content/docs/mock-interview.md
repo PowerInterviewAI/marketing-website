@@ -16,7 +16,7 @@ This is the half of the app to reach for first: you can run a session tonight, w
 | Profile / CV   | **Account**                             | Questions and scoring are both grounded in it.                                    |
 | Job context    | **Account**                             | Stands in for the role, which the setup dialog no longer asks for.                |
 | Microphone     | **Configuration**                       | Your answers are transcribed from it.                                             |
-| Credits        | Bought in the app                       | A session is priced per question - see [What a Session Costs](#what-a-session-costs). |
+| Credits        | Bought in the app                       | Billed by the minute - see [What a Session Costs](#what-a-session-costs).              |
 
 If your name or profile is missing, the app says so and sends you to **Account** rather than starting a session you would have to abandon.
 
@@ -32,7 +32,7 @@ Choose **Mock interview** on the home screen. The setup dialog asks for three th
 | -------------- | -------------------------------- | -------------------------------------------------------------------------------------- |
 | **Seniority**  | Junior, Mid, Senior, Staff       | Sets how deep the questions go and how much the answers are expected to carry.          |
 | **Difficulty** | Easy, Standard, Hard             | Independent of seniority - a hard junior interview is a real thing.                     |
-| **Questions**  | 3, 5, 8 or 12                    | The price of each length is shown beside it; a length your balance cannot cover is disabled. |
+| **Questions**  | 3, 5, 8 or 12                    | Each length shows roughly how long it runs; the dialog says how far your balance goes. |
 
 The interview language is the same setting the live assistant uses, edited in the same place - change it here and the live assistant follows, and the other way round.
 
@@ -82,18 +82,18 @@ From the report you can **practice again** with the same setup, or finish and re
 
 ## What a Session Costs
 
-A live interview is metered by the minute. A mock interview is priced by the work delivered instead, because a large part of its wall clock is the interviewer generating a question, speaking it, scoring the turn and writing the report - none of which you can act during - and most of the rest is your think-time, which is the behaviour the feature exists to train.
+A mock interview is billed like a live one: **10 credits a minute**, from the first question to the report.
 
-| Unit                        | Credits |
-| --------------------------- | ------- |
-| Question                    | 20      |
-| Follow-up                   | 10      |
-| Report                      | 40      |
-| Transcription, for the whole session | 0 |
+| Length       | Usually runs | Roughly costs |
+| ------------ | ------------ | ------------- |
+| 3 questions  | 8 minutes    | 80 credits    |
+| 5 questions  | 13 minutes   | 130 credits   |
+| 8 questions  | 20 minutes   | 200 credits   |
+| 12 questions | 30 minutes   | 300 credits   |
 
-So a 5-question session costs **140 credits** before follow-ups and at most 240 if every question draws both of them; an 8-question session is **200** and at most 360.
+These are estimates: the session is billed for the time it actually takes, so long answers and follow-ups make it longer. The setup dialog shows the estimate and how many minutes your balance covers.
 
-The app quotes the guaranteed price in the setup dialog and checks your balance against it before the first question, so a session that starts is a session that reaches its report. Follow-ups are charged as they are delivered, and are quietly declined rather than allowed to eat into what the report needs.
+You need at least a minute of credit to start. The app warns you when about five minutes and one minute are left, and if your credits run out mid-interview the session ends there, keeps the answer you were giving, and still produces your report.
 
 Your 1-hour free trial is 600 credits, which covers a couple of full sessions.
 

@@ -235,7 +235,7 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 
 Credits are consumed while the assistant is running - covering AI reply suggestions and transcription. Your remaining credit balance is shown live in the titlebar, and in the status bar while in stealth mode.
 
-A [mock interview](/docs/mock-interview) is charged differently: per question, follow-up and report rather than by the minute, with its transcription unmetered. The price of a session is quoted in its setup dialog before it starts.
+A session needs at least a minute of credit to start. The app warns you when about five minutes and one minute are left, and when your credits run out the session stops and offers to save the transcript. A [mock interview](/docs/mock-interview) is billed the same way, at the same rate.
 
 To buy credits:
 

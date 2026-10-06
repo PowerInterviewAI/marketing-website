@@ -88,13 +88,13 @@ export const faq = {
       question: 'What does a mock interview cost?',
       category: 'billing',
       answer:
-        'A mock interview is priced per question rather than per minute, so thinking about your answer is free. Each question costs 20 credits, each follow-up 10, and the report at the end 40; the transcription that runs throughout is not metered at all. A 5-question session is therefore 140 credits before follow-ups and an 8-question session 200, and the app quotes the price and checks your balance before the interview starts. Your 1-hour free trial is 600 credits, which covers a couple of full sessions.',
+        'The same as the live assistant: 10 credits a minute, from the first question to the report. A 5-question session usually runs about 13 minutes (about 130 credits) and an 8-question one about 20 (about 200), and the app shows that estimate and how far your balance goes before you start. You need at least a minute of credit to begin, and if your credits run out mid-interview it ends there and you still get your report. Your 1-hour free trial is 600 credits, which covers a couple of full sessions.',
     },
     {
       question: 'How do credits work?',
       category: 'billing',
       answer:
-        'A live session is metered by the clock: 10 credits per minute of reply suggestions, code analysis and transcription, so a 30-minute interview costs roughly 300 credits. A mock interview is priced by the work delivered instead - see the question above. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($175 for ~3,000 minutes).',
+        'Every session is metered by the clock at 10 credits per minute, live or mock, so a 30-minute interview costs roughly 300 credits. A session needs at least a minute of credit to start, the app warns you at five minutes and at one minute left, and it stops when your credits run out. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($175 for ~3,000 minutes).',
     },
     {
       question: 'What payment methods do you accept?',

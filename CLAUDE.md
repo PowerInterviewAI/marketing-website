@@ -105,9 +105,9 @@ Anything describing the mock interview has to match the client (`../client`), wh
 - Setup is seniority (junior/mid/senior/staff), difficulty (easy/standard/hard) and 3/5/8/12 questions. The role is **not** collected: it comes from the account's job context, and the same profile drives the questions and the scoring
 - The interviewer speaks its questions, gates the microphone while it does, and can follow up **twice** on one question. A language with no voice makes it write them instead
 - The session ends in a scored report: overall score, strengths, gaps, then per-question score, justification and a stronger answer, exportable as DOCX or Markdown
-- Pricing is per unit of work, not per minute: 20 credits a question, 10 a follow-up, 40 for the report, and its transcription is unmetered (`app/cfg/payment.py` in `../backend`). Quote both halves whenever the site talks about credits, or the copy implies a mock session is metered by the clock
+- Pricing is per minute, the same as a live session: 10 credits a minute from the first question to the report (`CREDITS_PER_MINUTE` in `../backend/app/cfg/payment.py`). Any session needs a minute of credit to start and stops when the credits run out; a mock still delivers its report. It used to be priced per question, follow-up and report - copy that says so is stale
 
-`CREDIT_RATES` in `src/lib/plans.ts` mirrors those rates for the components (the pricing section's metering note reads it, alongside the credit packs it already mirrored from the same backend file). Markdown can't import it, so `src/content/docs/mock-interview.md` restates the numbers and `src/config/faq.ts` restates them again for the JSON-LD; a rate change is those three places plus the backend.
+`CREDIT_RATES` in `src/lib/plans.ts` mirrors that rate for the components (the pricing section's metering note reads it, alongside the credit packs it already mirrored from the same backend file), and `mockSessionMinutes` mirrors the desktop app's length estimate. Markdown can't import either, so `src/content/docs/mock-interview.md` restates the numbers in its cost table and the FAQ answers restate them as text (`src/config/faq.ts` reads those for the JSON-LD); a rate change is those places plus the backend.
 
 ### The language list is data, not copy
 

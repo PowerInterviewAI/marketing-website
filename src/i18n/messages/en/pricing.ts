@@ -31,10 +31,10 @@ export const pricing = {
     title: 'What a session spends',
     live: 'Live interview',
     liveText:
-      '{rate} a minute while the assistant is running, so a 30-minute call is about {thirty}.',
+      '{rate} a minute while the assistant is running, so a 30-minute call is about {thirty}. It stops when your credits run out.',
     mock: 'Mock interview',
     mockText:
-      '{question} a question, {followUp} a follow-up and {report} for the report, with the transcription unmetered - so an 8-question session is {session} before follow-ups, and thinking time is free.',
+      '{rate} a minute from the first question to the report, so an 8-question session of about {minutes} costs about {session}. If your credits run out, it ends and you still get your report.',
   },
 
   plans: {

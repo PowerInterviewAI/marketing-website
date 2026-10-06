@@ -23,23 +23,21 @@ export function getPlans(): Plan[] {
 
 /**
  * What credits are spent on, mirrored from the same backend config as the
- * packs above (CREDITS_PER_MINUTE and the three MOCK_CREDITS_PER_* values in
- * backend/app/cfg/payment.py).
+ * packs above (CREDITS_PER_MINUTE in backend/app/cfg/payment.py).
  *
- * The two halves are metered differently and the site has to say so: a live
- * session is charged by the minute, a mock interview by the question, the
- * follow-up and the report, with its transcription unmetered. Quoting only
- * the per-minute rate - which the FAQ did for as long as mock practice was a
- * ChatGPT workaround - now describes half the product.
+ * One rate for everything: a live session and a mock interview are both
+ * metered by the minute, and both stop when the credits run out. Mock used to
+ * be priced per question, follow-up and report; it no longer is.
  */
 export const CREDIT_RATES = {
-  livePerMinute: 10,
-  mockPerQuestion: 20,
-  mockPerFollowUp: 10,
-  mockPerReport: 40,
+  perMinute: 10,
 } as const;
 
-/** What a mock interview of `questions` costs before any follow-ups. */
-export function mockSessionPrice(questions: number): number {
-  return CREDIT_RATES.mockPerQuestion * questions + CREDIT_RATES.mockPerReport;
+/**
+ * How long a mock interview of `questions` usually runs, in minutes. Mirrors
+ * the desktop app's own estimate (`mockSessionMinutes`), so the site and the
+ * setup screen quote the same figure.
+ */
+export function mockSessionMinutes(questions: number): number {
+  return Math.round(questions * 2.5);
 }

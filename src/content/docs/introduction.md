@@ -80,7 +80,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 ### Credits & Payments
 
 - Credits are consumed while the assistant is running (AI suggestions and transcription)
-- A mock interview is priced per question, follow-up and report instead of by the minute, so think-time is free
+- A mock interview is billed by the minute at the same rate, and any session stops when your credits run out
 - Credit balance is displayed live inside the app
 - Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
 
