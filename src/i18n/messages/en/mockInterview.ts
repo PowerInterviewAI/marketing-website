@@ -36,8 +36,8 @@ export const mockInterview = {
       body: 'One setting covers the live assistant and the mock alike. {voices} of them the interviewer speaks aloud; where a language has no voice available it writes its questions instead, and the follow-ups and the scoring are unchanged.',
     },
     pricing: {
-      title: 'Priced by the question, not the clock',
-      body: 'Think-time is free. You pay for each question, each follow-up and the final report; the transcription that runs the whole way through is not metered at all.',
+      title: 'Priced by the minute, like the live assistant',
+      body: 'One rate for both: 10 credits a minute from the first question to the report. If your credits run out, the interview ends there and you still get your report.',
     },
     report: {
       title: 'The report leaves with you',

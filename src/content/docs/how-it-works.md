@@ -103,4 +103,4 @@ Session transcript/suggestion content is retained in memory for the active app s
 
 Credits are consumed while AI-assisted features are active (including transcription and suggestion generation). Credit balance is refreshed periodically during a running session and updates after successful payments.
 
-A mock interview is metered differently, because its wall clock is a poor measure of the work delivered: it is charged per question, per follow-up and once for the report, and its transcription is not metered at all. The client quotes the price before the session begins and the balance is checked against it up front, so a session that starts can reach its report.
+A mock interview is metered the same way, at the same rate, from its first question to its report. Any session needs at least a minute of credit to start, the app warns at five minutes and at one minute left, and a session stops when the balance reaches zero - a mock interview still delivers its report.

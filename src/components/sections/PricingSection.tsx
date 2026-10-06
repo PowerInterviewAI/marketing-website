@@ -10,7 +10,7 @@ import { LocalizedLink } from '@/i18n/LocalizedLink';
 import type { Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { CREDIT_RATES, mockSessionPrice } from '@/lib/plans';
+import { CREDIT_RATES, mockSessionMinutes } from '@/lib/plans';
 
 import { PricingCards } from './PricingCards';
 
@@ -28,13 +28,13 @@ const TierValueCell: React.FC<{ value: TierValue; included: string }> = ({ value
   );
 
 /**
- * How the two kinds of session are metered.
+ * What each kind of session spends.
  *
- * The heading above quotes the per-minute rate, which is the whole story for a
- * live interview and none of it for a mock one: that is charged per question,
- * per follow-up and once for the report, and its transcription isn't metered
- * at all. Rates come from CREDIT_RATES so this and the mock interview page
- * can't quote different numbers at each other.
+ * Both are metered by the minute at the same rate, but a reader comparing
+ * them wants to see what a typical session of each comes to, and that a
+ * session stops when the credits run out. Rates come from CREDIT_RATES so
+ * this and the mock interview page can't quote different numbers at each
+ * other.
  */
 const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { pricing } = getMessages(locale);
@@ -51,8 +51,8 @@ const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
             <dt className="text-sm font-medium text-foreground">{t.live}</dt>
             <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {format(t.liveText, {
-                rate: credits(CREDIT_RATES.livePerMinute),
-                thirty: credits(CREDIT_RATES.livePerMinute * 30),
+                rate: credits(CREDIT_RATES.perMinute),
+                thirty: credits(CREDIT_RATES.perMinute * 30),
               })}
             </dd>
           </div>
@@ -68,10 +68,9 @@ const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
             </dt>
             <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {format(t.mockText, {
-                question: credits(CREDIT_RATES.mockPerQuestion),
-                followUp: credits(CREDIT_RATES.mockPerFollowUp),
-                report: credits(CREDIT_RATES.mockPerReport),
-                session: credits(mockSessionPrice(8)),
+                rate: credits(CREDIT_RATES.perMinute),
+                minutes: mockSessionMinutes(8),
+                session: credits(CREDIT_RATES.perMinute * mockSessionMinutes(8)),
               })}
             </dd>
           </div>
@@ -117,7 +116,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
     { label: tier.rateLimit.label, trial: tier.rateLimit.trial, paid: tier.rateLimit.paid },
   ];
 
-  const rate = CREDIT_RATES.livePerMinute;
+  const rate = CREDIT_RATES.perMinute;
 
   return (
     <Section id={SECTIONS.pricing} aria-labelledby="pricing-heading">
