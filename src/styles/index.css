@@ -6,43 +6,45 @@
  * Colour system.
  *
  * The accent is the brand orange (hue ~30, matching logo.png and open-graph.png).
- * Everything around it is a near-neutral warm grey: a saturated brown ground
- * competes with a saturated accent, so the surfaces stay close to neutral and
- * let the orange be the only loud thing on the page.
+ * Everything around it is a neutral grey with a trace of cool (hue 240, 4-6%
+ * saturation): a warm or tinted ground competes with a saturated accent, so the
+ * surfaces carry no colour of their own and the orange is the only loud thing
+ * on the page. The desktop app and the admin dashboard use the same scheme.
  *
  * The brand orange sits at a mid luminance, which is the awkward zone: at its
  * display brightness neither white nor black text clears 4.5:1 against it, and
- * as `text-primary` it only manages ~2.8:1 on the cream background. So the two
+ * as `text-primary` it only manages ~2.8:1 on a white background. So the two
  * themes take the accent from opposite ends:
- *   light - a darkened burnt orange (36% L), white label, 4.9:1 as a fill and
- *           4.7:1 as text on the cream background;
- *   dark  - the full-brightness orange, near-black label, 8.4:1 both ways.
+ *   light - a darkened burnt orange (36% L), white label, 4.8:1 as a fill and
+ *           4.9:1 as text on the white background;
+ *   dark  - the full-brightness orange, near-black label, 8.2:1 as a fill and
+ *           8.7:1 as text.
  * Both stay on the brand hue. Do not lighten the light-mode --primary back to
  * the display orange; that is the 2.4:1 contrast bug this replaces.
  */
 @layer base {
   :root {
-    --background: 33 100% 98%;
-    --foreground: 24 15% 10%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 6%;
 
     /* Elevation ramp, lightest (page) to heaviest (popovers, raised cards) */
-    --surface-1: 33 60% 97%;
-    --surface-2: 30 40% 95%;
-    --surface-3: 30 30% 92%;
+    --surface-1: 240 5% 98%;
+    --surface-2: 240 5% 96%;
+    --surface-3: 240 5% 92%;
 
     --card: 0 0% 100%;
-    --card-foreground: 24 15% 10%;
+    --card-foreground: 240 10% 6%;
     --popover: 0 0% 100%;
-    --popover-foreground: 24 15% 10%;
+    --popover-foreground: 240 10% 6%;
 
     --primary: 28 96% 36%;
     --primary-foreground: 30 40% 99%;
-    --secondary: 30 40% 94%;
-    --secondary-foreground: 24 15% 14%;
-    --muted: 30 35% 95%;
-    --muted-foreground: 24 10% 40%;
-    --accent: 30 45% 93%;
-    --accent-foreground: 24 15% 14%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 8% 12%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 40%;
+    --accent: 240 5% 95%;
+    --accent-foreground: 240 8% 12%;
 
     --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
@@ -53,10 +55,10 @@
     --info: 206 80% 42%;
     --info-foreground: 0 0% 100%;
 
-    --border: 30 25% 89%;
-    --border-subtle: 30 25% 93%;
-    --border-strong: 30 20% 80%;
-    --input: 30 25% 89%;
+    --border: 240 6% 90%;
+    --border-subtle: 240 5% 94%;
+    --border-strong: 240 5% 80%;
+    --input: 240 6% 90%;
     --ring: 28 96% 36%;
 
     /* Hue used for ambient radial glows behind hero / CTA surfaces */
@@ -67,26 +69,26 @@
   }
 
   .dark {
-    --background: 24 10% 6%;
-    --foreground: 30 20% 96%;
+    --background: 240 6% 5%;
+    --foreground: 240 5% 96%;
 
-    --surface-1: 24 9% 8%;
-    --surface-2: 24 8% 11%;
-    --surface-3: 24 8% 15%;
+    --surface-1: 240 5% 7%;
+    --surface-2: 240 5% 10%;
+    --surface-3: 240 5% 14%;
 
-    --card: 24 9% 8%;
-    --card-foreground: 30 20% 96%;
-    --popover: 24 8% 11%;
-    --popover-foreground: 30 20% 96%;
+    --card: 240 5% 7%;
+    --card-foreground: 240 5% 96%;
+    --popover: 240 5% 10%;
+    --popover-foreground: 240 5% 96%;
 
     --primary: 30 96% 58%;
     --primary-foreground: 24 40% 8%;
-    --secondary: 24 8% 14%;
-    --secondary-foreground: 30 20% 96%;
-    --muted: 24 8% 13%;
-    --muted-foreground: 30 10% 66%;
-    --accent: 24 8% 16%;
-    --accent-foreground: 30 20% 96%;
+    --secondary: 240 4% 13%;
+    --secondary-foreground: 240 5% 96%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 4% 15%;
+    --accent-foreground: 240 5% 96%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 24 40% 8%;
@@ -97,10 +99,10 @@
     --info: 206 85% 62%;
     --info-foreground: 24 40% 8%;
 
-    --border: 24 8% 16%;
-    --border-subtle: 24 8% 12%;
-    --border-strong: 24 8% 26%;
-    --input: 24 8% 16%;
+    --border: 240 4% 15%;
+    --border-subtle: 240 4% 11%;
+    --border-strong: 240 4% 25%;
+    --input: 240 4% 15%;
     --ring: 30 96% 58%;
 
     --glow: 30 96% 55%;

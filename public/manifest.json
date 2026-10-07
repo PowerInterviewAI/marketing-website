@@ -4,8 +4,8 @@
     "description": "Transform your interview performance with Power Interview AI - a privacy-first AI interview assistant with real-time transcription, intelligent reply and code suggestions, and exportable session reports. The model is provided for you, so you can get started instantly.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#110f0e",
-    "theme_color": "#110f0e",
+    "background_color": "#0c0c0e",
+    "theme_color": "#0c0c0e",
     "orientation": "portrait-primary",
     "icons": [
         {

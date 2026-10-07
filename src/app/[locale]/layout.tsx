@@ -101,8 +101,8 @@ export async function generateMetadata({
 // public/manifest.json - all three used to disagree.
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fff8f0' },
-    { media: '(prefers-color-scheme: dark)', color: '#110f0e' },
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0c0c0e' },
   ],
 };
 
