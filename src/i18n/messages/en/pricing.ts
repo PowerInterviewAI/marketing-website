@@ -7,6 +7,7 @@ export const pricing = {
     'Credits are consumed at {rate} per minute of AI assistance, so {hour} is about an hour. Buy what you need - there is no subscription.',
   creditNoun: { one: 'credit', other: 'credits' } as PluralForms,
   minuteNoun: { one: 'minute', other: 'minutes' } as PluralForms,
+  hourNoun: { one: 'hour', other: 'hours' } as PluralForms,
   trialBadge: 'New accounts: 1-hour free trial',
   coinsBadge: 'Coins only - no card, PayPal, or bank details',
 
@@ -45,7 +46,7 @@ export const pricing = {
   popular: 'Most popular',
   save: 'Save {percent}%',
   planNames: { starter: 'Starter', pro: 'Pro', enterprise: 'Enterprise' },
-  creditsLine: '{credits} {creditNoun} · ~{minutes} {minuteNoun}',
+  creditsLine: '{credits} {creditNoun} · ~{duration}',
   features: {
     suggestions: 'Live and triggered suggestions',
     model: 'Provided SOTA model, no practical rate limit',

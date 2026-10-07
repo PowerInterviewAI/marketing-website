@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/reveal';
 import type { Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { getPlans } from '@/lib/plans';
+import { CREDIT_RATES, getPlans } from '@/lib/plans';
 import { cn } from '@/lib/utils';
 import { Plan } from '@/types';
 
@@ -27,13 +27,27 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
   const starterPlan = plans.find((p) => p.plan.toLowerCase() === 'starter');
   const starterPricePerCredit = starterPlan ? starterPlan.price_usd / starterPlan.credits : 0;
 
+  // Hours first: "~3,000 minutes" makes the reader do the division the page can do.
+  const duration = (totalMinutes: number): string => {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    const parts: string[] = [];
+    if (hours > 0) {
+      parts.push(`${hours.toLocaleString(locale)} ${pluralize(locale, hours, copy.hourNoun)}`);
+    }
+    if (minutes > 0 || hours === 0) {
+      parts.push(`${minutes} ${pluralize(locale, minutes, copy.minuteNoun)}`);
+    }
+    return parts.join(' ');
+  };
+
   return (
     <div className="mx-auto mt-14 grid max-w-5xl items-start gap-6 md:grid-cols-3">
       {plans.map((plan, index) => {
         const key = plan.plan.toLowerCase() as keyof typeof copy.plans;
         const planName =
           copy.planNames[key] ?? plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
-        const minutes = plan.credits / 10;
+        const minutes = Math.floor(plan.credits / CREDIT_RATES.perMinute);
         const description = copy.plans[key] || '';
         const discount =
           starterPricePerCredit > 0 ? calculateDiscount(plan, starterPricePerCredit) : 0;
@@ -76,8 +90,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
                   {format(copy.creditsLine, {
                     credits: plan.credits.toLocaleString(locale),
                     creditNoun: pluralize(locale, plan.credits, copy.creditNoun),
-                    minutes: minutes.toLocaleString(locale),
-                    minuteNoun: pluralize(locale, minutes, copy.minuteNoun),
+                    duration: duration(minutes),
                   })}
                 </p>
               </div>

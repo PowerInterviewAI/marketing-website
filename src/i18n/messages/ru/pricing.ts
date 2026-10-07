@@ -7,6 +7,7 @@ export const pricing: Pricing = {
     'Кредиты расходуются из расчёта {rate} в минуту работы ИИ-помощника, поэтому {hour} - это примерно час. Покупайте столько, сколько нужно - подписки нет.',
   creditNoun: { one: 'кредит', few: 'кредита', many: 'кредитов', other: 'кредита' },
   minuteNoun: { one: 'минута', few: 'минуты', many: 'минут', other: 'минуты' },
+  hourNoun: { one: 'час', few: 'часа', many: 'часов', other: 'часа' },
   trialBadge: 'Новым аккаунтам - бесплатный пробный час',
   coinsBadge: 'Только криптовалюта - без карты, PayPal и банковских реквизитов',
 
@@ -50,7 +51,7 @@ export const pricing: Pricing = {
   popular: 'Самый популярный',
   save: 'Выгода {percent}%',
   planNames: { starter: 'Стартовый', pro: 'Профессиональный', enterprise: 'Корпоративный' },
-  creditsLine: '{credits} {creditNoun} · ~{minutes} {minuteNoun}',
+  creditsLine: '{credits} {creditNoun} · ~{duration}',
   features: {
     suggestions: 'Подсказки в реальном времени и по запросу',
     model: 'Предоставляемая модель SOTA, практически без ограничений',
