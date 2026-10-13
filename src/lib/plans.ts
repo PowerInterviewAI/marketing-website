@@ -35,15 +35,3 @@ export function savingPercent(plan: Plan): number {
   if (plan.price_usd <= 0 || dearest <= 0) return 0;
   return Math.round(((dearest - plan.price_per_month_usd) / dearest) * 100);
 }
-
-/** The free tier: one hour of interviews, once, on the free model. */
-export const FREE_HOUR_MINUTES = 60;
-
-/**
- * How long a mock interview of `questions` usually runs, in minutes. Mirrors
- * the desktop app's own estimate (`mockSessionMinutes`), so the site and the
- * setup screen quote the same figure.
- */
-export function mockSessionMinutes(questions: number): number {
-  return Math.round(questions * 2.5);
-}

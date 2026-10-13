@@ -107,7 +107,7 @@ Anything describing the mock interview has to match the client (`../client`), wh
 - The session ends in a scored report: overall score, strengths, gaps, then per-question score, justification and a stronger answer, exportable as DOCX or Markdown
 - Pricing is a subscription (`SUBSCRIPTION_PLANS` in `../backend/app/cfg/payment.py`): a free hour once on the free model, then a prepaid $20 monthly or $144 yearly pass with unlimited live and mock interviews on the SOTA model, never auto-renewed. On the free hour a session spends free time by the minute, needs a minute left to start and stops when it runs out; a mock still delivers its report. Copy that quotes credits, credit packs or a per-minute price for paying users is stale - credits were the model before subscriptions
 
-`src/lib/plans.ts` mirrors the plans for the components (the cards, the pricing description and the JSON-LD offers read it; `savingPercent` derives the yearly saving rather than writing it into copy), and `mockSessionMinutes` mirrors the desktop app's length estimate. Markdown can't import either, so the docs restate the prices and the session lengths as text, as do the FAQ answers (`src/config/faq.ts` reads those for the JSON-LD); a price change is those places plus the backend.
+`src/lib/plans.ts` mirrors the plans for the components (the cards, the pricing description and the JSON-LD offers read it; `savingPercent` derives the yearly saving rather than writing it into copy). Markdown can't import it, so the docs restate the prices and the session lengths as text, as do the FAQ answers (`src/config/faq.ts` reads those for the JSON-LD); a price change is those places plus the backend.
 
 ### The language list is data, not copy
 

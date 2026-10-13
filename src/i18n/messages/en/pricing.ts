@@ -5,8 +5,6 @@ export const pricing = {
   title: 'One free hour, then unlimited',
   description:
     'Start with a free hour on the free model. When you want more, subscribe for unlimited live and mock interviews on the SOTA model - {monthly} a month, or {yearly} a month paid yearly.',
-  minuteNoun: { one: 'minute', other: 'minutes' } as PluralForms,
-  hourNoun: { one: 'hour', other: 'hours' } as PluralForms,
   dayNoun: { one: 'day', other: 'days' } as PluralForms,
   trialBadge: 'New accounts: 1 free hour',
   coinsBadge: 'Coins only - no card, PayPal, or bank details',
