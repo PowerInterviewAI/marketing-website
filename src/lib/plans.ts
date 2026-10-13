@@ -28,7 +28,7 @@ export function getPaidPlans(): Plan[] {
 /**
  * How much cheaper a plan is per month than the dearest paid one, in whole
  * percent. Derived rather than written into copy, so a price change cannot
- * leave a stale "save 60%" behind.
+ * leave a stale "save 40%" behind.
  */
 export function savingPercent(plan: Plan): number {
   const dearest = Math.max(...getPaidPlans().map((p) => p.price_per_month_usd));
