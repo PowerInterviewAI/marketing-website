@@ -111,7 +111,7 @@ Anything describing the mock interview has to match the client (`../client`), wh
 
 ### The language list is data, not copy
 
-`src/config/languages.ts` is the site's single source of truth for every language an interview can run in, hand-mirrored from `Language` / `DEEPGRAM_TTS_VOICES` in `../backend/app/schemas/language.py` and `LANGUAGES` in `../client/src/renderer/types/language.ts`. There is no shared package across the three repos, so adding a language to the product is this file plus those two, the same way `CREDIT_RATES` is mirrored above.
+`src/config/languages.ts` is the site's single source of truth for every language an interview can run in, hand-mirrored from `Language` / `DEEPGRAM_TTS_VOICES` in `../backend/app/schemas/language.py` and `LANGUAGES` in `../client/src/renderer/types/language.ts`. There is no shared package across the three repos, so adding a language to the product is this file plus those two, the same way `src/lib/plans.ts` mirrors the backend plans above.
 
 **The two columns are two different guarantees and must not be collapsed.** The transcription set is total: every entry is a language the speech model streams, and the backend rejects a streaming handshake for anything outside it. `hasVoice` is a strict subset of seven, and a language without a voice is a fully supported state rather than a gap - the mock interviewer writes its questions instead of speaking them, and the follow-ups, the scoring and the report are identical. That is why `LanguagesSection` marks the seven rather than warning on the twenty-one.
 
