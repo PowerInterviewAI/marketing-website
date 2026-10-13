@@ -91,7 +91,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
     { label: tier.rateLimit.label, trial: tier.rateLimit.trial, paid: tier.rateLimit.paid },
   ];
 
-  // Cheapest last, so the description reads "$20 a month, or $12 a month paid yearly".
+  // Cheapest last, so the description reads "$20 a month, or $8 a month paid yearly".
   const monthly = [...getPaidPlans()].sort((a, b) => b.price_per_month_usd - a.price_per_month_usd);
   const usd = (amount: number) => `$${amount.toLocaleString(locale)}`;
 

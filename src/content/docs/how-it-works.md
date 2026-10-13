@@ -101,6 +101,6 @@ Session transcript/suggestion content is retained in memory for the active app s
 
 ## Plans
 
-Every account starts with one free hour on the free model. A subscription - $20 for a month, or $144 for a year ($12 a month) - gives you unlimited live and mock interviews on the SOTA model. Passes are prepaid in coins and never renew on their own; buying another while one is running adds its days after the current end date.
+Every account starts with one free hour on the free model. A subscription - $20 for a month, or $96 for a year ($8 a month) - gives you unlimited live and mock interviews on the SOTA model. Passes are prepaid in coins and never renew on their own; buying another while one is running adds its days after the current end date.
 
 On the free hour, live and mock sessions spend it by the minute, from the first word to the end of the session. Any session needs at least a minute of free time to start, the app warns at five minutes and at one minute left, and a session stops when the free hour runs out - a mock interview still delivers its report. Subscribers are never metered.

@@ -241,7 +241,7 @@ To subscribe:
 
 1. Click the **menu icon** (☰) in the titlebar.
 2. Select **Subscription**.
-3. Choose **Monthly** ($20) or **Yearly** ($144, $12 a month), complete payment in coins, and the subscription is applied automatically. Passes never renew on their own; buying another while one is running adds its days after the current end date.
+3. Choose **Monthly** ($20) or **Yearly** ($96, $8 a month), complete payment in coins, and the subscription is applied automatically. Passes never renew on their own; buying another while one is running adds its days after the current end date.
 
 You can also view your payment history and check pending payment status from the same page.
 

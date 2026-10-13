@@ -80,7 +80,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 ### Plans & Payments
 
 - One free hour for every new account, on the free model, spent by the minute across live and mock sessions
-- A subscription - $20 a month or $144 a year - makes every session unlimited on the SOTA model
+- A subscription - $20 a month or $96 a year - makes every session unlimited on the SOTA model
 - Passes are prepaid in coins and never renew on their own
 - Your plan and its end date, or your free time left, are shown live inside the app
 - Subscribe from the **Subscription** page within the app, with payment history and status tracking

@@ -94,7 +94,7 @@ export const faq = {
       question: 'How does the subscription work?',
       category: 'billing',
       answer:
-        'Every account starts with one free hour on the free model. After that, a subscription gives you unlimited live and mock interviews on the SOTA model: $20 for a month, or $144 for a year ($12 a month). It is a prepaid pass, not a recurring charge - nothing renews on its own, and buying another pass while one is running adds its days after the current end date.',
+        'Every account starts with one free hour on the free model. After that, a subscription gives you unlimited live and mock interviews on the SOTA model: $20 for a month, or $96 for a year ($8 a month). It is a prepaid pass, not a recurring charge - nothing renews on its own, and buying another pass while one is running adds its days after the current end date.',
     },
     {
       question: 'What payment methods do you accept?',

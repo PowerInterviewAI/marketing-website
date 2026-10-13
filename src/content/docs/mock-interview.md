@@ -82,7 +82,7 @@ From the report you can **practice again** with the same setup, or finish and re
 
 ## What a Session Costs
 
-With a subscription ($20 a month, or $144 a year), mock interviews are **unlimited** - run as many and as long as you like.
+With a subscription ($20 a month, or $96 a year), mock interviews are **unlimited** - run as many and as long as you like.
 
 On the free hour, a mock interview spends it by the minute like a live one, from the first question to the report:
 
