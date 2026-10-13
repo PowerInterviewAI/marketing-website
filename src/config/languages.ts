@@ -7,7 +7,7 @@
  * and `LANGUAGES` in `client/src/renderer/types/language.ts`. There is no shared
  * package across the three repos, so a language added to the product is this
  * list plus those two - the same hand-mirroring `src/lib/plans.ts` does for the
- * credit rates.
+ * plans.
  *
  * The two columns are two different guarantees and must not be collapsed into
  * one. The transcription set is total: every entry here is a language the

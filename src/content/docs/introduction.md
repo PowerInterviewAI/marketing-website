@@ -16,7 +16,7 @@ Power Interview AI is a privacy-first AI interview coach that works in two stage
 
 Both stages read the same profile, so the questions you rehearse against and the answers you are prompted with are about the role you are actually interviewing for.
 
-The model is provided for you - there is nothing to connect or configure. New accounts start on the free model for the first hour, and buying credits moves you to the SOTA model with no practical rate limit.
+The model is provided for you - there is nothing to connect or configure. New accounts start on the free model for their free hour, and a subscription moves you to the SOTA model with unlimited interview time and no practical rate limit.
 
 ---
 
@@ -65,7 +65,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 - The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
 - Stealth mode keeps the window from receiving focus, so your keyboard and mouse stay locked on your coding challenge or video call
-- A minimal status bar shows running state, credit balance, and active hotkeys
+- A minimal status bar shows running state, your plan or free time left, and active hotkeys
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus
 - Entire workflow controllable by keyboard shortcuts - no mouse required, no lost focus
 
@@ -77,12 +77,13 @@ The model is provided for you - there is nothing to connect or configure. New ac
 - Report includes a summary, timestamped transcript with speaker labels, action items, follow-up notes, and any reply suggestions
 - Works across Google Meet, Zoom, Microsoft Teams, and other meeting platforms, so you can capture notes for both individuals and enterprise workflows
 
-### Credits & Payments
+### Plans & Payments
 
-- Credits are consumed while the assistant is running (AI suggestions and transcription)
-- A mock interview is billed by the minute at the same rate, and any session stops when your credits run out
-- Credit balance is displayed live inside the app
-- Buy credits directly from the **Buy Credits** page within the app, with payment history and status tracking
+- One free hour for every new account, on the free model, spent by the minute across live and mock sessions
+- A subscription - $20 a month or $144 a year - makes every session unlimited on the SOTA model
+- Passes are prepaid in coins and never renew on their own
+- Your plan and its end date, or your free time left, are shown live inside the app
+- Subscribe from the **Subscription** page within the app, with payment history and status tracking
 
 ### Global Hotkeys
 
