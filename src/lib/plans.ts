@@ -1,37 +1,43 @@
 import { Plan } from '@/types';
 
 /**
- * The credit packs, mirrored from backend/app/cfg/payment.py's CREDIT_PLANS
- * (as of writing: starter $5/600, pro $20/3000 - popular, enterprise
- * $175/30000).
+ * The plans, mirrored from backend/app/cfg/payment.py's SUBSCRIPTION_PLANS and
+ * TRIAL_INITIAL_CREDITS: a free hour once, then prepaid passes of $20 for 30
+ * days or $144 for 365 days ($12 a month), each unlimited on the SOTA model.
  *
- * This used to be fetched live on every page load/click, which meant /pricing
- * and the home page waited on a backend round trip just to show a price list
- * that changes rarely. Hardcoded instead - there is no shared source between
- * the two repos, so if CREDIT_PLANS changes in the backend, update this list
- * to match by hand.
+ * Hardcoded rather than fetched: /pricing and the home page used to wait on a
+ * backend round trip just to show a price list that changes rarely. There is
+ * no shared source between the two repos, so if the plans change in the
+ * backend, update this list to match by hand.
  */
 const PLANS: Plan[] = [
-  { plan: 'starter', credits: 600, price_usd: 5, popular: false },
-  { plan: 'pro', credits: 3000, price_usd: 20, popular: true },
-  { plan: 'enterprise', credits: 30000, price_usd: 175, popular: false },
+  { plan: 'free', price_usd: 0, price_per_month_usd: 0, days: null, popular: false },
+  { plan: 'monthly', price_usd: 20, price_per_month_usd: 20, days: 30, popular: false },
+  { plan: 'yearly', price_usd: 144, price_per_month_usd: 12, days: 365, popular: true },
 ];
 
 export function getPlans(): Plan[] {
   return PLANS;
 }
 
+/** The paid plans only, for the figures that compare them. */
+export function getPaidPlans(): Plan[] {
+  return PLANS.filter((plan) => plan.price_usd > 0);
+}
+
 /**
- * What credits are spent on, mirrored from the same backend config as the
- * packs above (CREDITS_PER_MINUTE in backend/app/cfg/payment.py).
- *
- * One rate for everything: a live session and a mock interview are both
- * metered by the minute, and both stop when the credits run out. Mock used to
- * be priced per question, follow-up and report; it no longer is.
+ * How much cheaper a plan is per month than the dearest paid one, in whole
+ * percent. Derived rather than written into copy, so a price change cannot
+ * leave a stale "save 40%" behind.
  */
-export const CREDIT_RATES = {
-  perMinute: 10,
-} as const;
+export function savingPercent(plan: Plan): number {
+  const dearest = Math.max(...getPaidPlans().map((p) => p.price_per_month_usd));
+  if (plan.price_usd <= 0 || dearest <= 0) return 0;
+  return Math.round(((dearest - plan.price_per_month_usd) / dearest) * 100);
+}
+
+/** The free tier: one hour of interviews, once, on the free model. */
+export const FREE_HOUR_MINUTES = 60;
 
 /**
  * How long a mock interview of `questions` usually runs, in minutes. Mirrors

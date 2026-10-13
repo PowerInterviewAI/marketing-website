@@ -1,4 +1,4 @@
-import { Check, Minus } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
 import { Badge } from '@/components/ui/badge';
@@ -6,51 +6,39 @@ import { Reveal } from '@/components/ui/reveal';
 import type { Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { CREDIT_RATES, getPlans } from '@/lib/plans';
+import { getPlans, savingPercent } from '@/lib/plans';
 import { cn } from '@/lib/utils';
-import { Plan } from '@/types';
+import type { Plan } from '@/types';
 
-const calculateDiscount = (plan: Plan, starterPricePerCredit: number): number => {
-  const pricePerCredit = plan.price_usd / plan.credits;
-  const discount = ((starterPricePerCredit - pricePerCredit) / starterPricePerCredit) * 100;
-  return Math.round(discount);
-};
+const Feature: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <li className="flex items-start gap-2">
+    <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
+    {children}
+  </li>
+);
 
-// getPlans() used to be a live fetch awaited here, which meant /pricing (and
-// the home page) waited on a backend round trip - a real request that could
-// be slow, rate-limited or hit a cold start. It's a hardcoded constant now
-// (see plans.ts), so this reads it directly rather than through a client
-// fetch-and-skeleton dance that no longer has anything to wait for.
+// The plans are a hardcoded constant (see plans.ts) rather than a fetch, so
+// /pricing and the home page never wait on a backend round trip to render.
 export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { pricing: copy } = getMessages(locale);
   const plans = getPlans();
-  const starterPlan = plans.find((p) => p.plan.toLowerCase() === 'starter');
-  const starterPricePerCredit = starterPlan ? starterPlan.price_usd / starterPlan.credits : 0;
 
-  // Hours first: "~3,000 minutes" makes the reader do the division the page can do.
-  const duration = (totalMinutes: number): string => {
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
-    const parts: string[] = [];
-    if (hours > 0) {
-      parts.push(`${hours.toLocaleString(locale)} ${pluralize(locale, hours, copy.hourNoun)}`);
-    }
-    if (minutes > 0 || hours === 0) {
-      parts.push(`${minutes} ${pluralize(locale, minutes, copy.minuteNoun)}`);
-    }
-    return parts.join(' ');
-  };
+  const usd = (amount: number) => `$${amount.toLocaleString(locale)}`;
+
+  const priceLine = (plan: Plan) =>
+    plan.days === null
+      ? copy.freeLine
+      : format(copy.billedAs, {
+          price: usd(plan.price_usd),
+          days: plan.days.toLocaleString(locale),
+          dayNoun: pluralize(locale, plan.days, copy.dayNoun),
+        });
 
   return (
     <div className="mx-auto mt-14 grid max-w-5xl items-start gap-6 md:grid-cols-3">
       {plans.map((plan, index) => {
-        const key = plan.plan.toLowerCase() as keyof typeof copy.plans;
-        const planName =
-          copy.planNames[key] ?? plan.plan.charAt(0).toUpperCase() + plan.plan.slice(1);
-        const minutes = Math.floor(plan.credits / CREDIT_RATES.perMinute);
-        const description = copy.plans[key] || '';
-        const discount =
-          starterPricePerCredit > 0 ? calculateDiscount(plan, starterPricePerCredit) : 0;
+        const free = plan.price_usd === 0;
+        const saving = savingPercent(plan);
 
         return (
           <Reveal key={plan.plan} delay={index * 80}>
@@ -71,53 +59,38 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
               )}
 
               <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-semibold">{planName}</h3>
-                <p className="text-sm text-muted-foreground">{description}</p>
+                <h3 className="text-lg font-semibold">{copy.planNames[plan.plan]}</h3>
+                <p className="text-sm text-muted-foreground">{copy.plans[plan.plan]}</p>
               </div>
 
               <div className="flex flex-col gap-1">
                 <div className="flex items-baseline gap-2">
                   <span className="font-display text-4xl font-semibold tracking-tight">
-                    ${plan.price_usd}
+                    {usd(plan.price_per_month_usd)}
                   </span>
-                  {discount > 0 && (
+                  {!free && <span className="text-sm text-muted-foreground">{copy.perMonth}</span>}
+                  {saving > 0 && (
                     <Badge variant="success" size="sm">
-                      {format(copy.save, { percent: discount })}
+                      {format(copy.save, { percent: saving })}
                     </Badge>
                   )}
                 </div>
-                <p className="font-mono text-xs text-muted-foreground">
-                  {format(copy.creditsLine, {
-                    credits: plan.credits.toLocaleString(locale),
-                    creditNoun: pluralize(locale, plan.credits, copy.creditNoun),
-                    duration: duration(minutes),
-                  })}
-                </p>
+                <p className="font-mono text-xs text-muted-foreground">{priceLine(plan)}</p>
               </div>
 
               <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-                  {copy.features.suggestions}
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-                  {copy.features.model}
-                </li>
-                <li className="flex items-start gap-2">
-                  <Minus
-                    className="mt-0.5 size-4 shrink-0 text-muted-foreground/60"
-                    aria-hidden="true"
-                  />
-                  {copy.features.oneOff}
-                </li>
+                <Feature>{copy.features.suggestions}</Feature>
+                <Feature>{copy.features.mock}</Feature>
+                <Feature>{free ? copy.features.freeModel : copy.features.sotaModel}</Feature>
+                <Feature>{free ? copy.features.oneHour : copy.features.unlimited}</Feature>
+                {!free && <Feature>{copy.features.noRenewal}</Feature>}
               </ul>
 
               <DownloadCta
                 className="mt-auto w-full"
                 variant={plan.popular ? 'default' : 'outline'}
               >
-                {copy.getStarted}
+                {free ? copy.startFree : copy.getStarted}
               </DownloadCta>
             </div>
           </Reveal>
