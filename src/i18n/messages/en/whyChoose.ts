@@ -25,7 +25,7 @@ export const whyChoose = {
     'Answers grounded in your CV and the job description',
     'Runs as a desktop app - no extension, no meeting bot',
     'Transcripts never retained after the session',
-    'Pay per use - no subscription',
+    'Prepaid passes - nothing renews on its own',
     'Crypto-only payment, no card details stored',
   ],
   tableCaption:

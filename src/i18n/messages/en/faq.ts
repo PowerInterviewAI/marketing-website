@@ -47,7 +47,7 @@ export const faq = {
       question: 'Which AI model powers the suggestions?',
       category: 'product',
       answer:
-        'The model is provided for you - there is nothing to connect or configure. New accounts run on our free model for the length of the 1-hour trial, and buying credits moves you to our SOTA model with no practical rate limit.',
+        'The model is provided for you - there is nothing to connect or configure. New accounts run on our free model for their free hour, and a subscription moves you to our SOTA model with no practical rate limit.',
     },
     {
       question: 'What platforms are supported?',
@@ -88,25 +88,25 @@ export const faq = {
       question: 'What does a mock interview cost?',
       category: 'billing',
       answer:
-        'The same as the live assistant: 10 credits a minute, from the first question to the report. A 5-question session usually runs about 13 minutes (about 130 credits) and an 8-question one about 20 (about 200), and the app shows that estimate and how far your balance goes before you start. You need at least a minute of credit to begin, and if your credits run out mid-interview it ends there and you still get your report. Your 1-hour free trial is 600 credits, which covers a couple of full sessions.',
+        'Nothing on top of your plan. With a subscription mock interviews are unlimited. On the free hour a mock spends it by the minute, like the live assistant: a 5-question session usually runs about 13 minutes and an 8-question one about 20, so the hour covers a couple of full sessions. If your free time runs out mid-interview it ends there and you still get your report.',
     },
     {
-      question: 'How do credits work?',
+      question: 'How does the subscription work?',
       category: 'billing',
       answer:
-        'Every session is metered by the clock at 10 credits per minute, live or mock, so a 30-minute interview costs roughly 300 credits. A session needs at least a minute of credit to start, the app warns you at five minutes and at one minute left, and it stops when your credits run out. You can purchase credit packs starting from 600 credits ($5 for ~60 minutes) up to 30,000 credits ($175 for ~3,000 minutes).',
+        'Every account starts with one free hour on the free model. After that, a subscription gives you unlimited live and mock interviews on the SOTA model: $20 for a month, or $144 for a year ($12 a month). It is a prepaid pass, not a recurring charge - nothing renews on its own, and buying another pass while one is running adds its days after the current end date.',
     },
     {
       question: 'What payment methods do you accept?',
       category: 'billing',
       answer:
-        'We accept cryptocurrency coins only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to buy credit packs within the application.',
+        'We accept cryptocurrency coins only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to pay for a monthly or yearly pass within the application.',
     },
     {
       question: 'Is there a free trial?',
       category: 'billing',
       answer:
-        'Yes! New users get a full 1-hour free trial powered by our free model - with no practical rate limit and no interruptions. The trial includes every feature: live suggestions, triggered suggestions and mock interview practice. Buying credits moves you to the SOTA model.',
+        'Yes! New users get a full free hour powered by our free model - with no practical rate limit and no interruptions. It includes every feature: live suggestions, triggered suggestions and mock interview practice. A subscription moves you to the SOTA model with unlimited interview time.',
     },
     {
       question: 'Can I get a refund?',

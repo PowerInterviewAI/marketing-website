@@ -73,12 +73,12 @@ export const meta = {
   pricing: {
     title: 'Pricing',
     description:
-      'Power Interview AI pricing: a 1-hour free trial, then credit packs with no subscription. Paid in coins only - no card, PayPal or bank details.',
+      'Power Interview AI pricing: one free hour, then unlimited interviews for $20 a month or $144 a year. Prepaid in coins, never auto-renewed.',
   },
   faq: {
     title: 'FAQ',
     description:
-      'Answers on how Power Interview AI works: platform support, stealth mode and screen share, privacy and local data, mock interviews, billing and credits.',
+      'Answers on how Power Interview AI works: platform support, stealth mode and screen share, privacy and local data, mock interviews, billing and subscriptions.',
   },
   team: {
     title: 'Team',
