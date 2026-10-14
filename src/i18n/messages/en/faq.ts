@@ -9,8 +9,8 @@ export interface FaqEntry {
 /**
  * The site's FAQ, in display order. Answers are plain strings, not JSX,
  * because the FAQPage JSON-LD needs text. Every locale must list the same
- * questions in the same order: the Plans & billing answers cross-reference
- * each other ("see the question above").
+ * questions in the same order, so the two FAQ pages and their JSON-LD
+ * stay one list.
  */
 export const faq = {
   eyebrow: 'FAQ',

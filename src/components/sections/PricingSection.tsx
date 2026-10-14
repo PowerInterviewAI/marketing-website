@@ -9,7 +9,7 @@ import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
 import { format } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { getPaidPlans } from '@/lib/plans';
+import { formatUsd, getPaidPlans } from '@/lib/plans';
 
 import { PricingCards } from './PricingCards';
 
@@ -93,7 +93,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
 
   // Cheapest last, so the description reads "$20 a month, or $8 a month paid yearly".
   const monthly = [...getPaidPlans()].sort((a, b) => b.price_per_month_usd - a.price_per_month_usd);
-  const usd = (amount: number) => `$${amount.toLocaleString(locale)}`;
+  const usd = (amount: number) => formatUsd(amount, locale);
 
   return (
     <Section id={SECTIONS.pricing} aria-labelledby="pricing-heading">

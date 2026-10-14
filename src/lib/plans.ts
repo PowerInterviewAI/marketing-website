@@ -35,3 +35,16 @@ export function savingPercent(plan: Plan): number {
   if (plan.price_usd <= 0 || dearest <= 0) return 0;
   return Math.round(((dearest - plan.price_per_month_usd) / dearest) * 100);
 }
+
+/**
+ * A plan price as the locale writes money: "$96" in English, "96 $" in Russian, matching the
+ * prices the FAQ and docs quote as text. Cents only when a price has them.
+ */
+export function formatUsd(amount: number, locale: string): string {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(amount);
+}

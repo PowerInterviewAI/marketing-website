@@ -132,7 +132,7 @@ Every route exports `metadata` (static pages) or `generateMetadata` (`/docs/[slu
 
 **Structured data must be true of the page it sits on and visible to a reader of that page.** `src/lib/jsonLd.ts` scopes each block: `Organization` site-wide in the root layout, `SoftwareApplication` on the home page, `FAQPage` on `/faq`. All three used to be emitted on every route, including `/privacy` and every docs page.
 
-- `buildSoftwareApplicationJsonLd(plans)` takes the live plans from `src/lib/plans.ts` so `offers` matches the plans the page renders (free, $20 and $96). It used to hardcode lowPrice 20 / highPrice 500 against an endpoint actually returning 5–150 — wrong at both ends.
+- `buildSoftwareApplicationJsonLd(plans)` takes the live plans from `src/lib/plans.ts` so `offers` matches the plans the page renders (free, $20 and $96). It used to hardcode lowPrice 20 / highPrice 500 against an endpoint actually returning 5–150 - wrong at both ends.
 - **There is deliberately no `aggregateRating`.** It claimed 4.8 from 156 ratings while `src/config/testimonials.ts` is an empty array and no rating or review appears anywhere on the site. Google requires review markup to reflect ratings genuinely visible on the page; inventing them risks a manual action against the domain. Restore it only when real ratings are collected and shown, and derive it from that data — the same rule `testimonials.ts` already states for quotes.
 - Don't claim a platform there's no build for (`operatingSystem` was `Windows, macOS, Linux`) or pass a logo off as a `screenshot`.
 
@@ -140,7 +140,7 @@ The root layout (`src/app/[locale]/layout.tsx`) holds the sitewide default metad
 
 ### Model naming
 
-Power Interview AI's own included/default models are referred to generically as **"free model"** (the free hour) and **"SOTA model"** (subscribers) throughout the site's copy — not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy.
+Power Interview AI's own included/default models are referred to generically as **"free model"** (the free hour) and **"SOTA model"** (subscribers) throughout the site's copy - not by their actual underlying model name, which changes over time. Don't reintroduce a specific model name into marketing copy.
 
 Bring-your-own-key was removed from the product, so the site no longer offers it anywhere: no "bring your own provider/key" copy, no LLM-vendor names (OpenAI, Anthropic, Groq, Google) as a thing the user connects, and no BYOK entry in the pricing tables, comparison table, JSON-LD `featureList`, metadata keywords, `public/llms.txt`, or the docs. The model is always the provided one.
 

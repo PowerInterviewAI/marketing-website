@@ -35,7 +35,7 @@ export const pricing = {
       'Live and mock sessions spend it by the minute. When it runs out the session stops, and a mock interview still gives you its report.',
     paid: 'A subscription',
     paidText:
-      'Pay once in coins for 30 or 365 days. Nothing renews automatically: buy another pass whenever you like, and its days are added after your current end date.',
+      'Pay once in coins for a month or a year. Nothing renews automatically: buy another pass whenever you like, and its days are added after your current end date.',
   },
 
   plans: {

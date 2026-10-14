@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/reveal';
 import type { Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { getPlans, savingPercent } from '@/lib/plans';
+import { formatUsd, getPlans, savingPercent } from '@/lib/plans';
 import { cn } from '@/lib/utils';
 import type { Plan } from '@/types';
 
@@ -23,7 +23,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { pricing: copy } = getMessages(locale);
   const plans = getPlans();
 
-  const usd = (amount: number) => `$${amount.toLocaleString(locale)}`;
+  const usd = (amount: number) => formatUsd(amount, locale);
 
   const priceLine = (plan: Plan) =>
     plan.days === null

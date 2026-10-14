@@ -46,7 +46,7 @@ export const features = {
   plans: {
     title: 'Every plan, every feature',
     description:
-      'No feature is paywalled. The free hour runs the whole app on the **free model** - live suggestions, triggered suggestions and mock interviews alike. A subscription moves you to the **SOTA model** with unlimited interview time, and suggestions keep working on the free model without one.',
+      'No feature is paywalled. The free hour runs the whole app on the **free model** - live suggestions, triggered suggestions and mock interviews alike. A subscription moves you to the **SOTA model** with unlimited interview time.',
   },
   privacy: {
     title: 'Privacy first',

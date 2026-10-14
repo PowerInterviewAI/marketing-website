@@ -62,7 +62,11 @@ export const chrome = {
     link: 'Read it in English',
   },
   loading: {
-    pricing: { aria: 'Loading pricing', eyebrow: 'Pricing', title: 'Simple, transparent pricing' },
+    pricing: {
+      aria: 'Loading pricing',
+      eyebrow: 'Pricing',
+      title: 'One free hour, then unlimited',
+    },
     team: {
       aria: 'Loading team',
       eyebrow: 'Team',
