@@ -1,20 +1,19 @@
 import React from 'react';
 
-import { Check, Coins } from 'lucide-react';
+import { CalendarCheck, Check, Coins } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
-import { ROUTES, SECTIONS } from '@/config/routes';
-import { LocalizedLink } from '@/i18n/LocalizedLink';
+import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
-import { format, pluralize } from '@/i18n/format';
+import { format } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-import { CREDIT_RATES, mockSessionMinutes } from '@/lib/plans';
+import { formatUsd, getPaidPlans } from '@/lib/plans';
 
 import { PricingCards } from './PricingCards';
 
-/** Trial vs paid, so the difference is visible before the credit packs. */
+/** Free vs subscribed, so the difference is visible before the plan cards. */
 type TierValue = string | true;
 
 const TierValueCell: React.FC<{ value: TierValue; included: string }> = ({ value, included }) =>
@@ -28,21 +27,13 @@ const TierValueCell: React.FC<{ value: TierValue; included: string }> = ({ value
   );
 
 /**
- * What each kind of session spends.
- *
- * Both are metered by the minute at the same rate, but a reader comparing
- * them wants to see what a typical session of each comes to, and that a
- * session stops when the credits run out. Rates come from CREDIT_RATES so
- * this and the mock interview page can't quote different numbers at each
- * other.
+ * How the two halves are paid for: the free hour is spent by the minute and
+ * stops a session at zero, and a subscription is a prepaid pass that never
+ * renews by itself. Payment is crypto, which cannot be charged on a schedule,
+ * so "no auto-renewal" is a property of the product rather than a promotion.
  */
-const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
-  const { pricing } = getMessages(locale);
-  const t = pricing.metering;
-  // Each amount carries its own noun: "1 кредит", "10 кредитов", "40 кредитов".
-  const credits = (n: number) => `${n} ${pluralize(locale, n, pricing.creditNoun)}`;
-  const minutes = (n: number) => `${n} ${pluralize(locale, n, pricing.minuteNoun)}`;
-  const mockMinutes = mockSessionMinutes(8);
+const BillingNote: React.FC<{ locale: Locale }> = ({ locale }) => {
+  const t = getMessages(locale).pricing.billing;
 
   return (
     <Reveal className="mx-auto mt-6 max-w-3xl">
@@ -50,31 +41,12 @@ const MeteringNote: React.FC<{ locale: Locale }> = ({ locale }) => {
         <h3 className="text-sm font-semibold">{t.title}</h3>
         <dl className="mt-3 grid gap-3 sm:grid-cols-2">
           <div>
-            <dt className="text-sm font-medium text-foreground">{t.live}</dt>
-            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {format(t.liveText, {
-                rate: credits(CREDIT_RATES.perMinute),
-                thirty: credits(CREDIT_RATES.perMinute * 30),
-              })}
-            </dd>
+            <dt className="text-sm font-medium text-foreground">{t.free}</dt>
+            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.freeText}</dd>
           </div>
           <div>
-            <dt className="text-sm font-medium text-foreground">
-              <LocalizedLink
-                href={ROUTES.mockInterview}
-                prefetch={false}
-                className="text-primary underline-offset-4 hover:underline"
-              >
-                {t.mock}
-              </LocalizedLink>
-            </dt>
-            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {format(t.mockText, {
-                rate: credits(CREDIT_RATES.perMinute),
-                minutes: minutes(mockMinutes),
-                session: credits(CREDIT_RATES.perMinute * mockMinutes),
-              })}
-            </dd>
+            <dt className="text-sm font-medium text-foreground">{t.paid}</dt>
+            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.paidText}</dd>
           </div>
         </dl>
       </div>
@@ -97,7 +69,7 @@ interface PricingSectionProps {
  * to them had nothing to add. /pricing itself is unchanged - still a real,
  * indexable page for direct links and search results.
  *
- * Credit-pack prices come from PricingCards, which reads a hardcoded constant
+ * Plan prices come from PricingCards, which reads a hardcoded constant
  * (see lib/plans.ts) rather than fetching. That fetch used to be awaited
  * here, server-side, with no revalidate directive - which meant Next treated
  * /pricing as static and only paid that cost again on the first visit after
@@ -115,10 +87,13 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
     { label: tier.model.label, trial: tier.model.trial, paid: tier.model.paid },
     { label: tier.live, trial: true, paid: true },
     { label: tier.triggered, trial: true, paid: true },
+    { label: tier.mock, trial: true, paid: true },
     { label: tier.rateLimit.label, trial: tier.rateLimit.trial, paid: tier.rateLimit.paid },
   ];
 
-  const rate = CREDIT_RATES.perMinute;
+  // Cheapest last, so the description reads "$20 a month, or $8 a month paid yearly".
+  const monthly = [...getPaidPlans()].sort((a, b) => b.price_per_month_usd - a.price_per_month_usd);
+  const usd = (amount: number) => formatUsd(amount, locale);
 
   return (
     <Section id={SECTIONS.pricing} aria-labelledby="pricing-heading">
@@ -128,8 +103,8 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
         eyebrow={copy.eyebrow}
         title={copy.title}
         description={format(copy.description, {
-          rate,
-          hour: `${rate * 60} ${pluralize(locale, rate * 60, copy.creditNoun)}`,
+          monthly: usd(monthly[0]?.price_per_month_usd ?? 0),
+          yearly: usd(monthly[monthly.length - 1]?.price_per_month_usd ?? 0),
         })}
       />
 
@@ -140,6 +115,10 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
         <Badge variant="outline" size="lg">
           <Coins aria-hidden="true" />
           {copy.coinsBadge}
+        </Badge>
+        <Badge variant="outline" size="lg">
+          <CalendarCheck aria-hidden="true" />
+          {copy.prepaidBadge}
         </Badge>
       </div>
 
@@ -182,7 +161,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
         </div>
       </Reveal>
 
-      <MeteringNote locale={locale} />
+      <BillingNote locale={locale} />
 
       <PricingCards locale={locale} />
     </Section>

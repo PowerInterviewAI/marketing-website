@@ -131,7 +131,7 @@ Stealth mode is about **focus control**. When active, the window will not steal 
 
 Press `Ctrl+Shift+M` to toggle stealth mode on or off.
 
-When active, the window collapses to a minimal status bar showing running state, credit balance, and active hotkeys.
+When active, the window collapses to a minimal status bar showing running state, your plan or free time left, and active hotkeys.
 
 ![Stealth mode status bar](/media/docs/stealth-mode.png)
 
@@ -178,7 +178,7 @@ Access your settings from the **menu icon** (☰) in the top-right of the titleb
 
 ![Configuration dialog - name, CV, and job context fields](/media/docs/configuration-dialog.png)
 
-This is your interview configuration, not general account info (like your email or credits) - it's saved under your account so signing in on another device restores the same full name, profile, and context automatically.
+This is your interview configuration, not general account info (like your email or subscription) - it's saved under your account so signing in on another device restores the same full name, profile, and context automatically.
 
 ### Device Settings
 
@@ -198,7 +198,7 @@ Click the **menu icon** (☰) in the titlebar to access:
 - Your account email
 - **Configuration** - open the profile/settings dialog
 - **Change password** - update your account password
-- **Buy Credits** - go to the payments page
+- **Subscription** - go to the plans and payments page
 - **Stealth mode** - toggle stealth mode on or off
 - **Light mode / Dark mode** - toggle the app theme
 - **Documentation** - open this documentation in-app
@@ -231,17 +231,17 @@ The **Clear** button removes all transcripts, reply suggestions, and code sugges
 
 ---
 
-## Credits & Payments
+## Plans & Payments
 
-Credits are consumed while the assistant is running - covering AI reply suggestions and transcription. Your remaining credit balance is shown live in the titlebar, and in the status bar while in stealth mode.
+Every account starts with one free hour on the free model. With a subscription the assistant is unlimited, on the SOTA model. Your plan and its end date, or the free time you have left, are shown live in the titlebar, and in the status bar while in stealth mode.
 
-A session needs at least a minute of credit to start. The app warns you when about five minutes and one minute are left, and when your credits run out the session stops and offers to save the transcript. A [mock interview](/docs/mock-interview) is billed the same way, at the same rate.
+On the free hour, a session needs at least a minute of free time to start. The app warns you when about five minutes and one minute are left, and when it runs out the session stops and offers to save the transcript. A [mock interview](/docs/mock-interview) spends the free hour the same way.
 
-To buy credits:
+To subscribe:
 
 1. Click the **menu icon** (☰) in the titlebar.
-2. Select **Buy Credits**.
-3. Choose a credit package, complete payment, and your balance updates automatically.
+2. Select **Subscription**.
+3. Choose **Monthly** ($20) or **Yearly** ($96, $8 a month), complete payment in coins, and the subscription is applied automatically. Passes never renew on their own; buying another while one is running adds its days after the current end date.
 
 You can also view your payment history and check pending payment status from the same page.
 

@@ -99,8 +99,8 @@ Session transcript/suggestion content is retained in memory for the active app s
 
 ---
 
-## Credits System
+## Plans
 
-Credits are consumed while AI-assisted features are active (including transcription and suggestion generation). Credit balance is refreshed periodically during a running session and updates after successful payments.
+Every account starts with one free hour on the free model. A subscription - $20 for a month, or $96 for a year ($8 a month) - gives you unlimited live and mock interviews on the SOTA model. Passes are prepaid in coins and never renew on their own; buying another while one is running adds its days after the current end date.
 
-A mock interview is metered the same way, at the same rate, from its first question to its report. Any session needs at least a minute of credit to start, the app warns at five minutes and at one minute left, and a session stops when the balance reaches zero - a mock interview still delivers its report.
+On the free hour, live and mock sessions spend it by the minute, from the first word to the end of the session. Any session needs at least a minute of free time to start, the app warns at five minutes and at one minute left, and a session stops when the free hour runs out - a mock interview still delivers its report. Subscribers are never metered.

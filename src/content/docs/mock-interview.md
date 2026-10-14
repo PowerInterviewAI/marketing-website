@@ -16,7 +16,7 @@ This is the half of the app to reach for first: you can run a session tonight, w
 | Profile / CV   | **Account**                             | Questions and scoring are both grounded in it.                                    |
 | Job context    | **Account**                             | Stands in for the role, which the setup dialog no longer asks for.                |
 | Microphone     | **Configuration**                       | Your answers are transcribed from it.                                             |
-| Credits        | Bought in the app                       | Billed by the minute - see [What a Session Costs](#what-a-session-costs).              |
+| Plan           | The free hour, or a subscription        | See [What a Session Costs](#what-a-session-costs).                                     |
 
 If your name or profile is missing, the app says so and sends you to **Account** rather than starting a session you would have to abandon.
 
@@ -82,20 +82,20 @@ From the report you can **practice again** with the same setup, or finish and re
 
 ## What a Session Costs
 
-A mock interview is billed like a live one: **10 credits a minute**, from the first question to the report.
+With a subscription ($20 a month, or $96 a year), mock interviews are **unlimited** - run as many and as long as you like.
 
-| Length       | Usually runs | Roughly costs |
-| ------------ | ------------ | ------------- |
-| 3 questions  | 8 minutes    | 80 credits    |
-| 5 questions  | 13 minutes   | 130 credits   |
-| 8 questions  | 20 minutes   | 200 credits   |
-| 12 questions | 30 minutes   | 300 credits   |
+On the free hour, a mock interview spends it by the minute like a live one, from the first question to the report:
 
-These are estimates: the session is billed for the time it actually takes, so long answers and follow-ups make it longer. The setup dialog shows the estimate and how many minutes your balance covers.
+| Length       | Usually runs |
+| ------------ | ------------ |
+| 3 questions  | 8 minutes    |
+| 5 questions  | 13 minutes   |
+| 8 questions  | 20 minutes   |
+| 12 questions | 30 minutes   |
 
-You need at least a minute of credit to start. The app warns you when about five minutes and one minute are left, and if your credits run out mid-interview the session ends there, keeps the answer you were giving, and still produces your report.
+These are estimates: long answers and follow-ups make a session longer. The setup dialog shows the estimate and how many minutes your free time covers, so the hour covers a couple of full sessions.
 
-Your 1-hour free trial is 600 credits, which covers a couple of full sessions.
+On the free hour you need at least a minute left to start. The app warns you when about five minutes and one minute are left, and if it runs out mid-interview the session ends there, keeps the answer you were giving, and still produces your report.
 
 ---
 
@@ -119,7 +119,7 @@ A language marked **text only** in the setup dialog has no voice available. The 
 
 ## Practising Without a Session
 
-If you would rather rehearse without spending credits, a general-purpose voice assistant will hold a passable interview. It has no access to your CV, no scoring and no report, but it is free and it makes you talk.
+If you would rather rehearse without spending your free hour, a general-purpose voice assistant will hold a passable interview. It has no access to your CV, no scoring and no report, but it is free and it makes you talk.
 
 1. **Enter ChatGPT voice mode**
 

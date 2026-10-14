@@ -2,57 +2,64 @@ import type { PluralForms } from '@/i18n/format';
 
 export const pricing = {
   eyebrow: 'Pricing',
-  title: 'Simple, transparent pricing',
+  title: 'One free hour, then unlimited',
   description:
-    'Credits are consumed at {rate} per minute of AI assistance, so {hour} is about an hour. Buy what you need - there is no subscription.',
-  creditNoun: { one: 'credit', other: 'credits' } as PluralForms,
-  minuteNoun: { one: 'minute', other: 'minutes' } as PluralForms,
-  hourNoun: { one: 'hour', other: 'hours' } as PluralForms,
-  trialBadge: 'New accounts: 1-hour free trial',
+    'Start with a free hour on the free model. When you want more, subscribe for unlimited live and mock interviews on the SOTA model - {monthly} a month, or {yearly} a month paid yearly.',
+  dayNoun: { one: 'day', other: 'days' } as PluralForms,
+  trialBadge: 'New accounts: 1 free hour',
   coinsBadge: 'Coins only - no card, PayPal, or bank details',
+  prepaidBadge: 'Prepaid - never renews on its own',
 
   tier: {
-    caption: 'Free trial compared with paid plans',
+    caption: 'The free plan compared with a subscription',
     whatYouGet: 'What you get',
-    trial: 'Free trial',
-    paid: 'Paid',
+    trial: 'Free',
+    paid: 'Subscription',
     included: 'Included',
     duration: {
-      label: 'Duration',
-      trial: '1 hour, new accounts',
-      paid: 'As long as your credits last',
+      label: 'Interview time',
+      trial: '1 hour, once',
+      paid: 'Unlimited',
     },
     model: { label: 'Provided model', trial: 'Free model', paid: 'SOTA model' },
     live: 'Live suggestions',
     triggered: 'Triggered suggestions',
+    mock: 'Mock interviews with a scored report',
     rateLimit: { label: 'Rate limit', trial: 'None in practice', paid: 'None in practice' },
   },
 
-  metering: {
-    title: 'What a session spends',
-    live: 'Live interview',
-    liveText:
-      '{rate} a minute while the assistant is running, so a 30-minute call is about {thirty}. It stops when your credits run out.',
-    mock: 'Mock interview',
-    mockText:
-      '{rate} a minute from the first question to the report, so an 8-question session of about {minutes} costs about {session}. If your credits run out, it ends and you still get your report.',
+  billing: {
+    title: 'How billing works',
+    free: 'The free hour',
+    freeText:
+      'Live and mock sessions spend it by the minute. When it runs out the session stops, and a mock interview still gives you its report.',
+    paid: 'A subscription',
+    paidText:
+      'Pay once in coins for a month or a year. Nothing renews automatically: buy another pass whenever you like, and its days are added after your current end date.',
   },
 
   plans: {
-    starter: 'Ideal for individuals and first-time AI note takers',
-    pro: 'Best value for professionals and serious job seekers',
-    enterprise: 'Enterprise-ready meeting and interview note taking for teams',
+    free: 'Everything the app does, on the free model, for your first hour',
+    monthly: 'Unlimited interviews on the SOTA model, a month at a time',
+    yearly: 'Unlimited interviews on the SOTA model for a year, at the lowest price',
   },
-  popular: 'Most popular',
+  popular: 'Best value',
   save: 'Save {percent}%',
-  planNames: { starter: 'Starter', pro: 'Pro', enterprise: 'Enterprise' },
-  creditsLine: '{credits} {creditNoun} · ~{duration}',
+  planNames: { free: 'Free', monthly: 'Monthly', yearly: 'Yearly' },
+  perMonth: '/ month',
+  freeLine: '1 hour of interviews, once',
+  billedAs: '{price} paid once for {days} {dayNoun}',
   features: {
     suggestions: 'Live and triggered suggestions',
-    model: 'Provided SOTA model, no practical rate limit',
-    oneOff: 'One-off purchase - no recurring charge',
+    mock: 'Mock interviews with a scored report',
+    freeModel: 'Free model',
+    sotaModel: 'SOTA model, no practical rate limit',
+    oneHour: 'One hour of interview time',
+    unlimited: 'Unlimited interview time',
+    noRenewal: 'No automatic renewal',
   },
   getStarted: 'Get started',
+  startFree: 'Start free',
 };
 
 export type Pricing = typeof pricing;

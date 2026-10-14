@@ -28,7 +28,7 @@ const SITE_NAME = 'Power Interview AI';
 /**
  * The home page's SoftwareApplication block.
  *
- * Takes the live plans so `offers` describes the packs the page actually
+ * Takes the live plans so `offers` describes the plans the page actually
  * renders. It used to hardcode lowPrice 20 / highPrice 500 / offerCount 3
  * against a price list fetched at request time, so the markup was free to
  * drift from the visible pricing - and structured data that contradicts the
