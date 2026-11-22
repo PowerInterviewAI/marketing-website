@@ -23,8 +23,8 @@ export interface Plan {
   price_usd: number;
   /** For display: $180 a year is $15 a month. */
   price_per_month_usd: number;
-  /** Days of subscription the pass adds; null for the free tier, which is an hour, once. */
-  days: number | null;
+  /** Calendar months the pass adds; null for the free tier, which is an hour, once. */
+  months: number | null;
   popular: boolean;
 }
 

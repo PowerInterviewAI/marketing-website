@@ -26,12 +26,12 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
   const usd = (amount: number) => formatUsd(amount, locale);
 
   const priceLine = (plan: Plan) =>
-    plan.days === null
+    plan.months === null
       ? copy.freeLine
       : format(copy.billedAs, {
           price: usd(plan.price_usd),
-          days: plan.days.toLocaleString(locale),
-          dayNoun: pluralize(locale, plan.days, copy.dayNoun),
+          months: plan.months.toLocaleString(locale),
+          monthNoun: pluralize(locale, plan.months, copy.monthNoun),
         });
 
   return (

@@ -2,9 +2,9 @@ import { Plan } from '@/types';
 
 /**
  * The plans, mirrored from backend/app/cfg/payment.py's SUBSCRIPTION_PLANS and
- * TRIAL_INITIAL_CREDITS: a free hour once, then prepaid passes of $25 for 30
- * days, $60 for 90 days ($20 a month) or $180 for 365 days ($15 a month), each
- * unlimited on the SOTA model.
+ * TRIAL_INITIAL_CREDITS: a free hour once, then prepaid passes of $25 for a
+ * month, $60 for three months ($20 a month) or $180 for a year ($15 a month),
+ * each a calendar period and unlimited on the SOTA model.
  *
  * Hardcoded rather than fetched: /pricing and the home page used to wait on a
  * backend round trip just to show a price list that changes rarely. There is
@@ -12,10 +12,10 @@ import { Plan } from '@/types';
  * backend, update this list to match by hand.
  */
 const PLANS: Plan[] = [
-  { plan: 'free', price_usd: 0, price_per_month_usd: 0, days: null, popular: false },
-  { plan: 'monthly', price_usd: 25, price_per_month_usd: 25, days: 30, popular: false },
-  { plan: 'quarterly', price_usd: 60, price_per_month_usd: 20, days: 90, popular: true },
-  { plan: 'yearly', price_usd: 180, price_per_month_usd: 15, days: 365, popular: false },
+  { plan: 'free', price_usd: 0, price_per_month_usd: 0, months: null, popular: false },
+  { plan: 'monthly', price_usd: 25, price_per_month_usd: 25, months: 1, popular: false },
+  { plan: 'quarterly', price_usd: 60, price_per_month_usd: 20, months: 3, popular: true },
+  { plan: 'yearly', price_usd: 180, price_per_month_usd: 15, months: 12, popular: false },
 ];
 
 export function getPlans(): Plan[] {
