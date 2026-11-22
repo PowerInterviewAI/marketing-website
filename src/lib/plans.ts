@@ -2,8 +2,9 @@ import { Plan } from '@/types';
 
 /**
  * The plans, mirrored from backend/app/cfg/payment.py's SUBSCRIPTION_PLANS and
- * TRIAL_INITIAL_CREDITS: a free hour once, then prepaid passes of $20 for 30
- * days or $96 for 365 days ($8 a month), each unlimited on the SOTA model.
+ * TRIAL_INITIAL_CREDITS: a free hour once, then prepaid passes of $25 for 30
+ * days, $60 for 90 days ($20 a month) or $180 for 365 days ($15 a month), each
+ * unlimited on the SOTA model.
  *
  * Hardcoded rather than fetched: /pricing and the home page used to wait on a
  * backend round trip just to show a price list that changes rarely. There is
@@ -12,8 +13,9 @@ import { Plan } from '@/types';
  */
 const PLANS: Plan[] = [
   { plan: 'free', price_usd: 0, price_per_month_usd: 0, days: null, popular: false },
-  { plan: 'monthly', price_usd: 20, price_per_month_usd: 20, days: 30, popular: false },
-  { plan: 'yearly', price_usd: 96, price_per_month_usd: 8, days: 365, popular: true },
+  { plan: 'monthly', price_usd: 25, price_per_month_usd: 25, days: 30, popular: false },
+  { plan: 'quarterly', price_usd: 60, price_per_month_usd: 20, days: 90, popular: true },
+  { plan: 'yearly', price_usd: 180, price_per_month_usd: 15, days: 365, popular: false },
 ];
 
 export function getPlans(): Plan[] {
@@ -37,7 +39,7 @@ export function savingPercent(plan: Plan): number {
 }
 
 /**
- * A plan price as the locale writes money: "$96" in English, "96 $" in Russian, matching the
+ * A plan price as the locale writes money: "$180" in English, "180 $" in Russian, matching the
  * prices the FAQ and docs quote as text. Cents only when a price has them.
  */
 export function formatUsd(amount: number, locale: string): string {

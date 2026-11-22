@@ -35,7 +35,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
         });
 
   return (
-    <div className="mx-auto mt-14 grid max-w-5xl items-start gap-6 md:grid-cols-3">
+    <div className="mx-auto mt-14 grid max-w-6xl items-start gap-6 md:grid-cols-2 xl:grid-cols-4">
       {plans.map((plan, index) => {
         const free = plan.price_usd === 0;
         const saving = savingPercent(plan);
@@ -64,7 +64,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <div className="flex items-baseline gap-2">
+                <div className="flex flex-wrap items-baseline gap-2">
                   <span className="font-display text-4xl font-semibold tracking-tight">
                     {usd(plan.price_per_month_usd)}
                   </span>

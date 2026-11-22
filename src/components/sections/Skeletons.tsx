@@ -23,8 +23,8 @@ export const PricingSkeleton: React.FC = () => {
   return (
     <Section aria-label={pricing.aria}>
       <SectionHeading eyebrow={pricing.eyebrow} title={pricing.title} />
-      <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
-        {[0, 1, 2].map((i) => (
+      <div className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {[0, 1, 2, 3].map((i) => (
           <div key={i} className="h-72 animate-pulse rounded-xl border border-border bg-card" />
         ))}
       </div>

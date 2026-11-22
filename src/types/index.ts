@@ -18,10 +18,10 @@ export interface User {
 }
 
 export interface Plan {
-  plan: 'free' | 'monthly' | 'yearly';
+  plan: 'free' | 'monthly' | 'quarterly' | 'yearly';
   /** Paid once, up front. 0 for the free tier. */
   price_usd: number;
-  /** For display: $96 a year is $8 a month. */
+  /** For display: $180 a year is $15 a month. */
   price_per_month_usd: number;
   /** Days of subscription the pass adds; null for the free tier, which is an hour, once. */
   days: number | null;
