@@ -112,7 +112,7 @@ export const faq = {
       question: 'Can I get a refund?',
       category: 'billing',
       answer:
-        'We stand behind our product. If you are not satisfied with Power Interview AI, please contact us at team@vectorleappulse.xyz within 14 days of purchase to discuss refund options.',
+        'Refunds are handled by our support team. Email team@vectorleappulse.xyz within 14 days of purchase with your order ID. If your refund is approved, we end the subscription time it paid for and send the money back to you.',
     },
   ] as FaqEntry[],
 };
