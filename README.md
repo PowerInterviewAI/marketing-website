@@ -43,7 +43,7 @@ power-interview-hero/
 | `/`               | Home. Composes every marketing section in order: hero, how it works, mock interview, then the live-call material |
 | `/how-it-works`   | Install, set up, rehearse a mock interview, then join the real call              |
 | `/mock-interview` | The in-app spoken mock interview: setup, session loop, scored report, pricing    |
-| `/pricing`        | Trial vs paid, and the credit packs                                              |
+| `/pricing`        | The free hour vs a subscription, and the monthly, quarterly and annual passes   |
 | `/faq`            | The FAQ, and the only page carrying `FAQPage` structured data                    |
 | `/team`           | The people building it                                                           |
 | `/docs`           | Docs index, with a page per markdown file under `src/content/docs/`              |
