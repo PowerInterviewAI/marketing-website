@@ -46,7 +46,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
               className={cn(
                 'relative flex h-full flex-col gap-5 rounded-xl border bg-card p-6',
                 plan.popular
-                  ? 'border-primary shadow-glow-sm md:-mt-4 md:pb-8 md:pt-10'
+                  ? 'border-primary shadow-glow-sm xl:-mt-4 xl:pb-8 xl:pt-10'
                   : 'border-border'
               )}
             >
