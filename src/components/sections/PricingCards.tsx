@@ -35,13 +35,13 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
         });
 
   return (
-    <div className="mx-auto mt-14 grid max-w-6xl items-start gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <div className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
       {plans.map((plan, index) => {
         const free = plan.price_usd === 0;
         const saving = savingPercent(plan);
 
         return (
-          <Reveal key={plan.plan} delay={index * 80}>
+          <Reveal key={plan.plan} delay={index * 80} className="h-full">
             <div
               className={cn(
                 'relative flex h-full flex-col gap-5 rounded-xl border bg-card p-6',
@@ -60,7 +60,9 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
 
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold">{copy.planNames[plan.plan]}</h3>
-                <p className="text-sm text-muted-foreground">{copy.plans[plan.plan]}</p>
+                <p className="text-sm text-muted-foreground xl:min-h-[3lh]">
+                  {copy.plans[plan.plan]}
+                </p>
               </div>
 
               <div className="flex flex-col gap-1">

@@ -123,7 +123,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
       </div>
 
       <Reveal className="mx-auto mt-12 max-w-3xl">
-        <div className="overflow-x-auto rounded-xl border border-border bg-card">
+        <div className="relative overflow-x-auto rounded-xl border border-border bg-card">
           <table className="w-full min-w-[34rem] border-collapse text-sm">
             <caption className="sr-only">{tier.caption}</caption>
             <thead>

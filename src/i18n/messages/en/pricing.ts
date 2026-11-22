@@ -42,7 +42,7 @@ export const pricing = {
     free: 'Everything the app does, on the free model, for your first hour',
     monthly: 'Unlimited interviews on the SOTA model, a month at a time',
     quarterly: 'Unlimited interviews on the SOTA model for three months',
-    yearly: 'Unlimited interviews on the SOTA model for a year, at the lowest price',
+    yearly: 'Unlimited interviews on the SOTA model for a full year',
   },
   popular: 'Most popular',
   save: 'Save {percent}%',
