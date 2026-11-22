@@ -109,6 +109,12 @@ export const faq = {
         'Yes! New users get a full free hour powered by our free model - with no practical rate limit and no interruptions. It includes every feature: live suggestions, triggered suggestions and mock interview practice. A subscription moves you to the SOTA model with unlimited interview time.',
     },
     {
+      question: 'Can I use my account on more than one computer?',
+      category: 'billing',
+      answer:
+        'Yes. Your profile follows you to any computer you sign in on. An account runs one interview at a time, though: starting an interview on a second computer ends the one running on the first.',
+    },
+    {
       question: 'Can I get a refund?',
       category: 'billing',
       answer:
