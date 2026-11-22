@@ -93,7 +93,7 @@ On the free hour, a mock interview spends it by the minute like a live one, from
 | 8 questions  | 20 minutes   |
 | 12 questions | 30 minutes   |
 
-These are estimates: long answers and follow-ups make a session longer. The setup dialog shows the estimate and how many minutes your free time covers, so the hour covers a couple of full sessions.
+These are estimates: long answers and follow-ups make a session longer. The setup dialog shows the estimate and how many minutes your free time covers. The free hour is enough for a couple of full sessions.
 
 On the free hour you need at least a minute left to start. The app warns you when about five minutes and one minute are left, and if it runs out mid-interview the session ends there, keeps the answer you were giving, and still produces your report.
 
