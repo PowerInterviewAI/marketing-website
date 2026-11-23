@@ -1,9 +1,9 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  title: 'Tu próxima entrevista, ensayada en tu idioma.',
+  title: 'Comete tus errores aquí, no en la entrevista.',
   subtitle:
-    'Practica en voz alta con un entrevistador de IA, recibe una puntuación por cada respuesta y usa la misma app como ayuda en directo. Basado en tu CV, para cualquier puesto.',
+    'Practica en voz alta con un entrevistador de IA en tu idioma. Cada respuesta se puntúa y mejora para cualquier trabajo, de ventas a pruebas de código en directo.',
   free: '1 hora gratis',
   noCard: 'Sin tarjeta de crédito',
   secondary: 'Cómo funciona',

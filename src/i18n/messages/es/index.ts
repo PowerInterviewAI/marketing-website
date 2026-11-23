@@ -12,6 +12,7 @@ import { languages } from './languages';
 import { meta } from './meta';
 import { mockInterview } from './mockInterview';
 import { pricing } from './pricing';
+import { story } from './story';
 import { team } from './team';
 import { testimonials } from './testimonials';
 import { whyChoose } from './whyChoose';
@@ -30,6 +31,7 @@ export const es: Messages = {
   meta,
   mockInterview,
   pricing,
+  story,
   team,
   testimonials,
   whyChoose,

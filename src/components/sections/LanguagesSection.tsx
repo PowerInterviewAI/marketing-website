@@ -20,6 +20,8 @@ import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { cn } from '@/lib/utils';
 
+import { LanguageChecker } from './LanguageChecker';
+
 /**
  * The full language list, rather than the count on its own.
  *
@@ -125,8 +127,13 @@ export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }
   locale,
   standalone = false,
 }) => {
-  const { languages: copy } = getMessages(locale);
+  const { languages: copy, story } = getMessages(locale);
   const writtenCount = LANGUAGE_COUNT - VOICE_LANGUAGE_COUNT;
+  const checkerLanguages = INTERVIEW_LANGUAGES.map((language) => ({
+    ...language,
+    localName: localNameFor(locale, language),
+    dir: isRtl(language) ? ('rtl' as const) : ('ltr' as const),
+  }));
   const tile = (language: InterviewLanguage) => (
     <LanguageTile
       key={language.code}
@@ -153,7 +160,9 @@ export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }
         })}
       />
 
-      <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-3">
+      <LanguageChecker copy={story.checker} languages={checkerLanguages} />
+
+      <div className="mx-auto mt-6 flex max-w-5xl flex-wrap items-center justify-center gap-3">
         <Badge variant="primary" size="md">
           <Volume2 aria-hidden="true" />
           {format(copy.spokenBadge, { voices: VOICE_LANGUAGE_COUNT })}

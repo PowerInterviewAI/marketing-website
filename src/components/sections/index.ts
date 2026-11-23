@@ -1,4 +1,5 @@
 export * from './BenefitsSection';
+export * from './CodingSection';
 export * from './ContactSection';
 export * from './FAQSection';
 export * from './FeaturesSection';
@@ -7,7 +8,9 @@ export * from './Header';
 export * from './HowItWorksSection';
 export * from './LanguagesSection';
 export * from './MockInterviewSection';
+export * from './PracticeSection';
 export * from './PricingSection';
+export * from './RolesSection';
 export * from './Skeletons';
 export * from './TeamSection';
 export * from './TestimonialsSection';

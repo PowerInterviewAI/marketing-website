@@ -1,9 +1,9 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  title: 'Votre prochain entretien, répété dans votre langue.',
+  title: 'Faites vos erreurs ici, pas en entretien.',
   subtitle:
-    'Entraînez-vous à voix haute avec un recruteur IA, obtenez une note pour chaque réponse, puis utilisez la même app pour une aide en direct. Basé sur votre CV, pour tout poste.',
+    'Entraînez-vous à voix haute avec un recruteur IA dans votre langue. Chaque réponse est notée et améliorée, pour tout métier, de la vente au test de code en direct.',
   free: '1 heure offerte',
   noCard: 'Sans carte bancaire',
   secondary: 'Voir comment ça marche',
