@@ -6,31 +6,7 @@ export const pricing: Pricing = {
   description:
     'Empieza con una hora gratis con el modelo gratuito. Cuando quieras más, suscríbete para tener entrevistas en directo y de práctica ilimitadas con el modelo SOTA: {monthly} al mes, o {yearly} al mes con pago anual.',
   monthNoun: { one: 'mes', other: 'meses' },
-  trialBadge: 'Cuentas nuevas: 1 hora gratis',
   coinsBadge: 'Solo cripto: sin tarjeta, PayPal ni datos bancarios',
-  prepaidBadge: 'Prepago: nunca se renueva solo',
-
-  tier: {
-    caption: 'El plan gratuito comparado con una suscripción',
-    whatYouGet: 'Qué incluye',
-    trial: 'Gratis',
-    paid: 'Suscripción',
-    included: 'Incluido',
-    duration: {
-      label: 'Tiempo de entrevista',
-      trial: '1 hora, una vez',
-      paid: 'Ilimitado',
-    },
-    model: { label: 'Modelo incluido', trial: 'Modelo gratuito', paid: 'Modelo SOTA' },
-    live: 'Sugerencias en directo',
-    triggered: 'Sugerencias a petición',
-    mock: 'Entrevistas de práctica con informe puntuado',
-    rateLimit: {
-      label: 'Límite de uso',
-      trial: 'Ninguno en la práctica',
-      paid: 'Ninguno en la práctica',
-    },
-  },
 
   billing: {
     title: 'Cómo funciona la facturación',
@@ -43,11 +19,12 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: 'Todo lo que hace la aplicación, con el modelo gratuito, durante tu primera hora',
-    monthly: 'Entrevistas ilimitadas con el modelo SOTA, mes a mes',
-    quarterly: 'Entrevistas ilimitadas con el modelo SOTA durante tres meses',
-    yearly: 'Entrevistas ilimitadas con el modelo SOTA durante un año entero',
+    free: 'Prueba todas las funciones',
+    monthly: 'Para una entrevista próxima',
+    quarterly: 'Para una búsqueda activa',
+    yearly: 'Para una búsqueda más larga',
   },
+  included: { every: 'Incluido en todos los planes', paid: 'Con cualquier plan de pago' },
   popular: 'Recomendado',
   save: 'Ahorra un {percent}%',
   planNames: { free: 'Gratis', monthly: 'Mensual', quarterly: 'Trimestral', yearly: 'Anual' },

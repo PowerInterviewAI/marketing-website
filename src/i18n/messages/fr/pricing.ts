@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     'Commencez par une heure offerte avec le modèle gratuit. Si vous en voulez plus, abonnez-vous pour des entretiens en direct et d’entraînement illimités avec le modèle SOTA : {monthly} par mois, ou {yearly} par mois en paiement annuel.',
   monthNoun: { one: 'mois', other: 'mois' },
-  trialBadge: 'Nouveaux comptes : 1 heure offerte',
   coinsBadge: 'Crypto uniquement : ni carte, ni PayPal, ni coordonnées bancaires',
-  prepaidBadge: 'Prépayé : jamais renouvelé automatiquement',
-
-  tier: {
-    caption: 'La formule gratuite comparée à un abonnement',
-    whatYouGet: 'Ce qui est inclus',
-    trial: 'Gratuit',
-    paid: 'Abonnement',
-    included: 'Inclus',
-    duration: {
-      label: 'Temps d’entretien',
-      trial: '1 heure, une fois',
-      paid: 'Illimité',
-    },
-    model: { label: 'Modèle fourni', trial: 'Modèle gratuit', paid: 'Modèle SOTA' },
-    live: 'Suggestions en direct',
-    triggered: 'Suggestions à la demande',
-    mock: 'Entretiens d’entraînement avec rapport noté',
-    rateLimit: { label: 'Limite d’usage', trial: 'Aucune en pratique', paid: 'Aucune en pratique' },
-  },
 
   billing: {
     title: 'Comment fonctionne la facturation',
@@ -39,11 +19,12 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: 'Tout ce que fait l’application, avec le modèle gratuit, pour votre première heure',
-    monthly: 'Entretiens illimités avec le modèle SOTA, un mois à la fois',
-    quarterly: 'Entretiens illimités avec le modèle SOTA pendant trois mois',
-    yearly: 'Entretiens illimités avec le modèle SOTA pendant une année entière',
+    free: 'Essayez toutes les fonctions',
+    monthly: 'Pour un entretien à venir',
+    quarterly: 'Pour une recherche active',
+    yearly: 'Pour une recherche plus longue',
   },
+  included: { every: 'Inclus dans toutes les offres', paid: 'Avec toute offre payante' },
   popular: 'Recommandé',
   save: 'Économisez {percent} %',
   planNames: { free: 'Gratuit', monthly: 'Mensuel', quarterly: 'Trimestriel', yearly: 'Annuel' },

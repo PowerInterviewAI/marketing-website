@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     '先用免费模型免费体验一小时。想要更多时，订阅即可在 SOTA 模型上不限次进行实时面试和模拟面试 - 每月 {monthly}，或按年付费每月仅 {yearly}。',
   monthNoun: { one: '个月', other: '个月' },
-  trialBadge: '新账户：免费 1 小时',
   coinsBadge: '仅限加密货币 - 无需银行卡、PayPal 或银行信息',
-  prepaidBadge: '预付 - 从不自动续费',
-
-  tier: {
-    caption: '免费方案与订阅对比',
-    whatYouGet: '包含内容',
-    trial: '免费',
-    paid: '订阅',
-    included: '包含',
-    duration: {
-      label: '面试时长',
-      trial: '1 小时，仅一次',
-      paid: '不限',
-    },
-    model: { label: '提供的模型', trial: '免费模型', paid: 'SOTA 模型' },
-    live: '实时建议',
-    triggered: '按需建议',
-    mock: '带评分报告的模拟面试',
-    rateLimit: { label: '使用限制', trial: '实际上没有', paid: '实际上没有' },
-  },
 
   billing: {
     title: '计费方式',
@@ -38,11 +18,12 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: '首个小时内，在免费模型上使用应用的全部功能',
-    monthly: '在 SOTA 模型上不限次面试，按月购买',
-    quarterly: '在 SOTA 模型上不限次面试三个月',
-    yearly: '在 SOTA 模型上不限次面试整整一年',
+    free: '体验全部功能',
+    monthly: '适合近期面试',
+    quarterly: '适合积极求职',
+    yearly: '适合长期求职',
   },
+  included: { every: '所有方案均包含', paid: '付费方案额外包含' },
   popular: '推荐',
   save: '节省 {percent}%',
   planNames: { free: '免费', monthly: '月度', quarterly: '季度', yearly: '年度' },

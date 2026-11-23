@@ -6,27 +6,7 @@ export const pricing = {
   description:
     'Start with a free hour on the free model. When you want more, subscribe for unlimited live and mock interviews on the SOTA model - {monthly} a month, or {yearly} a month paid annually.',
   monthNoun: { one: 'month', other: 'months' } as PluralForms,
-  trialBadge: 'New accounts: 1 free hour',
   coinsBadge: 'Crypto only - no card, PayPal, or bank details',
-  prepaidBadge: 'Prepaid - never renews on its own',
-
-  tier: {
-    caption: 'The free plan compared with a subscription',
-    whatYouGet: 'What you get',
-    trial: 'Free',
-    paid: 'Subscription',
-    included: 'Included',
-    duration: {
-      label: 'Interview time',
-      trial: '1 hour, once',
-      paid: 'Unlimited',
-    },
-    model: { label: 'Provided model', trial: 'Free model', paid: 'SOTA model' },
-    live: 'Live suggestions',
-    triggered: 'Triggered suggestions',
-    mock: 'Mock interviews with a scored report',
-    rateLimit: { label: 'Rate limit', trial: 'None in practice', paid: 'None in practice' },
-  },
 
   billing: {
     title: 'How billing works',
@@ -39,11 +19,12 @@ export const pricing = {
   },
 
   plans: {
-    free: 'Everything the app does, on the free model, for your first hour',
-    monthly: 'Unlimited interviews on the SOTA model, a month at a time',
-    quarterly: 'Unlimited interviews on the SOTA model for three months',
-    yearly: 'Unlimited interviews on the SOTA model for a full year',
+    free: 'Try every feature',
+    monthly: 'For an interview coming up',
+    quarterly: 'For an active job search',
+    yearly: 'For a longer job search',
   },
+  included: { every: 'Included in every plan', paid: 'With any paid plan' },
   popular: 'Recommended',
   save: 'Save {percent}%',
   planNames: { free: 'Free', monthly: 'Monthly', quarterly: 'Quarterly', yearly: 'Annual' },
