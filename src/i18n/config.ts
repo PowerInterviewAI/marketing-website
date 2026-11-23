@@ -32,21 +32,23 @@ export const isLocale = (value: string): value is Locale =>
  *
  * `space` is what separates the clauses of a sentence the site assembles from
  * parts (a bold phrase between two plain ones): a space everywhere except in
- * Japanese and Chinese, which do not put one between words.
+ * Japanese and Chinese, which do not put one between words. `period` ends such
+ * a sentence when its last part is a link and so cannot carry the punctuation
+ * itself: the ideographic full stop in Japanese and Chinese.
  */
 export const LOCALE_META: Record<
   Locale,
-  { label: string; htmlLang: string; ogLocale: string; space: string }
+  { label: string; htmlLang: string; ogLocale: string; space: string; period: string }
 > = {
-  en: { label: 'English', htmlLang: 'en', ogLocale: 'en_US', space: ' ' },
-  de: { label: 'Deutsch', htmlLang: 'de', ogLocale: 'de_DE', space: ' ' },
-  es: { label: 'Español', htmlLang: 'es', ogLocale: 'es_ES', space: ' ' },
-  fr: { label: 'Français', htmlLang: 'fr', ogLocale: 'fr_FR', space: ' ' },
-  pt: { label: 'Português', htmlLang: 'pt-BR', ogLocale: 'pt_BR', space: ' ' },
-  ru: { label: 'Русский', htmlLang: 'ru', ogLocale: 'ru_RU', space: ' ' },
-  ja: { label: '日本語', htmlLang: 'ja', ogLocale: 'ja_JP', space: '' },
-  ko: { label: '한국어', htmlLang: 'ko', ogLocale: 'ko_KR', space: ' ' },
-  zh: { label: '中文', htmlLang: 'zh-CN', ogLocale: 'zh_CN', space: '' },
+  en: { label: 'English', htmlLang: 'en', ogLocale: 'en_US', space: ' ', period: '.' },
+  de: { label: 'Deutsch', htmlLang: 'de', ogLocale: 'de_DE', space: ' ', period: '.' },
+  es: { label: 'Español', htmlLang: 'es', ogLocale: 'es_ES', space: ' ', period: '.' },
+  fr: { label: 'Français', htmlLang: 'fr', ogLocale: 'fr_FR', space: ' ', period: '.' },
+  pt: { label: 'Português', htmlLang: 'pt-BR', ogLocale: 'pt_BR', space: ' ', period: '.' },
+  ru: { label: 'Русский', htmlLang: 'ru', ogLocale: 'ru_RU', space: ' ', period: '.' },
+  ja: { label: '日本語', htmlLang: 'ja', ogLocale: 'ja_JP', space: '', period: '。' },
+  ko: { label: '한국어', htmlLang: 'ko', ogLocale: 'ko_KR', space: ' ', period: '.' },
+  zh: { label: '中文', htmlLang: 'zh-CN', ogLocale: 'zh_CN', space: '', period: '。' },
 };
 
 /**

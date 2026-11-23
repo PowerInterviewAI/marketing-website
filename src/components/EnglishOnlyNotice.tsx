@@ -6,7 +6,7 @@ import { Languages } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { useLocale, useMessages } from '@/i18n/LocaleProvider';
-import { DEFAULT_LOCALE, stripLocale } from '@/i18n/config';
+import { DEFAULT_LOCALE, LOCALE_META, stripLocale } from '@/i18n/config';
 
 /**
  * Shown on pages whose text is still English under a non-English locale - the
@@ -28,7 +28,8 @@ export const EnglishOnlyNotice: React.FC<{ className?: string }> = ({ className 
     >
       <Languages className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
       <span>
-        {englishOnly.text}{' '}
+        {englishOnly.text}
+        {LOCALE_META[locale].space}
         <a
           href={stripLocale(pathname)}
           hrefLang="en"
