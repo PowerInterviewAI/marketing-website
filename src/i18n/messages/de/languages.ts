@@ -5,7 +5,7 @@ export const languages: Languages = {
   title: 'Interviews in {count} {noun}',
   titleNoun: { one: 'Sprache', other: 'Sprachen' },
   description:
-    'Transkription, Live-Vorschläge, Probeinterview-Fragen, Bewertung und der exportierte Bericht folgen einer einzigen Einstellung, und die lässt sich mitten im Interview ändern, nicht nur vor dem Start. Alle {count} werden transkribiert und beantwortet; {voices} davon spricht der Probeinterviewer auch laut aus.',
+    'Übe, erhalte Bewertungen und exportiere deinen Bericht in deiner Interviewsprache. {voices} der {count} Sprachen spricht der KI-Interviewer laut.',
   spokenBadge: '{voices} vom Probeinterviewer gesprochen',
   writtenBadge: '{written} mit geschriebenen Fragen',
   spokenAria: 'Fragen im Probeinterview werden gesprochen',

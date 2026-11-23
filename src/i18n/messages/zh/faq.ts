@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: '常见问题',
+  seeAll: '查看全部问题',
   title: '常见问题',
   description: '安装前值得了解的一切。',
   categories: {

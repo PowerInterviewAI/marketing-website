@@ -49,12 +49,12 @@ export function HomeContent({
         {howItWorksSection}
         {pricingSection}
         {testimonialsSection}
-        <InstallPanel />
         <FAQSection locale={locale} />
+        <InstallPanel />
         {contactSection}
       </main>
 
-      <FooterSection />
+      <FooterSection showCta={false} />
       <StickyDownloadBar />
     </div>
   );

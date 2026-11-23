@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CalendarCheck, Check, Coins } from 'lucide-react';
+import { CalendarCheck, Check, ChevronDown, Coins } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
@@ -36,7 +36,7 @@ const BillingNote: React.FC<{ locale: Locale }> = ({ locale }) => {
   const t = getMessages(locale).pricing.billing;
 
   return (
-    <Reveal className="mx-auto mt-6 max-w-3xl">
+    <Reveal className="mt-4">
       <div className="rounded-xl border border-border-subtle bg-surface-1 p-5">
         <h3 className="text-sm font-semibold">{t.title}</h3>
         <dl className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -122,8 +122,17 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
         </Badge>
       </div>
 
-      <Reveal className="mx-auto mt-12 max-w-3xl">
-        <div className="relative overflow-x-auto rounded-xl border border-border bg-card">
+      <PricingCards locale={locale} />
+
+      <details className="group mx-auto mt-10 max-w-3xl">
+        <summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden">
+          <ChevronDown
+            className="size-4 transition-transform group-open:rotate-180"
+            aria-hidden="true"
+          />
+          {tier.whatYouGet}
+        </summary>
+        <div className="relative mt-4 overflow-x-auto rounded-xl border border-border bg-card">
           <table className="w-full min-w-[34rem] border-collapse text-sm">
             <caption className="sr-only">{tier.caption}</caption>
             <thead>
@@ -159,11 +168,8 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
             </tbody>
           </table>
         </div>
-      </Reveal>
-
-      <BillingNote locale={locale} />
-
-      <PricingCards locale={locale} />
+        <BillingNote locale={locale} />
+      </details>
     </Section>
   );
 };

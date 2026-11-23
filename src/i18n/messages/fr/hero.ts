@@ -65,9 +65,10 @@ export const hero: Hero = {
 
   install: {
     eyebrow: 'Installation',
-    title: 'Trois façons de démarrer',
+    title: 'Commencez votre heure offerte',
     description:
-      'Choisissez celle qui correspond à votre façon de travailler. La commande en une ligne télécharge la dernière version et lance l’installateur pour vous.',
+      'Téléchargez l’application, ajoutez votre CV et passez votre premier entretien simulé dès ce soir.',
+    more: 'Autres méthodes d’installation',
     tabCli: 'Ligne de commande',
     tabInstaller: 'Installateur',
     tabSource: 'Depuis les sources',

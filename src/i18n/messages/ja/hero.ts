@@ -65,9 +65,9 @@ export const hero: Hero = {
 
   install: {
     eyebrow: 'インストール',
-    title: '始め方は 3 通り',
-    description:
-      '作業スタイルに合うものを選んでください。ワンライナーは最新リリースをダウンロードし、インストーラを起動します。',
+    title: '無料の 1 時間を始める',
+    description: 'アプリをダウンロードして履歴書を追加し、今夜最初の模擬面接を始めましょう。',
+    more: 'その他のインストール方法',
     tabCli: 'コマンドライン',
     tabInstaller: 'インストーラ',
     tabSource: 'ソースから',

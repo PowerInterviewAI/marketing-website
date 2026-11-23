@@ -20,7 +20,7 @@ interface HowItWorksSectionProps {
 }
 
 /**
- * The full four-step walkthrough, with the hotkey callout, on the home page
+ * The full four-step walkthrough, on the home page
  * and /how-it-works alike - not condensed to one line per step with a link
  * across, the way this section used to work. With the header nav always
  * pointing at the home anchor (see NAV_LINKS in routes.ts), a reader landing
@@ -41,7 +41,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
   const copy = t.howItWorks;
 
   return (
-    <Section id={SECTIONS.howItWorks} aria-labelledby="how-it-works-heading">
+    <Section id={SECTIONS.howItWorks} tone="muted" aria-labelledby="how-it-works-heading">
       <SectionHeading
         id="how-it-works-heading"
         as={standalone ? 'h1' : 'h2'}

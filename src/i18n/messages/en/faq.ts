@@ -14,6 +14,7 @@ export interface FaqEntry {
  */
 export const faq = {
   eyebrow: 'FAQ',
+  seeAll: 'See all questions',
   title: 'Frequently asked questions',
   description: 'Everything worth knowing before you install.',
   categories: {

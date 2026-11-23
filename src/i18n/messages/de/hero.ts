@@ -65,9 +65,10 @@ export const hero: Hero = {
 
   install: {
     eyebrow: 'Installation',
-    title: 'Drei Wege zum Start',
+    title: 'Starte deine Gratisstunde',
     description:
-      'Wähl, was zu deiner Arbeitsweise passt. Der Einzeiler lädt die neueste Version herunter und startet das Installationsprogramm für dich.',
+      'Lade die App herunter, füge deinen Lebenslauf hinzu und führe noch heute dein erstes Probeinterview.',
+    more: 'Weitere Installationswege',
     tabCli: 'Kommandozeile',
     tabInstaller: 'Installer',
     tabSource: 'Aus dem Quellcode',

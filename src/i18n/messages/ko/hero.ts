@@ -65,9 +65,9 @@ export const hero: Hero = {
 
   install: {
     eyebrow: '설치',
-    title: '시작하는 세 가지 방법',
-    description:
-      '작업 방식에 맞는 방법을 고르세요. 한 줄 명령어가 최신 릴리스를 내려받아 설치 프로그램을 실행해 줍니다.',
+    title: '무료 1시간 시작하기',
+    description: '앱을 다운로드하고 이력서를 추가한 뒤 오늘 밤 첫 모의 면접을 시작하세요.',
+    more: '다른 설치 방법',
     tabCli: '명령줄',
     tabInstaller: '설치 프로그램',
     tabSource: '소스에서',

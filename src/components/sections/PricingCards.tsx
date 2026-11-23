@@ -35,7 +35,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
         });
 
   return (
-    <div className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
       {plans.map((plan, index) => {
         const free = plan.price_usd === 0;
         const saving = savingPercent(plan);
@@ -91,6 +91,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
               <DownloadCta
                 className="mt-auto w-full"
                 variant={plan.popular ? 'default' : 'outline'}
+                placement="pricing"
               >
                 {free ? copy.startFree : copy.getStarted}
               </DownloadCta>

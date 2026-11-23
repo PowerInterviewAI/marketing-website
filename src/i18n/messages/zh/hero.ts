@@ -65,8 +65,9 @@ export const hero: Hero = {
 
   install: {
     eyebrow: '安装',
-    title: '三种开始方式',
-    description: '选一种最适合你的方式。一行命令会下载最新版本并为你启动安装程序。',
+    title: '开始你的免费 1 小时',
+    description: '下载应用，添加简历，今晚就开始第一场模拟面试。',
+    more: '更多安装方式',
     tabCli: '命令行',
     tabInstaller: '安装程序',
     tabSource: '从源码',

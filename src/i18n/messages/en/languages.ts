@@ -6,7 +6,7 @@ export const languages = {
   /** "in N languages" - the noun agrees with the count and the preposition. */
   titleNoun: { one: 'language', other: 'languages' } as PluralForms,
   description:
-    'Transcription, live suggestions, mock questions, scoring and the exported report all follow one setting, and it changes mid-interview rather than only before you start. Every one of the {count} is transcribed and answered; {voices} of them the mock interviewer also speaks out loud.',
+    'Practice, get scored, and export your report in the language you interview in. The AI interviewer speaks {voices} of the {count} aloud.',
   spokenBadge: '{voices} spoken by the mock interviewer',
   writtenBadge: '{written} with written mock questions',
   spokenAria: 'Mock questions are spoken aloud',

@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'Preguntas frecuentes',
+  seeAll: 'Ver todas las preguntas',
   title: 'Preguntas frecuentes',
   description: 'Todo lo que conviene saber antes de instalar.',
   categories: {
