@@ -8,7 +8,10 @@ export const team = {
   openProfile: "Open {username}'s GitHub profile",
   followers: { one: 'follower', other: 'followers' } as PluralForms,
   repos: { one: 'repo', other: 'repos' } as PluralForms,
-  /** Keyed by GitHub username. These are snapshots of each member's public bio. */
+  /**
+   * Keyed by GitHub username. English renders GitHub's live bio and location
+   * and uses these only when GitHub can't answer; other locales translate them.
+   */
   members: {
     alpha5611331: {
       bio: 'Senior Software Engineer | Agentic AI • LLM • Backend • Frontend',

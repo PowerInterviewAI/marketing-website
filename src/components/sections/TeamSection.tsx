@@ -19,14 +19,13 @@ interface TeamSectionProps {
  * already where they're going. /team itself is unchanged - still a real,
  * indexable page for direct links and search results.
  *
- * GitHub profile data (avatar, bio, follower counts, contact links) is
- * hardcoded in TeamCards rather than fetched. That used to be 6
- * unauthenticated GitHub calls awaited server-side with no Suspense
- * boundary, which meant a slow or rate-limited GitHub response blocked
- * navigation to /team (and the home page) for every visitor. Hardcoding
- * removed the dependency entirely rather than just deferring it - see
- * TeamCards.tsx for the trade-off (a snapshot that goes stale until updated
- * by hand).
+ * GitHub profile data (avatar, name, counts, bio) is fetched by TeamCards,
+ * server-side, through Next's fetch cache with a one-hour revalidate - see
+ * src/lib/team.ts. It used to be 6 uncached GitHub calls awaited on every
+ * request, so a slow or rate-limited GitHub blocked navigation to /team and
+ * the home page; then it was a hand-copied snapshot that went stale. Now a
+ * visitor always gets the cached page and the refresh happens behind them,
+ * and a failed refresh falls back to the roster in src/config/team.ts.
  *
  * The route-level loading fallback lives in Skeletons.tsx.
  */

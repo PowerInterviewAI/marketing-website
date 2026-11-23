@@ -2,71 +2,10 @@ import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
 import { LinkedinIcon, Mail, Send } from 'lucide-react';
 
 import { Reveal } from '@/components/ui/reveal';
-import type { Locale } from '@/i18n/config';
+import { DEFAULT_LOCALE, type Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
-
-interface TeamMember {
-  username: string;
-  avatarUrl: string;
-  profileUrl: string;
-  name: string;
-  followers: number;
-  repos: number;
-  email: string | null;
-  x: string | null;
-  telegram: string | null;
-  linkedin: string | null;
-}
-
-/**
- * GitHub profile data (avatar, bio, follower counts, contact links) used to
- * be fetched live, client-side, on every visit - 6 unauthenticated GitHub
- * calls (3 members x profile + social_accounts) that could be slow or hit
- * GitHub's per-IP rate limit. These bios barely change, so it's hardcoded
- * instead: a snapshot taken from api.github.com on 2026-09-04. Update by hand
- * if a bio, avatar or contact link changes - there is no live source behind
- * this anymore. The bio and location text is translated, so it lives in
- * `team.members` in src/i18n/messages, keyed by username.
- */
-const TEAM: TeamMember[] = [
-  {
-    username: 'alpha5611331',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/156915037?v=4',
-    profileUrl: 'https://github.com/alpha5611331',
-    name: 'alpha',
-    followers: 11,
-    repos: 74,
-    email: 'alpha5611331@gmail.com',
-    x: 'https://x.com/alpha5611331',
-    telegram: 'https://t.me/alpha5611331',
-    linkedin: null,
-  },
-  {
-    username: 'anton-karlovskiy',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/49653735?v=4',
-    profileUrl: 'https://github.com/anton-karlovskiy',
-    name: 'Anton K.',
-    followers: 518,
-    repos: 160,
-    email: 'antonkarlovskiy@outlook.com',
-    x: 'https://x.com/antonkarlovskiy',
-    telegram: 'https://t.me/anton_karlovskiy',
-    linkedin: 'https://www.linkedin.com/in/anton-karlovskiy',
-  },
-  {
-    username: 'user2745',
-    avatarUrl: 'https://avatars.githubusercontent.com/u/37010601?v=4',
-    profileUrl: 'https://github.com/user2745',
-    name: 'Math',
-    followers: 35,
-    repos: 100,
-    email: null,
-    x: 'https://twitter.com/theregoeskevin',
-    telegram: null,
-    linkedin: 'https://www.linkedin.com/in/kevin-kamto',
-  },
-];
+import { getTeam } from '@/lib/team';
 
 function getHandleFromUrl(url: string) {
   const trimmed = url.replace(/\/+$/, '');
@@ -77,12 +16,28 @@ function getHandleFromUrl(url: string) {
 const LINK_CLASS =
   'inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground';
 
-export const TeamCards: React.FC<{ locale: Locale }> = ({ locale }) => {
+/**
+ * Team cards, from each member's public GitHub profile (see getTeam in
+ * src/lib/team.ts - fetched server-side, cached for an hour, falling back to
+ * the roster in src/config/team.ts when GitHub can't answer).
+ *
+ * Bio and location: English shows GitHub's own text, so a profile edit
+ * reaches the page on the next refresh. Other locales show the translation in
+ * `team.members`, since GitHub's text is English - and fall back to it for a
+ * member nobody has translated yet, rather than showing nothing.
+ */
+export const TeamCards = async ({ locale }: { locale: Locale }) => {
   const copy = getMessages(locale).team;
+  const team = await getTeam();
+
+  const describe = (username: string, live: string | null, field: 'bio' | 'location') => {
+    const translated = copy.members[username]?.[field] ?? null;
+    return locale === DEFAULT_LOCALE ? (live ?? translated) : (translated ?? live);
+  };
 
   return (
     <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
-      {TEAM.map((member, index) => (
+      {team.map((member, index) => (
         <Reveal key={member.username} delay={index * 80}>
           <div className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6">
             <div className="flex items-center gap-3">
@@ -108,7 +63,7 @@ export const TeamCards: React.FC<{ locale: Locale }> = ({ locale }) => {
             </div>
 
             <p className="min-h-10 text-sm leading-relaxed text-muted-foreground">
-              {copy.members[member.username]?.bio}
+              {describe(member.username, member.bio, 'bio')}
             </p>
 
             <div className="flex gap-4 text-xs text-muted-foreground">
@@ -118,7 +73,7 @@ export const TeamCards: React.FC<{ locale: Locale }> = ({ locale }) => {
               <span>
                 {member.repos} {pluralize(locale, member.repos, copy.repos)}
               </span>
-              <span>{copy.members[member.username]?.location}</span>
+              <span>{describe(member.username, member.location, 'location')}</span>
             </div>
 
             <div className="mt-auto flex flex-col gap-2 border-t border-border pt-4 text-sm">

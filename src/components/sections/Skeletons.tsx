@@ -32,8 +32,8 @@ export const PricingSkeleton: React.FC = () => {
   );
 };
 
-/** /team while its JS chunk loads - TeamCards reads hardcoded profile data
- *  instead of fetching it from GitHub. */
+/** /team while the page renders - on a cold cache that includes TeamCards'
+ *  GitHub fetch (see src/lib/team.ts), bounded by its timeout. */
 export const TeamSkeleton: React.FC = () => {
   const { team } = useMessages().chrome.loading;
 
