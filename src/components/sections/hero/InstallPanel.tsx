@@ -22,6 +22,8 @@ import {
 } from './constants';
 import { useLatestVersion } from './useLatestVersion';
 
+const INSTALL_TAB = 'min-w-0 flex-1 whitespace-normal text-center leading-tight hyphens-auto';
+
 interface DownloadRowProps {
   href: string;
   label: string;
@@ -75,14 +77,20 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
 
       <div className="mx-auto mt-10 max-w-3xl">
         <Tabs defaultValue="cli">
-          <TabsList className="w-full">
-            <TabsTrigger value="cli" className="flex-1">
+          {/*
+            The labels wrap (and hyphenate) inside their third of the row
+            rather than staying on one line: in German, French and Russian
+            the three no longer fit a phone-width row side by side, and a
+            nowrap trigger pushed the whole page wider than the screen.
+          */}
+          <TabsList className="h-auto w-full items-stretch">
+            <TabsTrigger value="cli" className={INSTALL_TAB}>
               {t.tabCli}
             </TabsTrigger>
-            <TabsTrigger value="binary" className="flex-1">
+            <TabsTrigger value="binary" className={INSTALL_TAB}>
               {t.tabInstaller}
             </TabsTrigger>
-            <TabsTrigger value="source" className="flex-1">
+            <TabsTrigger value="source" className={INSTALL_TAB}>
               {t.tabSource}
             </TabsTrigger>
           </TabsList>

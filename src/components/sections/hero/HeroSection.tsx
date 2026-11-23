@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Glow } from '@/components/ui/glow';
 import { SECTIONS, homeAnchor } from '@/config/routes';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
-import type { Locale } from '@/i18n/config';
+import { LOCALE_META, type Locale } from '@/i18n/config';
 import { getMessages } from '@/i18n/messages';
 
 import { DownloadButton } from './DownloadButton';
@@ -29,6 +29,7 @@ import { TrustStrip } from './TrustStrip';
  */
 export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const t = getMessages(locale).hero;
+  const space = LOCALE_META[locale].space;
 
   return (
     <section
@@ -51,12 +52,20 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
           </h1>
 
           <p className="text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            <span className="font-medium text-foreground">{t.mockLabel}</span> {t.mockText}{' '}
-            <span className="font-medium text-foreground">{t.liveLabel}</span> {t.liveText}
+            <span className="font-medium text-foreground">{t.mockLabel}</span>
+            {space}
+            {t.mockText}
+            {space}
+            <span className="font-medium text-foreground">{t.liveLabel}</span>
+            {space}
+            {t.liveText}
           </p>
 
           <p className="text-pretty text-base text-muted-foreground">
-            {t.rolePre} <span className="font-medium text-foreground">{t.roleStrong}</span>{' '}
+            {t.rolePre}
+            {space}
+            <span className="font-medium text-foreground">{t.roleStrong}</span>
+            {space}
             {t.rolePost}
           </p>
 

@@ -1,12 +1,19 @@
 import type { Locale } from '@/i18n/config';
 
+import { de } from './de';
 import { en } from './en';
+import { es } from './es';
+import { fr } from './fr';
+import { ja } from './ja';
+import { ko } from './ko';
+import { pt } from './pt';
 import { ru } from './ru';
+import { zh } from './zh';
 
 /** Shape of the catalogue. English is the source; every other locale must match it. */
 export type Messages = typeof en;
 
-const MESSAGES: Record<Locale, Messages> = { en, ru };
+const MESSAGES: Record<Locale, Messages> = { en, de, es, fr, pt, ru, ja, ko, zh };
 
 /** Full catalogue for a locale. Server Components only - see getClientMessages. */
 export const getMessages = (locale: Locale): Messages => MESSAGES[locale];
