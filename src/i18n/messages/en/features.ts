@@ -25,7 +25,7 @@ export const features = {
   languages: {
     title: '{count} {noun}',
     description:
-      'One setting drives all three: which speech model transcribes the call, the language your suggestions come back in, and the language of your exported report. Switch it **mid-interview**, not just before you start. Full right-to-left support for Arabic and Hebrew, and **{voices}** of them the mock interviewer speaks aloud.',
+      'One setting drives all three: which speech model transcribes the call, the language your suggestions come back in, and the language of your exported report. Switch it **mid-interview**, not just before you start. Full right-to-left support for Arabic, Hebrew, Persian, Urdu and other scripts, and **{voices}** of them the mock interviewer speaks aloud.',
     link: 'See all {count} languages',
   },
   suggestions: {

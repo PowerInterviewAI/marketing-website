@@ -101,7 +101,7 @@ On the free hour you need at least a minute left to start. The app warns you whe
 
 ## Languages
 
-A mock interview runs in any of the 28 interview languages, chosen with the same setting as a live session.
+A mock interview runs in any of the 97 interview languages, chosen with the same setting as a live session. The interviewer speaks its questions in 44 of them.
 
 A language marked **text only** in the setup dialog has no voice available. The interviewer writes its questions instead of speaking them, the **I'm ready** control stands in for the end of the audio, and everything else - transcription, follow-ups, scoring, the report - is unchanged.
 

@@ -11,7 +11,8 @@ export const languages = {
   writtenBadge: '{written} with written mock questions',
   spokenAria: 'Mock questions are spoken aloud',
   writtenAria: 'Mock questions are written',
-  note: 'A language with no voice available is a complete mock interview, not a reduced one: the interviewer writes its questions instead of speaking them, and the follow-ups, the scoring and the exported report are unchanged. Arabic and Hebrew run right to left throughout the app.',
+  showWritten: 'Show the other {written} languages',
+  note: 'A language with no voice available is a complete mock interview, not a reduced one: the interviewer writes its questions instead of speaking them, and the follow-ups, the scoring and the exported report are unchanged. Arabic, Hebrew, Persian, Urdu and the other right-to-left scripts run right to left throughout the app.',
   link: 'More about the mock interview',
 };
 

@@ -28,7 +28,7 @@ The model is provided for you - there is nothing to connect or configure. New ac
 - Choose a seniority (junior to staff), a difficulty and a length of 3, 5, 8 or 12 questions; the role comes from the job context already on your account
 - Behavioural, technical, situational and closing questions, with up to two follow-ups on an answer that leaves something open
 - Ends in a scored report: an overall score with strengths and gaps, then every question scored on its own with a justification and a stronger version of your answer, exportable to `.docx` or Markdown
-- Runs in all 28 interview languages; where a language has no voice the interviewer writes its questions instead
+- Runs in all 97 interview languages, and speaks its questions in 44 of them; where a language has no voice the interviewer writes its questions instead
 - See the [Mock Interview](/docs/mock-interview) guide for the full walkthrough
 
 ### Real-Time Transcription
@@ -41,10 +41,10 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 ### Interview Language
 
-- **28 languages**, selectable from the control bar
+- **97 languages**, searchable from the control bar
 - One setting drives all three: the speech model that transcribes the call, the language your suggestions come back in, and the language of your exported report
 - Changeable **mid-interview** - suggestions follow immediately, transcription reconnects on the new language
-- Arabic and Hebrew render right-to-left throughout, including mixed-script technical answers
+- Arabic, Hebrew, Persian, Urdu and the other right-to-left scripts render right-to-left throughout, including mixed-script technical answers
 
 ### AI Reply Suggestions
 

@@ -40,7 +40,7 @@ export const TrustStrip: React.FC = () => {
           <dt className="sr-only">{t.languagesLabel}</dt>
           {/* The one fact in this strip a reader can disagree with, so it is the
             one that links: the full list is a section down the page, and
-            "which 28?" is unanswerable from a number. */}
+            "which 97?" is unanswerable from a number. */}
           <dd>
             <LocalizedLink
               href={homeAnchor(SECTIONS.languages)}

@@ -48,9 +48,9 @@ One setting decides three things:
 
 ### Available Languages
 
-English, Spanish, German, French, Portuguese, Italian, Dutch, Polish, Russian, Ukrainian, Czech, Romanian, Greek, Hungarian, Swedish, Danish, Norwegian, Finnish, Turkish, Hindi, Japanese, Korean, Chinese, Vietnamese, Thai, Indonesian, Arabic, and Hebrew.
+Ninety-seven languages: every language the speech model transcribes, including Cantonese and Traditional Chinese as separate entries. The full list is in the Languages section on the home page.
 
-Each entry shows its own name alongside the English one, so you can find your language whichever of the two you are looking for. Typing in the open menu jumps to a language by its **English** name.
+The language menu opens with a search box. Type part of the English name, the language's own name, or its code - "kurd", "粵語" and "ja" all work. Each entry shows its own name alongside the English one.
 
 ### Changing Language Mid-Interview
 
@@ -65,7 +65,7 @@ The button shows a spinner while the reconnect is in progress. If transcription 
 
 ### Right-to-Left Languages
 
-Arabic and Hebrew render right-to-left throughout the transcript, suggestions, and exported report. Punctuation lands at the correct end of the sentence, and answers that mix scripts - a Hebrew explanation around a Latin product name, for example - keep their order. Code blocks stay left-to-right, since code is left-to-right in every language.
+Arabic, Hebrew, Persian, Urdu and the other right-to-left scripts render right-to-left throughout the transcript, suggestions, and exported report. Punctuation lands at the correct end of the sentence, and answers that mix scripts - a Hebrew explanation around a Latin product name, for example - keep their order. Code blocks stay left-to-right, since code is left-to-right in every language.
 
 ### The App's Own Interface
 
