@@ -49,7 +49,7 @@ Every page except the docs (which have their own sidebar layout) uses `PageChrom
 
 JSON-LD is scoped the same way (`src/lib/jsonLd.ts`): `Organization` is site-wide and stays in the root layout, `SoftwareApplication` is on the home page, `FAQPage` is on `/faq`. Structured data has to describe the page it sits on — all three used to be emitted on every route, including `/privacy` and every docs page.
 
-### Localization (English + Russian)
+### Localization
 
 The site ships in nine languages, the same set as the app's interface: English (default, unprefixed: `/pricing`), German, Spanish, French, Portuguese (written as Brazilian), Russian, Japanese, Korean and Simplified Chinese (`/de/pricing`, `/ja/pricing` ...). Everything about it hangs off `src/i18n/`:
 
@@ -61,11 +61,11 @@ The site ships in nine languages, the same set as the app's interface: English (
 - **English-only pages.** The legal pages and the docs (markdown in `src/content/docs/`) are not translated yet. Their *chrome* is, and under `/ru` an `EnglishOnlyNotice` links to the English page. They are listed in `ENGLISH_ONLY_ROUTES` (`src/config/routes.ts`): `buildMetadata({ translated: false })` canonicalises `/ru/privacy` to `/privacy` with no hreflang, and `sitemap.ts` lists them once, in English - claiming `ru` for English text is a mismatch, and two indexable copies compete. **When a page gets translated, remove it from that list and drop `translated: false`.**
 - **SEO.** `buildMetadata` takes `locale` and emits a self-referencing canonical plus hreflang for every locale and `x-default`; the sitemap lists each translated page once per locale with the same alternates. JSON-LD (`Organization`, `SoftwareApplication`, `FAQPage`) is built per locale from the catalogue, so a Russian page never carries English structured data. The legacy anchor and doc redirects in `next.config.ts` are generated for every locale.
 - **Adding a locale**: add it to `LOCALES` and `LOCALE_META`, add the files to every namespace (tsc lists what is missing), register it in `src/i18n/messages/index.ts`, add its `Intl` plural forms where `PluralForms` are written, and check `public/llms.txt`.
-- **`LOCALE_META` carries more than a label.** `htmlLang` (also the hreflang) names the variant the copy is written in - `pt-BR`, `zh-CN` - while the URL segment stays the bare code; `zh-CN` is also what makes the browser pick a Chinese rather than a Japanese fallback font for Han characters. `space` is the separator for a sentence assembled from parts (the hero's bold phrases): empty in Japanese and Chinese, which do not put spaces between words.
+- **`LOCALE_META` carries more than a label.** `htmlLang` (also the hreflang) names the variant the copy is written in - `pt-BR`, `zh-CN` - while the URL segment stays the bare code; `zh-CN` is also what makes the browser pick a Chinese rather than a Japanese fallback font for Han characters. `space` is the separator for a sentence assembled from parts (the hero's bold phrases, the link after a paragraph in Features, Languages and `EnglishOnlyNotice`): empty in Japanese and Chinese, which do not put spaces between words. `period` closes a sentence whose last part is a link (`。` in Japanese and Chinese) - never write `{' '}` or a literal `.` around a translated string. The Japanese and Chinese copy does keep a space between a digit or Latin word and CJK text (`97 言語`); that is house style, not the same thing.
 - **Check new copy at phone width.** German, French and Russian run longest; the install tabs wrap and hyphenate inside their third of the row because a nowrap label once pushed the whole page wider than a 390px screen.
 - **Translations beyond English and Russian were written by Claude** and want a native-speaker pass, the landing copy and the FAQ first.
 
-`public/llms.txt` is hand-written and carries the `/ru` URLs in its own section.
+`public/llms.txt` is hand-written: an "Other languages" section lists every locale's prefix and pages, and Russian keeps its own section with translated link text. Update it when a locale or a translated route is added.
 
 ### Documentation System
 
