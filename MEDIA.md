@@ -52,6 +52,13 @@ node scripts/demo-videos/capture-docs.mjs public/media/docs
 
 Sessions are defined in `scripts/demo-videos/scenes.mjs`.
 
+## Open Graph image
+
+`brand/open-graph.png` is 1200x630 and is rendered from the real report screenshot by
+`node scripts/generate-og.mjs`. Re-run it when the language count or the report screen changes.
+Social platforms cache this image by URL, so a replacement may take time to appear on links that
+were already shared.
+
 ## Generated media
 
 `media/lifestyle/*` was generated locally in ComfyUI with Qwen Image Edit and Wan 2.2. It shows
