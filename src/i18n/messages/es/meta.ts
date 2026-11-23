@@ -5,7 +5,7 @@ export const meta: Meta = {
     title:
       'Power Interview AI - Coach de entrevistas y toma de notas con IA | Zoom, Google Meet, Teams',
     description:
-      'Coach de entrevistas con IA y privacidad ante todo para Zoom, Google Meet y Teams: entrevistas de práctica, transcripción en tiempo real y sugerencias. 1 hora gratis.',
+      'Coach de entrevistas con IA y privacidad primero para Zoom, Meet y Teams: entrevistas de práctica, transcripción en tiempo real y sugerencias. 1 hora gratis.',
     ogTitle: 'Power Interview AI - Coach de entrevistas y toma de notas',
     ogAlt: 'Power Interview AI - Coach de entrevistas con IA y toma de notas de reuniones',
     twitterTitle: 'Power Interview AI - Coach de entrevistas y notas con IA',
@@ -47,7 +47,7 @@ export const meta: Meta = {
   home: {
     title: 'Power Interview AI - Coach de entrevistas con IA y toma de notas',
     description:
-      'Dos funciones, cualquier empleo: una entrevista de práctica hablada que puntúa cada respuesta y sugerencias en directo en tu llamada real de Zoom, Meet o Teams. 1 hora gratis.',
+      'Dos funciones, todo empleo: una entrevista de práctica hablada que puntúa cada respuesta y ayuda en directo en tu llamada de Zoom, Meet o Teams. 1 h gratis.',
   },
   howItWorks: {
     title: 'Cómo funciona',
@@ -62,12 +62,12 @@ export const meta: Meta = {
   pricing: {
     title: 'Precios',
     description:
-      'Precios de Power Interview AI: una hora gratis y luego entrevistas ilimitadas por $25 al mes, $60 al trimestre o $180 al año. Prepago en cripto, sin renovación automática.',
+      'Precios de Power Interview AI: una hora gratis y luego entrevistas ilimitadas por $25 al mes, $60 al trimestre o $180 al año. Prepago en cripto, sin renovación.',
   },
   faq: {
     title: 'Preguntas frecuentes',
     description:
-      'Respuestas sobre Power Interview AI: plataformas, modo sigiloso y compartir pantalla, privacidad y datos locales, entrevistas de práctica, facturación y suscripciones.',
+      'Respuestas sobre Power Interview AI: plataformas, modo sigiloso, compartir pantalla, privacidad y datos locales, entrevistas de práctica y suscripciones.',
   },
   team: {
     title: 'Equipo',

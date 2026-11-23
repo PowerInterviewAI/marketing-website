@@ -4,7 +4,7 @@ export const meta: Meta = {
   site: {
     title: 'Power Interview AI - Coach d’entretien et prise de notes IA | Zoom, Google Meet, Teams',
     description:
-      'Coach d’entretien IA respectueux de la vie privée pour Zoom, Google Meet et Teams : entretiens d’entraînement, transcription en temps réel et suggestions. 1 heure offerte.',
+      'Coach d’entretien IA respectueux de la vie privée pour Zoom, Meet et Teams : entretiens d’entraînement, transcription en direct et suggestions. 1 heure offerte.',
     ogTitle: 'Power Interview AI - Coach d’entretien et prise de notes',
     ogAlt: 'Power Interview AI - coach d’entretien IA et prise de notes de réunion',
     twitterTitle: 'Power Interview AI - Coach d’entretien et notes IA',
@@ -46,7 +46,7 @@ export const meta: Meta = {
   home: {
     title: 'Power Interview AI - Coach d’entretien IA et prise de notes',
     description:
-      'Deux fonctionnalités, tous les métiers : un entretien d’entraînement oral qui note chaque réponse, puis des suggestions en direct sur le vrai appel Zoom, Meet ou Teams. 1 heure offerte.',
+      'Deux fonctions, tous métiers : un entretien d’entraînement oral qui note chaque réponse, puis une aide en direct sur l’appel Zoom, Meet ou Teams. 1 h offerte.',
   },
   howItWorks: {
     title: 'Fonctionnement',
@@ -61,12 +61,12 @@ export const meta: Meta = {
   pricing: {
     title: 'Tarifs',
     description:
-      'Tarifs de Power Interview AI : une heure offerte, puis des entretiens illimités pour 25 $ par mois, 60 $ par trimestre ou 180 $ par an. Prépayé en crypto, jamais renouvelé.',
+      'Tarifs : une heure offerte, puis entretiens illimités pour 25 $ par mois, 60 $ par trimestre ou 180 $ par an. Prépayé en crypto, jamais renouvelé.',
   },
   faq: {
     title: 'FAQ',
     description:
-      'Réponses sur Power Interview AI : plateformes, mode furtif et partage d’écran, confidentialité et données locales, entretiens d’entraînement, facturation et abonnements.',
+      'Réponses sur Power Interview AI : plateformes, mode furtif, partage d’écran, confidentialité et données locales, entretiens d’entraînement et abonnements.',
   },
   team: {
     title: 'Équipe',

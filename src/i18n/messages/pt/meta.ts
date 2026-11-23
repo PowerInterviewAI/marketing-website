@@ -5,7 +5,7 @@ export const meta: Meta = {
     title:
       'Power Interview AI - Coach de entrevistas e anotações com IA | Zoom, Google Meet, Teams',
     description:
-      'Coach de entrevistas com IA e privacidade em primeiro lugar para Zoom, Google Meet e Teams: entrevistas simuladas, transcrição em tempo real e sugestões. 1 hora grátis.',
+      'Coach de entrevistas com IA e privacidade em primeiro lugar para Zoom, Meet e Teams: entrevistas simuladas, transcrição ao vivo e sugestões. 1 hora grátis.',
     ogTitle: 'Power Interview AI - Coach de entrevistas e anotações',
     ogAlt: 'Power Interview AI - coach de entrevistas com IA e anotações de reuniões',
     twitterTitle: 'Power Interview AI - Coach de entrevistas e anotações com IA',
@@ -62,17 +62,17 @@ export const meta: Meta = {
   pricing: {
     title: 'Preços',
     description:
-      'Preços do Power Interview AI: uma hora grátis, depois entrevistas ilimitadas por US$ 25 ao mês, US$ 60 ao trimestre ou US$ 180 ao ano. Pré-pago em cripto, sem renovação.',
+      'Preços do Power Interview AI: uma hora grátis e depois entrevistas ilimitadas por US$ 25 ao mês, US$ 60 ao trimestre ou US$ 180 ao ano. Pré-pago em cripto.',
   },
   faq: {
     title: 'Perguntas frequentes',
     description:
-      'Respostas sobre o Power Interview AI: plataformas, modo furtivo e compartilhamento de tela, privacidade e dados locais, entrevistas simuladas, cobrança e assinaturas.',
+      'Respostas sobre o Power Interview AI: plataformas, modo furtivo, compartilhamento de tela, privacidade e dados locais, entrevistas simuladas e assinaturas.',
   },
   team: {
     title: 'Equipe',
     description:
-      'Conheça a equipe por trás do Power Interview AI, os desenvolvedores de um coach de entrevistas com IA e privacidade em primeiro lugar para Zoom, Google Meet e Teams.',
+      'Conheça a equipe por trás do Power Interview AI, os desenvolvedores de um coach de entrevistas com IA e privacidade em primeiro lugar para Zoom, Meet e Teams.',
   },
   structured: {
     organizationDescription:

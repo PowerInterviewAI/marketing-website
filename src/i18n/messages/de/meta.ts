@@ -46,7 +46,7 @@ export const meta: Meta = {
   home: {
     title: 'Power Interview AI - KI-Interviewcoach & Protokollant',
     description:
-      'Zwei Funktionen, jeder Job: ein gesprochenes KI-Probeinterview, das jede Antwort bewertet, dann Live-Vorschläge im echten Zoom-, Meet- oder Teams-Gespräch. 1 Stunde gratis.',
+      'Zwei Funktionen, jeder Job: ein gesprochenes KI-Probeinterview, das jede Antwort bewertet, dann Live-Hilfe im echten Zoom-, Meet- oder Teams-Call. 1 h gratis.',
   },
   howItWorks: {
     title: "So funktioniert's",
@@ -61,7 +61,7 @@ export const meta: Meta = {
   pricing: {
     title: 'Preise',
     description:
-      'Preise von Power Interview AI: eine Gratisstunde, dann unbegrenzte Interviews für $25 im Monat, $60 im Quartal oder $180 im Jahr. Im Voraus in Krypto, nie automatisch verlängert.',
+      'Preise: eine Gratisstunde, dann unbegrenzte Interviews für $25 im Monat, $60 im Quartal oder $180 im Jahr. Prepaid in Krypto, ohne automatische Verlängerung.',
   },
   faq: {
     title: 'FAQ',
