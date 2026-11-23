@@ -58,7 +58,7 @@ export const faq = {
       question: 'What languages can I interview in?',
       category: 'product',
       answer:
-        'Twenty-eight: English, Spanish, German, French, Portuguese, Italian, Dutch, Polish, Russian, Ukrainian, Czech, Romanian, Greek, Hungarian, Swedish, Danish, Norwegian, Finnish, Turkish, Hindi, Japanese, Korean, Chinese, Vietnamese, Thai, Indonesian, Arabic, and Hebrew. One setting decides which speech model transcribes the call, the language your suggestions come back in, and the language of your exported report. You can change it mid-interview - transcription reconnects on the new language while suggestions follow immediately. Arabic and Hebrew render right-to-left throughout.',
+        'Ninety-seven, from English, Spanish, Chinese and Hindi to Cantonese, Swahili, Persian and Tamil - the full list is in the Languages section on the home page, and the language picker in the app has a search box. The mock interviewer speaks 44 of them out loud and writes its questions in the rest. One setting decides which speech model transcribes the call, the language your suggestions come back in, and the language of your exported report. You can change it mid-interview - transcription reconnects on the new language while suggestions follow immediately. Arabic, Hebrew, Persian, Urdu and the other right-to-left scripts render right-to-left throughout.',
     },
     {
       question: 'Do I need special hardware to run Power Interview AI?',

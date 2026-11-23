@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FileText, Volume2 } from 'lucide-react';
+import { ChevronDown, FileText, Volume2 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
@@ -9,6 +9,7 @@ import {
   INTERVIEW_LANGUAGES,
   type InterviewLanguage,
   LANGUAGE_COUNT,
+  VOICE_LANGUAGES,
   VOICE_LANGUAGE_COUNT,
   isRtl,
 } from '@/config/languages';
@@ -22,23 +23,23 @@ import { cn } from '@/lib/utils';
 /**
  * The full language list, rather than the count on its own.
  *
- * "28 interview languages" appears in the hero strip, the features grid and
- * the mock section, and a number is not an answer to the only question a
- * reader who does not interview in English actually has. Twenty-eight is a
- * large enough set that most readers assume theirs is in it, and a small
- * enough one that the assumption is wrong often enough to matter - and the
- * only other way to check was to download the app.
+ * The language count appears in the hero strip, the features grid and the mock
+ * section, and a number is not an answer to the only question a reader who
+ * does not interview in English actually has: is mine in it? The only other
+ * way to check was to download the app.
  *
  * It also has to say which of the two things a language supports, because the
  * product supports them separately: transcription and suggestions cover all of
- * them, the mock interviewer's voice covers seven. That is a difference a
+ * them, the mock interviewer's voice covers a subset. That is a difference a
  * reader meets in the first minute of a mock session, so it is marked per
  * language here rather than mentioned once in prose underneath.
  *
- * A Server Component with no filter box on purpose. Twenty-eight tiles fit on
- * one screen at desktop width and are one Ctrl+F away everywhere else, so a
- * search input would spend a client bundle and a hydration boundary on a list
- * shorter than the FAQ.
+ * Voiced languages are shown first and the rest sit behind a native
+ * `<details>` toggle. Ninety-seven tiles are several screens of scrolling, and
+ * the voiced set holds the languages most readers interview in. A `<details>`
+ * rather than a client toggle keeps this a Server Component, and the
+ * collapsed tiles are still in the HTML, so Ctrl+F and search engines find
+ * them.
  */
 
 const LanguageTile: React.FC<{
@@ -63,10 +64,9 @@ const LanguageTile: React.FC<{
     <span className="flex min-w-0 flex-col gap-0.5">
       {/*
         `dir` off the data rather than `dir="auto"`. `auto` reads the first
-        strong character, which is right for the two endonyms written in
-        Arabic and Hebrew script and wrong for nothing currently in the list -
-        but it stops being right, silently, the first time a name is added
-        that opens with a Latin brand word or a digit. The list knows which
+        strong character, which is right for every right-to-left endonym
+        currently in the list - but it stops being right, silently, the first
+        time a name is added that opens with a Latin brand word or a digit. The list knows which
         languages are right-to-left; it should be the thing that says so.
       */}
       <span
@@ -105,16 +105,34 @@ const LanguageTile: React.FC<{
  * "Español" without a second hand-translated table that would drift whenever a
  * language is added.
  */
+// CLDR names `zh-HK` "Chinese (Hong Kong)", which is a region rather than the
+// language being offered - the speech model is Cantonese. Ask for the codes
+// that name what is actually spoken.
+const DISPLAY_CODES: Record<string, string> = { 'zh-hk': 'yue', 'zh-tw': 'zh-Hant' };
+
 function localNameFor(locale: Locale, language: InterviewLanguage): string {
   if (locale === 'en') return language.name;
-  const name = new Intl.DisplayNames([locale], { type: 'language' }).of(language.code);
+  const name = new Intl.DisplayNames([locale], { type: 'language' }).of(
+    DISPLAY_CODES[language.code] ?? language.code
+  );
   if (!name) return language.name;
   return name.charAt(0).toLocaleUpperCase(locale) + name.slice(1);
 }
 
+const WRITTEN_LANGUAGES = INTERVIEW_LANGUAGES.filter((language) => !language.hasVoice);
+
 export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { languages: copy } = getMessages(locale);
   const writtenCount = LANGUAGE_COUNT - VOICE_LANGUAGE_COUNT;
+  const tile = (language: InterviewLanguage) => (
+    <LanguageTile
+      key={language.code}
+      language={language}
+      localName={localNameFor(locale, language)}
+      spokenLabel={copy.spokenAria}
+      writtenLabel={copy.writtenAria}
+    />
+  );
 
   return (
     <Section id={SECTIONS.languages} tone="muted" aria-labelledby="languages-heading">
@@ -143,23 +161,27 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
       </div>
 
       {/*
-        One Reveal around the whole grid rather than one per tile. Every Reveal
-        is a client component holding its own IntersectionObserver, and 28 of
-        them staggered would also mean the last tiles fading in well after the
-        reader has started scanning the list for their language.
+        One Reveal around the whole list rather than one per tile. Every Reveal
+        is a client component holding its own IntersectionObserver, and dozens
+        of them staggered would also mean the last tiles fading in well after
+        the reader has started scanning the list for their language.
       */}
       <Reveal className="mx-auto mt-8 max-w-5xl">
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {INTERVIEW_LANGUAGES.map((language) => (
-            <LanguageTile
-              key={language.code}
-              language={language}
-              localName={localNameFor(locale, language)}
-              spokenLabel={copy.spokenAria}
-              writtenLabel={copy.writtenAria}
-            />
-          ))}
+          {VOICE_LANGUAGES.map(tile)}
         </ul>
+        <details className="group mt-6">
+          <summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/40 [&::-webkit-details-marker]:hidden">
+            <ChevronDown
+              className="size-4 transition-transform group-open:rotate-180"
+              aria-hidden="true"
+            />
+            {format(copy.showWritten, { written: writtenCount })}
+          </summary>
+          <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {WRITTEN_LANGUAGES.map(tile)}
+          </ul>
+        </details>
       </Reveal>
 
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
