@@ -6,7 +6,6 @@ export const common = {
   languageNoun: { one: 'interview language', other: 'interview languages' } as PluralForms,
   /** Titles of the hotkeys the marketing copy names; the combos themselves are data. */
   hotkeys: {
-    toggleStealth: 'Toggle Stealth',
     toggleProfessionalMode: 'Toggle Professional Mode',
   },
 };

@@ -62,27 +62,6 @@ export const hero: Hero = {
     playLanguages: 'Lancer l’aperçu des langues',
     allLanguages: 'Les {count} langues',
   },
-  demos: [
-    {
-      title: 'Assistant d’entretien en direct et export intelligent',
-      description:
-        'Des suggestions instantanées pendant l’appel, puis un export intelligent du résumé et des points clés',
-    },
-    {
-      title: 'Exercice de code - Parcours de graphe',
-      description: 'Capturez l’énoncé à l’écran et lisez la solution dans la surcouche furtive',
-    },
-    {
-      title: 'Exercice de code - Composantes connexes',
-      description:
-        'Plusieurs captures donnent à l’IA l’énoncé complet, les contraintes et la signature',
-    },
-    {
-      title: 'Exercice de code - Récursion sur arbre binaire',
-      description:
-        'Faites défiler le code au clavier uniquement : invisible au partage d’écran, sans voler le focus',
-    },
-  ],
 
   install: {
     eyebrow: 'Installation',

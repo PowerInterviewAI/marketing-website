@@ -12,38 +12,6 @@ export type WindowsShell = 'cmd' | 'powershell';
 // download that may not work. Flip this back on once the fix lands.
 export const MACOS_SUPPORTED = false;
 
-// Media carousel data - every item is an .mp4 under public/media/, paired with
-// a poster so the frame paints before any video bytes arrive. The caption of
-// each clip (title + description) is translated: it lives in `hero.demos` in
-// src/i18n/messages, in the same order as this array.
-//
-// All four clips are 2560x1440, so posters must be 16:9 or the frame
-// letterboxes. Each poster is a real 1920x1080 frame cut from its own clip and
-// annotated by scripts/generate-posters.py - see public/media/marketing/README.md.
-export interface MediaItem {
-  src: string;
-  poster: string;
-}
-
-export const MEDIA_ITEMS: MediaItem[] = [
-  {
-    src: '/media/live-interview-assistant.mp4',
-    poster: '/media/marketing/poster-live-interview.jpg',
-  },
-  {
-    src: '/media/coding-challenge-1.mp4',
-    poster: '/media/marketing/poster-coding-1.jpg',
-  },
-  {
-    src: '/media/coding-challenge-2.mp4',
-    poster: '/media/marketing/poster-coding-2.jpg',
-  },
-  {
-    src: '/media/coding-challenge-3.mp4',
-    poster: '/media/marketing/poster-coding-3.jpg',
-  },
-];
-
 /** Generate the install command by platform (and, for Windows, by shell). */
 export const getInstallCommand = (
   version: string | null,

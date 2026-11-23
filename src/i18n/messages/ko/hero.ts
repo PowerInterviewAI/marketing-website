@@ -62,24 +62,6 @@ export const hero: Hero = {
     playLanguages: '언어 미리보기 재생',
     allLanguages: '전체 {count}개 언어',
   },
-  demos: [
-    {
-      title: '실시간 면접 어시스턴트 & 스마트 내보내기',
-      description: '통화 중에는 즉시 제안하고, 끝나면 요약과 인사이트를 스마트하게 내보냅니다',
-    },
-    {
-      title: '코딩 과제 - 그래프 탐색',
-      description: '화면에서 문제를 캡처하고 스텔스 오버레이에서 풀이를 읽습니다',
-    },
-    {
-      title: '코딩 과제 - 연결 요소',
-      description: '여러 장의 스크린샷으로 AI에게 문제 전체, 제약 조건, 함수 시그니처를 전달합니다',
-    },
-    {
-      title: '코딩 과제 - 이진 트리 재귀',
-      description: '단축키만으로 코드를 스크롤 - 화면 공유에 보이지 않고 포커스도 빼앗지 않습니다',
-    },
-  ],
 
   install: {
     eyebrow: '설치',

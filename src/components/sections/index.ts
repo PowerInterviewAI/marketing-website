@@ -1,8 +1,6 @@
-export * from './BenefitsSection';
 export * from './CodingSection';
 export * from './ContactSection';
 export * from './FAQSection';
-export * from './FeaturesSection';
 export * from './FooterSection';
 export * from './Header';
 export * from './HowItWorksSection';
@@ -14,5 +12,4 @@ export * from './RolesSection';
 export * from './Skeletons';
 export * from './TeamSection';
 export * from './TestimonialsSection';
-export * from './WhyChooseSection';
 export * from './hero';

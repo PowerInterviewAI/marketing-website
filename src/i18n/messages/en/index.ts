@@ -1,10 +1,8 @@
-import { benefits } from './benefits';
 import { chrome } from './chrome';
 import { common } from './common';
 import { contact } from './contact';
 import { docs } from './docs';
 import { faq } from './faq';
-import { features } from './features';
 import { hero } from './hero';
 import { howItWorks } from './howItWorks';
 import { languages } from './languages';
@@ -14,17 +12,14 @@ import { pricing } from './pricing';
 import { story } from './story';
 import { team } from './team';
 import { testimonials } from './testimonials';
-import { whyChoose } from './whyChoose';
 
 export const en = {
-  benefits,
   chrome,
   common,
   contact,
   hero,
   docs,
   faq,
-  features,
   howItWorks,
   languages,
   meta,
@@ -33,5 +28,4 @@ export const en = {
   story,
   team,
   testimonials,
-  whyChoose,
 };

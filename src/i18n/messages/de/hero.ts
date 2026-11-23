@@ -62,27 +62,6 @@ export const hero: Hero = {
     playLanguages: 'Sprachvorschau abspielen',
     allLanguages: 'Alle {count} Sprachen',
   },
-  demos: [
-    {
-      title: 'Live-Interview-Assistent & Smart Export',
-      description:
-        'Sofortige Vorschläge im Gespräch, danach ein intelligenter Export mit Zusammenfassung und Erkenntnissen',
-    },
-    {
-      title: 'Programmieraufgabe - Graphdurchlauf',
-      description: 'Die Aufgabe vom Bildschirm erfassen und die Lösung im getarnten Overlay lesen',
-    },
-    {
-      title: 'Programmieraufgabe - Zusammenhangskomponenten',
-      description:
-        'Mehrere Screenshots geben der KI die vollständige Aufgabe, Vorgaben und Signatur',
-    },
-    {
-      title: 'Programmieraufgabe - Rekursion im Binärbaum',
-      description:
-        'Den Code nur per Tastenkürzel scrollen - unsichtbar bei der Bildschirmfreigabe, ohne den Fokus zu stehlen',
-    },
-  ],
 
   install: {
     eyebrow: 'Installation',

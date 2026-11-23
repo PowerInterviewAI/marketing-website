@@ -3,10 +3,8 @@ import React from 'react';
 import { Download, FileText, Radio, Volume2 } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
-import { Kbd } from '@/components/ui/kbd';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
-import { HOTKEYS, Hotkey } from '@/config/hotkeys';
 import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
 import { format } from '@/i18n/format';
@@ -70,15 +68,6 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
 
                   <h3 className="text-lg font-semibold">{step.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-
-                  {index === 3 && (
-                    <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-2">
-                      <Kbd combo={HOTKEYS[Hotkey.ToggleStealth].combo} />
-                      <span className="text-xs text-muted-foreground">
-                        {t.common.hotkeys.toggleStealth}
-                      </span>
-                    </div>
-                  )}
                 </div>
               </div>
             </Reveal>

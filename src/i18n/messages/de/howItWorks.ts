@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: 'Installieren und Testphase starten',
-      body: 'Lade die Desktop-App für Windows oder macOS herunter und melde dich an. Neue Konten bekommen eine volle Stunde mit dem Gratis-Modell - praktisch ohne Ratenlimit, ohne Unterbrechungen.',
+      body: 'Lade die Desktop-App für Windows herunter und melde dich an. Neue Konten erhalten eine volle Stunde mit dem kostenlosen Modell. macOS folgt bald.',
     },
     {
       title: 'Lebenslauf und Stellenbeschreibung hinzufügen',
@@ -20,7 +20,7 @@ export const howItWorks: HowItWorks = {
     },
     {
       title: 'Dann das Live-Interview führen',
-      body: 'Die zweite Funktion, in derselben App. Zweikanal-Transkription mit Sprechererkennung läuft neben Zoom, Google Meet oder Teams, und Vorschläge erscheinen in einem Overlay, das bei Bildschirmfreigaben und Screenshots unsichtbar bleibt und komplett per Tastenkürzel gesteuert wird.',
+      body: 'Beim echten Gespräch kann dieselbe App den Anruf transkribieren und neben Zoom, Google Meet oder Teams Gesprächspunkte vorschlagen. Nutze die Live-Hilfe nur, wenn der Arbeitgeber KI-Tools erlaubt.',
     },
   ],
   cta: 'Herunterladen und ausprobieren',

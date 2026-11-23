@@ -62,24 +62,6 @@ export const hero: Hero = {
     playLanguages: '播放语言预览',
     allLanguages: '全部 {count} 种语言',
   },
-  demos: [
-    {
-      title: '实时面试助手与智能导出',
-      description: '通话中即时给出建议，结束后智能导出摘要和要点',
-    },
-    {
-      title: '编程题 - 图的遍历',
-      description: '从屏幕截取题目，在隐身浮层中阅读解法',
-    },
-    {
-      title: '编程题 - 连通分量',
-      description: '多张截图为 AI 提供完整题目、约束条件和函数签名',
-    },
-    {
-      title: '编程题 - 二叉树递归',
-      description: '只用快捷键滚动代码 - 共享屏幕时不可见，也不会抢走焦点',
-    },
-  ],
 
   install: {
     eyebrow: '安装',

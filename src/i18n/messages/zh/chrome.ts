@@ -32,9 +32,9 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: '下一场面试，就是要拿下的那一场',
-    ctaBody: '免费送你一小时，可用于真实通话。支持 Windows 和 macOS。',
+    ctaBody: '在 Windows 上免费开始 1 小时，无需信用卡。',
     ctaButton: '下载 Power Interview AI',
-    tagline: '你的专属 AI 面试教练。隐私优先，通话中对方看不见。',
+    tagline: '用你的语言开口练习面试，并保护你的隐私。',
     product: '产品',
     resources: '资源',
     legal: '法律信息',

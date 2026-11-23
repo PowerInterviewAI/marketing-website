@@ -68,12 +68,6 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Loc
       logo: `${SITE_URL}/logo.png`,
       sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
     },
-    // Real frames from the demo clips. This was /logo.png, which is not a
-    // screenshot of anything.
-    screenshot: [
-      `${SITE_URL}/media/marketing/poster-live-interview.jpg`,
-      `${SITE_URL}/media/marketing/poster-coding-1.jpg`,
-    ],
     ...(prices.length > 0 && {
       offers: {
         '@type': 'AggregateOffer',

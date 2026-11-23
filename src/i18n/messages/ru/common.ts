@@ -9,7 +9,6 @@ export const common: Common = {
     other: 'языка собеседования',
   },
   hotkeys: {
-    toggleStealth: 'Скрытый режим вкл/выкл',
     toggleProfessionalMode: 'Профессиональный режим вкл/выкл',
   },
 };

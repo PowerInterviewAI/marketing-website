@@ -30,13 +30,11 @@ export const meta: Meta = {
       'Google Meet 转录',
       'Microsoft Teams 录制',
       '面试转录',
-      '隐身模式',
       '隐私优先',
       '加密货币支付',
       '面试练习软件',
       '桌面应用',
       'Windows',
-      'Mac',
       '求职面试',
       '系统设计面试',
       '面试自信',
@@ -71,7 +69,7 @@ export const meta: Meta = {
   faq: {
     title: '常见问题',
     description:
-      '关于 Power Interview AI 的解答：支持平台、隐身模式与屏幕共享、隐私与本地数据、模拟面试、账单与订阅。',
+      '关于 Power Interview AI 的解答：支持平台、语言、隐私与本地数据、模拟面试、账单与订阅。',
   },
   team: {
     title: '团队',
@@ -88,7 +86,6 @@ export const meta: Meta = {
       '模拟面试：为每个回答打分，写回更有力的版本，可导出为 DOCX 或 Markdown',
       '实时面试：带说话人识别的双通道转录',
       '实时面试：基于你的简历和职位描述的 AI 回答建议',
-      '实时面试：快捷键操作的隐身模式，共享屏幕和截图中均不可见',
       '实时面试：面向技术环节、基于截图的可选编程辅助',
       '适用于任何岗位，不只是软件工程 - 问题和评分都来自你粘贴的职位描述',
       '适用于 Zoom、Google Meet 和 Microsoft Teams 的 AI 会议纪要，含 AI 摘要和待办事项',

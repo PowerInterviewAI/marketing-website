@@ -61,28 +61,6 @@ export const hero = {
     playLanguages: 'Play language preview',
     allLanguages: 'All {count} languages',
   },
-  /** Same order as MEDIA_ITEMS in src/components/sections/hero/constants.ts. */
-  demos: [
-    {
-      title: 'Live Interview Assistant & Smart Export',
-      description:
-        'Instant suggestions during the call, then a smart export of the summary and insights',
-    },
-    {
-      title: 'Coding Challenge - Graph Traversal',
-      description:
-        'Capture the problem from your screen and read the solution in the stealth overlay',
-    },
-    {
-      title: 'Coding Challenge - Connected Components',
-      description: 'Several screenshots give the AI the full statement, constraints and signature',
-    },
-    {
-      title: 'Coding Challenge - Binary Tree Recursion',
-      description:
-        'Scroll the code with hotkeys alone - hidden from screen share, never steals focus',
-    },
-  ],
 
   install: {
     eyebrow: 'Install',

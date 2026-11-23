@@ -31,9 +31,9 @@ export const chrome = {
   },
   footer: {
     ctaTitle: 'Your next interview is the one to get right',
-    ctaBody: 'One hour free on us, running against a real call. Windows and macOS.',
+    ctaBody: 'Start with one free hour on Windows. No credit card needed.',
     ctaButton: 'Download Power Interview AI',
-    tagline: 'Your personal AI-powered interview coach. Privacy-first, and invisible on the call.',
+    tagline: 'Practice interviews out loud in your language, with privacy built in.',
     product: 'Product',
     resources: 'Resources',
     legal: 'Legal',

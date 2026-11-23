@@ -62,26 +62,6 @@ export const hero: Hero = {
     playLanguages: 'Reproduzir prévia de idiomas',
     allLanguages: 'Todos os {count} idiomas',
   },
-  demos: [
-    {
-      title: 'Assistente de entrevista ao vivo e exportação inteligente',
-      description:
-        'Sugestões instantâneas durante a chamada e, depois, uma exportação inteligente com resumo e insights',
-    },
-    {
-      title: 'Desafio de código - Percurso em grafo',
-      description: 'Capture o problema da tela e leia a solução na sobreposição furtiva',
-    },
-    {
-      title: 'Desafio de código - Componentes conexos',
-      description: 'Várias capturas dão à IA o enunciado completo, as restrições e a assinatura',
-    },
-    {
-      title: 'Desafio de código - Recursão em árvore binária',
-      description:
-        'Role o código só com atalhos: escondido no compartilhamento de tela e sem roubar o foco',
-    },
-  ],
 
   install: {
     eyebrow: 'Instalação',

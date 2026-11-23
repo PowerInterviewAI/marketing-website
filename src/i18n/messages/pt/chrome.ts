@@ -32,10 +32,9 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: 'Sua próxima entrevista é a que precisa dar certo',
-    ctaBody: 'Uma hora grátis por nossa conta, usada numa chamada real. Windows e macOS.',
+    ctaBody: 'Comece com uma hora grátis no Windows. Sem cartão de crédito.',
     ctaButton: 'Baixar o Power Interview AI',
-    tagline:
-      'Seu coach pessoal de entrevistas com IA. Privacidade em primeiro lugar e invisível na chamada.',
+    tagline: 'Pratique entrevistas em voz alta no seu idioma, com privacidade integrada.',
     product: 'Produto',
     resources: 'Recursos',
     legal: 'Jurídico',

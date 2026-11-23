@@ -31,13 +31,11 @@ export const meta: Meta = {
       'transcripción de Google Meet',
       'grabación de Microsoft Teams',
       'transcripción de entrevistas',
-      'modo sigiloso',
       'privacidad',
       'pago con criptomonedas',
       'software para preparar entrevistas',
       'aplicación de escritorio',
       'Windows',
-      'Mac',
       'preparación de entrevistas',
       'entrevista de diseño de sistemas',
       'confianza en la entrevista',
@@ -73,7 +71,7 @@ export const meta: Meta = {
   faq: {
     title: 'Preguntas frecuentes',
     description:
-      'Respuestas sobre Power Interview AI: plataformas, modo sigiloso, compartir pantalla, privacidad y datos locales, entrevistas de práctica y suscripciones.',
+      'Respuestas sobre Power Interview AI: plataformas, idiomas, privacidad y datos locales, entrevistas simuladas, facturación y suscripciones.',
   },
   team: {
     title: 'Equipo',
@@ -90,7 +88,6 @@ export const meta: Meta = {
       'Entrevista de práctica: cada respuesta puntuada, con una versión más sólida y exportable como DOCX o Markdown',
       'Entrevista en directo: transcripción de doble canal con detección del hablante',
       'Entrevista en directo: sugerencias de respuesta con IA basadas en tu CV y la descripción del puesto',
-      'Entrevista en directo: modo sigiloso con atajos, oculto al compartir pantalla y en capturas',
       'Entrevista en directo: ayuda opcional con código a partir de capturas para rondas técnicas',
       'Sirve para cualquier puesto, no solo ingeniería de software: las preguntas y la puntuación salen de la descripción del puesto que pegas',
       'Toma de notas con IA para Zoom, Google Meet y Microsoft Teams, con resúmenes y tareas generados por IA',
