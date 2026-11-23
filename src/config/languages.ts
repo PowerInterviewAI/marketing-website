@@ -152,7 +152,7 @@ export const VOICE_LANGUAGES: readonly InterviewLanguage[] = INTERVIEW_LANGUAGES
 /**
  * Derived rather than written down, because the count appears in the hero, the
  * features grid, the mock section and the JSON-LD `featureList`, and a literal
- * `28` in four files is four chances to add a language and ship three of them.
+ * count in four files is four chances to add a language and ship three of them.
  */
 export const LANGUAGE_COUNT = INTERVIEW_LANGUAGES.length;
 export const VOICE_LANGUAGE_COUNT = VOICE_LANGUAGES.length;
