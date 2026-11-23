@@ -24,5 +24,19 @@
         "productivity",
         "business",
         "education"
+    ],
+    "screenshots": [
+        {
+            "src": "/media/demos/report.webp",
+            "sizes": "1920x1080",
+            "type": "image/webp",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/media/demos/coding.webp",
+            "sizes": "1920x1080",
+            "type": "image/webp",
+            "form_factor": "wide"
+        }
     ]
 }

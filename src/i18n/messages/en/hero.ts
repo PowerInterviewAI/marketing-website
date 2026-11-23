@@ -5,7 +5,6 @@ export const hero = {
     'Practice out loud with an AI interviewer in your language. Get every answer scored and improved for any job, from sales to live coding rounds.',
   free: '1 free hour',
   noCard: 'No credit card',
-  secondary: 'See how it works',
 
   trust: {
     platformsLabel: 'Platforms',
@@ -39,11 +38,6 @@ export const hero = {
   },
 
   surface: {
-    play: 'Play demo',
-    pause: 'Pause demo',
-    previous: 'Previous demo',
-    next: 'Next demo',
-    clips: 'Demo clips',
     preview: 'Interview preview',
     mock: 'Mock interview',
     live: 'Live help',
@@ -60,6 +54,32 @@ export const hero = {
     pauseLanguages: 'Pause language preview',
     playLanguages: 'Play language preview',
     allLanguages: 'All {count} languages',
+  },
+
+  demo: {
+    watch: 'Watch demo',
+    title: 'Product demos',
+    close: 'Close demo',
+    sample: 'Sample session recorded in the real app with scripted data.',
+    clips: {
+      mock: {
+        title: 'Mock interview in Spanish',
+        description:
+          'The AI interviewer asks, you answer aloud, and your words appear as you speak.',
+      },
+      report: {
+        title: 'Scored report',
+        description: 'See your score, gaps, and a stronger version of each answer.',
+      },
+      live: {
+        title: 'Live help in Japanese',
+        description: 'Short talking points in your language beside the conversation.',
+      },
+      coding: {
+        title: 'Coding walkthrough',
+        description: 'Turn a coding problem into an approach, code, and complexity.',
+      },
+    },
   },
 
   install: {

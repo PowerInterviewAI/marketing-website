@@ -6,7 +6,6 @@ export const hero: Hero = {
     '내 언어로 AI 면접관과 소리 내어 연습하세요. 모든 답변에 점수와 개선안을 제공하며, 영업부터 라이브 코딩까지 모든 직무에 맞춥니다.',
   free: '1시간 무료',
   noCard: '신용카드 불필요',
-  secondary: '작동 방식 보기',
 
   trust: {
     platformsLabel: '플랫폼',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: '데모 재생',
-    pause: '데모 일시정지',
-    previous: '이전 데모',
-    next: '다음 데모',
-    clips: '데모 영상',
     preview: '면접 미리보기',
     mock: '모의 면접',
     live: '실시간 도움',
@@ -61,6 +55,31 @@ export const hero: Hero = {
     pauseLanguages: '언어 미리보기 일시정지',
     playLanguages: '언어 미리보기 재생',
     allLanguages: '전체 {count}개 언어',
+  },
+
+  demo: {
+    watch: '데모 보기',
+    title: '제품 데모',
+    close: '데모 닫기',
+    sample: '실제 앱에서 준비된 데이터로 녹화한 샘플 세션입니다.',
+    clips: {
+      mock: {
+        title: '스페인어 모의 면접',
+        description: 'AI 면접관이 질문하고 소리 내어 답하면 말이 화면에 표시됩니다.',
+      },
+      report: {
+        title: '점수 보고서',
+        description: '점수, 부족한 점, 각 답변의 개선안을 확인하세요.',
+      },
+      live: {
+        title: '일본어 실시간 도움',
+        description: '대화 옆에 내 언어로 짧은 요점을 보여 줍니다.',
+      },
+      coding: {
+        title: '코딩 풀이',
+        description: '코딩 문제를 접근법, 코드, 복잡도로 정리합니다.',
+      },
+    },
   },
 
   install: {

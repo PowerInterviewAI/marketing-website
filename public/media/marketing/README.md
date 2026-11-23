@@ -16,6 +16,16 @@ customers or testimonials, and never use them as product screenshots. The loops
 stay at Wan's native 16 fps because motion interpolation smeared fast hand
 movement.
 
+## Product demos
+
+`../demos/*` are recorded from the real client renderer with its Electron bridge
+replaced by scripted sample data, so the UI is real but no live backend or call
+is involved. Keep the "sample session" label in `hero.demo.sample`.
+
+To re-record, run `pnpm exec vite --port 15173 --strictPort` in `../client-app`,
+then from this repo run `node scripts/demo-videos/record.mjs <output-dir> record`.
+Edit the sessions in `scripts/demo-videos/scenes.mjs`.
+
 ## Docs video posters — 1920×1080 (16:9)
 
 These no longer appear in the hero. They remain the `poster` for clips embedded

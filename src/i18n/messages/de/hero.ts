@@ -6,7 +6,6 @@ export const hero: Hero = {
     'Übe laut mit einem KI-Interviewer in deiner Sprache. Jede Antwort wird bewertet und verbessert, für jeden Job, vom Vertrieb bis zur Live-Coding-Runde.',
   free: '1 Stunde gratis',
   noCard: 'Keine Kreditkarte',
-  secondary: 'So funktioniert es',
 
   trust: {
     platformsLabel: 'Plattformen',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: 'Demo abspielen',
-    pause: 'Demo pausieren',
-    previous: 'Vorherige Demo',
-    next: 'Nächste Demo',
-    clips: 'Demo-Clips',
     preview: 'Interview-Vorschau',
     mock: 'Probeinterview',
     live: 'Live-Hilfe',
@@ -61,6 +55,32 @@ export const hero: Hero = {
     pauseLanguages: 'Sprachvorschau anhalten',
     playLanguages: 'Sprachvorschau abspielen',
     allLanguages: 'Alle {count} Sprachen',
+  },
+
+  demo: {
+    watch: 'Demo ansehen',
+    title: 'Produktdemos',
+    close: 'Demo schließen',
+    sample: 'Beispielsitzung, aufgenommen in der echten App mit vorbereiteten Daten.',
+    clips: {
+      mock: {
+        title: 'Probeinterview auf Spanisch',
+        description:
+          'Der KI-Interviewer fragt, du antwortest laut, und deine Worte erscheinen beim Sprechen.',
+      },
+      report: {
+        title: 'Bewerteter Bericht',
+        description: 'Sieh Bewertung, Lücken und eine stärkere Version jeder Antwort.',
+      },
+      live: {
+        title: 'Live-Hilfe auf Japanisch',
+        description: 'Kurze Gesprächspunkte in deiner Sprache neben dem Gespräch.',
+      },
+      coding: {
+        title: 'Coding-Durchgang',
+        description: 'Mach aus einer Coding-Aufgabe Ansatz, Code und Komplexität.',
+      },
+    },
   },
 
   install: {

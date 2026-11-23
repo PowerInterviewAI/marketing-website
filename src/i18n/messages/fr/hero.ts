@@ -6,7 +6,6 @@ export const hero: Hero = {
     'Entraînez-vous à voix haute avec un recruteur IA dans votre langue. Chaque réponse est notée et améliorée, pour tout métier, de la vente au test de code en direct.',
   free: '1 heure offerte',
   noCard: 'Sans carte bancaire',
-  secondary: 'Voir comment ça marche',
 
   trust: {
     platformsLabel: 'Plateformes',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: 'Lire la démo',
-    pause: 'Mettre la démo en pause',
-    previous: 'Démo précédente',
-    next: 'Démo suivante',
-    clips: 'Extraits de démo',
     preview: 'Aperçu de l’entretien',
     mock: 'Entretien simulé',
     live: 'Aide en direct',
@@ -61,6 +55,33 @@ export const hero: Hero = {
     pauseLanguages: 'Mettre l’aperçu des langues en pause',
     playLanguages: 'Lancer l’aperçu des langues',
     allLanguages: 'Les {count} langues',
+  },
+
+  demo: {
+    watch: 'Voir la démo',
+    title: 'Démos du produit',
+    close: 'Fermer la démo',
+    sample: 'Session d’exemple enregistrée dans la vraie application avec des données préparées.',
+    clips: {
+      mock: {
+        title: 'Entretien simulé en espagnol',
+        description:
+          'Le recruteur IA pose la question, vous répondez à voix haute et vos mots s’affichent.',
+      },
+      report: {
+        title: 'Rapport noté',
+        description:
+          'Consultez votre note, vos lacunes et une meilleure version de chaque réponse.',
+      },
+      live: {
+        title: 'Aide en direct en japonais',
+        description: 'De courts points clés dans votre langue à côté de la conversation.',
+      },
+      coding: {
+        title: 'Parcours de code',
+        description: 'Transformez un problème de code en approche, solution et complexité.',
+      },
+    },
   },
 
   install: {

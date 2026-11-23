@@ -1,17 +1,16 @@
 import React from 'react';
 
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 import Container from '@/components/Container';
-import { Button } from '@/components/ui/button';
 import { Glow } from '@/components/ui/glow';
 import { LANGUAGE_COUNT } from '@/config/languages';
-import { SECTIONS, homeAnchor } from '@/config/routes';
-import { LocalizedLink } from '@/i18n/LocalizedLink';
+import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
 import { pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 
+import { DemoDialog } from './DemoDialog';
 import { DownloadButton } from './DownloadButton';
 import { HeroPreview } from './HeroPreview';
 import { ProofBar } from './ProofBar';
@@ -44,16 +43,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
           <div className="flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
             <DownloadButton align="start" placement="hero" className="w-full sm:w-auto" />
-            <Button variant="outline" size="xl" className="w-full sm:w-auto" asChild>
-              <LocalizedLink
-                href={homeAnchor(SECTIONS.howItWorks)}
-                data-track="how_it_works"
-                data-placement="hero"
-              >
-                {t.secondary}
-                <ArrowRight className="rtl:rotate-180" />
-              </LocalizedLink>
-            </Button>
+            <DemoDialog className="w-full sm:w-auto" />
           </div>
 
           <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">

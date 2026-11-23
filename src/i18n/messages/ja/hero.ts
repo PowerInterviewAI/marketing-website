@@ -6,7 +6,6 @@ export const hero: Hero = {
     'あなたの言語で AI 面接官と声に出して練習。回答ごとに採点と改善案を受け取れます。営業からライブコーディングまで、あらゆる職種に対応します。',
   free: '1 時間無料',
   noCard: 'クレジットカード不要',
-  secondary: '使い方を見る',
 
   trust: {
     platformsLabel: '対応プラットフォーム',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: 'デモを再生',
-    pause: 'デモを一時停止',
-    previous: '前のデモ',
-    next: '次のデモ',
-    clips: 'デモ動画',
     preview: '面接プレビュー',
     mock: '模擬面接',
     live: 'ライブサポート',
@@ -61,6 +55,31 @@ export const hero: Hero = {
     pauseLanguages: '言語プレビューを一時停止',
     playLanguages: '言語プレビューを再生',
     allLanguages: '全 {count} 言語',
+  },
+
+  demo: {
+    watch: 'デモを見る',
+    title: '製品デモ',
+    close: 'デモを閉じる',
+    sample: '実際のアプリで、用意したデータを使って収録したサンプルです。',
+    clips: {
+      mock: {
+        title: 'スペイン語の模擬面接',
+        description: 'AI 面接官の質問に声で答えると、発言が文字で表示されます。',
+      },
+      report: {
+        title: '採点レポート',
+        description: 'スコア、課題、各回答の改善例を確認できます。',
+      },
+      live: {
+        title: '日本語のライブサポート',
+        description: '会話の横に、あなたの言語で短い要点を表示します。',
+      },
+      coding: {
+        title: 'コーディング解説',
+        description: 'コーディング問題を解法、コード、計算量に整理します。',
+      },
+    },
   },
 
   install: {

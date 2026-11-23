@@ -6,7 +6,6 @@ export const hero: Hero = {
     'Pratique em voz alta com um entrevistador de IA no seu idioma. Cada resposta recebe nota e melhorias, para qualquer trabalho, de vendas a testes de código ao vivo.',
   free: '1 hora grátis',
   noCard: 'Sem cartão de crédito',
-  secondary: 'Veja como funciona',
 
   trust: {
     platformsLabel: 'Plataformas',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: 'Reproduzir demonstração',
-    pause: 'Pausar demonstração',
-    previous: 'Demonstração anterior',
-    next: 'Próxima demonstração',
-    clips: 'Clipes de demonstração',
     preview: 'Prévia da entrevista',
     mock: 'Entrevista simulada',
     live: 'Ajuda ao vivo',
@@ -61,6 +55,32 @@ export const hero: Hero = {
     pauseLanguages: 'Pausar prévia de idiomas',
     playLanguages: 'Reproduzir prévia de idiomas',
     allLanguages: 'Todos os {count} idiomas',
+  },
+
+  demo: {
+    watch: 'Ver demo',
+    title: 'Demos do produto',
+    close: 'Fechar demo',
+    sample: 'Sessão de exemplo gravada no app real com dados preparados.',
+    clips: {
+      mock: {
+        title: 'Entrevista simulada em espanhol',
+        description:
+          'O entrevistador de IA pergunta, você responde em voz alta e suas palavras aparecem.',
+      },
+      report: {
+        title: 'Relatório com nota',
+        description: 'Veja sua nota, lacunas e uma versão melhor de cada resposta.',
+      },
+      live: {
+        title: 'Ajuda ao vivo em japonês',
+        description: 'Pontos de fala curtos no seu idioma ao lado da conversa.',
+      },
+      coding: {
+        title: 'Passo a passo de código',
+        description: 'Transforme um problema de código em abordagem, solução e complexidade.',
+      },
+    },
   },
 
   install: {

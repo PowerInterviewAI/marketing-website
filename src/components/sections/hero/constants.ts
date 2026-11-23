@@ -12,6 +12,14 @@ export type WindowsShell = 'cmd' | 'powershell';
 // download that may not work. Flip this back on once the fix lands.
 export const MACOS_SUPPORTED = false;
 
+/** Recorded from the real app UI with scripted sample data. Titles live in `hero.demo.clips`. */
+export const DEMO_CLIPS = [
+  { id: 'mock', src: '/media/demos/mock.mp4', poster: '/media/demos/mock.webp' },
+  { id: 'report', src: '/media/demos/report.mp4', poster: '/media/demos/report.webp' },
+  { id: 'live', src: '/media/demos/live.mp4', poster: '/media/demos/live.webp' },
+  { id: 'coding', src: '/media/demos/coding.mp4', poster: '/media/demos/coding.webp' },
+] as const;
+
 /** Generate the install command by platform (and, for Windows, by shell). */
 export const getInstallCommand = (
   version: string | null,

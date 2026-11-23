@@ -6,7 +6,6 @@ export const hero: Hero = {
     '用你的语言与 AI 面试官开口练习。每个回答都有评分和改进建议，适用于各类岗位，从销售到现场编程面试。',
   free: '1 小时免费',
   noCard: '无需信用卡',
-  secondary: '了解使用方式',
 
   trust: {
     platformsLabel: '平台',
@@ -40,11 +39,6 @@ export const hero: Hero = {
   },
 
   surface: {
-    play: '播放演示',
-    pause: '暂停演示',
-    previous: '上一个演示',
-    next: '下一个演示',
-    clips: '演示片段',
     preview: '面试预览',
     mock: '模拟面试',
     live: '实时帮助',
@@ -61,6 +55,31 @@ export const hero: Hero = {
     pauseLanguages: '暂停语言预览',
     playLanguages: '播放语言预览',
     allLanguages: '全部 {count} 种语言',
+  },
+
+  demo: {
+    watch: '观看演示',
+    title: '产品演示',
+    close: '关闭演示',
+    sample: '使用预设数据在真实应用中录制的示例会话。',
+    clips: {
+      mock: {
+        title: '西班牙语模拟面试',
+        description: 'AI 面试官提问，你开口回答，文字随语音显示。',
+      },
+      report: {
+        title: '评分报告',
+        description: '查看评分、不足之处和每个回答的改进版本。',
+      },
+      live: {
+        title: '日语实时帮助',
+        description: '在对话旁用你的语言显示简短要点。',
+      },
+      coding: {
+        title: '编程讲解',
+        description: '将编程题整理为思路、代码和复杂度。',
+      },
+    },
   },
 
   install: {
