@@ -36,7 +36,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
       id={SECTIONS.hero}
       className="relative isolate scroll-mt-20 pb-16 pt-12 md:pb-24 md:pt-20"
     >
-      <Glow position="top" intensity="medium" grid />
+      <Glow position="top" intensity="medium" />
 
       <Container>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
