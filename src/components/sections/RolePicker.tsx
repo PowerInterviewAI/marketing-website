@@ -4,16 +4,25 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 
+import { AmbientVideo } from '@/components/ui/ambient-video';
 import type { Story } from '@/i18n/messages/en/story';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 type RoleId = keyof Story['roles']['items'];
 
-const ROLES: { id: RoleId; image: string }[] = [
-  { id: 'developer', image: '/media/marketing/roles/engineer.webp' },
+const ROLES: { id: RoleId; image: string; video?: { src: string; poster: string } }[] = [
+  {
+    id: 'developer',
+    image: '/media/marketing/roles/engineer.webp',
+    video: { src: '/media/lifestyle/developer.mp4', poster: '/media/lifestyle/developer.webp' },
+  },
   { id: 'sales', image: '/media/marketing/roles/sales.webp' },
-  { id: 'nurse', image: '/media/marketing/roles/nurse.webp' },
+  {
+    id: 'nurse',
+    image: '/media/marketing/roles/nurse.webp',
+    video: { src: '/media/lifestyle/nurse.mp4', poster: '/media/lifestyle/nurse.webp' },
+  },
   { id: 'teacher', image: '/media/marketing/roles/teacher.webp' },
   { id: 'finance', image: '/media/marketing/roles/finance.webp' },
 ];
@@ -52,19 +61,30 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
       </div>
 
       <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card sm:aspect-[16/9] lg:aspect-[21/9]">
-        {ROLES.map(({ id, image }) => (
-          <Image
-            key={id}
-            src={image}
-            alt=""
-            fill
-            sizes="(min-width: 1280px) 1216px, 100vw"
-            className={cn(
-              'object-cover object-[center_30%] transition-opacity duration-500',
-              active === id ? 'opacity-100' : 'opacity-0'
-            )}
-          />
-        ))}
+        {ROLES.map(({ id, image, video }) => {
+          const visibility = cn(
+            'object-[center_30%] transition-opacity duration-500',
+            active === id ? 'opacity-100' : 'opacity-0'
+          );
+          return video ? (
+            <AmbientVideo
+              key={id}
+              src={video.src}
+              poster={video.poster}
+              active={active === id}
+              className={visibility}
+            />
+          ) : (
+            <Image
+              key={id}
+              src={image}
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 1216px, 100vw"
+              className={cn('object-cover', visibility)}
+            />
+          );
+        })}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-5 pt-20 md:p-8 md:pt-24">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
             {copy.sample}

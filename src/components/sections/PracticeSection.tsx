@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Check } from 'lucide-react';
-import Image from 'next/image';
 
 import { DownloadCta } from '@/components/DownloadCta';
+import { AmbientVideo } from '@/components/ui/ambient-video';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
@@ -42,12 +42,9 @@ export const PracticeSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
         <Reveal className="min-w-0">
           <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border">
-            <Image
-              src="/media/marketing/practice-desk.webp"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+            <AmbientVideo
+              src="/media/lifestyle/practice.mp4"
+              poster="/media/lifestyle/practice.webp"
             />
           </div>
           <div className="relative z-10 mx-3 -mt-10 sm:mx-8 sm:-mt-14">
