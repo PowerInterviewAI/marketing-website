@@ -1,6 +1,8 @@
 # Installation
 
-This page covers how to install and run Power Interview AI on Windows and macOS.
+This page covers how to install and run Power Interview AI on Windows.
+
+> macOS support is in development. The macOS steps below are kept for reference and may not produce a working install.
 
 ---
 

@@ -97,7 +97,7 @@ You can use the keyboard to scroll through reply suggestion content without leav
 
 ## AI Code Suggestions
 
-For technical interviews with coding problems, Power Interview AI can analyze your screen and suggest solutions.
+For coding practice and technical interviews that allow AI tools, Power Interview AI can analyze your screen and suggest solutions. Many coding assessments prohibit outside help, so check the rules before you use it in a real interview.
 
 ### Workflow
 
@@ -123,7 +123,7 @@ You can also jump to the end of the code panel using the third shortcut (O).
 
 ## Stealth Mode
 
-The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
+By default, the app window is excluded from screen capture to protect the personal details it shows. You can allow capture in Configuration outside stealth mode. This setting does not change an employer's rules: use live help only where AI assistance is permitted.
 
 Stealth mode is about **focus control**. When active, the window will not steal focus from your coding challenge, IDE, or video call. You stay in full control of your keyboard and mouse at all times.
 

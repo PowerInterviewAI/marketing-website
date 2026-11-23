@@ -63,7 +63,8 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 ### Stealth Mode
 
-- The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
+- By default, the app window is excluded from screen capture to protect the personal details it shows. You can allow capture in Configuration outside stealth mode
+- Some employers and assessment platforms do not allow AI assistance. Check the rules for each interview and use live help only where it is permitted
 - Stealth mode keeps the window from receiving focus, so your keyboard and mouse stay locked on your coding challenge or video call
 - A minimal status bar shows running state, your plan or free time left, and active hotkeys
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus
@@ -138,5 +139,5 @@ The desktop client communicates with local services and with cloud services over
 Before getting started, ensure you have the following:
 
 - A Power Interview AI account (sign up from within the application)
-- A Windows or macOS machine
+- A Windows machine (macOS support is in development)
 - A working microphone and (optionally) webcam

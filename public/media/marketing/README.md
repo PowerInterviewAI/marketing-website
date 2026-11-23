@@ -8,11 +8,18 @@ avatar. Both are generated — don't hand-edit them, change the script and re-ru
 with explicit `width`/`height` (or is a `<video poster>` inside a fixed-ratio
 frame), so a different aspect ratio will either letterbox or shift the layout.
 
-## Hero carousel posters — 1920×1080 (16:9)
+## Generated role photos and lifestyle loops
 
-Referenced from `src/components/sections/hero/constants.ts`, and reused as the
-`poster` for the two demo clips embedded in the docs — see the `VIDEO_POSTERS`
-map in `src/lib/media.ts`.
+`roles/*.webp` and `../lifestyle/*` were generated locally in ComfyUI with Qwen
+Image Edit and Wan 2.2. They show fictional people, so never caption them as
+customers or testimonials, and never use them as product screenshots. The loops
+stay at Wan's native 16 fps because motion interpolation smeared fast hand
+movement.
+
+## Docs video posters — 1920×1080 (16:9)
+
+These no longer appear in the hero. They remain the `poster` for clips embedded
+in the docs — see the `VIDEO_POSTERS` map in `src/lib/media.ts`.
 
 These are the first paint of the hero, so they are the LCP element. They are
 also what a viewer sees when autoplay is suppressed — which happens deliberately

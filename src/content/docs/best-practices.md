@@ -88,7 +88,7 @@ Press `Ctrl+Shift+F9` for each capture, then `Ctrl+Shift+F11` to submit (use `Ct
 
 ## Stealth Mode & Window Placement
 
-The Power Interview AI window is always excluded from screen capture and screen share - interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
+By default, the app window is excluded from screen capture to protect the personal details it shows. Before using it in a real interview, confirm that the employer or assessment platform allows AI assistance.
 
 ### Set Up Your Window Position Before the Interview
 
@@ -149,4 +149,5 @@ Before every interview, run through this checklist:
 Use it responsibly:
 
 - AI suggestions are a starting point - adapt them in your own words. Parroting a suggestion verbatim can appear unnatural.
+- Follow each employer's interview rules. If AI assistance is prohibited or undisclosed use would misrepresent your work, do not use live help or code suggestions.
 - Ensure your use complies with the terms of service of the platform hosting the interview and with any applicable laws in your jurisdiction.
