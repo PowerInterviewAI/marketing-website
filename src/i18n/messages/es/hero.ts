@@ -1,27 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entrevista de práctica + entrevista en directo, 1 hora gratis',
-  titleLead: 'Ensaya la entrevista y luego',
-  titleAccent: 'haz la real con ayuda en directo',
-  mockLabel: 'Entrevista de práctica:',
-  mockText:
-    'un entrevistador de IA pregunta en voz alta, insiste en las respuestas flojas y puntúa cada una.',
-  liveLabel: 'Entrevista en directo:',
-  liveText:
-    'la misma aplicación funciona en tu llamada real de Zoom, Meet o Teams, oculta al compartir pantalla, y te sugiere qué decir.',
-  rolePre: 'Las dos usan tu CV y la descripción del puesto, así que sirven para',
-  roleStrong: 'cualquier puesto',
-  rolePost: ': ventas, finanzas, enfermería, docencia, ingeniería, no solo software.',
-  ctaMock: 'Empieza con una entrevista de práctica',
-  ctaLive: 'Ver las funciones de la entrevista en directo',
-  freeNote:
-    'Una hora gratis cubre la práctica y la ayuda en directo. Pago solo en cripto, sin tarjeta.',
+  title: 'Tu próxima entrevista, ensayada en tu idioma.',
+  subtitle:
+    'Practica en voz alta con un entrevistador de IA, recibe una puntuación por cada respuesta y usa la misma app como ayuda en directo. Basado en tu CV, para cualquier puesto.',
+  free: '1 hora gratis',
+  noCard: 'Sin tarjeta de crédito',
+  secondary: 'Cómo funciona',
 
   trust: {
     platformsLabel: 'Plataformas',
     platforms: 'Windows ya, macOS muy pronto',
     languagesLabel: 'Idiomas de entrevista',
+    voices: '{voices} voces habladas',
     rolesLabel: 'Puestos',
     roles: 'Cualquier puesto, no solo tecnología',
     privacyLabel: 'Privacidad',
@@ -54,6 +45,22 @@ export const hero: Hero = {
     previous: 'Demo anterior',
     next: 'Demo siguiente',
     clips: 'Clips de demostración',
+    preview: 'Vista previa de la entrevista',
+    mock: 'Entrevista simulada',
+    live: 'Ayuda en directo',
+    sample: 'Ejemplo',
+    question: 'Pregunta {n} de {total}',
+    interviewer: 'Entrevistador',
+    you: 'Tú',
+    score: 'Puntuación',
+    strength: 'Punto fuerte',
+    gap: 'A mejorar',
+    suggestion: 'Sugerencia',
+    language: 'Idioma de la entrevista',
+    yours: 'Idioma de tu navegador',
+    pauseLanguages: 'Pausar vista previa de idiomas',
+    playLanguages: 'Reproducir vista previa de idiomas',
+    allLanguages: 'Los {count} idiomas',
   },
   demos: [
     {

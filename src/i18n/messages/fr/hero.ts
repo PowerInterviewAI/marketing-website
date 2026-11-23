@@ -1,28 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entretien d’entraînement + entretien en direct, 1 heure offerte',
-  titleLead: 'Répétez l’entretien, puis',
-  titleAccent: 'passez le vrai avec une aide en direct',
-  mockLabel: 'Entretien d’entraînement :',
-  mockText:
-    'un recruteur IA pose ses questions à voix haute, insiste sur les réponses faibles et note chacune d’elles.',
-  liveLabel: 'Entretien en direct :',
-  liveText:
-    'la même application tourne sur votre vrai appel Zoom, Meet ou Teams, invisible au partage d’écran, et vous suggère quoi dire.',
-  rolePre: 'Les deux s’appuient sur votre CV et l’offre d’emploi, ils conviennent donc à',
-  roleStrong: 'tous les métiers',
-  rolePost:
-    ' : vente, finance, soins infirmiers, enseignement, ingénierie, pas seulement le logiciel.',
-  ctaMock: 'Commencer par un entretien d’entraînement',
-  ctaLive: 'Voir les fonctionnalités de l’entretien en direct',
-  freeNote:
-    'Une heure offerte couvre l’entraînement et l’aide en direct. Paiement en crypto uniquement, sans carte bancaire.',
+  title: 'Votre prochain entretien, répété dans votre langue.',
+  subtitle:
+    'Entraînez-vous à voix haute avec un recruteur IA, obtenez une note pour chaque réponse, puis utilisez la même app pour une aide en direct. Basé sur votre CV, pour tout poste.',
+  free: '1 heure offerte',
+  noCard: 'Sans carte bancaire',
+  secondary: 'Voir comment ça marche',
 
   trust: {
     platformsLabel: 'Plateformes',
     platforms: 'Windows dès maintenant, macOS bientôt',
     languagesLabel: 'Langues d’entretien',
+    voices: '{voices} voix parlées',
     rolesLabel: 'Métiers',
     roles: 'Tous les métiers, pas seulement la tech',
     privacyLabel: 'Confidentialité',
@@ -55,6 +45,22 @@ export const hero: Hero = {
     previous: 'Démo précédente',
     next: 'Démo suivante',
     clips: 'Extraits de démo',
+    preview: 'Aperçu de l’entretien',
+    mock: 'Entretien simulé',
+    live: 'Aide en direct',
+    sample: 'Exemple',
+    question: 'Question {n} sur {total}',
+    interviewer: 'Recruteur',
+    you: 'Vous',
+    score: 'Note',
+    strength: 'Point fort',
+    gap: 'À améliorer',
+    suggestion: 'Suggestion',
+    language: 'Langue de l’entretien',
+    yours: 'Langue de votre navigateur',
+    pauseLanguages: 'Mettre l’aperçu des langues en pause',
+    playLanguages: 'Lancer l’aperçu des langues',
+    allLanguages: 'Les {count} langues',
   },
   demos: [
     {

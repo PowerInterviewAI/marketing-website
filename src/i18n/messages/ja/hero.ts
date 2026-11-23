@@ -1,26 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '模擬面接 + ライブ面接、1 時間無料',
-  titleLead: '面接をリハーサルしてから、',
-  titleAccent: 'リアルタイムのサポート付きで本番へ',
-  mockLabel: '模擬面接：',
-  mockText: 'AI 面接官が声に出して質問し、弱い回答には突っ込み、すべての回答を採点します。',
-  liveLabel: 'ライブ面接：',
-  liveText:
-    '同じアプリが本番の Zoom・Meet・Teams 通話で動き、画面共有には映らずに、何を話すべきかを提案します。',
-  rolePre: 'どちらも履歴書と求人票をもとに動くので、',
-  roleStrong: 'どんな職種にも',
-  rolePost: '対応します - 営業、金融、看護、教育、エンジニアリングなど、ソフトウェアに限りません。',
-  ctaMock: '模擬面接から始める',
-  ctaLive: 'ライブ面接の機能を見る',
-  freeNote:
-    '無料の 1 時間で練習もライブサポートも使えます。支払いは暗号資産のみ、クレジットカード不要。',
+  title: '次の面接を、あなたの言語でリハーサル。',
+  subtitle:
+    'AI 面接官を相手に声に出して練習し、回答ごとに採点を受け、本番の通話でも同じアプリでサポートを受けられます。履歴書をもとに、あらゆる職種に対応します。',
+  free: '1 時間無料',
+  noCard: 'クレジットカード不要',
+  secondary: '使い方を見る',
 
   trust: {
     platformsLabel: '対応プラットフォーム',
     platforms: 'Windows に対応、macOS は近日対応',
     languagesLabel: '面接言語',
+    voices: '{voices} 言語の音声',
     rolesLabel: '職種',
     roles: 'IT 以外のどんな職種にも',
     privacyLabel: 'プライバシー',
@@ -53,6 +45,22 @@ export const hero: Hero = {
     previous: '前のデモ',
     next: '次のデモ',
     clips: 'デモ動画',
+    preview: '面接プレビュー',
+    mock: '模擬面接',
+    live: 'ライブサポート',
+    sample: 'サンプル',
+    question: '質問 {n} / {total}',
+    interviewer: '面接官',
+    you: 'あなた',
+    score: 'スコア',
+    strength: '強み',
+    gap: '改善点',
+    suggestion: '提案',
+    language: '面接言語',
+    yours: 'ブラウザの言語',
+    pauseLanguages: '言語プレビューを一時停止',
+    playLanguages: '言語プレビューを再生',
+    allLanguages: '全 {count} 言語',
   },
   demos: [
     {

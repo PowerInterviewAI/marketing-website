@@ -1,27 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entrevista simulada + entrevista ao vivo, 1 hora grátis',
-  titleLead: 'Ensaie a entrevista e depois',
-  titleAccent: 'faça a real com ajuda ao vivo',
-  mockLabel: 'Entrevista simulada:',
-  mockText:
-    'um entrevistador de IA pergunta em voz alta, insiste nas respostas fracas e dá nota a cada uma.',
-  liveLabel: 'Entrevista ao vivo:',
-  liveText:
-    'o mesmo app roda na sua chamada real no Zoom, Meet ou Teams, escondido no compartilhamento de tela, e sugere o que dizer.',
-  rolePre: 'Os dois usam seu currículo e a descrição da vaga, então servem para',
-  roleStrong: 'qualquer cargo',
-  rolePost: ': vendas, finanças, enfermagem, ensino, engenharia, não só software.',
-  ctaMock: 'Comece com uma entrevista simulada',
-  ctaLive: 'Ver os recursos da entrevista ao vivo',
-  freeNote:
-    'Uma hora grátis cobre o treino e a ajuda ao vivo. Pagamento só em cripto, sem cartão de crédito.',
+  title: 'Sua próxima entrevista, ensaiada no seu idioma.',
+  subtitle:
+    'Pratique em voz alta com um entrevistador de IA, receba nota em cada resposta e use o mesmo app como ajuda ao vivo. Feito a partir do seu currículo, para qualquer cargo.',
+  free: '1 hora grátis',
+  noCard: 'Sem cartão de crédito',
+  secondary: 'Veja como funciona',
 
   trust: {
     platformsLabel: 'Plataformas',
     platforms: 'Windows agora, macOS em breve',
     languagesLabel: 'Idiomas de entrevista',
+    voices: '{voices} vozes faladas',
     rolesLabel: 'Cargos',
     roles: 'Qualquer cargo, não só tecnologia',
     privacyLabel: 'Privacidade',
@@ -54,6 +45,22 @@ export const hero: Hero = {
     previous: 'Demonstração anterior',
     next: 'Próxima demonstração',
     clips: 'Clipes de demonstração',
+    preview: 'Prévia da entrevista',
+    mock: 'Entrevista simulada',
+    live: 'Ajuda ao vivo',
+    sample: 'Exemplo',
+    question: 'Pergunta {n} de {total}',
+    interviewer: 'Entrevistador',
+    you: 'Você',
+    score: 'Nota',
+    strength: 'Ponto forte',
+    gap: 'A melhorar',
+    suggestion: 'Sugestão',
+    language: 'Idioma da entrevista',
+    yours: 'Idioma do seu navegador',
+    pauseLanguages: 'Pausar prévia de idiomas',
+    playLanguages: 'Reproduzir prévia de idiomas',
+    allLanguages: 'Todos os {count} idiomas',
   },
   demos: [
     {

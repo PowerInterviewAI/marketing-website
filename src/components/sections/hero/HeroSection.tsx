@@ -1,107 +1,75 @@
 import React from 'react';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 import Container from '@/components/Container';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Glow } from '@/components/ui/glow';
+import { LANGUAGE_COUNT } from '@/config/languages';
 import { SECTIONS, homeAnchor } from '@/config/routes';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
-import { LOCALE_META, type Locale } from '@/i18n/config';
+import type { Locale } from '@/i18n/config';
+import { pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 
 import { DownloadButton } from './DownloadButton';
-import { ProductSurface } from './ProductSurface';
-import { TrustStrip } from './TrustStrip';
+import { HeroPreview } from './HeroPreview';
+import { ProofBar } from './ProofBar';
 
 /**
- * The hero names the two features the app actually has - the mock interview
- * and the live interview - in that order, and sends a reader to one or the
- * other. It used to open on the generic "AI interview coach", which is the
- * category rather than either half of the product, and offered a single
- * secondary link.
- *
- * The role-neutral clause is load-bearing: the demo carousel below is three
- * parts coding challenge, so copy that never says otherwise reads as a tool
- * for software engineers only. It works from whatever CV and job description
- * you paste in.
+ * One promise, one primary action, and the product beside them. The preview
+ * answers the question that decides this audience: does it work in my language?
+ * Rehearsal leads because a visitor can use it tonight.
  */
 export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
-  const t = getMessages(locale).hero;
-  const space = LOCALE_META[locale].space;
+  const { hero: t, common } = getMessages(locale);
+  const reassurance = [
+    t.free,
+    t.noCard,
+    `${LANGUAGE_COUNT} ${pluralize(locale, LANGUAGE_COUNT, common.languageNoun)}`,
+  ];
 
   return (
-    <section
-      id={SECTIONS.hero}
-      className="relative isolate scroll-mt-20 pb-16 pt-12 md:pb-24 md:pt-20"
-    >
-      <Glow position="top" intensity="medium" />
+    <section id={SECTIONS.hero} className="relative isolate scroll-mt-20">
+      <Glow position="top" intensity="strong" />
 
-      <Container>
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-          <Badge variant="primary" size="lg" dot>
-            {t.badge}
-          </Badge>
-
-          <h1
-            id="hero-heading"
-            className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]"
-          >
-            {t.titleLead} <span className="text-primary">{t.titleAccent}</span>
+      <Container className="grid items-center gap-10 py-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 xl:py-14">
+        <div className="flex min-w-0 flex-col items-start gap-5">
+          <h1 id="hero-heading" className="text-display text-balance">
+            {t.title}
           </h1>
-
-          <p className="text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            <span className="font-medium text-foreground">{t.mockLabel}</span>
-            {space}
-            {t.mockText}
-            {space}
-            <span className="font-medium text-foreground">{t.liveLabel}</span>
-            {space}
-            {t.liveText}
+          <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+            {t.subtitle}
           </p>
 
-          <p className="text-pretty text-base text-muted-foreground">
-            {t.rolePre}
-            {space}
-            <span className="font-medium text-foreground">{t.roleStrong}</span>
-            {space}
-            {t.rolePost}
-          </p>
-
-          <div className="mt-2 flex flex-col items-center gap-4">
-            <DownloadButton />
-
-            {/* Both features get a way in, mock first. These scroll to the home
-              page's own sections, not the standalone /mock-interview page:
-              the rehearsal is the half a reader can use tonight, without a
-              scheduled interview to use it on, and the live-call capabilities
-              are the features grid directly below it. */}
-            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-              <Button variant="ghost" size="sm" asChild>
-                <LocalizedLink href={homeAnchor(SECTIONS.mockInterview)}>
-                  {t.ctaMock}
-                  <ArrowRight />
-                </LocalizedLink>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <LocalizedLink href={homeAnchor(SECTIONS.features)}>
-                  {t.ctaLive}
-                  <ArrowRight />
-                </LocalizedLink>
-              </Button>
-            </div>
+          <div className="flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+            <DownloadButton align="start" placement="hero" className="w-full sm:w-auto" />
+            <Button variant="outline" size="xl" className="w-full sm:w-auto" asChild>
+              <LocalizedLink
+                href={homeAnchor(SECTIONS.howItWorks)}
+                data-track="how_it_works"
+                data-placement="hero"
+              >
+                {t.secondary}
+                <ArrowRight className="rtl:rotate-180" />
+              </LocalizedLink>
+            </Button>
           </div>
 
-          <p className="text-sm text-muted-foreground">{t.freeNote}</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
+            {reassurance.map((item) => (
+              <li key={item} className="flex items-center gap-1.5">
+                <Check className="size-4 shrink-0 text-success" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <ProductSurface className="mx-auto mt-14 max-w-5xl" />
-
-        <div className="mt-12">
-          <TrustStrip />
-        </div>
+        <HeroPreview className="min-w-0" />
       </Container>
+
+      <ProofBar />
     </section>
   );
 };

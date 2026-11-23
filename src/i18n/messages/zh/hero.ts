@@ -1,25 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '模拟面试 + 实时面试，免费 1 小时',
-  titleLead: '先演练面试，',
-  titleAccent: '再带着实时帮助参加真正的面试',
-  mockLabel: '模拟面试：',
-  mockText: 'AI 面试官大声提问，对薄弱的回答追问到底，并为每个回答打分。',
-  liveLabel: '实时面试：',
-  liveText:
-    '同一款应用运行在你真实的 Zoom、Meet 或 Teams 通话中，共享屏幕时不可见，并提示你该说什么。',
-  rolePre: '两者都基于你的简历和职位描述，因此适用于',
-  roleStrong: '任何岗位',
-  rolePost: '- 销售、金融、护理、教育、工程，不只是软件开发。',
-  ctaMock: '从模拟面试开始',
-  ctaLive: '查看实时面试功能',
-  freeNote: '免费一小时，练习和实时帮助都能用。仅支持加密货币支付，无需信用卡。',
+  title: '用你的语言，排练下一场面试。',
+  subtitle:
+    '与 AI 面试官开口练习，每个回答都有评分，真实通话时还能用同一款应用获得实时帮助。基于你的简历，适用于任何岗位。',
+  free: '1 小时免费',
+  noCard: '无需信用卡',
+  secondary: '了解使用方式',
 
   trust: {
     platformsLabel: '平台',
     platforms: '已支持 Windows，macOS 即将推出',
     languagesLabel: '面试语言',
+    voices: '{voices} 种语音',
     rolesLabel: '岗位',
     roles: '任何岗位，不只是技术岗',
     privacyLabel: '隐私',
@@ -52,6 +45,22 @@ export const hero: Hero = {
     previous: '上一个演示',
     next: '下一个演示',
     clips: '演示片段',
+    preview: '面试预览',
+    mock: '模拟面试',
+    live: '实时帮助',
+    sample: '示例',
+    question: '第 {n} 题，共 {total} 题',
+    interviewer: '面试官',
+    you: '你',
+    score: '评分',
+    strength: '优势',
+    gap: '待改进',
+    suggestion: '建议',
+    language: '面试语言',
+    yours: '你的浏览器语言',
+    pauseLanguages: '暂停语言预览',
+    playLanguages: '播放语言预览',
+    allLanguages: '全部 {count} 种语言',
   },
   demos: [
     {

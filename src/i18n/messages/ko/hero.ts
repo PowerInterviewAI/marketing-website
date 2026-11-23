@@ -1,26 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '모의 면접 + 실시간 면접, 1시간 무료',
-  titleLead: '면접을 미리 연습하고,',
-  titleAccent: '실전은 실시간 도움을 받으며',
-  mockLabel: '모의 면접:',
-  mockText: 'AI 면접관이 소리 내어 질문하고, 약한 답변은 파고들며, 모든 답변에 점수를 매깁니다.',
-  liveLabel: '실시간 면접:',
-  liveText:
-    '같은 앱이 실제 Zoom, Meet, Teams 통화에서 화면 공유에 보이지 않게 실행되며, 무엇을 말할지 제안합니다.',
-  rolePre: '두 기능 모두 이력서와 채용 공고를 바탕으로 하므로',
-  roleStrong: '어떤 직무에도',
-  rolePost: '맞습니다 - 영업, 금융, 간호, 교육, 엔지니어링 등 소프트웨어만이 아닙니다.',
-  ctaMock: '모의 면접으로 시작하기',
-  ctaLive: '실시간 면접 기능 보기',
-  freeNote:
-    '무료 1시간으로 연습과 실시간 도움을 모두 쓸 수 있습니다. 결제는 암호화폐로만, 신용카드 불필요.',
+  title: '다음 면접을 내 언어로 리허설하세요.',
+  subtitle:
+    'AI 면접관과 소리 내어 연습하고 답변마다 점수를 받은 뒤, 실제 통화에서도 같은 앱으로 도움을 받으세요. 내 이력서를 바탕으로 모든 직무에 맞춥니다.',
+  free: '1시간 무료',
+  noCard: '신용카드 불필요',
+  secondary: '작동 방식 보기',
 
   trust: {
     platformsLabel: '플랫폼',
     platforms: '지금은 Windows, macOS는 곧 지원',
     languagesLabel: '면접 언어',
+    voices: '음성 지원 {voices}개 언어',
     rolesLabel: '직무',
     roles: 'IT뿐 아니라 모든 직무',
     privacyLabel: '개인정보',
@@ -53,6 +45,22 @@ export const hero: Hero = {
     previous: '이전 데모',
     next: '다음 데모',
     clips: '데모 영상',
+    preview: '면접 미리보기',
+    mock: '모의 면접',
+    live: '실시간 도움',
+    sample: '샘플',
+    question: '질문 {n}/{total}',
+    interviewer: '면접관',
+    you: '나',
+    score: '점수',
+    strength: '강점',
+    gap: '개선점',
+    suggestion: '제안',
+    language: '면접 언어',
+    yours: '브라우저 언어',
+    pauseLanguages: '언어 미리보기 일시정지',
+    playLanguages: '언어 미리보기 재생',
+    allLanguages: '전체 {count}개 언어',
   },
   demos: [
     {

@@ -1,27 +1,18 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Probeinterview + Live-Interview, 1 Stunde gratis',
-  titleLead: 'Probe das Interview, dann',
-  titleAccent: 'führ das echte mit Live-Hilfe',
-  mockLabel: 'Probeinterview:',
-  mockText:
-    'Ein KI-Interviewer fragt laut, hakt bei schwachen Antworten nach und bewertet jede einzelne.',
-  liveLabel: 'Live-Interview:',
-  liveText:
-    'Dieselbe App läuft in deinem echten Zoom-, Meet- oder Teams-Gespräch, unsichtbar bei der Bildschirmfreigabe, und schlägt vor, was du sagen kannst.',
-  rolePre: 'Beide nutzen deinen Lebenslauf und die Stellenbeschreibung und passen so zu',
-  roleStrong: 'jeder Rolle',
-  rolePost: '- Vertrieb, Finanzen, Pflege, Lehre, Technik, nicht nur Software.',
-  ctaMock: 'Mit einem Probeinterview starten',
-  ctaLive: 'Funktionen fürs Live-Interview ansehen',
-  freeNote:
-    'Eine Gratisstunde für Übung und Live-Hilfe. Bezahlung nur in Krypto, keine Kreditkarte.',
+  title: 'Dein nächstes Interview, geübt in deiner Sprache.',
+  subtitle:
+    'Übe laut mit einem KI-Interviewer, lass jede Antwort bewerten und nutze dieselbe App für Live-Hilfe im Gespräch. Basierend auf deinem Lebenslauf, für jede Rolle.',
+  free: '1 Stunde gratis',
+  noCard: 'Keine Kreditkarte',
+  secondary: 'So funktioniert es',
 
   trust: {
     platformsLabel: 'Plattformen',
     platforms: 'Windows jetzt, macOS bald',
     languagesLabel: 'Interviewsprachen',
+    voices: '{voices} gesprochene Stimmen',
     rolesLabel: 'Rollen',
     roles: 'Jede Rolle, nicht nur Tech',
     privacyLabel: 'Datenschutz',
@@ -54,6 +45,22 @@ export const hero: Hero = {
     previous: 'Vorherige Demo',
     next: 'Nächste Demo',
     clips: 'Demo-Clips',
+    preview: 'Interview-Vorschau',
+    mock: 'Probeinterview',
+    live: 'Live-Hilfe',
+    sample: 'Beispiel',
+    question: 'Frage {n} von {total}',
+    interviewer: 'Interviewer',
+    you: 'Du',
+    score: 'Bewertung',
+    strength: 'Stärke',
+    gap: 'Verbessern',
+    suggestion: 'Vorschlag',
+    language: 'Interviewsprache',
+    yours: 'Deine Browsersprache',
+    pauseLanguages: 'Sprachvorschau anhalten',
+    playLanguages: 'Sprachvorschau abspielen',
+    allLanguages: 'Alle {count} Sprachen',
   },
   demos: [
     {
