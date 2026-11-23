@@ -107,12 +107,15 @@ export const Header: React.FC = () => {
               className="size-8 rounded-lg"
               priority
             />
-            <span className="font-display text-base font-semibold tracking-tight max-[399px]:sr-only">
+            <span className="font-display text-base font-semibold tracking-tight max-[399px]:sr-only lg:max-xl:sr-only">
               Power Interview AI
             </span>
           </LocalizedLink>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label={header.mainNavigation}>
+          <nav
+            className="hidden items-center gap-5 lg:flex xl:gap-7"
+            aria-label={header.mainNavigation}
+          >
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.href}
@@ -120,6 +123,7 @@ export const Header: React.FC = () => {
                 label={nav[link.id]}
                 href={linkHref(link)}
                 underline
+                className="whitespace-nowrap"
                 active={isActive(link)}
                 prefetch={false}
                 plainAnchor={isPlainAnchor(link)}

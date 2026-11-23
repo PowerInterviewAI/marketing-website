@@ -24,6 +24,9 @@ import '@/styles/index.css';
 const fontSans = Inter({
   subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-sans',
+  // unicode-range fetches only the subset a page uses. Preloading would make every
+  // English visitor download the Cyrillic and Latin Extended files too.
+  preload: false,
   display: 'swap',
 });
 
@@ -33,6 +36,7 @@ const fontMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-mono',
+  preload: false,
   display: 'swap',
 });
 

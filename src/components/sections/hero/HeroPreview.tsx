@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { ArrowRight, Lightbulb, Mic, Pause, Play } from 'lucide-react';
 
@@ -134,9 +134,11 @@ const LivePane: React.FC<{ item: HeroDemoLanguage; labels: Labels }> = ({ item, 
 /**
  * The hero's proof: one interview, in the visitor's language.
  *
- * Every pane stays in the same grid cell so the tallest language sets the
- * height and switching never moves the page. The automatic tour stops for good
- * on the first choice, because the visitor is then reading their own language.
+ * Only the active pane is server-rendered, so a page's HTML does not carry ten
+ * hidden languages that search engines could read as its content. After
+ * hydration every pane shares one grid cell, so the tallest sets the height and
+ * switching never moves the page. The automatic tour pauses off screen and
+ * stops for good on the first choice.
  */
 export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => {
   const locale = useLocale();
@@ -147,17 +149,43 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
   );
   const [playing, setPlaying] = useState(false);
   const [browserCode, setBrowserCode] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const chipsRef = useRef<HTMLDivElement>(null);
+  const onScreenRef = useRef(true);
 
   useEffect(() => {
+    setMounted(true);
     const browser = navigator.language.split('-')[0].toLowerCase();
     if (HERO_DEMO_LANGUAGES.some((item) => item.code === browser)) setBrowserCode(browser);
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setPlaying(true);
+
+    const root = rootRef.current;
+    if (!root) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreenRef.current = entry.isIntersecting;
+    });
+    observer.observe(root);
+    return () => observer.disconnect();
   }, []);
+
+  // On phones the chips scroll sideways, and the tour must not select one out of sight.
+  useEffect(() => {
+    const chips = chipsRef.current;
+    const chip = chips?.querySelector<HTMLElement>('[aria-pressed="true"]');
+    if (!chips || !chip || chips.scrollWidth <= chips.clientWidth) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    chips.scrollTo({
+      left: chip.offsetLeft - (chips.clientWidth - chip.offsetWidth) / 2,
+      behavior: reduced ? 'auto' : 'smooth',
+    });
+  }, [code]);
 
   useEffect(() => {
     if (!playing) return;
 
     const timer = window.setInterval(() => {
+      if (document.hidden || !onScreenRef.current) return;
       setCode((current) => {
         const index = HERO_DEMO_LANGUAGES.findIndex((item) => item.code === current);
         return HERO_DEMO_LANGUAGES[(index + 1) % HERO_DEMO_LANGUAGES.length].code;
@@ -179,6 +207,7 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
 
   return (
     <div
+      ref={rootRef}
       role="group"
       aria-label={t.preview}
       className={cn(
@@ -187,7 +216,7 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
       )}
     >
       <div className="flex items-center justify-between gap-3 border-b border-border p-2">
-        <div className="flex min-w-0 gap-1 rounded-lg bg-muted p-1">
+        <div className="flex min-w-0 flex-1 gap-1 rounded-lg bg-muted p-1 sm:flex-none">
           {(['mock', 'live'] as const).map((item) => (
             <button
               key={item}
@@ -195,7 +224,7 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
               aria-pressed={mode === item}
               onClick={() => chooseMode(item)}
               className={cn(
-                'min-h-8 truncate rounded-md px-3 text-xs font-semibold transition-colors',
+                'min-h-8 min-w-0 flex-1 rounded-md px-2 py-1 text-xs font-semibold leading-tight transition-colors sm:flex-none sm:whitespace-nowrap sm:px-3',
                 FOCUS,
                 mode === item
                   ? 'bg-card text-foreground shadow-elevation-1'
@@ -217,9 +246,10 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
       <div className="border-b border-border p-2">
         <div className="flex items-start gap-1">
           <div
+            ref={chipsRef}
             role="group"
             aria-label={t.language}
-            className="flex min-w-0 flex-1 gap-1 overflow-x-auto [scrollbar-width:none] sm:flex-wrap"
+            className="relative flex min-w-0 flex-1 gap-1 overflow-x-auto [scrollbar-width:none] sm:flex-wrap"
           >
             {HERO_DEMO_LANGUAGES.map((item) => (
               <button
@@ -262,10 +292,12 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
         </div>
       </div>
 
-      <div className="grid p-4">
+      {/* Reserves the height the tallest pane takes once all of them mount. */}
+      <div className="grid min-h-[434px] p-4 sm:min-h-[323px] lg:min-h-[366px] xl:min-h-[323px]">
         {HERO_DEMO_LANGUAGES.flatMap((item) =>
           (['mock', 'live'] as const).map((paneMode) => {
             const active = item.code === code && paneMode === mode;
+            if (!mounted && !active) return null;
             return (
               <div
                 key={`${item.code}-${paneMode}`}

@@ -10,7 +10,7 @@ export const hero = {
     platformsLabel: 'Platforms',
     platforms: 'Windows now, macOS coming soon',
     languagesLabel: 'Interview languages',
-    voices: '{voices} spoken voices',
+    voices: '{voices} languages spoken aloud',
     rolesLabel: 'Roles',
     roles: 'Any role, not just tech',
     privacyLabel: 'Privacy',

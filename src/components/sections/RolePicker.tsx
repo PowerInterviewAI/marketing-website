@@ -11,16 +11,18 @@ import { cn } from '@/lib/utils';
 
 type RoleId = keyof Story['roles']['items'];
 
-const ROLES: { id: RoleId; image: string; video?: { src: string; poster: string } }[] = [
+type RoleMedia =
+  | { id: RoleId; image: string; video?: undefined }
+  | { id: RoleId; image?: undefined; video: { src: string; poster: string } };
+
+const ROLES: RoleMedia[] = [
   {
     id: 'developer',
-    image: '/media/marketing/roles/engineer.webp',
     video: { src: '/media/lifestyle/developer.mp4', poster: '/media/lifestyle/developer.webp' },
   },
   { id: 'sales', image: '/media/marketing/roles/sales.webp' },
   {
     id: 'nurse',
-    image: '/media/marketing/roles/nurse.webp',
     video: { src: '/media/lifestyle/nurse.mp4', poster: '/media/lifestyle/nurse.webp' },
   },
   { id: 'teacher', image: '/media/marketing/roles/teacher.webp' },
@@ -61,23 +63,23 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
       </div>
 
       <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card sm:aspect-[16/9] lg:aspect-[21/9]">
-        {ROLES.map(({ id, image, video }) => {
+        {ROLES.map((role) => {
           const visibility = cn(
             'object-[center_30%] transition-opacity duration-500',
-            active === id ? 'opacity-100' : 'opacity-0'
+            active === role.id ? 'opacity-100' : 'opacity-0'
           );
-          return video ? (
+          return role.video ? (
             <AmbientVideo
-              key={id}
-              src={video.src}
-              poster={video.poster}
-              active={active === id}
+              key={role.id}
+              src={role.video.src}
+              poster={role.video.poster}
+              active={active === role.id}
               className={visibility}
             />
           ) : (
             <Image
-              key={id}
-              src={image}
+              key={role.id}
+              src={role.image}
               alt=""
               fill
               sizes="(min-width: 1280px) 1216px, 100vw"

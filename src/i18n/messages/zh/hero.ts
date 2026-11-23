@@ -11,7 +11,7 @@ export const hero: Hero = {
     platformsLabel: '平台',
     platforms: '已支持 Windows，macOS 即将推出',
     languagesLabel: '面试语言',
-    voices: '{voices} 种语音',
+    voices: '{voices} 种语言支持语音',
     rolesLabel: '岗位',
     roles: '任何岗位，不只是技术岗',
     privacyLabel: '隐私',

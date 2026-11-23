@@ -73,7 +73,7 @@ export const ContactSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         description={copy.description}
       />
 
-      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {getChannels(copy).map((channel, index) => (
           <Reveal key={channel.name} delay={Math.min(index, 4) * 60}>
             <a

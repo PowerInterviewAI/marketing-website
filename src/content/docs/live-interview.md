@@ -168,7 +168,7 @@ Use a numpad-style layout to snap the window to any screen position:
 
 Access your settings from the **menu icon** (☰) in the top-right of the titlebar.
 
-### Profile Settings
+### Your Profile
 
 | Field        | Description                                                          |
 | ------------ | -------------------------------------------------------------------- |

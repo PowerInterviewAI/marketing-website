@@ -11,7 +11,7 @@ export const hero: Hero = {
     platformsLabel: 'Plateformes',
     platforms: 'Windows dès maintenant, macOS bientôt',
     languagesLabel: 'Langues d’entretien',
-    voices: '{voices} voix parlées',
+    voices: '{voices} langues avec voix',
     rolesLabel: 'Métiers',
     roles: 'Tous les métiers, pas seulement la tech',
     privacyLabel: 'Confidentialité',
