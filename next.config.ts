@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next';
 
-import { LEGACY_ANCHOR_REDIRECTS, LEGACY_DOC_REDIRECTS } from './src/config/routes';
+import {
+  LEGACY_ANCHOR_REDIRECTS,
+  LEGACY_ASSET_REDIRECTS,
+  LEGACY_DOC_REDIRECTS,
+} from './src/config/routes';
 import { LOCALES, localizePath } from './src/i18n/config';
 
 const nextConfig: NextConfig = {
@@ -18,7 +22,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     // Each legacy URL also existed, or could be guessed, under /ru, so every
     // locale gets its own copy that stays inside that locale.
-    return [...LEGACY_ANCHOR_REDIRECTS, ...LEGACY_DOC_REDIRECTS].flatMap(
+    const pages = [...LEGACY_ANCHOR_REDIRECTS, ...LEGACY_DOC_REDIRECTS].flatMap(
       ({ source, destination }) =>
         LOCALES.map((locale) => ({
           source: localizePath(locale, source),
@@ -26,6 +30,9 @@ const nextConfig: NextConfig = {
           permanent: true,
         }))
     );
+    // Files have one URL each, so they are not repeated per locale.
+    const assets = LEGACY_ASSET_REDIRECTS.map((redirect) => ({ ...redirect, permanent: true }));
+    return [...pages, ...assets];
   },
 };
 

@@ -100,7 +100,7 @@ export const Header: React.FC = () => {
             className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Image
-              src="/logo.png"
+              src="/brand/logo.png"
               alt=""
               width={32}
               height={32}

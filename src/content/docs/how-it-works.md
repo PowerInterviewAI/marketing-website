@@ -18,7 +18,7 @@ Together these layers provide low-latency transcription, suggestion streaming, a
 
 ## Component Diagram
 
-![Architecture overview - components and connections](/media/docs/architecture-diagram.svg)
+![Architecture overview - components and connections](/media/docs/diagrams/architecture.svg)
 
 ---
 

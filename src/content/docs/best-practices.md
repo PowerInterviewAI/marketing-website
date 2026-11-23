@@ -32,11 +32,11 @@ The quality of AI reply suggestions depends directly on the detail in your profi
 
 The **Context** field (job description / role requirements) directly shapes the tone and subject matter of reply suggestions. Before each interview:
 
-1. Click the menu icon (☰) in the titlebar and select **Configuration**.
+1. Open **Account** from the navigation rail.
 2. Replace the previous job description with the one from the current role.
 3. Highlight the key skills the role requires - the AI will weight those more heavily.
 
-![Configuration dialog - name, CV, and job context fields](/media/docs/configuration-dialog.png)
+![Account page - name, CV, and job context fields](/media/docs/app/account.png)
 
 The more aligned your context is to the actual interview, the more targeted and useful the suggestions will be.
 
@@ -60,7 +60,7 @@ Run a short test session a few minutes before the interview starts:
 - Play a short audio clip through your speakers and verify the loopback channel picks it up.
 - If the microphone channel is missing, re-check that your physical microphone is selected in **Audio Options**.
 
-![Audio Options - verify the correct microphone is selected](/media/docs/audio-options.png)
+![Audio Options - verify the correct microphone is selected](/media/docs/app/audio-options.png)
 
 ### A Dead Headset is Recoverable
 

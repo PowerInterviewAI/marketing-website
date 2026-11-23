@@ -160,3 +160,56 @@ export const LEGACY_ANCHOR_REDIRECTS = [
 export const LEGACY_DOC_REDIRECTS = [
   { source: docPath('usage'), destination: docPath('live-interview') },
 ] as const;
+
+/**
+ * Public files that have moved. Search results, social cards and other sites
+ * can still hold the old URLs, so each one keeps working.
+ */
+export const LEGACY_ASSET_REDIRECTS = [
+  { source: '/logo.png', destination: '/brand/logo.png' },
+  { source: '/favicon.png', destination: '/brand/favicon.png' },
+  { source: '/favicon.svg', destination: '/brand/favicon.svg' },
+  { source: '/open-graph.png', destination: '/brand/open-graph.png' },
+  { source: '/media/docs/install-windows.png', destination: '/media/docs/install/windows.png' },
+  { source: '/media/docs/install-macos.png', destination: '/media/docs/install/macos.png' },
+  {
+    source: '/media/docs/macos-update-permission-issue.png',
+    destination: '/media/docs/macos/permission-issue.png',
+  },
+  {
+    source: '/media/docs/macos-update-remove-old-app.png',
+    destination: '/media/docs/macos/remove-old-app.png',
+  },
+  {
+    source: '/media/docs/macos-update-add-new-app-1.png',
+    destination: '/media/docs/macos/add-new-app-1.png',
+  },
+  {
+    source: '/media/docs/macos-update-add-new-app-2.png',
+    destination: '/media/docs/macos/add-new-app-2.png',
+  },
+  { source: '/media/docs/export-example.png', destination: '/media/docs/export/example.png' },
+  { source: '/media/docs/export-example.docx', destination: '/media/docs/export/example.docx' },
+  {
+    source: '/media/docs/architecture-diagram.svg',
+    destination: '/media/docs/diagrams/architecture.svg',
+  },
+  {
+    source: '/media/docs/window-positioning.svg',
+    destination: '/media/docs/diagrams/window-positioning.svg',
+  },
+  { source: '/media/docs/app-overview.jpg', destination: '/media/docs/app/overview.jpg' },
+  { source: '/media/docs/language-menu.png', destination: '/media/docs/app/language-menu.png' },
+  { source: '/media/docs/audio-options.png', destination: '/media/docs/app/audio-options.png' },
+  { source: '/media/docs/export-interview.png', destination: '/media/docs/app/export-menu.png' },
+  { source: '/media/docs/configuration-dialog.png', destination: '/media/docs/app/account.png' },
+  { source: '/media/docs/first-run-setup.png', destination: '/media/docs/app/first-run-setup.png' },
+  { source: '/media/live-interview-assistant.mp4', destination: '/media/demos/live.mp4' },
+  { source: '/media/coding-challenge-1.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/coding-challenge-2.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/coding-challenge-3.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/marketing/poster-live-interview.jpg', destination: '/media/demos/live.webp' },
+  { source: '/media/marketing/poster-coding-1.jpg', destination: '/media/demos/coding.webp' },
+  { source: '/media/marketing/poster-coding-2.jpg', destination: '/media/demos/coding.webp' },
+  { source: '/media/marketing/poster-coding-3.jpg', destination: '/media/demos/coding.webp' },
+] as const;

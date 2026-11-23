@@ -65,7 +65,7 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Loc
       '@type': 'Organization',
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}/brand/logo.png`,
       sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
     },
     // Frames of the real app UI, recorded with sample data.
@@ -94,7 +94,7 @@ export const buildOrganizationJsonLd = (locale: Locale) => ({
   '@type': 'Organization',
   name: SITE_NAME,
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/brand/logo.png`,
   description: getMessages(locale).meta.structured.organizationDescription,
   email: 'team@vectorleappulse.xyz',
   sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],

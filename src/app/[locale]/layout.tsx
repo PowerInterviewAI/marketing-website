@@ -79,7 +79,7 @@ export async function generateMetadata({
       description: site.description,
       images: [
         {
-          url: '/open-graph.png',
+          url: '/brand/open-graph.png',
           width: 1200,
           height: 630,
           alt: site.ogAlt,
@@ -92,7 +92,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: site.twitterTitle,
       description: site.twitterDescription,
-      images: ['/open-graph.png'],
+      images: ['/brand/open-graph.png'],
     },
   };
 }

@@ -64,7 +64,7 @@ export const FooterSection: React.FC<{ showCta?: boolean }> = ({ showCta = true 
             <div>
               <LocalizedLink href={ROUTES.home} className="mb-4 flex w-fit items-center gap-2.5">
                 <Image
-                  src="/logo.png"
+                  src="/brand/logo.png"
                   alt=""
                   width={28}
                   height={28}

@@ -59,7 +59,7 @@ The pages under `/docs` are markdown files in `src/content/docs/`, rendered serv
 
 To add one: drop the `.md` file in that folder and add its slug to the `ORDER` array in `src/lib/docs.ts`, which is what both the index listing and the sidebar read. Titles come from the file's `#` heading and meta descriptions from its opening paragraph, so write both for a reader.
 
-Images live in `public/media/docs/`; their intrinsic size is read off the file at render time (`src/lib/media.ts`), and alt text doubles as the visible caption. `public/llms.txt` lists the routes and docs for crawlers and is **not** generated - update it when either changes.
+Images live in `public/media/docs/` (see `MEDIA.md`); their intrinsic size is read off the file at render time (`src/lib/media.ts`), and alt text doubles as the visible caption. `public/llms.txt` lists the routes and docs for crawlers and is **not** generated - update it when either changes.
 
 ## 🛠️ Getting Started
 

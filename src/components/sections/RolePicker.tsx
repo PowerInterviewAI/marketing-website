@@ -20,13 +20,13 @@ const ROLES: RoleMedia[] = [
     id: 'developer',
     video: { src: '/media/lifestyle/developer.mp4', poster: '/media/lifestyle/developer.webp' },
   },
-  { id: 'sales', image: '/media/marketing/roles/sales.webp' },
+  { id: 'sales', image: '/media/lifestyle/sales.webp' },
   {
     id: 'nurse',
     video: { src: '/media/lifestyle/nurse.mp4', poster: '/media/lifestyle/nurse.webp' },
   },
-  { id: 'teacher', image: '/media/marketing/roles/teacher.webp' },
-  { id: 'finance', image: '/media/marketing/roles/finance.webp' },
+  { id: 'teacher', image: '/media/lifestyle/teacher.webp' },
+  { id: 'finance', image: '/media/lifestyle/finance.webp' },
 ];
 
 export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {

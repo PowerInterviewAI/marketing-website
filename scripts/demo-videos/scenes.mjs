@@ -3,7 +3,7 @@ const reveal = (text, progress) =>
   text.slice(0, Math.floor(text.length * Math.max(0, Math.min(1, progress))));
 const span = (t, start, end) => (t - start) / (end - start);
 
-const account = {
+export const account = {
   isLoggedIn: true,
   isBackendLive: true,
   credits: 3600,
@@ -48,7 +48,7 @@ export const baseConfig = {
 };
 
 const setup = { role: '', seniority: 'senior', difficulty: 'standard', question_count: 5 };
-const mock = (overrides) => ({
+export const mock = (overrides) => ({
   state: 'listening',
   setup,
   currentQuestion: null,
@@ -83,7 +83,7 @@ const esCurrent = (chunks) => ({
   chunks,
 });
 
-const report = {
+export const report = {
   overall_score: 82,
   strengths: [
     'Opens with a concrete situation',

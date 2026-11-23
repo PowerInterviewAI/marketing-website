@@ -30,22 +30,22 @@ This typically means the renderer process failed to load.
 
 Each new build of Power Interview AI is signed independently, so macOS treats an updated app as a different app for permission purposes. After updating, the **Screen Recording** grant from the previous version no longer applies to the new one, and the app will show a **Permissions Required** dialog with Screen Recording marked as denied.
 
-![Permissions Required dialog showing Screen Recording access denied](/media/docs/macos-update-permission-issue.png)
+![Permissions Required dialog showing Screen Recording access denied](/media/docs/macos/permission-issue.png)
 
 Re-opening **System Settings** and toggling the existing entry back on is not enough: macOS still associates that entry with the old build. You need to remove the old entry and add the updated app fresh:
 
 1. Open **System Settings → Privacy & Security → Screen & System Audio Recording**.
 2. Select the existing **Power Interview AI** entry and click the **-** button to remove it.
 
-   ![Removing the old Power Interview AI entry from Screen & System Audio Recording](/media/docs/macos-update-remove-old-app.png)
+   ![Removing the old Power Interview AI entry from Screen & System Audio Recording](/media/docs/macos/remove-old-app.png)
 
 3. Click the **+** button to add the app again.
 
-   ![Clicking the + button to add the app again](/media/docs/macos-update-add-new-app-1.png)
+   ![Clicking the + button to add the app again](/media/docs/macos/add-new-app-1.png)
 
 4. In the file picker, navigate to **Applications**, select **Power Interview AI**, and click **Open**.
 
-   ![Selecting Power Interview AI from the Applications folder](/media/docs/macos-update-add-new-app-2.png)
+   ![Selecting Power Interview AI from the Applications folder](/media/docs/macos/add-new-app-2.png)
 
 5. Restart Power Interview AI. The Screen Recording permission should now show as granted.
 
@@ -87,7 +87,7 @@ The app checks connectivity to backend services on startup and periodically duri
 1. Confirm the session is **started** (the Start button should show as active / Stop should be visible).
 2. Open **Audio Options** from the control panel (microphone icon) and verify your physical microphone is selected.
 
-   ![Audio Options - verify the correct microphone is selected](/media/docs/audio-options.png)
+   ![Audio Options - verify the correct microphone is selected](/media/docs/app/audio-options.png)
 
 3. Speak and check if your operating-system audio settings show sound input from the selected device.
 4. Ensure the backend is reachable - transcription is processed on the backend. Try visiting [powerinterviewai.com](https://www.powerinterviewai.com/) to rule out a service outage.

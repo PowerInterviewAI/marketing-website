@@ -80,7 +80,7 @@ export function buildMetadata({
         : undefined,
       images: [
         {
-          url: '/open-graph.png',
+          url: '/brand/open-graph.png',
           width: 1200,
           height: 630,
           alt: SITE_NAME,
@@ -91,7 +91,7 @@ export function buildMetadata({
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: ['/open-graph.png'],
+      images: ['/brand/open-graph.png'],
     },
   };
 }
