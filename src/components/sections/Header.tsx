@@ -112,12 +112,12 @@ export const Header: React.FC = () => {
               className="size-8 rounded-lg"
               priority
             />
-            <span className="font-display text-base font-semibold tracking-tight">
+            <span className="font-display text-base font-semibold tracking-tight max-[399px]:sr-only">
               Power Interview AI
             </span>
           </LocalizedLink>
 
-          <nav className="hidden items-center gap-7 md:flex" aria-label={header.mainNavigation}>
+          <nav className="hidden items-center gap-7 lg:flex" aria-label={header.mainNavigation}>
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.href}
@@ -132,7 +132,7 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             <LanguageSwitcher className="mr-1" />
             <ThemeToggle />
             <Button variant="ghost" size="icon" asChild>
@@ -151,7 +151,7 @@ export const Header: React.FC = () => {
             </Button>
           </div>
 
-          <div className="flex items-center gap-1 md:hidden">
+          <div className="flex items-center gap-1 lg:hidden">
             <LanguageSwitcher />
             <ThemeToggle />
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>

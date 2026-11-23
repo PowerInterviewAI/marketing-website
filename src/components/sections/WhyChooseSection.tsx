@@ -111,7 +111,7 @@ export const WhyChooseSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
       <Reveal className="mx-auto mt-14 max-w-5xl">
         {/* Wide content scrolls inside its own container rather than the page. */}
-        <div className="overflow-x-auto rounded-xl border border-border bg-card">
+        <div className="relative overflow-x-auto rounded-xl border border-border bg-card">
           <table className="w-full min-w-[44rem] border-collapse text-sm">
             <caption className="sr-only">{copy.tableCaption}</caption>
             <thead>

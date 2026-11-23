@@ -64,7 +64,11 @@ export const chrome: Chrome = {
     link: 'Открыть на английском',
   },
   loading: {
-    pricing: { aria: 'Загрузка цен', eyebrow: 'Цены', title: 'Простые и прозрачные цены' },
+    pricing: {
+      aria: 'Загрузка цен',
+      eyebrow: 'Цены',
+      title: 'Час бесплатно, дальше без ограничений',
+    },
     team: {
       aria: 'Загрузка команды',
       eyebrow: 'Команда',

@@ -27,7 +27,7 @@ export const benefits = {
     },
     {
       title: 'Keep control of your data',
-      body: 'Payment is crypto-only, so there are no card details to store and no subscription to cancel. Your session token and device settings stay on your machine rather than on our servers.',
+      body: 'Payment is crypto-only, so there are no card details to store and nothing that renews behind your back. Your session token and device settings stay on your machine rather than on our servers.',
     },
   ],
   ctaTitle: 'Ready to transform your job search?',

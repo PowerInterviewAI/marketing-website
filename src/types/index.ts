@@ -18,9 +18,13 @@ export interface User {
 }
 
 export interface Plan {
-  plan: string;
-  credits: number;
+  plan: 'free' | 'monthly' | 'quarterly' | 'yearly';
+  /** Paid once, up front. 0 for the free tier. */
   price_usd: number;
+  /** For display: $180 a year is $15 a month. */
+  price_per_month_usd: number;
+  /** Calendar months the pass adds; null for the free tier, which is an hour, once. */
+  months: number | null;
   popular: boolean;
 }
 

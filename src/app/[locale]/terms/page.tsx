@@ -25,7 +25,7 @@ export default function TermsOfServicePage() {
             <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Terms of Service
             </h1>
-            <p className="mt-2 text-sm text-muted-foreground">Last Updated: February 12, 2026</p>
+            <p className="mt-2 text-sm text-muted-foreground">Last Updated: November 22, 2026</p>
           </div>
 
           <div className="mt-10 flex flex-col">
@@ -148,8 +148,14 @@ export default function TermsOfServicePage() {
               <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
                 <li>Provide accurate billing information</li>
                 <li>Pay all fees and applicable taxes</li>
-                <li>Authorize automatic renewal unless cancelled</li>
-                <li>Accept that fees are non-refundable except as required by law</li>
+                <li>
+                  Understand that subscriptions are prepaid for a fixed period and do not renew
+                  automatically
+                </li>
+                <li>
+                  Understand that refunds are requested from our support team within 14 days of
+                  purchase and reviewed individually, except where the law requires otherwise
+                </li>
               </ul>
               <p className="mb-4 text-muted-foreground">
                 We reserve the right to change pricing with reasonable notice to existing
