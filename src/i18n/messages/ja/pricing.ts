@@ -44,7 +44,7 @@ export const pricing: Pricing = {
     quarterly: 'SOTA モデルで 3 か月間面接し放題',
     yearly: 'SOTA モデルでまる 1 年間面接し放題',
   },
-  popular: '一番人気',
+  popular: 'おすすめ',
   save: '{percent}% お得',
   planNames: { free: '無料', monthly: '月額', quarterly: '3 か月', yearly: '年額' },
   perMonth: '/ 月',

@@ -44,7 +44,7 @@ export const pricing: Pricing = {
     quarterly: 'Entretiens illimités avec le modèle SOTA pendant trois mois',
     yearly: 'Entretiens illimités avec le modèle SOTA pendant une année entière',
   },
-  popular: 'Le plus populaire',
+  popular: 'Recommandé',
   save: 'Économisez {percent} %',
   planNames: { free: 'Gratuit', monthly: 'Mensuel', quarterly: 'Trimestriel', yearly: 'Annuel' },
   perMonth: '/ mois',

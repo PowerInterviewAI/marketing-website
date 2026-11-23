@@ -77,7 +77,7 @@ export const meta = {
   pricing: {
     title: 'Pricing',
     description:
-      'Power Interview AI pricing: one free hour, then unlimited interviews for $25 a month, $60 a quarter or $180 a year. Prepaid in coins, never auto-renewed.',
+      'Power Interview AI pricing: one free hour, then unlimited interviews for $25 a month, $60 a quarter or $180 a year. Prepaid in crypto, never auto-renewed.',
   },
   faq: {
     title: 'FAQ',

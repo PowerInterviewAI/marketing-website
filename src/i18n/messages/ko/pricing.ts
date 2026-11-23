@@ -44,7 +44,7 @@ export const pricing: Pricing = {
     quarterly: 'SOTA 모델로 3개월간 무제한 면접',
     yearly: 'SOTA 모델로 꼬박 1년간 무제한 면접',
   },
-  popular: '가장 인기',
+  popular: '추천',
   save: '{percent}% 할인',
   planNames: { free: '무료', monthly: '월간', quarterly: '3개월', yearly: '연간' },
   perMonth: '/ 월',

@@ -7,7 +7,7 @@ export const pricing = {
     'Start with a free hour on the free model. When you want more, subscribe for unlimited live and mock interviews on the SOTA model - {monthly} a month, or {yearly} a month paid annually.',
   monthNoun: { one: 'month', other: 'months' } as PluralForms,
   trialBadge: 'New accounts: 1 free hour',
-  coinsBadge: 'Coins only - no card, PayPal, or bank details',
+  coinsBadge: 'Crypto only - no card, PayPal, or bank details',
   prepaidBadge: 'Prepaid - never renews on its own',
 
   tier: {
@@ -35,7 +35,7 @@ export const pricing = {
       'Live and mock sessions spend it by the minute. When it runs out the session stops, and a mock interview still gives you its report.',
     paid: 'A subscription',
     paidText:
-      'Pay once in coins for a month, a quarter or a year. Nothing renews automatically: buy another pass whenever you like, and its time is added after your current end date.',
+      'Pay once in crypto for a month, a quarter or a year. Nothing renews automatically: buy another pass whenever you like, and its time is added after your current end date.',
   },
 
   plans: {
@@ -44,7 +44,7 @@ export const pricing = {
     quarterly: 'Unlimited interviews on the SOTA model for three months',
     yearly: 'Unlimited interviews on the SOTA model for a full year',
   },
-  popular: 'Most popular',
+  popular: 'Recommended',
   save: 'Save {percent}%',
   planNames: { free: 'Free', monthly: 'Monthly', quarterly: 'Quarterly', yearly: 'Annual' },
   perMonth: '/ month',

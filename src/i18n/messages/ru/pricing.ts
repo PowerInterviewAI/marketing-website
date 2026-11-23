@@ -48,7 +48,7 @@ export const pricing: Pricing = {
     quarterly: 'Собеседования без ограничений на модели SOTA на три месяца',
     yearly: 'Собеседования без ограничений на модели SOTA на целый год',
   },
-  popular: 'Популярный выбор',
+  popular: 'Рекомендуем',
   save: 'Выгода {percent}%',
   planNames: {
     free: 'Бесплатный',

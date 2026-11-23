@@ -43,7 +43,7 @@ export const pricing: Pricing = {
     quarterly: '在 SOTA 模型上不限次面试三个月',
     yearly: '在 SOTA 模型上不限次面试整整一年',
   },
-  popular: '最受欢迎',
+  popular: '推荐',
   save: '节省 {percent}%',
   planNames: { free: '免费', monthly: '月度', quarterly: '季度', yearly: '年度' },
   perMonth: '/ 月',

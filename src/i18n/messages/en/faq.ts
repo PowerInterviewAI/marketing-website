@@ -101,7 +101,7 @@ export const faq = {
       question: 'What payment methods do you accept?',
       category: 'billing',
       answer:
-        'We accept cryptocurrency coins only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to pay for a monthly, quarterly or annual pass within the application.',
+        'We accept cryptocurrency only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to pay for a monthly, quarterly or annual pass within the application.',
     },
     {
       question: 'Is there a free trial?',
