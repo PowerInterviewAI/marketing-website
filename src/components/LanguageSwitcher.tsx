@@ -20,15 +20,17 @@ import { cn } from '@/lib/utils';
  * A native `<details>` rather than a scripted menu: nine languages no longer fit
  * the inline EN | RU toggle this replaced, and `<details>` keeps the links in the
  * HTML, opens without JavaScript, and needs no dependency. The script only adds
- * what `<details>` lacks - closing on Escape and on a click outside it. Items are
- * the endonyms, in the order of `LOCALES`: someone who cannot read the current
- * language scans for the one name they recognise.
+ * what `<details>` lacks - closing on Escape, on a click outside it and when
+ * focus tabs out of it. Items are the endonyms, in the order of `LOCALES`:
+ * someone who cannot read the current language scans for the one name they
+ * recognise.
  */
 export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className }) => {
   const current = useLocale();
   const pathname = usePathname();
   const { language } = useMessages().chrome;
   const [hash, setHash] = useState('');
+  const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
@@ -38,29 +40,48 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className }
     return () => window.removeEventListener('hashchange', update);
   }, [pathname]);
 
+  // Listeners only while the menu is open: the header renders one switcher per
+  // breakpoint, and both sitting on the document for the life of the page is
+  // two handlers per keystroke for a menu that is almost always closed.
   useEffect(() => {
+    const details = ref.current;
+    if (!open || !details) return;
+    const close = () => {
+      details.open = false;
+    };
     const onPointer = (event: MouseEvent) => {
-      const details = ref.current;
-      if (details?.open && !details.contains(event.target as Node)) details.open = false;
+      if (!details.contains(event.target as Node)) close();
     };
     const onKey = (event: KeyboardEvent) => {
-      const details = ref.current;
-      if (event.key !== 'Escape' || !details?.open) return;
-      details.open = false;
+      if (event.key !== 'Escape') return;
+      close();
       details.querySelector('summary')?.focus();
+    };
+    // Tabbing past the last language would otherwise leave the menu hanging
+    // open over the page. `relatedTarget` is null when focus leaves the
+    // window, which is not a reason to close.
+    const onFocusOut = (event: FocusEvent) => {
+      const next = event.relatedTarget as Node | null;
+      if (next && !details.contains(next)) close();
     };
     document.addEventListener('mousedown', onPointer);
     document.addEventListener('keydown', onKey);
+    details.addEventListener('focusout', onFocusOut);
     return () => {
       document.removeEventListener('mousedown', onPointer);
       document.removeEventListener('keydown', onKey);
+      details.removeEventListener('focusout', onFocusOut);
     };
-  }, []);
+  }, [open]);
 
   const basePath = stripLocale(pathname);
 
   return (
-    <details ref={ref} className={cn('group relative', className)}>
+    <details
+      ref={ref}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+      className={cn('group relative', className)}
+    >
       <summary
         aria-label={`${language.label}: ${LOCALE_META[current].label}`}
         className="flex cursor-pointer list-none items-center gap-1 rounded-md border border-border px-2 py-1 text-xs font-medium uppercase text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden"
