@@ -8,7 +8,7 @@ export interface TeamMember {
   avatarUrl: string;
   followers: number;
   repos: number;
-  /** GitHub's own text, untranslated. Null when GitHub has none or was unreachable. */
+  /** GitHub's own text, shown untranslated in every locale. */
   bio: string | null;
   location: string | null;
   email: string | null;
@@ -77,8 +77,8 @@ function merge(entry: TeamRosterEntry, user: GitHubUser | null): TeamMember {
     avatarUrl: user?.avatar_url ?? fallback.avatarUrl,
     followers: user?.followers ?? fallback.followers,
     repos: user?.public_repos ?? fallback.repos,
-    bio: user?.bio?.trim() || null,
-    location: user?.location?.trim() || null,
+    bio: user ? user.bio?.trim() || null : fallback.bio,
+    location: user ? user.location?.trim() || null : fallback.location,
     email: entry.email,
     x: user?.twitter_username ? `https://x.com/${user.twitter_username}` : entry.x,
     telegram: entry.telegram,

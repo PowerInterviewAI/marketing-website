@@ -154,7 +154,7 @@ Bring-your-own-key was removed from the product, so the site no longer offers it
 ### Configuration
 
 - `src/config/routes.ts` — every internal route, section id and redirect (see **Routing & Pages**). Imported by `next.config.ts` directly, so it must stay free of imports and contain nothing but plain data
-- `src/config/team.ts` — the team roster: who is on the page, their hand-curated contact links (GitHub's public API returns no email, Telegram or LinkedIn) and a last-known `fallback`. Name, avatar, counts, bio, location and X handle are fetched live by `getTeam()` in `src/lib/team.ts`, server-side through Next's fetch cache with a one-hour revalidate - one call per member an hour, however many visitors, so `/` and `/team` are ISR (`1h` in the build table). English renders GitHub's bio; other locales render the translation in `team.members`
+- `src/config/team.ts` — the team roster: who is on the page, their hand-curated contact links (GitHub's public API returns no email, Telegram or LinkedIn) and a last-known `fallback`. Name, avatar, counts, bio, location and X handle are fetched live by `getTeam()` in `src/lib/team.ts`, server-side through Next's fetch cache with a one-hour revalidate - one call per member an hour, however many visitors, so `/` and `/team` are ISR (`1h` in the build table). Bio and location are the member's own GitHub text and render untranslated in every locale - there is no `team.members` in the catalogue
 - `src/config/constants.ts` — `APP_CONFIG`, `ENV` (reads `NEXT_PUBLIC_*` env vars and `process.env.NODE_ENV`)
 - `src/types/index.ts` — shared types: `Status`, `ApiResponse<T>`, `User`, `Plan`, `Theme`
 - Path alias `@/*` maps to `src/*` (configured in `tsconfig.json`)

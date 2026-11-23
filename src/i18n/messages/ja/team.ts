@@ -8,18 +8,4 @@ export const team: Team = {
   openProfile: '{username} の GitHub プロフィールを開く',
   followers: { one: 'フォロワー', other: 'フォロワー' },
   repos: { one: 'リポジトリ', other: 'リポジトリ' },
-  members: {
-    alpha5611331: {
-      bio: 'シニアソフトウェアエンジニア | エージェント型 AI • LLM • バックエンド • フロントエンド',
-      location: '宇宙',
-    },
-    'anton-karlovskiy': {
-      bio: 'AI・ブロックチェーン・Web のフルスタックエンジニア',
-      location: '宇宙',
-    },
-    user2745: {
-      bio: 'AI プロダクトと開発者向けツールを作っています。',
-      location: 'グローバル',
-    },
-  },
 };

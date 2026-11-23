@@ -40,8 +40,9 @@ export const TeamSkeleton: React.FC = () => {
   return (
     <Section aria-label={team.aria}>
       <SectionHeading eyebrow={team.eyebrow} title={team.title} description={team.description} />
-      <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
-        {[0, 1, 2].map((i) => (
+      {/* Same grid and card count as TeamCards (TEAM_ROSTER), so nothing shifts on swap. */}
+      <div className="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
+        {[0, 1].map((i) => (
           <div
             key={i}
             className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6"

@@ -14,11 +14,12 @@
  *   fetch would render a card with no name or avatar. It is a fallback, not the
  *   source: don't hand-edit counts here to "fix" the page.
  *
- * Bio and location are translated, so the other locales read them from
- * `team.members` in src/i18n/messages, keyed by username.
+ * Bio and location are GitHub's own words and render as written in every
+ * locale - they are the member's profile, not site copy, so they are not
+ * translated.
  */
 export interface TeamRosterEntry {
-  /** GitHub login. Also the key into `team.members` in the message catalogue. */
+  /** GitHub login. */
   username: string;
   email: string | null;
   telegram: string | null;
@@ -30,6 +31,8 @@ export interface TeamRosterEntry {
     avatarUrl: string;
     followers: number;
     repos: number;
+    bio: string;
+    location: string;
   };
 }
 
@@ -45,6 +48,8 @@ export const TEAM_ROSTER: TeamRosterEntry[] = [
       avatarUrl: 'https://avatars.githubusercontent.com/u/156915037?v=4',
       followers: 12,
       repos: 75,
+      bio: 'Senior Software Engineer | Agentic AI • LLM • Backend • Frontend',
+      location: 'Universe',
     },
   },
   {
@@ -58,19 +63,8 @@ export const TEAM_ROSTER: TeamRosterEntry[] = [
       avatarUrl: 'https://avatars.githubusercontent.com/u/49653735?v=4',
       followers: 533,
       repos: 159,
-    },
-  },
-  {
-    username: 'user2745',
-    email: null,
-    telegram: null,
-    linkedin: 'https://www.linkedin.com/in/kevin-kamto',
-    x: 'https://twitter.com/theregoeskevin',
-    fallback: {
-      name: 'Math',
-      avatarUrl: 'https://avatars.githubusercontent.com/u/37010601?v=4',
-      followers: 35,
-      repos: 100,
+      bio: 'Full-stack AI/Blockchain/Web Engineer',
+      location: 'Universe',
     },
   },
 ];

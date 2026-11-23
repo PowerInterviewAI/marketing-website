@@ -2,7 +2,7 @@ import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
 import { LinkedinIcon, Mail, Send } from 'lucide-react';
 
 import { Reveal } from '@/components/ui/reveal';
-import { DEFAULT_LOCALE, type Locale } from '@/i18n/config';
+import type { Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { getTeam } from '@/lib/team';
@@ -21,22 +21,15 @@ const LINK_CLASS =
  * src/lib/team.ts - fetched server-side, cached for an hour, falling back to
  * the roster in src/config/team.ts when GitHub can't answer).
  *
- * Bio and location: English shows GitHub's own text, so a profile edit
- * reaches the page on the next refresh. Other locales show the translation in
- * `team.members`, since GitHub's text is English - and fall back to it for a
- * member nobody has translated yet, rather than showing nothing.
+ * Bio and location are shown as GitHub has them, in every locale: they are
+ * the member's own profile text, not site copy.
  */
 export const TeamCards = async ({ locale }: { locale: Locale }) => {
   const copy = getMessages(locale).team;
   const team = await getTeam();
 
-  const describe = (username: string, live: string | null, field: 'bio' | 'location') => {
-    const translated = copy.members[username]?.[field] ?? null;
-    return locale === DEFAULT_LOCALE ? (live ?? translated) : (translated ?? live);
-  };
-
   return (
-    <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
+    <div className="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
       {team.map((member, index) => (
         <Reveal key={member.username} delay={index * 80}>
           <div className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6">
@@ -62,9 +55,7 @@ export const TeamCards = async ({ locale }: { locale: Locale }) => {
               </div>
             </div>
 
-            <p className="min-h-10 text-sm leading-relaxed text-muted-foreground">
-              {describe(member.username, member.bio, 'bio')}
-            </p>
+            <p className="min-h-10 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
 
             <div className="flex gap-4 text-xs text-muted-foreground">
               <span>
@@ -73,7 +64,7 @@ export const TeamCards = async ({ locale }: { locale: Locale }) => {
               <span>
                 {member.repos} {pluralize(locale, member.repos, copy.repos)}
               </span>
-              <span>{describe(member.username, member.location, 'location')}</span>
+              {member.location ? <span>{member.location}</span> : null}
             </div>
 
             <div className="mt-auto flex flex-col gap-2 border-t border-border pt-4 text-sm">
