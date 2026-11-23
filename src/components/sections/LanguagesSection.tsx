@@ -15,7 +15,7 @@ import {
 } from '@/config/languages';
 import { ROUTES, SECTIONS } from '@/config/routes';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
-import type { Locale } from '@/i18n/config';
+import { LOCALE_META, type Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { cn } from '@/lib/utils';
@@ -185,14 +185,15 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
       </Reveal>
 
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
-        {copy.note}{' '}
+        {copy.note}
+        {LOCALE_META[locale].space}
         <LocalizedLink
           href={ROUTES.mockInterview}
           className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
         >
           {copy.link}
         </LocalizedLink>
-        .
+        {LOCALE_META[locale].period}
       </p>
     </Section>
   );

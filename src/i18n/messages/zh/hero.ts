@@ -1,0 +1,90 @@
+import type { Hero } from '../en/hero';
+
+export const hero: Hero = {
+  badge: '模拟面试 + 实时面试，免费 1 小时',
+  titleLead: '先演练面试，',
+  titleAccent: '再带着实时帮助参加真正的面试',
+  mockLabel: '模拟面试：',
+  mockText: 'AI 面试官大声提问，对薄弱的回答追问到底，并为每个回答打分。',
+  liveLabel: '实时面试：',
+  liveText:
+    '同一款应用运行在你真实的 Zoom、Meet 或 Teams 通话中，共享屏幕时不可见，并提示你该说什么。',
+  rolePre: '两者都基于你的简历和职位描述，因此适用于',
+  roleStrong: '任何岗位',
+  rolePost: '- 销售、金融、护理、教育、工程，不只是软件开发。',
+  ctaMock: '从模拟面试开始',
+  ctaLive: '查看实时面试功能',
+  freeNote: '免费一小时，练习和实时帮助都能用。仅支持加密货币支付，无需信用卡。',
+
+  trust: {
+    platformsLabel: '平台',
+    platforms: '已支持 Windows，macOS 即将推出',
+    languagesLabel: '面试语言',
+    rolesLabel: '岗位',
+    roles: '任何岗位，不只是技术岗',
+    privacyLabel: '隐私',
+    privacy: '转录内容从不保存',
+    badgeAlt: 'Power Interview AI 在 PeerPush 上的评分',
+  },
+
+  download: {
+    forWindows: '下载 Windows 版',
+    generic: '下载',
+    macosNotReady: 'macOS 版尚未就绪 - 我们正在积极开发。',
+    windowsInstead: '改为下载 Windows 版',
+    allReleases: '所有版本',
+    latest: '最新',
+    windows: 'Windows',
+    macosSoon: 'macOS（即将推出）',
+    macosSoonTitle: '正在积极开发中',
+  },
+
+  surface: {
+    play: '播放演示',
+    pause: '暂停演示',
+    previous: '上一个演示',
+    next: '下一个演示',
+    clips: '演示片段',
+  },
+  demos: [
+    {
+      title: '实时面试助手与智能导出',
+      description: '通话中即时给出建议，结束后智能导出摘要和要点',
+    },
+    {
+      title: '编程题 - 图的遍历',
+      description: '从屏幕截取题目，在隐身浮层中阅读解法',
+    },
+    {
+      title: '编程题 - 连通分量',
+      description: '多张截图为 AI 提供完整题目、约束条件和函数签名',
+    },
+    {
+      title: '编程题 - 二叉树递归',
+      description: '只用快捷键滚动代码 - 共享屏幕时不可见，也不会抢走焦点',
+    },
+  ],
+
+  install: {
+    eyebrow: '安装',
+    title: '三种开始方式',
+    description: '选一种最适合你的方式。一行命令会下载最新版本并为你启动安装程序。',
+    tabCli: '命令行',
+    tabInstaller: '安装程序',
+    tabSource: '从源码',
+    windows: 'Windows',
+    macos: 'macOS',
+    copy: '复制安装命令',
+    copied: '已复制',
+    macosReference: 'macOS 版尚未就绪 - 我们正在积极开发。此命令仅供参考，可能无法完成可用的安装。',
+    versionAgnostic: '显示的是与版本无关的命令 - 版本会在安装时查找。',
+    windowsInstaller: 'Windows 安装程序',
+    latestRelease: '最新版本',
+    macArm: 'macOS - Apple 芯片',
+    macIntel: 'macOS - Intel',
+    macosInstallersNotReady: 'macOS 安装程序尚未就绪 - 我们正在积极开发。',
+    viewReleases: '在 GitHub 上查看所有版本',
+    sourceText: '克隆仓库并从源码运行。需要 Node.js 22.15+。',
+    viewBuild: '查看构建说明',
+  },
+};

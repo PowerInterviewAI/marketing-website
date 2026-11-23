@@ -24,7 +24,7 @@ import { HOTKEYS, Hotkey } from '@/config/hotkeys';
 import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
 import { ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
-import type { Locale } from '@/i18n/config';
+import { LOCALE_META, type Locale } from '@/i18n/config';
 import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { cn } from '@/lib/utils';
@@ -170,7 +170,7 @@ export const FeaturesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
                   <RichText text={descriptionFor(feature.id)} />
                   {feature.id === 'mock' && (
                     <>
-                      {' '}
+                      {LOCALE_META[locale].space}
                       <LocalizedLink
                         className="font-medium text-primary underline-offset-4 hover:underline"
                         href={ROUTES.mockInterview}
@@ -178,7 +178,7 @@ export const FeaturesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
                       >
                         {copy.mock.link}
                       </LocalizedLink>
-                      .
+                      {LOCALE_META[locale].period}
                     </>
                   )}
                 </p>

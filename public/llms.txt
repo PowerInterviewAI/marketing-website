@@ -34,9 +34,20 @@ Power Interview AI is a standalone desktop application, not a browser extension 
 - [Privacy Policy](https://www.powerinterviewai.com/privacy)
 - [Terms of Service](https://www.powerinterviewai.com/terms)
 
+## Other languages
+
+The product pages are also published in German, Spanish, French, Brazilian Portuguese, Russian, Japanese, Korean and Simplified Chinese, each under its own prefix (/de, /es, /fr, /pt, /ru, /ja, /ko, /zh). Every translated page has an English counterpart at the same path without the prefix, linked with hreflang. The documentation and the legal pages are English only for now.
+
+- [German (Deutsch)](https://www.powerinterviewai.com/de): also https://www.powerinterviewai.com/de/how-it-works, /de/mock-interview, /de/pricing, /de/faq and /de/team.
+- [Spanish (Español)](https://www.powerinterviewai.com/es): also https://www.powerinterviewai.com/es/how-it-works, /es/mock-interview, /es/pricing, /es/faq and /es/team.
+- [French (Français)](https://www.powerinterviewai.com/fr): also https://www.powerinterviewai.com/fr/how-it-works, /fr/mock-interview, /fr/pricing, /fr/faq and /fr/team.
+- [Portuguese, Brazilian (Português)](https://www.powerinterviewai.com/pt): also https://www.powerinterviewai.com/pt/how-it-works, /pt/mock-interview, /pt/pricing, /pt/faq and /pt/team.
+- [Japanese (日本語)](https://www.powerinterviewai.com/ja): also https://www.powerinterviewai.com/ja/how-it-works, /ja/mock-interview, /ja/pricing, /ja/faq and /ja/team.
+- [Korean (한국어)](https://www.powerinterviewai.com/ko): also https://www.powerinterviewai.com/ko/how-it-works, /ko/mock-interview, /ko/pricing, /ko/faq and /ko/team.
+- [Chinese, Simplified (中文)](https://www.powerinterviewai.com/zh): also https://www.powerinterviewai.com/zh/how-it-works, /zh/mock-interview, /zh/pricing, /zh/faq and /zh/team.
+
 ## Russian (Русский)
 
-The product pages are also published in Russian under /ru. Each has an English counterpart at the same path without the prefix, linked with hreflang. The documentation and the legal pages are English only for now.
 
 - [Главная](https://www.powerinterviewai.com/ru): обзор, бесплатный пробный час и демонстрация продукта.
 - [Как это работает](https://www.powerinterviewai.com/ru/how-it-works): установка, резюме и описание вакансии, пробное собеседование, затем живой звонок.

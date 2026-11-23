@@ -10,7 +10,11 @@
  * Keep this file free of imports: src/proxy.ts runs outside the app bundle.
  */
 
-export const LOCALES = ['en', 'ru'] as const;
+/**
+ * English first, as the default, then alphabetical by endonym - the same order as the app's
+ * interface-language picker, and the conventional one for a language switcher.
+ */
+export const LOCALES = ['en', 'de', 'es', 'fr', 'pt', 'ru', 'ja', 'ko', 'zh'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -18,10 +22,33 @@ export const DEFAULT_LOCALE: Locale = 'en';
 export const isLocale = (value: string): value is Locale =>
   (LOCALES as readonly string[]).includes(value);
 
-/** Autonym shown in the language switcher, `lang` of the switcher link and OG locale. */
-export const LOCALE_META: Record<Locale, { label: string; htmlLang: string; ogLocale: string }> = {
-  en: { label: 'English', htmlLang: 'en', ogLocale: 'en_US' },
-  ru: { label: 'Русский', htmlLang: 'ru', ogLocale: 'ru_RU' },
+/**
+ * Autonym shown in the language switcher, `lang` of the switcher link and OG locale.
+ *
+ * The URL segment is the bare code, but `htmlLang` (also the hreflang) names the variant the copy
+ * is actually written in: Portuguese is Brazilian, and Chinese is Simplified for Mainland China.
+ * The tag is also what picks a CJK fallback font - a bare `zh` can draw Han characters with
+ * Japanese glyph shapes.
+ *
+ * `space` is what separates the clauses of a sentence the site assembles from
+ * parts (a bold phrase between two plain ones): a space everywhere except in
+ * Japanese and Chinese, which do not put one between words. `period` ends such
+ * a sentence when its last part is a link and so cannot carry the punctuation
+ * itself: the ideographic full stop in Japanese and Chinese.
+ */
+export const LOCALE_META: Record<
+  Locale,
+  { label: string; htmlLang: string; ogLocale: string; space: string; period: string }
+> = {
+  en: { label: 'English', htmlLang: 'en', ogLocale: 'en_US', space: ' ', period: '.' },
+  de: { label: 'Deutsch', htmlLang: 'de', ogLocale: 'de_DE', space: ' ', period: '.' },
+  es: { label: 'Español', htmlLang: 'es', ogLocale: 'es_ES', space: ' ', period: '.' },
+  fr: { label: 'Français', htmlLang: 'fr', ogLocale: 'fr_FR', space: ' ', period: '.' },
+  pt: { label: 'Português', htmlLang: 'pt-BR', ogLocale: 'pt_BR', space: ' ', period: '.' },
+  ru: { label: 'Русский', htmlLang: 'ru', ogLocale: 'ru_RU', space: ' ', period: '.' },
+  ja: { label: '日本語', htmlLang: 'ja', ogLocale: 'ja_JP', space: '', period: '。' },
+  ko: { label: '한국어', htmlLang: 'ko', ogLocale: 'ko_KR', space: ' ', period: '.' },
+  zh: { label: '中文', htmlLang: 'zh-CN', ogLocale: 'zh_CN', space: '', period: '。' },
 };
 
 /**
