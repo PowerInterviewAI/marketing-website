@@ -121,7 +121,10 @@ function localNameFor(locale: Locale, language: InterviewLanguage): string {
 
 const WRITTEN_LANGUAGES = INTERVIEW_LANGUAGES.filter((language) => !language.hasVoice);
 
-export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
+export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }> = ({
+  locale,
+  standalone = false,
+}) => {
   const { languages: copy } = getMessages(locale);
   const writtenCount = LANGUAGE_COUNT - VOICE_LANGUAGE_COUNT;
   const tile = (language: InterviewLanguage) => (
@@ -138,6 +141,7 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
     <Section id={SECTIONS.languages} tone="muted" aria-labelledby="languages-heading">
       <SectionHeading
         id="languages-heading"
+        as={standalone ? 'h1' : 'h2'}
         eyebrow={copy.eyebrow}
         title={format(copy.title, {
           count: LANGUAGE_COUNT,

@@ -6,6 +6,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 
+import { AnalyticsListener } from '@/components/AnalyticsListener';
 import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
@@ -155,6 +156,7 @@ export default async function RootLayout({
         <LocaleProvider locale={locale} messages={getClientMessages(locale)}>
           <ThemeProvider>{children}</ThemeProvider>
         </LocaleProvider>
+        <AnalyticsListener />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V6LKZ75M3J"
           strategy="afterInteractive"

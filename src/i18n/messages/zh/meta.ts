@@ -57,6 +57,12 @@ export const meta: Meta = {
     title: '模拟面试练习',
     description: '与会大声提问、对单薄回答追问，并给出可导出评分报告的 AI 面试官一起，开口练习。',
   },
+  languages: {
+    title: '面试支持语言',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      '支持 {count} 种语言的面试练习，其中 {voices} 种由 AI 面试官语音提问。查找你的语言，并从 1 小时免费体验开始。',
+  },
   pricing: {
     title: '价格',
     description:

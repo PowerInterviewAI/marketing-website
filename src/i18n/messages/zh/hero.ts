@@ -37,6 +37,13 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS（即将推出）',
     macosSoonTitle: '正在积极开发中',
+    free: '免费下载',
+    stickyNote: '1 小时免费',
+    mobileNote: 'Power Interview AI 可在 Windows 电脑上运行。',
+    shareLink: '发送链接到我的电脑',
+    copyLink: '复制电脑下载链接',
+    linkCopied: '链接已复制',
+    shareText: '在我的电脑上下载 Power Interview AI',
   },
 
   surface: {

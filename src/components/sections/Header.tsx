@@ -8,12 +8,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
+import { DownloadCta } from '@/components/DownloadCta';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { NavLink } from '@/components/NavLink';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { DOWNLOAD_HREF, NAV_LINKS, ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
+import { NAV_LINKS, ROUTES, homeAnchor } from '@/config/routes';
 import { useScrolled } from '@/hooks/useScrolled';
 import { useMessages } from '@/i18n/LocaleProvider';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
@@ -60,13 +61,7 @@ export const Header: React.FC = () => {
 
   const isActive = (link: (typeof NAV_LINKS)[number]) => {
     if (link.matchSubtree) return pathname.startsWith(link.href);
-    if (isHome) {
-      // An empty hash (a plain "/" visit, or having scrolled back to the
-      // top) still counts as the hero section, so Home reads as active by
-      // default instead of nothing being selected.
-      const effectiveHash = hash || `#${SECTIONS.hero}`;
-      return link.section ? effectiveHash === `#${link.section}` : false;
-    }
+    if (isHome) return link.section ? hash === `#${link.section}` : false;
     return pathname === link.href;
   };
 
@@ -135,20 +130,9 @@ export const Header: React.FC = () => {
           <div className="hidden items-center gap-1 lg:flex">
             <LanguageSwitcher className="mr-1" />
             <ThemeToggle />
-            <Button variant="ghost" size="icon" asChild>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={header.githubAria}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <SiGithub className="size-4" />
-              </a>
-            </Button>
-            <Button size="sm" className="ml-2" asChild>
-              <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
-            </Button>
+            <DownloadCta size="sm" className="ml-2" placement="header">
+              {header.download}
+            </DownloadCta>
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
@@ -185,9 +169,7 @@ export const Header: React.FC = () => {
                     </a>
                   </Button>
                   <SheetClose asChild>
-                    <Button asChild>
-                      <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
-                    </Button>
+                    <DownloadCta placement="mobile_menu">{header.download}</DownloadCta>
                   </SheetClose>
                 </div>
               </SheetContent>

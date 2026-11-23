@@ -58,6 +58,12 @@ export const meta: Meta = {
     description:
       'Übe laut mit einem KI-Interviewer, der seine Fragen ausspricht, bei dünnen Antworten nachhakt und einen bewerteten, exportierbaren Bericht liefert.',
   },
+  languages: {
+    title: 'Interviewsprachen',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Übe Vorstellungsgespräche in {count} Sprachen, {voices} davon spricht der KI-Interviewer laut. Prüfe deine Sprache und starte mit einer Gratisstunde.',
+  },
   pricing: {
     title: 'Preise',
     description:

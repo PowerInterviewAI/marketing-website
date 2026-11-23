@@ -58,6 +58,12 @@ export const meta: Meta = {
     description:
       'Entraînez-vous à voix haute face à un recruteur IA qui pose ses questions, insiste sur les réponses minces et rend un rapport noté et exportable.',
   },
+  languages: {
+    title: 'Langues d’entretien',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Entraînez-vous aux entretiens en {count} langues, dont {voices} parlées par le recruteur IA. Vérifiez la vôtre et commencez avec une heure offerte.',
+  },
   pricing: {
     title: 'Tarifs',
     description:

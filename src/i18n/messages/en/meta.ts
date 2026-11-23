@@ -70,6 +70,12 @@ export const meta = {
     description:
       'Practice out loud against an AI interviewer that speaks its questions, presses on thin answers and returns a scored report you can export.',
   },
+  languages: {
+    title: 'Interview Languages',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Practice and sit interviews in {count} languages, with {voices} spoken aloud by the AI mock interviewer. Check yours and start with one free hour.',
+  },
   pricing: {
     title: 'Pricing',
     description:

@@ -38,6 +38,13 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS（近日対応）',
     macosSoonTitle: '開発中です',
+    free: '無料でダウンロード',
+    stickyNote: '1 時間無料',
+    mobileNote: 'Power Interview AI は Windows PC で動作します。',
+    shareLink: 'PC にリンクを送る',
+    copyLink: 'PC 用リンクをコピー',
+    linkCopied: 'コピーしました',
+    shareText: 'PC に Power Interview AI をダウンロード',
   },
 
   surface: {

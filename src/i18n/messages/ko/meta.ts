@@ -58,6 +58,12 @@ export const meta: Meta = {
     description:
       '질문을 소리 내어 읽고, 부족한 답변을 파고들고, 내보낼 수 있는 채점 리포트를 돌려주는 AI 면접관과 소리 내어 연습하세요.',
   },
+  languages: {
+    title: '면접 지원 언어',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      '{count}개 언어로 면접을 연습하세요. 그중 {voices}개 언어는 AI 면접관이 소리 내어 질문합니다. 내 언어를 확인하고 1시간 무료로 시작하세요.',
+  },
   pricing: {
     title: '요금',
     description:

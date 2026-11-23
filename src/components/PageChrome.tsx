@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { SkipToContent } from '@/components/SkipToContent';
+import { StickyDownloadBar } from '@/components/StickyDownloadBar';
 import { FooterSection, Header } from '@/components/sections';
 
 interface PageChromeProps {
@@ -22,6 +23,7 @@ export const PageChrome: React.FC<PageChromeProps> = ({ children }) => (
       {children}
     </main>
     <FooterSection />
+    <StickyDownloadBar />
   </div>
 );
 

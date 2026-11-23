@@ -40,6 +40,13 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (bientôt)',
     macosSoonTitle: 'En cours de développement',
+    free: 'Télécharger gratuitement',
+    stickyNote: '1 heure offerte',
+    mobileNote: 'Power Interview AI fonctionne sur votre PC Windows.',
+    shareLink: 'Envoyer le lien à mon PC',
+    copyLink: 'Copier le lien pour mon PC',
+    linkCopied: 'Lien copié',
+    shareText: 'Télécharger Power Interview AI sur mon PC',
   },
 
   surface: {

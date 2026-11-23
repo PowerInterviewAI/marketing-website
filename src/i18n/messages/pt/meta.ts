@@ -59,6 +59,12 @@ export const meta: Meta = {
     description:
       'Treine em voz alta com um entrevistador de IA que faz as perguntas, insiste nas respostas rasas e devolve um relatório com nota que você pode exportar.',
   },
+  languages: {
+    title: 'Idiomas de entrevista',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Pratique entrevistas em {count} idiomas, {voices} deles falados em voz alta pelo entrevistador de IA. Confira o seu e comece com uma hora grátis.',
+  },
   pricing: {
     title: 'Preços',
     description:

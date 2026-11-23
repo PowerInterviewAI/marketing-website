@@ -6,6 +6,8 @@ import { LocalizedLink } from '@/i18n/LocalizedLink';
 
 type DownloadCtaProps = Omit<ButtonProps, 'asChild' | 'onClick'> & {
   children: React.ReactNode;
+  /** Reported with the click, to compare which calls to action work. */
+  placement?: string;
 };
 
 /**
@@ -22,10 +24,15 @@ type DownloadCtaProps = Omit<ButtonProps, 'asChild' | 'onClick'> & {
  * Being a link rather than a button, it also works with middle-click and
  * cmd-click, and no longer needs a client component to carry one handler.
  */
-export const DownloadCta: React.FC<DownloadCtaProps> = ({ children, ...props }) => (
-  <Button asChild {...props}>
-    <LocalizedLink href={DOWNLOAD_HREF}>{children}</LocalizedLink>
-  </Button>
+export const DownloadCta = React.forwardRef<HTMLButtonElement, DownloadCtaProps>(
+  ({ children, placement = 'section', ...props }, ref) => (
+    <Button ref={ref} asChild {...props}>
+      <LocalizedLink href={DOWNLOAD_HREF} data-track="download_cta" data-placement={placement}>
+        {children}
+      </LocalizedLink>
+    </Button>
+  )
 );
+DownloadCta.displayName = 'DownloadCta';
 
 export default DownloadCta;

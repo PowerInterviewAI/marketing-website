@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: '首页',
     howItWorks: '使用方法',
+    languages: '支持语言',
     pricing: '价格',
     faq: '常见问题',
     team: '团队',

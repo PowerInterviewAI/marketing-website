@@ -17,6 +17,7 @@ export const ROUTES = {
   home: '/',
   howItWorks: '/how-it-works',
   mockInterview: '/mock-interview',
+  languages: '/languages',
   pricing: '/pricing',
   faq: '/faq',
   team: '/team',
@@ -59,7 +60,7 @@ export const DOWNLOAD_HREF = homeAnchor(SECTIONS.install);
 
 export interface NavLinkDef {
   /** Key into the `chrome.nav` messages - the label is translated, not stored here. */
-  id: 'home' | 'howItWorks' | 'pricing' | 'faq' | 'team' | 'docs';
+  id: 'howItWorks' | 'languages' | 'pricing' | 'faq' | 'docs';
   /** The item's own indexable route. Still a real, standalone page - still
    *  what search results, bookmarks and the footer's own links land on -
    *  even for an item the header always links to as `/#section` instead
@@ -95,13 +96,15 @@ export interface NavLinkDef {
  * Features, Why Us and Contact are home-page-only sections with no page of
  * their own; they're reached by scrolling and linked from the footer, where
  * anchors are conventional.
+ *
+ * Five items, each answering a question a visitor has before downloading. The
+ * logo is the way home, and Team moved to the footer.
  */
 export const NAV_LINKS: readonly NavLinkDef[] = [
-  { id: 'home', href: ROUTES.home, section: SECTIONS.hero },
   { id: 'howItWorks', href: ROUTES.howItWorks, section: SECTIONS.howItWorks },
+  { id: 'languages', href: ROUTES.languages, section: SECTIONS.languages },
   { id: 'pricing', href: ROUTES.pricing, section: SECTIONS.pricing },
   { id: 'faq', href: ROUTES.faq, section: SECTIONS.faq },
-  { id: 'team', href: ROUTES.team, section: SECTIONS.team },
   { id: 'docs', href: ROUTES.docs, matchSubtree: true, newTab: true },
 ] as const;
 
@@ -122,6 +125,7 @@ export const SITEMAP_ROUTES: readonly string[] = [
   ROUTES.home,
   ROUTES.howItWorks,
   ROUTES.mockInterview,
+  ROUTES.languages,
   ROUTES.pricing,
   ROUTES.faq,
   ROUTES.team,

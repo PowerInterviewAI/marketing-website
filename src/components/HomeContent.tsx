@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 
 import { SkipToContent } from '@/components/SkipToContent';
+import { StickyDownloadBar } from '@/components/StickyDownloadBar';
 import {
   FAQSection,
   FooterSection,
@@ -76,6 +77,7 @@ export function HomeContent({
       </main>
 
       <FooterSection />
+      <StickyDownloadBar />
     </div>
   );
 }

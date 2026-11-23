@@ -58,6 +58,12 @@ export const meta: Meta = {
     description:
       '質問を読み上げ、薄い回答に突っ込み、エクスポートできる採点レポートを返す AI 面接官と、声に出して練習できます。',
   },
+  languages: {
+    title: '面接対応言語',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      '{count} 言語で面接を練習できます。そのうち {voices} 言語は AI 面接官が音声で質問します。あなたの言語を確認して、1 時間無料で始めましょう。',
+  },
   pricing: {
     title: '料金',
     description:

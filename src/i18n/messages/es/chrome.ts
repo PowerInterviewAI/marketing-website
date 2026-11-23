@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: 'Inicio',
     howItWorks: 'Cómo funciona',
+    languages: 'Idiomas',
     pricing: 'Precios',
     faq: 'Preguntas',
     team: 'Equipo',

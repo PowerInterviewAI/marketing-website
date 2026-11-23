@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: 'ホーム',
     howItWorks: '使い方',
+    languages: '対応言語',
     pricing: '料金',
     faq: 'よくある質問',
     team: 'チーム',
