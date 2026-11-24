@@ -62,7 +62,7 @@ export const DOWNLOAD_HREF = homeAnchor(SECTIONS.install);
 
 export interface NavLinkDef {
   /** Key into the `chrome.nav` messages - the label is translated, not stored here. */
-  id: 'howItWorks' | 'languages' | 'pricing' | 'faq' | 'docs';
+  id: 'home' | 'howItWorks' | 'languages' | 'pricing' | 'faq' | 'docs';
   /** The item's own indexable route. Still a real, standalone page - still
    *  what search results, bookmarks and the footer's own links land on -
    *  even for an item the header always links to as `/#section` instead
@@ -99,10 +99,13 @@ export interface NavLinkDef {
  * their own; they're reached by scrolling and linked from the footer, where
  * anchors are conventional.
  *
- * Five items, each answering a question a visitor has before downloading. The
- * logo is the way home, and Team moved to the footer.
+ * Home, then five items each answering a question a visitor has before
+ * downloading. Home doubles the logo for readers who don't know the logo is a
+ * link; on the home page it is the hero anchor (back to the top), elsewhere
+ * plain `/`. Team moved to the footer.
  */
 export const NAV_LINKS: readonly NavLinkDef[] = [
+  { id: 'home', href: ROUTES.home, section: SECTIONS.hero },
   { id: 'howItWorks', href: ROUTES.howItWorks, section: SECTIONS.howItWorks },
   { id: 'languages', href: ROUTES.languages, section: SECTIONS.languages },
   { id: 'pricing', href: ROUTES.pricing, section: SECTIONS.pricing },

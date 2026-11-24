@@ -61,7 +61,11 @@ export const Header: React.FC = () => {
 
   const isActive = (link: (typeof NAV_LINKS)[number]) => {
     if (link.matchSubtree) return pathname.startsWith(link.href);
-    if (isHome) return link.section ? hash === `#${link.section}` : false;
+    if (isHome) {
+      // Home is lit at the top of the page, before any section is picked.
+      if (link.href === ROUTES.home) return hash === '' || hash === `#${link.section}`;
+      return link.section ? hash === `#${link.section}` : false;
+    }
     return pathname === link.href;
   };
 
@@ -70,8 +74,9 @@ export const Header: React.FC = () => {
   // and is still what a search result, a bookmark or a footer link lands on
   // (see FooterSection, which links to link.href directly and is unaffected
   // by this). The header just never uses it for its own links anymore.
+  // Home is the exception: from another page it is plain `/`, not `/#home`.
   const linkHref = (link: (typeof NAV_LINKS)[number]) =>
-    link.section ? homeAnchor(link.section) : link.href;
+    link.section && (isHome || link.href !== ROUTES.home) ? homeAnchor(link.section) : link.href;
 
   // Same-page hash links skip Next's router entirely - see plainAnchor on
   // NavLink for the concatenated-hash bug this avoids. A hash link that also
