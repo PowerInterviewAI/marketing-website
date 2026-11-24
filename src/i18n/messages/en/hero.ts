@@ -1,8 +1,8 @@
 /** The hero block, its demo carousel, trust strip and the install panel below it. */
 export const hero = {
-  title: 'Make your mistakes here, not in the interview.',
+  title: 'Practice the interview. Get backup in the real one.',
   subtitle:
-    'Practice out loud with an AI interviewer in your language. Get every answer scored and improved for any job, from sales to live coding rounds.',
+    'Rehearse out loud with an AI interviewer that scores every answer, then keep live transcription and talking points beside your Zoom, Meet or Teams call. Any job, in your language.',
   free: '1 free hour',
   noCard: 'No credit card',
 

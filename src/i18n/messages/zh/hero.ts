@@ -1,9 +1,9 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  title: '把错误留在这里，别带进面试。',
+  title: '先练好面试，真正面试时有人帮。',
   subtitle:
-    '用你的语言与 AI 面试官开口练习。每个回答都有评分和改进建议，适用于各类岗位，从销售到现场编程面试。',
+    '与会为每个回答打分的 AI 面试官开口练习；真正通话时，在 Zoom、Meet 或 Teams 旁显示实时转写和回答要点。适用于各类岗位，用你的语言。',
   free: '1 小时免费',
   noCard: '无需信用卡',
 

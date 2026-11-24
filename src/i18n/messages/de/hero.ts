@@ -1,9 +1,9 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  title: 'Mach deine Fehler hier, nicht im Vorstellungsgespräch.',
+  title: 'Erst üben. Dann mit Rückendeckung ins echte Gespräch.',
   subtitle:
-    'Übe laut mit einem KI-Interviewer in deiner Sprache. Jede Antwort wird bewertet und verbessert, für jeden Job, vom Vertrieb bis zur Live-Coding-Runde.',
+    'Übe laut mit einem KI-Interviewer, der jede Antwort bewertet, und hab im echten Call Live-Transkription und Stichpunkte neben Zoom, Meet oder Teams. Für jeden Job, in deiner Sprache.',
   free: '1 Stunde gratis',
   noCard: 'Keine Kreditkarte',
 
