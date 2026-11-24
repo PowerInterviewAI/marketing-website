@@ -30,20 +30,31 @@ type Vars = React.CSSProperties & Record<`--${string}`, string>;
  * Deterministic 0..1 noise from an index: the same layout on every render
  * (Math.random() would differ between server and client), dense enough that
  * nobody tunes forty entries by hand, and stable when the counts change.
+ *
+ * Integer-only on purpose. The usual `fract(sin(x) * 43758.5453)` shader hash
+ * is not portable: Math.sin's last bits differ between V8 builds, the multiply
+ * amplifies them, and Node and the browser produced different embers - a
+ * hydration mismatch, since this renders inside client components too.
+ * Math.imul and shifts are exact everywhere.
  */
 const noise = (i: number, salt: number) => {
-  const x = Math.sin(i * 12.9898 + salt * 78.233) * 43758.5453;
-  return x - Math.floor(x);
+  let h = Math.imul(i + 1, 0x9e3779b1) ^ Math.imul(salt + 1, 0x85ebca77);
+  h = Math.imul(h ^ (h >>> 16), 0x7feb352d);
+  h = Math.imul(h ^ (h >>> 15), 0x846ca68b);
+  h ^= h >>> 16;
+  return (h >>> 0) / 4294967296;
 };
+/** Rounded so the serialised style is short and identical on both sides. */
 const between = (i: number, salt: number, min: number, max: number) =>
-  min + noise(i, salt) * (max - min);
+  Math.round((min + noise(i, salt) * (max - min)) * 1000) / 1000;
+const percent = (n: number) => `${Math.round(n * 1000) / 1000}%`;
 
 const BEAM_COUNT = { h: 9, v: 7 } as const;
 const BEAMS = (['h', 'v'] as const).flatMap((axis) =>
   Array.from({ length: BEAM_COUNT[axis] }, (_, i) => ({
     axis,
     // Spread evenly across the section, nudged off the even spacing.
-    at: `${((i + 0.5) / BEAM_COUNT[axis]) * 100 + between(i, axis === 'h' ? 1 : 2, -3, 3)}%`,
+    at: percent(((i + 0.5) / BEAM_COUNT[axis]) * 100 + between(i, axis === 'h' ? 1 : 2, -3, 3)),
     duration: between(i, axis === 'h' ? 3 : 4, 6, 12),
     delay: between(i, axis === 'h' ? 5 : 6, 0, 10),
   }))
@@ -51,7 +62,7 @@ const BEAMS = (['h', 'v'] as const).flatMap((axis) =>
 
 const EMBER_COUNT = 36;
 const EMBERS = Array.from({ length: EMBER_COUNT }, (_, i) => ({
-  left: ((i + noise(i, 7)) / EMBER_COUNT) * 100,
+  left: percent(((i + noise(i, 7)) / EMBER_COUNT) * 100),
   size: Math.round(between(i, 8, 2, 4.6)),
   duration: between(i, 9, 11, 22),
   delay: between(i, 10, 0, 22),
@@ -62,7 +73,7 @@ const EMBERS = Array.from({ length: EMBER_COUNT }, (_, i) => ({
 const GLYPH_SET = 'あ한عЖह中éßতΩñאกქΣ語ыç文ಕşΔ'.split('');
 const GLYPHS = GLYPH_SET.map((glyph, i) => ({
   glyph,
-  left: ((i + noise(i, 12)) / GLYPH_SET.length) * 100,
+  left: percent(((i + noise(i, 12)) / GLYPH_SET.length) * 100),
   size: Math.round(between(i, 13, 26, 52)),
   duration: between(i, 14, 20, 34),
   delay: between(i, 15, 0, 34),
@@ -130,7 +141,7 @@ const Backdrop: React.FC<BackdropProps> = ({
             className="backdrop-ember"
             style={
               {
-                left: `${ember.left}%`,
+                left: ember.left,
                 '--size': `${ember.size}px`,
                 '--rise-d': `${ember.duration}s`,
                 '--rise-delay': `-${ember.delay}s`,
@@ -150,7 +161,7 @@ const Backdrop: React.FC<BackdropProps> = ({
             className="backdrop-glyph"
             style={
               {
-                left: `${glyph.left}%`,
+                left: glyph.left,
                 fontSize: `${glyph.size}px`,
                 '--rise-d': `${glyph.duration}s`,
                 '--rise-delay': `-${glyph.delay}s`,
