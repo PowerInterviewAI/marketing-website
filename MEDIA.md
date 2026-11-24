@@ -11,7 +11,8 @@ public/
   brand/                              Logo, favicons, Open Graph card
   media/
     demos/                            Product demos and their posters
-    lifestyle/                        Generated role photos and ambient loops
+    lifestyle/                        Generated ambient practice loop
+    roles/                            Role videos: generated person + real UI
     testimonials/                     Fallback avatar for real testimonials
     docs/
       app/                            App screenshots
@@ -61,10 +62,13 @@ were already shared.
 
 ## Generated media
 
-`media/lifestyle/*` was generated locally in ComfyUI with Qwen Image Edit and Wan 2.2. It shows
-fictional people, so never caption it as customers or testimonials or use it as a product
-screenshot. The loops stay at Wan's native 16 fps because motion interpolation smeared fast hand
-movement.
+`media/lifestyle/*` and the people in `media/roles/*` were generated locally in ComfyUI with Qwen
+Image Edit and Wan 2.2. They are fictional, so never caption them as customers or testimonials.
+The clips stay at Wan's native 16 fps because motion interpolation smeared fast hand movement.
+
+Each role video overlays a recording of the real mock interview UI with sample data. Record it with
+`scripts/demo-videos/role-ui.mjs`, then combine it with `scripts/demo-videos/compose-roles.mjs`.
+Each role has a 16:9 desktop video and a 4:5 phone video.
 
 ## Testimonials
 

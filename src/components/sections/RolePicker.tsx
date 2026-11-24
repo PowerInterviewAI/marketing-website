@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 
-import Image from 'next/image';
-
 import { AmbientVideo } from '@/components/ui/ambient-video';
 import type { Story } from '@/i18n/messages/en/story';
 import { track } from '@/lib/analytics';
@@ -11,24 +9,13 @@ import { cn } from '@/lib/utils';
 
 type RoleId = keyof Story['roles']['items'];
 
-type RoleMedia =
-  | { id: RoleId; image: string; video?: undefined }
-  | { id: RoleId; image?: undefined; video: { src: string; poster: string } };
+const ROLES: RoleId[] = ['developer', 'sales', 'nurse', 'teacher', 'finance'];
 
-const ROLES: RoleMedia[] = [
-  {
-    id: 'developer',
-    video: { src: '/media/lifestyle/developer.mp4', poster: '/media/lifestyle/developer.webp' },
-  },
-  { id: 'sales', image: '/media/lifestyle/sales.webp' },
-  {
-    id: 'nurse',
-    video: { src: '/media/lifestyle/nurse.mp4', poster: '/media/lifestyle/nurse.webp' },
-  },
-  { id: 'teacher', image: '/media/lifestyle/teacher.webp' },
-  { id: 'finance', image: '/media/lifestyle/finance.webp' },
-];
-
+/**
+ * Each clip pairs a generated, fictional candidate with a recording of the real
+ * app UI. Only the selected role is mounted, and only the variant on screen
+ * downloads its video. The question stays in HTML so it is translated.
+ */
 export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
   const [active, setActive] = useState<RoleId>('developer');
 
@@ -44,7 +31,7 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
         aria-label={copy.eyebrow}
         className="flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] md:justify-center"
       >
-        {ROLES.map(({ id }) => (
+        {ROLES.map((id) => (
           <button
             key={id}
             type="button"
@@ -62,43 +49,30 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
         ))}
       </div>
 
-      <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card sm:aspect-[16/9] lg:aspect-[21/9]">
-        {ROLES.map((role) => {
-          const visibility = cn(
-            'object-[center_30%] transition-opacity duration-500',
-            active === role.id ? 'opacity-100' : 'opacity-0'
-          );
-          return role.video ? (
+      <figure className="mx-auto mt-4 max-w-md overflow-hidden rounded-xl border border-border bg-card shadow-elevation-2 lg:max-w-5xl">
+        <div key={active} className="duration-300 animate-in fade-in">
+          <div className="relative hidden aspect-video bg-black lg:block">
             <AmbientVideo
-              key={role.id}
-              src={role.video.src}
-              poster={role.video.poster}
-              active={active === role.id}
-              className={visibility}
+              src={`/media/roles/${active}.mp4`}
+              poster={`/media/roles/${active}.webp`}
             />
-          ) : (
-            <Image
-              key={role.id}
-              src={role.image}
-              alt=""
-              fill
-              sizes="(min-width: 1280px) 1216px, 100vw"
-              className={cn('object-cover', visibility)}
+          </div>
+          <div className="relative aspect-[4/5] bg-black lg:hidden">
+            <AmbientVideo
+              src={`/media/roles/${active}-mobile.mp4`}
+              poster={`/media/roles/${active}-mobile.webp`}
             />
-          );
-        })}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-5 pt-20 md:p-8 md:pt-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
+          </div>
+        </div>
+        <figcaption className="border-t border-border p-4 md:px-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
             {copy.sample}
           </p>
-          <p
-            aria-live="polite"
-            className="mt-2 max-w-3xl text-balance text-xl font-semibold leading-snug text-white md:text-3xl"
-          >
+          <p aria-live="polite" className="mt-1 text-balance text-lg font-semibold leading-snug">
             {copy.items[active].question}
           </p>
-        </div>
-      </div>
+        </figcaption>
+      </figure>
     </div>
   );
 };
