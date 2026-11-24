@@ -61,7 +61,7 @@ export const LiveSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         </div>
 
         <Reveal className="min-w-0 lg:order-first">
-          <figure className="overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3">
+          <figure className="tilt-media tilt-media-right overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3">
             <Image
               src="/media/docs/app/overview.jpg"
               alt={copy.imageAlt}

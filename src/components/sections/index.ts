@@ -1,3 +1,4 @@
+export * from './AppShowcaseSection';
 export * from './CodingSection';
 export * from './ContactSection';
 export * from './FAQSection';

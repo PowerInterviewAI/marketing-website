@@ -466,6 +466,110 @@
   mask-image: radial-gradient(ellipse 80% 70% at 50% 100%, #000 30%, transparent 100%);
 }
 
+/*
+ * Glass. Frosted surfaces for content that sits over moving or photographic
+ * ground. The tint comes from --background so both themes read as glass;
+ * the inset top highlight is the edge that sells it.
+ */
+.glass-panel,
+.glass-chip {
+  background: hsl(var(--background) / 0.55);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid hsl(var(--foreground) / 0.1);
+  box-shadow:
+    inset 0 1px 0 hsl(var(--foreground) / 0.08),
+    0 24px 64px -16px rgb(0 0 0 / 0.45);
+}
+
+.glass-chip {
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  /* `translate`, not transform, so the float doesn't cancel the chip's rotate-* */
+  animation: chip-float 6s ease-in-out infinite;
+}
+
+.glass-chip + .glass-chip {
+  animation-delay: -3s;
+}
+
+@keyframes chip-float {
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* AppShowcaseSection: a wall of real screens laid on a tilted, skewed plane. */
+.showcase-stage {
+  perspective: 1600px;
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+
+.showcase-wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 420px);
+  gap: 1.5rem;
+  transform: translate(-50%, -50%) rotateX(32deg) rotateZ(-14deg) skewX(8deg);
+  transform-style: preserve-3d;
+}
+
+.showcase-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  will-change: transform;
+  animation: showcase-up 60s linear infinite;
+}
+
+/* Alternate columns run the other way, offset so the rows never line up. */
+.showcase-column-down {
+  margin-top: -8rem;
+  animation-name: showcase-down;
+}
+
+@keyframes showcase-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - 0.75rem));
+  }
+}
+
+@keyframes showcase-down {
+  from {
+    transform: translateY(calc(-50% - 0.75rem));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* A resting 3D tilt for product media that straightens when pointed at.
+   Two-column layouts only: stacked on a phone it would just look crooked. */
+@media (min-width: 1024px) {
+  .tilt-media {
+    transform: perspective(1400px) rotateY(var(--tilt-y, -9deg)) rotateX(4deg);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tilt-media:hover {
+    transform: perspective(1400px) rotateY(0) rotateX(0);
+  }
+
+  .tilt-media-right {
+    --tilt-y: 9deg;
+  }
+}
+
 /* The role slide show's progress bar (RolePicker); the duration is set inline. */
 @keyframes slide-progress {
   from {

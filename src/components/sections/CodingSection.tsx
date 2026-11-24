@@ -74,7 +74,7 @@ export const CodingSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         <Reveal className="min-w-0">
           <div
             dir="ltr"
-            className="overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3"
+            className="tilt-media overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3"
           >
             <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-2.5">
               <span className="text-xs font-semibold">{copy.panel}</span>

@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { SkipToContent } from '@/components/SkipToContent';
 import { StickyDownloadBar } from '@/components/StickyDownloadBar';
 import {
+  AppShowcaseSection,
   CodingSection,
   FAQSection,
   FooterSection,
@@ -54,6 +55,7 @@ export function HomeContent({
         <LanguageMarquee />
         <LanguagesSection locale={locale} />
         <RolesSection locale={locale} />
+        <AppShowcaseSection locale={locale} />
         {howItWorksSection}
         {pricingSection}
         {testimonialsSection}

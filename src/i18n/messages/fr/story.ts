@@ -145,4 +145,11 @@ export const story: Story = {
     written: 'Questions écrites',
     none: 'Aucun résultat. Essayez le nom anglais ou natif.',
   },
+  showcase: {
+    eyebrow: 'Dans l’application',
+    title: 'Chaque écran ici est la vraie application',
+    body: 'La configuration, votre profil, l’entretien d’entraînement, les suggestions en direct, le rapport noté et l’export, capturés dans l’application de bureau avec des données d’exemple.',
+    link: 'Consulter la documentation',
+    sample: 'Vrais écrans, données d’exemple',
+  },
 };

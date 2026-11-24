@@ -145,4 +145,11 @@ export const story: Story = {
     written: 'Perguntas escritas',
     none: 'Nada encontrado. Tente o nome em inglês ou nativo.',
   },
+  showcase: {
+    eyebrow: 'Por dentro do app',
+    title: 'Cada tela aqui é o app de verdade',
+    body: 'A configuração, seu perfil, a entrevista simulada, as sugestões ao vivo, o relatório com nota e a exportação, capturados no app para desktop com dados de exemplo.',
+    link: 'Ver a documentação',
+    sample: 'Telas reais, dados de exemplo',
+  },
 };

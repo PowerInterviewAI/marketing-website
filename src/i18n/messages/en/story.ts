@@ -150,6 +150,13 @@ export const story = {
     written: 'Written questions',
     none: 'No match. Try the English or native name.',
   },
+  showcase: {
+    eyebrow: 'Inside the app',
+    title: 'Every screen here is the real app',
+    body: 'Setup, your profile, the mock interview, live suggestions, the scored report and the export, captured from the desktop app with scripted sample data.',
+    link: 'Browse the documentation',
+    sample: 'Real app screens, sample data',
+  },
 };
 
 export type Story = typeof story;

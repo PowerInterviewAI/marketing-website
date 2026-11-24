@@ -150,4 +150,11 @@ export const story: Story = {
     written: 'Schriftliche Fragen',
     none: 'Kein Treffer. Versuche den englischen oder eigenen Namen.',
   },
+  showcase: {
+    eyebrow: 'Einblick in die App',
+    title: 'Jeder Bildschirm hier ist die echte App',
+    body: 'Einrichtung, Ihr Profil, das Probeinterview, Live-Vorschläge, der bewertete Bericht und der Export – aufgenommen in der Desktop-App mit vorbereiteten Beispieldaten.',
+    link: 'Zur Dokumentation',
+    sample: 'Echte App-Bildschirme, Beispieldaten',
+  },
 };

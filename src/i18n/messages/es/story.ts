@@ -148,4 +148,11 @@ export const story: Story = {
     written: 'Preguntas escritas',
     none: 'Sin resultados. Prueba con el nombre en inglés o nativo.',
   },
+  showcase: {
+    eyebrow: 'Dentro de la app',
+    title: 'Cada pantalla que ves es la app real',
+    body: 'La configuración, tu perfil, la entrevista de práctica, las sugerencias en vivo, el informe con puntuación y la exportación, capturados en la app de escritorio con datos de ejemplo.',
+    link: 'Ver la documentación',
+    sample: 'Pantallas reales, datos de ejemplo',
+  },
 };

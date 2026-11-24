@@ -56,7 +56,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
           const Icon = STEP_ICONS[index];
           return (
             <Reveal as="li" key={step.title} delay={index * 90} className="relative">
-              <div className="flex h-full flex-col rounded-xl border border-border bg-card transition-colors hover:border-border-strong">
+              <div className="flex h-full flex-col rounded-xl border border-border bg-card/60 backdrop-blur-md transition-colors hover:border-border-strong">
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div className="flex items-center gap-3">
                     <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
