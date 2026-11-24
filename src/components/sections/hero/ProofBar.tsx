@@ -63,11 +63,11 @@ export const ProofBar: React.FC = () => {
           <img
             src="https://peerpush.net/p/power-interview-ai/rating-badge.png"
             alt={t.badgeAlt}
-            width={193}
-            height={40}
+            width={680}
+            height={130}
             loading="lazy"
             decoding="async"
-            className="h-10 w-auto"
+            className="h-14 w-auto"
           />
         </a>
       </Container>
