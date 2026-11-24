@@ -30,13 +30,11 @@ export const meta: Meta = {
       'Google-Meet-Transkript',
       'Microsoft-Teams-Aufzeichnung',
       'Interview-Transkription',
-      'Tarnmodus',
       'Datenschutz',
       'Krypto-Zahlung',
       'Software zur Interviewvorbereitung',
       'Desktop-App',
       'Windows',
-      'Mac',
       'Interviewvorbereitung',
       'Systemdesign-Interview',
       'Selbstvertrauen im Interview',
@@ -58,6 +56,12 @@ export const meta: Meta = {
     description:
       'Übe laut mit einem KI-Interviewer, der seine Fragen ausspricht, bei dünnen Antworten nachhakt und einen bewerteten, exportierbaren Bericht liefert.',
   },
+  languages: {
+    title: 'Interviewsprachen',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Übe Vorstellungsgespräche in {count} Sprachen, {voices} davon spricht der KI-Interviewer laut. Prüfe deine Sprache und starte mit einer Gratisstunde.',
+  },
   pricing: {
     title: 'Preise',
     description:
@@ -66,7 +70,7 @@ export const meta: Meta = {
   faq: {
     title: 'FAQ',
     description:
-      'Antworten zu Power Interview AI: Plattformen, Tarnmodus und Bildschirmfreigabe, Datenschutz und lokale Daten, Probeinterviews, Abrechnung und Abonnements.',
+      'Antworten zu Power Interview AI: Plattformen, Sprachen, Datenschutz und lokale Daten, Probeinterviews, Abrechnung und Abonnements.',
   },
   team: {
     title: 'Team',
@@ -83,7 +87,6 @@ export const meta: Meta = {
       'Probeinterview: jede Antwort bewertet, mit einer stärkeren Version, exportierbar als DOCX oder Markdown',
       'Live-Interview: Zweikanal-Transkription mit Sprechererkennung',
       'Live-Interview: KI-Antwortvorschläge auf Basis deines Lebenslaufs und der Stellenbeschreibung',
-      'Live-Interview: Tarnmodus mit Tastenkürzeln, unsichtbar bei Bildschirmfreigabe und auf Screenshots',
       'Live-Interview: optionale Programmierhilfe per Screenshot für technische Runden',
       'Für jede Rolle, nicht nur Softwareentwicklung - Fragen und Bewertung stammen aus der Stellenbeschreibung, die du einfügst',
       'KI-Protokollant für Zoom, Google Meet und Microsoft Teams, mit KI-Zusammenfassungen und Aufgaben',

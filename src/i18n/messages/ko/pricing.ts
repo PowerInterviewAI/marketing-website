@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     '무료 모델로 1시간 무료로 시작하세요. 더 필요하면 구독해서 SOTA 모델로 실시간 면접과 모의 면접을 무제한으로 - 월 {monthly}, 또는 연간 결제 시 월 {yearly}.',
   monthNoun: { one: '개월', other: '개월' },
-  trialBadge: '새 계정: 1시간 무료',
   coinsBadge: '암호화폐만 - 카드, PayPal, 계좌 정보 불필요',
-  prepaidBadge: '선불 - 자동 갱신 없음',
-
-  tier: {
-    caption: '무료 요금제와 구독 비교',
-    whatYouGet: '제공 내용',
-    trial: '무료',
-    paid: '구독',
-    included: '포함',
-    duration: {
-      label: '면접 시간',
-      trial: '1시간, 1회',
-      paid: '무제한',
-    },
-    model: { label: '제공 모델', trial: '무료 모델', paid: 'SOTA 모델' },
-    live: '실시간 제안',
-    triggered: '요청형 제안',
-    mock: '채점 리포트가 있는 모의 면접',
-    rateLimit: { label: '사용 제한', trial: '사실상 없음', paid: '사실상 없음' },
-  },
 
   billing: {
     title: '결제 방식',
@@ -39,12 +19,13 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: '첫 1시간 동안 무료 모델로 앱의 모든 기능',
-    monthly: 'SOTA 모델로 무제한 면접, 한 달씩',
-    quarterly: 'SOTA 모델로 3개월간 무제한 면접',
-    yearly: 'SOTA 모델로 꼬박 1년간 무제한 면접',
+    free: '모든 기능 체험',
+    monthly: '곧 있을 면접에',
+    quarterly: '적극적인 구직 활동에',
+    yearly: '장기 구직 활동에',
   },
-  popular: '가장 인기',
+  included: { every: '모든 요금제 포함', paid: '유료 요금제 혜택' },
+  popular: '추천',
   save: '{percent}% 할인',
   planNames: { free: '무료', monthly: '월간', quarterly: '3개월', yearly: '연간' },
   perMonth: '/ 월',

@@ -1,27 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entrevista de práctica + entrevista en directo, 1 hora gratis',
-  titleLead: 'Ensaya la entrevista y luego',
-  titleAccent: 'haz la real con ayuda en directo',
-  mockLabel: 'Entrevista de práctica:',
-  mockText:
-    'un entrevistador de IA pregunta en voz alta, insiste en las respuestas flojas y puntúa cada una.',
-  liveLabel: 'Entrevista en directo:',
-  liveText:
-    'la misma aplicación funciona en tu llamada real de Zoom, Meet o Teams, oculta al compartir pantalla, y te sugiere qué decir.',
-  rolePre: 'Las dos usan tu CV y la descripción del puesto, así que sirven para',
-  roleStrong: 'cualquier puesto',
-  rolePost: ': ventas, finanzas, enfermería, docencia, ingeniería, no solo software.',
-  ctaMock: 'Empieza con una entrevista de práctica',
-  ctaLive: 'Ver las funciones de la entrevista en directo',
-  freeNote:
-    'Una hora gratis cubre la práctica y la ayuda en directo. Pago solo en cripto, sin tarjeta.',
+  title: 'Practica la entrevista. Ten apoyo en la de verdad.',
+  subtitle:
+    'Ensaya en voz alta con un entrevistador de IA que puntúa cada respuesta y, en la llamada real, ten transcripción y puntos clave en directo junto a Zoom, Meet o Teams. Cualquier trabajo, en tu idioma.',
+  free: '1 hora gratis',
+  noCard: 'Sin tarjeta de crédito',
 
   trust: {
     platformsLabel: 'Plataformas',
     platforms: 'Windows ya, macOS muy pronto',
     languagesLabel: 'Idiomas de entrevista',
+    voices: '{voices} idiomas con voz',
     rolesLabel: 'Puestos',
     roles: 'Cualquier puesto, no solo tecnología',
     privacyLabel: 'Privacidad',
@@ -39,42 +29,65 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (muy pronto)',
     macosSoonTitle: 'En desarrollo activo',
+    free: 'Descargar gratis',
+    stickyNote: '1 hora gratis',
+    mobileNote: 'Power Interview AI funciona en tu PC con Windows.',
+    shareLink: 'Enviar enlace a mi PC',
+    copyLink: 'Copiar enlace para mi PC',
+    linkCopied: 'Enlace copiado',
+    shareText: 'Descargar Power Interview AI en mi PC',
   },
 
   surface: {
-    play: 'Reproducir demo',
-    pause: 'Pausar demo',
-    previous: 'Demo anterior',
-    next: 'Demo siguiente',
-    clips: 'Clips de demostración',
+    preview: 'Vista previa de la entrevista',
+    mock: 'Entrevista simulada',
+    live: 'Ayuda en directo',
+    sample: 'Ejemplo',
+    question: 'Pregunta {n} de {total}',
+    interviewer: 'Entrevistador',
+    you: 'Tú',
+    score: 'Puntuación',
+    strength: 'Punto fuerte',
+    gap: 'A mejorar',
+    suggestion: 'Sugerencia',
+    language: 'Idioma de la entrevista',
+    yours: 'Idioma de tu navegador',
+    pauseLanguages: 'Pausar vista previa de idiomas',
+    playLanguages: 'Reproducir vista previa de idiomas',
+    allLanguages: 'Los {count} idiomas',
   },
-  demos: [
-    {
-      title: 'Asistente de entrevista en directo y exportación inteligente',
-      description:
-        'Sugerencias al instante durante la llamada y, después, una exportación inteligente con el resumen y las conclusiones',
+
+  demo: {
+    watch: 'Ver demo',
+    title: 'Demos del producto',
+    close: 'Cerrar demo',
+    sample: 'Sesión de ejemplo grabada en la app real con datos preparados.',
+    clips: {
+      mock: {
+        title: 'Entrevista simulada en español',
+        description:
+          'El entrevistador de IA pregunta, respondes en voz alta y tus palabras aparecen al hablar.',
+      },
+      report: {
+        title: 'Informe con puntuación',
+        description: 'Consulta tu puntuación, tus carencias y una versión mejor de cada respuesta.',
+      },
+      live: {
+        title: 'Ayuda en directo en japonés',
+        description: 'Ideas breves en tu idioma junto a la conversación.',
+      },
+      coding: {
+        title: 'Recorrido de código',
+        description: 'Convierte un problema de código en enfoque, solución y complejidad.',
+      },
     },
-    {
-      title: 'Reto de programación - Recorrido de grafos',
-      description: 'Captura el problema de la pantalla y lee la solución en la capa sigilosa',
-    },
-    {
-      title: 'Reto de programación - Componentes conexas',
-      description:
-        'Varias capturas dan a la IA el enunciado completo, las restricciones y la firma',
-    },
-    {
-      title: 'Reto de programación - Recursión en árbol binario',
-      description:
-        'Desplaza el código solo con atajos: oculto al compartir pantalla y sin robar el foco',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'Instalación',
-    title: 'Tres formas de ponerlo en marcha',
-    description:
-      'Elige la que mejor encaje con tu forma de trabajar. El comando de una línea descarga la última versión y abre el instalador por ti.',
+    title: 'Empieza tu hora gratis',
+    description: 'Descarga la app, añade tu CV y haz tu primera entrevista simulada esta noche.',
+    more: 'Más formas de instalar',
     tabCli: 'Línea de comandos',
     tabInstaller: 'Instalador',
     tabSource: 'Desde el código',

@@ -6,27 +6,7 @@ export const pricing = {
   description:
     'Start with a free hour on the free model. When you want more, subscribe for unlimited live and mock interviews on the SOTA model - {monthly} a month, or {yearly} a month paid annually.',
   monthNoun: { one: 'month', other: 'months' } as PluralForms,
-  trialBadge: 'New accounts: 1 free hour',
-  coinsBadge: 'Coins only - no card, PayPal, or bank details',
-  prepaidBadge: 'Prepaid - never renews on its own',
-
-  tier: {
-    caption: 'The free plan compared with a subscription',
-    whatYouGet: 'What you get',
-    trial: 'Free',
-    paid: 'Subscription',
-    included: 'Included',
-    duration: {
-      label: 'Interview time',
-      trial: '1 hour, once',
-      paid: 'Unlimited',
-    },
-    model: { label: 'Provided model', trial: 'Free model', paid: 'SOTA model' },
-    live: 'Live suggestions',
-    triggered: 'Triggered suggestions',
-    mock: 'Mock interviews with a scored report',
-    rateLimit: { label: 'Rate limit', trial: 'None in practice', paid: 'None in practice' },
-  },
+  coinsBadge: 'Crypto only - no card, PayPal, or bank details',
 
   billing: {
     title: 'How billing works',
@@ -35,16 +15,17 @@ export const pricing = {
       'Live and mock sessions spend it by the minute. When it runs out the session stops, and a mock interview still gives you its report.',
     paid: 'A subscription',
     paidText:
-      'Pay once in coins for a month, a quarter or a year. Nothing renews automatically: buy another pass whenever you like, and its time is added after your current end date.',
+      'Pay once in crypto for a month, a quarter or a year. Nothing renews automatically: buy another pass whenever you like, and its time is added after your current end date.',
   },
 
   plans: {
-    free: 'Everything the app does, on the free model, for your first hour',
-    monthly: 'Unlimited interviews on the SOTA model, a month at a time',
-    quarterly: 'Unlimited interviews on the SOTA model for three months',
-    yearly: 'Unlimited interviews on the SOTA model for a full year',
+    free: 'Try every feature',
+    monthly: 'For an interview coming up',
+    quarterly: 'For an active job search',
+    yearly: 'For a longer job search',
   },
-  popular: 'Most popular',
+  included: { every: 'Included in every plan', paid: 'With any paid plan' },
+  popular: 'Recommended',
   save: 'Save {percent}%',
   planNames: { free: 'Free', monthly: 'Monthly', quarterly: 'Quarterly', yearly: 'Annual' },
   perMonth: '/ month',

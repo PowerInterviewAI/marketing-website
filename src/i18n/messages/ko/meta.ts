@@ -30,13 +30,11 @@ export const meta: Meta = {
       'Google Meet 전사',
       'Microsoft Teams 녹화',
       '면접 전사',
-      '스텔스 모드',
       '개인정보 보호',
       '암호화폐 결제',
       '면접 연습 소프트웨어',
       '데스크톱 앱',
       'Windows',
-      'Mac',
       '취업 준비',
       '시스템 설계 면접',
       '면접 자신감',
@@ -58,6 +56,12 @@ export const meta: Meta = {
     description:
       '질문을 소리 내어 읽고, 부족한 답변을 파고들고, 내보낼 수 있는 채점 리포트를 돌려주는 AI 면접관과 소리 내어 연습하세요.',
   },
+  languages: {
+    title: '면접 지원 언어',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      '{count}개 언어로 면접을 연습하세요. 그중 {voices}개 언어는 AI 면접관이 소리 내어 질문합니다. 내 언어를 확인하고 1시간 무료로 시작하세요.',
+  },
   pricing: {
     title: '요금',
     description:
@@ -66,7 +70,7 @@ export const meta: Meta = {
   faq: {
     title: '자주 묻는 질문',
     description:
-      'Power Interview AI 작동 방식: 지원 플랫폼, 스텔스 모드와 화면 공유, 개인정보와 로컬 데이터, 모의 면접, 결제와 구독.',
+      'Power Interview AI 작동 방식: 지원 플랫폼, 언어, 개인정보와 로컬 데이터, 모의 면접, 결제와 구독에 대한 답변입니다.',
   },
   team: {
     title: '팀',
@@ -83,7 +87,6 @@ export const meta: Meta = {
       '모의 면접: 모든 답변을 채점하고 더 나은 답변을 제시, DOCX 또는 Markdown으로 내보내기',
       '실시간 면접: 화자를 구분하는 2채널 전사',
       '실시간 면접: 이력서와 채용 공고에 근거한 AI 답변 제안',
-      '실시간 면접: 단축키로 조작하는 스텔스 모드, 화면 공유와 스크린샷에 보이지 않음',
       '실시간 면접: 기술 면접을 위한 스크린샷 기반 코딩 지원(선택)',
       '소프트웨어 엔지니어만이 아니라 모든 직무 지원 - 질문과 채점은 붙여 넣은 채용 공고에서 나옵니다',
       'Zoom, Google Meet, Microsoft Teams용 AI 회의록, AI 요약과 할 일 목록 포함',

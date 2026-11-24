@@ -20,6 +20,8 @@ import { format, pluralize } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { cn } from '@/lib/utils';
 
+import { LanguageChecker } from './LanguageChecker';
+
 /**
  * The full language list, rather than the count on its own.
  *
@@ -50,50 +52,23 @@ const LanguageTile: React.FC<{
   writtenLabel: string;
 }> = ({ language, localName, spokenLabel, writtenLabel }) => (
   <li
+    title={localName}
     className={cn(
-      'flex items-center justify-between gap-3 rounded-lg border px-3.5 py-3',
+      'inline-flex min-h-9 items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-medium',
       language.hasVoice ? 'border-primary/30 bg-primary/5' : 'border-border bg-card'
     )}
   >
-    {/*
-      Names wrap rather than truncate. This is a list whose only job is to let
-      a reader find their own language in it, and at two columns on a phone
-      "Bahasa Indonesia" is wide enough to lose its second word to an ellipsis
-      - which reads as a different language rather than as a clipped one.
-    */}
-    <span className="flex min-w-0 flex-col gap-0.5">
-      {/*
-        `dir` off the data rather than `dir="auto"`. `auto` reads the first
-        strong character, which is right for every right-to-left endonym
-        currently in the list - but it stops being right, silently, the first
-        time a name is added that opens with a Latin brand word or a digit. The list knows which
-        languages are right-to-left; it should be the thing that says so.
-      */}
-      <span
-        dir={isRtl(language) ? 'rtl' : 'ltr'}
-        lang={language.code}
-        className="text-sm font-semibold leading-snug text-foreground"
-      >
-        {language.nativeName}
-      </span>
-      <span className="text-xs text-muted-foreground">{localName}</span>
+    {/* `dir` comes from the data because `auto` fails on a name that opens with Latin text. */}
+    <span dir={isRtl(language) ? 'rtl' : 'ltr'} lang={language.code}>
+      {language.nativeName}
     </span>
-
-    {/*
-      The icon is the only thing separating the two states, so it carries the
-      whole distinction in text for a screen reader rather than a bare
-      "voice" label that reads as a heading for the tile.
-    */}
+    <span className="sr-only">
+      {localName}. {language.hasVoice ? spokenLabel : writtenLabel}
+    </span>
     {language.hasVoice ? (
-      <>
-        <Volume2 className="size-4 shrink-0 text-primary" aria-hidden="true" />
-        <span className="sr-only">{spokenLabel}</span>
-      </>
+      <Volume2 className="size-3.5 shrink-0 text-primary" aria-hidden="true" />
     ) : (
-      <>
-        <FileText className="size-4 shrink-0 text-muted-foreground/60" aria-hidden="true" />
-        <span className="sr-only">{writtenLabel}</span>
-      </>
+      <FileText className="size-3.5 shrink-0 text-muted-foreground/60" aria-hidden="true" />
     )}
   </li>
 );
@@ -121,9 +96,17 @@ function localNameFor(locale: Locale, language: InterviewLanguage): string {
 
 const WRITTEN_LANGUAGES = INTERVIEW_LANGUAGES.filter((language) => !language.hasVoice);
 
-export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
-  const { languages: copy } = getMessages(locale);
+export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }> = ({
+  locale,
+  standalone = false,
+}) => {
+  const { languages: copy, story } = getMessages(locale);
   const writtenCount = LANGUAGE_COUNT - VOICE_LANGUAGE_COUNT;
+  const checkerLanguages = INTERVIEW_LANGUAGES.map((language) => ({
+    ...language,
+    localName: localNameFor(locale, language),
+    dir: isRtl(language) ? ('rtl' as const) : ('ltr' as const),
+  }));
   const tile = (language: InterviewLanguage) => (
     <LanguageTile
       key={language.code}
@@ -135,9 +118,10 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   );
 
   return (
-    <Section id={SECTIONS.languages} tone="muted" aria-labelledby="languages-heading">
+    <Section id={SECTIONS.languages} aria-labelledby="languages-heading">
       <SectionHeading
         id="languages-heading"
+        as={standalone ? 'h1' : 'h2'}
         eyebrow={copy.eyebrow}
         title={format(copy.title, {
           count: LANGUAGE_COUNT,
@@ -149,7 +133,9 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         })}
       />
 
-      <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-3">
+      <LanguageChecker copy={story.checker} languages={checkerLanguages} />
+
+      <div className="mx-auto mt-6 flex max-w-5xl flex-wrap items-center justify-center gap-3">
         <Badge variant="primary" size="md">
           <Volume2 aria-hidden="true" />
           {format(copy.spokenBadge, { voices: VOICE_LANGUAGE_COUNT })}
@@ -167,9 +153,7 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         the reader has started scanning the list for their language.
       */}
       <Reveal className="mx-auto mt-8 max-w-5xl">
-        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {VOICE_LANGUAGES.map(tile)}
-        </ul>
+        <ul className="flex flex-wrap justify-center gap-2">{VOICE_LANGUAGES.map(tile)}</ul>
         <details className="group mt-6">
           <summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/40 [&::-webkit-details-marker]:hidden">
             <ChevronDown
@@ -178,7 +162,7 @@ export const LanguagesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
             />
             {format(copy.showWritten, { written: writtenCount })}
           </summary>
-          <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <ul className="mt-6 flex flex-wrap justify-center gap-2">
             {WRITTEN_LANGUAGES.map(tile)}
           </ul>
         </details>

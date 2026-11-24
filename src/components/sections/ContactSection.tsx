@@ -65,7 +65,7 @@ export const ContactSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const copy = getMessages(locale).contact;
 
   return (
-    <Section id={SECTIONS.contact} tone="muted" aria-labelledby="contact-heading">
+    <Section id={SECTIONS.contact} size="sm" aria-labelledby="contact-heading">
       <SectionHeading
         id="contact-heading"
         eyebrow={copy.eyebrow}
@@ -73,20 +73,20 @@ export const ContactSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         description={copy.description}
       />
 
-      <div className="mx-auto mt-14 grid max-w-4xl gap-3 sm:grid-cols-2">
+      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {getChannels(copy).map((channel, index) => (
           <Reveal key={channel.name} delay={Math.min(index, 4) * 60}>
             <a
               href={channel.href}
               target={channel.external ? '_blank' : undefined}
               rel={channel.external ? 'noopener noreferrer' : undefined}
-              className="group flex h-full items-start gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
                 <channel.icon className="size-5" />
               </span>
 
-              <span className="min-w-0 flex-1">
+              <span className="w-full min-w-0 flex-1">
                 <span className="flex items-center gap-1.5">
                   <span className="font-medium text-foreground">{channel.name}</span>
                   <ArrowUpRight

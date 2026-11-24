@@ -1,27 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entrevista simulada + entrevista ao vivo, 1 hora grátis',
-  titleLead: 'Ensaie a entrevista e depois',
-  titleAccent: 'faça a real com ajuda ao vivo',
-  mockLabel: 'Entrevista simulada:',
-  mockText:
-    'um entrevistador de IA pergunta em voz alta, insiste nas respostas fracas e dá nota a cada uma.',
-  liveLabel: 'Entrevista ao vivo:',
-  liveText:
-    'o mesmo app roda na sua chamada real no Zoom, Meet ou Teams, escondido no compartilhamento de tela, e sugere o que dizer.',
-  rolePre: 'Os dois usam seu currículo e a descrição da vaga, então servem para',
-  roleStrong: 'qualquer cargo',
-  rolePost: ': vendas, finanças, enfermagem, ensino, engenharia, não só software.',
-  ctaMock: 'Comece com uma entrevista simulada',
-  ctaLive: 'Ver os recursos da entrevista ao vivo',
-  freeNote:
-    'Uma hora grátis cobre o treino e a ajuda ao vivo. Pagamento só em cripto, sem cartão de crédito.',
+  title: 'Pratique a entrevista. Tenha apoio na de verdade.',
+  subtitle:
+    'Ensaie em voz alta com um entrevistador de IA que dá nota a cada resposta e, na chamada real, tenha transcrição e pontos-chave ao vivo ao lado do Zoom, Meet ou Teams. Qualquer trabalho, no seu idioma.',
+  free: '1 hora grátis',
+  noCard: 'Sem cartão de crédito',
 
   trust: {
     platformsLabel: 'Plataformas',
     platforms: 'Windows agora, macOS em breve',
     languagesLabel: 'Idiomas de entrevista',
+    voices: '{voices} idiomas com voz',
     rolesLabel: 'Cargos',
     roles: 'Qualquer cargo, não só tecnologia',
     privacyLabel: 'Privacidade',
@@ -39,41 +29,66 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (em breve)',
     macosSoonTitle: 'Em desenvolvimento',
+    free: 'Baixar grátis',
+    stickyNote: '1 hora grátis',
+    mobileNote: 'O Power Interview AI funciona no seu PC com Windows.',
+    shareLink: 'Enviar link para meu PC',
+    copyLink: 'Copiar link para meu PC',
+    linkCopied: 'Link copiado',
+    shareText: 'Baixar o Power Interview AI no meu PC',
   },
 
   surface: {
-    play: 'Reproduzir demonstração',
-    pause: 'Pausar demonstração',
-    previous: 'Demonstração anterior',
-    next: 'Próxima demonstração',
-    clips: 'Clipes de demonstração',
+    preview: 'Prévia da entrevista',
+    mock: 'Entrevista simulada',
+    live: 'Ajuda ao vivo',
+    sample: 'Exemplo',
+    question: 'Pergunta {n} de {total}',
+    interviewer: 'Entrevistador',
+    you: 'Você',
+    score: 'Nota',
+    strength: 'Ponto forte',
+    gap: 'A melhorar',
+    suggestion: 'Sugestão',
+    language: 'Idioma da entrevista',
+    yours: 'Idioma do seu navegador',
+    pauseLanguages: 'Pausar prévia de idiomas',
+    playLanguages: 'Reproduzir prévia de idiomas',
+    allLanguages: 'Todos os {count} idiomas',
   },
-  demos: [
-    {
-      title: 'Assistente de entrevista ao vivo e exportação inteligente',
-      description:
-        'Sugestões instantâneas durante a chamada e, depois, uma exportação inteligente com resumo e insights',
+
+  demo: {
+    watch: 'Ver demo',
+    title: 'Demos do produto',
+    close: 'Fechar demo',
+    sample: 'Sessão de exemplo gravada no app real com dados preparados.',
+    clips: {
+      mock: {
+        title: 'Entrevista simulada em espanhol',
+        description:
+          'O entrevistador de IA pergunta, você responde em voz alta e suas palavras aparecem.',
+      },
+      report: {
+        title: 'Relatório com nota',
+        description: 'Veja sua nota, lacunas e uma versão melhor de cada resposta.',
+      },
+      live: {
+        title: 'Ajuda ao vivo em japonês',
+        description: 'Pontos de fala curtos no seu idioma ao lado da conversa.',
+      },
+      coding: {
+        title: 'Passo a passo de código',
+        description: 'Transforme um problema de código em abordagem, solução e complexidade.',
+      },
     },
-    {
-      title: 'Desafio de código - Percurso em grafo',
-      description: 'Capture o problema da tela e leia a solução na sobreposição furtiva',
-    },
-    {
-      title: 'Desafio de código - Componentes conexos',
-      description: 'Várias capturas dão à IA o enunciado completo, as restrições e a assinatura',
-    },
-    {
-      title: 'Desafio de código - Recursão em árvore binária',
-      description:
-        'Role o código só com atalhos: escondido no compartilhamento de tela e sem roubar o foco',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'Instalação',
-    title: 'Três jeitos de começar',
+    title: 'Comece sua hora grátis',
     description:
-      'Escolha o que combina com o seu jeito de trabalhar. O comando de uma linha baixa a versão mais recente e abre o instalador para você.',
+      'Baixe o app, adicione seu currículo e faça sua primeira entrevista simulada hoje à noite.',
+    more: 'Outras formas de instalar',
     tabCli: 'Linha de comando',
     tabInstaller: 'Instalador',
     tabSource: 'A partir do código',

@@ -1,6 +1,8 @@
 # Installation
 
-This page covers how to install and run Power Interview AI on Windows and macOS.
+This page covers how to install and run Power Interview AI on Windows.
+
+> macOS support is in development. The macOS steps below are kept for reference and may not produce a working install.
 
 ---
 
@@ -68,7 +70,7 @@ Use the latest release binaries from GitHub:
 
 | Windows                                                                     | macOS                                                                       |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ![Running the Windows installer](/media/docs/install-windows.png) | ![Dragging Power Interview AI into the Applications folder](/media/docs/install-macos.png) |
+| ![Running the Windows installer](/media/docs/install/windows.png) | ![Dragging Power Interview AI into the Applications folder](/media/docs/install/macos.png) |
 
 Not sure which Mac you have? Run `uname -m` in Terminal: `arm64` is Apple Silicon, `x86_64` is Intel.
 
@@ -101,13 +103,13 @@ pnpm electron:dev-show
 
 ## First-Run Setup
 
-![First-run setup - sign in and complete your profile](/media/docs/first-run-setup.png)
+![First-run setup wizard - choose the app language](/media/docs/app/first-run-setup.png)
 
 After launching the app for the first time:
 
 1. **Sign in** with your Power Interview AI account.
-2. **Open Configuration** from the menu icon (☰) in the titlebar.
+2. **Follow the setup wizard**, or open **Account** from the navigation rail later.
 3. **Set up your profile** (name, CV/resume, interview context).
-4. **Select your microphone** in **Audio Options**.
+4. **Select your microphone** in **Configuration**.
 
 After setup, click **Start** to begin a session.

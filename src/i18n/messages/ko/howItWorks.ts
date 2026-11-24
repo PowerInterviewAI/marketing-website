@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: '설치하고 체험 시작',
-      body: 'Windows나 macOS용 데스크톱 앱을 내려받고 로그인하세요. 새 계정은 무료 모델로 꼬박 1시간을 쓸 수 있습니다 - 사실상 사용 제한도 끊김도 없습니다.',
+      body: 'Windows용 데스크톱 앱을 다운로드하고 로그인하세요. 신규 계정은 무료 모델을 1시간 사용할 수 있습니다. macOS는 곧 지원됩니다.',
     },
     {
       title: '이력서와 채용 공고 추가',
@@ -20,7 +20,7 @@ export const howItWorks: HowItWorks = {
     },
     {
       title: '그다음 실시간 면접',
-      body: '같은 앱의 두 번째 기능입니다. 화자를 구분하는 2채널 전사가 Zoom, Google Meet, Teams와 함께 실행되고, 제안은 화면 공유와 스크린샷에 보이지 않는 오버레이에 표시되며, 모두 단축키로 조작합니다.',
+      body: '실제 면접에서는 같은 앱이 Zoom, Google Meet, Teams 옆에서 통화를 받아쓰고 말할 요점을 제안합니다. 실시간 도움은 기업이 AI 도구를 허용하는 경우에만 사용하세요.',
     },
   ],
   cta: '다운로드해서 써 보기',

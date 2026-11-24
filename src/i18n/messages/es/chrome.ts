@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: 'Inicio',
     howItWorks: 'Cómo funciona',
+    languages: 'Idiomas',
     pricing: 'Precios',
     faq: 'Preguntas',
     team: 'Equipo',
@@ -31,10 +32,9 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: 'Tu próxima entrevista es la que tiene que salir bien',
-    ctaBody: 'Una hora gratis por nuestra cuenta, en una llamada real. Windows y macOS.',
+    ctaBody: 'Empieza con una hora gratis en Windows. Sin tarjeta de crédito.',
     ctaButton: 'Descargar Power Interview AI',
-    tagline:
-      'Tu coach personal de entrevistas con IA. La privacidad primero e invisible en la llamada.',
+    tagline: 'Practica entrevistas en voz alta en tu idioma, con la privacidad integrada.',
     product: 'Producto',
     resources: 'Recursos',
     legal: 'Legal',

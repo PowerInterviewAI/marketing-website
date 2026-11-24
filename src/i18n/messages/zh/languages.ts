@@ -5,7 +5,7 @@ export const languages: Languages = {
   title: '支持 {count} {noun}的面试',
   titleNoun: { one: '种语言', other: '种语言' },
   description:
-    '转录、实时建议、模拟面试问题、评分和导出报告都遵循同一个设置，而且面试中途就能更改，不只是开始之前。全部 {count} 种语言都能转录和作答；其中 {voices} 种语言，模拟面试官还会大声说出问题。',
+    '用面试语言练习、获得评分并导出报告。在 {count} 种语言中，AI 面试官可语音朗读其中 {voices} 种。',
   spokenBadge: '{voices} 种语言由模拟面试官说出',
   writtenBadge: '{written} 种语言以文字显示问题',
   spokenAria: '模拟面试问题会被大声读出',

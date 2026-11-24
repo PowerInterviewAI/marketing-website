@@ -1,27 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Probeinterview + Live-Interview, 1 Stunde gratis',
-  titleLead: 'Probe das Interview, dann',
-  titleAccent: 'führ das echte mit Live-Hilfe',
-  mockLabel: 'Probeinterview:',
-  mockText:
-    'Ein KI-Interviewer fragt laut, hakt bei schwachen Antworten nach und bewertet jede einzelne.',
-  liveLabel: 'Live-Interview:',
-  liveText:
-    'Dieselbe App läuft in deinem echten Zoom-, Meet- oder Teams-Gespräch, unsichtbar bei der Bildschirmfreigabe, und schlägt vor, was du sagen kannst.',
-  rolePre: 'Beide nutzen deinen Lebenslauf und die Stellenbeschreibung und passen so zu',
-  roleStrong: 'jeder Rolle',
-  rolePost: '- Vertrieb, Finanzen, Pflege, Lehre, Technik, nicht nur Software.',
-  ctaMock: 'Mit einem Probeinterview starten',
-  ctaLive: 'Funktionen fürs Live-Interview ansehen',
-  freeNote:
-    'Eine Gratisstunde für Übung und Live-Hilfe. Bezahlung nur in Krypto, keine Kreditkarte.',
+  title: 'Erst üben. Dann mit Rückendeckung ins echte Gespräch.',
+  subtitle:
+    'Übe laut mit einem KI-Interviewer, der jede Antwort bewertet, und hab im echten Call Live-Transkription und Stichpunkte neben Zoom, Meet oder Teams. Für jeden Job, in deiner Sprache.',
+  free: '1 Stunde gratis',
+  noCard: 'Keine Kreditkarte',
 
   trust: {
     platformsLabel: 'Plattformen',
     platforms: 'Windows jetzt, macOS bald',
     languagesLabel: 'Interviewsprachen',
+    voices: '{voices} Sprachen mit Sprachausgabe',
     rolesLabel: 'Rollen',
     roles: 'Jede Rolle, nicht nur Tech',
     privacyLabel: 'Datenschutz',
@@ -39,42 +29,66 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (bald)',
     macosSoonTitle: 'In aktiver Entwicklung',
+    free: 'Gratis laden',
+    stickyNote: '1 Stunde gratis',
+    mobileNote: 'Power Interview AI läuft auf deinem Windows-PC.',
+    shareLink: 'Link an meinen PC senden',
+    copyLink: 'Link für meinen PC kopieren',
+    linkCopied: 'Link kopiert',
+    shareText: 'Power Interview AI auf meinem PC herunterladen',
   },
 
   surface: {
-    play: 'Demo abspielen',
-    pause: 'Demo pausieren',
-    previous: 'Vorherige Demo',
-    next: 'Nächste Demo',
-    clips: 'Demo-Clips',
+    preview: 'Interview-Vorschau',
+    mock: 'Probeinterview',
+    live: 'Live-Hilfe',
+    sample: 'Beispiel',
+    question: 'Frage {n} von {total}',
+    interviewer: 'Interviewer',
+    you: 'Du',
+    score: 'Bewertung',
+    strength: 'Stärke',
+    gap: 'Verbessern',
+    suggestion: 'Vorschlag',
+    language: 'Interviewsprache',
+    yours: 'Deine Browsersprache',
+    pauseLanguages: 'Sprachvorschau anhalten',
+    playLanguages: 'Sprachvorschau abspielen',
+    allLanguages: 'Alle {count} Sprachen',
   },
-  demos: [
-    {
-      title: 'Live-Interview-Assistent & Smart Export',
-      description:
-        'Sofortige Vorschläge im Gespräch, danach ein intelligenter Export mit Zusammenfassung und Erkenntnissen',
+
+  demo: {
+    watch: 'Demo ansehen',
+    title: 'Produktdemos',
+    close: 'Demo schließen',
+    sample: 'Beispielsitzung, aufgenommen in der echten App mit vorbereiteten Daten.',
+    clips: {
+      mock: {
+        title: 'Probeinterview auf Spanisch',
+        description:
+          'Der KI-Interviewer fragt, du antwortest laut, und deine Worte erscheinen beim Sprechen.',
+      },
+      report: {
+        title: 'Bewerteter Bericht',
+        description: 'Sieh Bewertung, Lücken und eine stärkere Version jeder Antwort.',
+      },
+      live: {
+        title: 'Live-Hilfe auf Japanisch',
+        description: 'Kurze Gesprächspunkte in deiner Sprache neben dem Gespräch.',
+      },
+      coding: {
+        title: 'Coding-Durchgang',
+        description: 'Mach aus einer Coding-Aufgabe Ansatz, Code und Komplexität.',
+      },
     },
-    {
-      title: 'Programmieraufgabe - Graphdurchlauf',
-      description: 'Die Aufgabe vom Bildschirm erfassen und die Lösung im getarnten Overlay lesen',
-    },
-    {
-      title: 'Programmieraufgabe - Zusammenhangskomponenten',
-      description:
-        'Mehrere Screenshots geben der KI die vollständige Aufgabe, Vorgaben und Signatur',
-    },
-    {
-      title: 'Programmieraufgabe - Rekursion im Binärbaum',
-      description:
-        'Den Code nur per Tastenkürzel scrollen - unsichtbar bei der Bildschirmfreigabe, ohne den Fokus zu stehlen',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'Installation',
-    title: 'Drei Wege zum Start',
+    title: 'Starte deine Gratisstunde',
     description:
-      'Wähl, was zu deiner Arbeitsweise passt. Der Einzeiler lädt die neueste Version herunter und startet das Installationsprogramm für dich.',
+      'Lade die App herunter, füge deinen Lebenslauf hinzu und führe noch heute dein erstes Probeinterview.',
+    more: 'Weitere Installationswege',
     tabCli: 'Kommandozeile',
     tabInstaller: 'Installer',
     tabSource: 'Aus dem Quellcode',

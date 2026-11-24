@@ -6,8 +6,6 @@ interface GlowProps {
   /** Where the light falls from. */
   position?: 'top' | 'center' | 'bottom';
   intensity?: 'subtle' | 'medium' | 'strong';
-  /** Overlay a faint grid, masked to fade toward the edges. */
-  grid?: boolean;
   className?: string;
 }
 
@@ -31,12 +29,7 @@ const POSITION_CLASS = {
  * component class in src/styles/index.css rather than inline gradients so both
  * themes drive it from the single --glow token.
  */
-const Glow: React.FC<GlowProps> = ({
-  position = 'top',
-  intensity = 'medium',
-  grid = false,
-  className,
-}) => (
+const Glow: React.FC<GlowProps> = ({ position = 'top', intensity = 'medium', className }) => (
   <div
     aria-hidden="true"
     className={cn(
@@ -45,13 +38,7 @@ const Glow: React.FC<GlowProps> = ({
       className
     )}
   >
-    {grid && <div className="grid-surface absolute inset-0 opacity-60" />}
-    <div
-      className={cn(
-        'glow-surface absolute inset-0 animate-glow-pulse',
-        INTENSITY_OPACITY[intensity]
-      )}
-    />
+    <div className={cn('glow-surface absolute inset-0', INTENSITY_OPACITY[intensity])} />
   </div>
 );
 

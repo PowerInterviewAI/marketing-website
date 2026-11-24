@@ -2,10 +2,11 @@ import React from 'react';
 
 import 'github-markdown-css/github-markdown.css';
 import type { Metadata, Viewport } from 'next';
-import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 
+import { AnalyticsListener } from '@/components/AnalyticsListener';
 import { InlineScript } from '@/components/InlineScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
@@ -17,17 +18,15 @@ import '@/styles/index.css';
 
 // next/font self-hosts these at build time, so there's no request to Google and
 // no swap-in flash. Each is exposed as a CSS variable that tailwind.config.js
-// maps to font-sans / font-display / font-mono.
+// maps to font-sans / font-mono. Latin-ext and Cyrillic cover the site's German,
+// French, Spanish, Portuguese and Russian copy in the brand face; CJK falls back
+// to the system font chosen by the page's `lang`.
 const fontSans = Inter({
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-sans',
-  display: 'swap',
-});
-
-const fontDisplay = Inter_Tight({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
+  // unicode-range fetches only the subset a page uses. Preloading would make every
+  // English visitor download the Cyrillic and Latin Extended files too.
+  preload: false,
   display: 'swap',
 });
 
@@ -37,6 +36,7 @@ const fontMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-mono',
+  preload: false,
   display: 'swap',
 });
 
@@ -79,7 +79,7 @@ export async function generateMetadata({
       description: site.description,
       images: [
         {
-          url: '/open-graph.png',
+          url: '/brand/open-graph.png',
           width: 1200,
           height: 630,
           alt: site.ogAlt,
@@ -92,7 +92,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: site.twitterTitle,
       description: site.twitterDescription,
-      images: ['/open-graph.png'],
+      images: ['/brand/open-graph.png'],
     },
   };
 }
@@ -101,8 +101,8 @@ export async function generateMetadata({
 // public/manifest.json - all three used to disagree.
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0c0c0e' },
+    { media: '(prefers-color-scheme: light)', color: '#f7f7f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0b' },
   ],
 };
 
@@ -139,11 +139,15 @@ export default async function RootLayout({
   return (
     <html
       lang={LOCALE_META[locale].htmlLang}
-      className={cn(fontSans.variable, fontDisplay.variable, fontMono.variable)}
+      className={cn(fontSans.variable, fontMono.variable)}
       suppressHydrationWarning
     >
       <head>
         <InlineScript html={themeInitScript} />
+        {/* Reveal starts hidden and needs JavaScript to appear. */}
+        <noscript>
+          <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
+        </noscript>
         {/* Organization is the only schema true of every route. The
             SoftwareApplication and FAQPage blocks moved to the pages whose
             content they describe - see src/lib/jsonLd.ts. */}
@@ -156,6 +160,7 @@ export default async function RootLayout({
         <LocaleProvider locale={locale} messages={getClientMessages(locale)}>
           <ThemeProvider>{children}</ThemeProvider>
         </LocaleProvider>
+        <AnalyticsListener />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V6LKZ75M3J"
           strategy="afterInteractive"

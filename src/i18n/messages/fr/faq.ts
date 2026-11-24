@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'FAQ',
+  seeAll: 'Voir toutes les questions',
   title: 'Questions fréquentes',
   description: 'Tout ce qu’il faut savoir avant d’installer.',
   categories: {
@@ -40,7 +41,8 @@ export const faq: Faq = {
     {
       question: 'Quelles plateformes sont prises en charge ?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI prend en charge Windows et macOS.',
+      answer:
+        'Power Interview AI fonctionne aujourd’hui sur Windows. La prise en charge de macOS est en développement.',
     },
     {
       question: 'Dans quelles langues puis-je passer un entretien ?',
@@ -52,7 +54,7 @@ export const faq: Faq = {
       question: 'Faut-il un matériel particulier pour utiliser Power Interview AI ?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI fonctionne sur la plupart des ordinateurs Windows et macOS récents, sans exigence matérielle particulière. Une connexion internet stable améliore la diffusion, mais aucune carte graphique dédiée n’est nécessaire.',
+        'Power Interview AI fonctionne sur la plupart des ordinateurs Windows récents sans matériel particulier. Une connexion stable améliore la qualité du streaming.',
     },
     {
       question: 'Quelle est la précision de la transcription IA ?',
@@ -64,13 +66,13 @@ export const faq: Faq = {
       question: 'Puis-je l’utiliser pour des entretiens de code ?',
       category: 'product',
       answer:
-        'Tout à fait ! Power Interview AI propose des fonctionnalités dédiées de suggestion de code. Il peut analyser des captures d’exercices de programmation et fournir des solutions générées par LLM avec une coloration syntaxique propre. Parfait pour les entretiens techniques.',
+        'Oui. Capturez jusqu’à quatre écrans d’un problème de code pour obtenir une approche suggérée et du code coloré. Utilisez-le pour vous entraîner à expliquer vos solutions et lors d’entretiens autorisant les outils d’IA.',
     },
     {
-      question: 'Qu’est-ce que le mode furtif ?',
+      question: 'Puis-je l’utiliser pendant un véritable entretien ?',
       category: 'privacy',
       answer:
-        'Le mode furtif vous permet d’utiliser l’assistant discrètement pendant vos entretiens. Vous pilotez tout au clavier, réglez l’opacité de la fenêtre et placez les fenêtres de façon stratégique, sans quitter l’onglet ou l’application de votre entretien. De plus, la fenêtre n’apparaît pas sur les captures d’écran et reste invisible lors d’un partage d’écran complet, pour une confidentialité totale pendant votre entretien.',
+        'L’aide en direct peut fonctionner à côté de Zoom, Google Meet ou Teams, mais certains employeurs et plateformes d’évaluation n’autorisent pas l’assistance par IA. Vérifiez les règles de chaque entretien et utilisez-la uniquement lorsqu’elle est permise. La fenêtre de l’application est exclue par défaut des captures d’écran afin de protéger les données personnelles affichées.',
     },
     {
       question: 'Combien coûte un entretien d’entraînement ?',

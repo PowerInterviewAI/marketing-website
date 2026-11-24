@@ -30,13 +30,11 @@ export const meta: Meta = {
       'transcription Google Meet',
       'enregistrement Microsoft Teams',
       'transcription d’entretien',
-      'mode furtif',
       'confidentialité',
       'paiement en cryptomonnaie',
       'logiciel de préparation aux entretiens',
       'application de bureau',
       'Windows',
-      'Mac',
       'préparation aux entretiens',
       'entretien de conception de systèmes',
       'confiance en entretien',
@@ -58,6 +56,12 @@ export const meta: Meta = {
     description:
       'Entraînez-vous à voix haute face à un recruteur IA qui pose ses questions, insiste sur les réponses minces et rend un rapport noté et exportable.',
   },
+  languages: {
+    title: 'Langues d’entretien',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Entraînez-vous aux entretiens en {count} langues, dont {voices} parlées par le recruteur IA. Vérifiez la vôtre et commencez avec une heure offerte.',
+  },
   pricing: {
     title: 'Tarifs',
     description:
@@ -66,7 +70,7 @@ export const meta: Meta = {
   faq: {
     title: 'FAQ',
     description:
-      'Réponses sur Power Interview AI : plateformes, mode furtif, partage d’écran, confidentialité et données locales, entretiens d’entraînement et abonnements.',
+      'Réponses sur Power Interview AI : plateformes, langues, confidentialité et données locales, entretiens simulés, facturation et abonnements.',
   },
   team: {
     title: 'Équipe',
@@ -83,7 +87,6 @@ export const meta: Meta = {
       'Entretien d’entraînement : chaque réponse notée, avec une version plus solide, exportable en DOCX ou Markdown',
       'Entretien en direct : transcription sur deux canaux avec détection de l’interlocuteur',
       'Entretien en direct : suggestions de réponse IA fondées sur votre CV et l’offre d’emploi',
-      'Entretien en direct : mode furtif avec raccourcis, invisible au partage d’écran et sur les captures',
       'Entretien en direct : aide au code facultative à partir de captures pour les épreuves techniques',
       'Convient à tous les métiers, pas seulement au développement logiciel : questions et notation viennent de l’offre d’emploi que vous collez',
       'Prise de notes IA pour Zoom, Google Meet et Microsoft Teams, avec résumés et actions générés par IA',

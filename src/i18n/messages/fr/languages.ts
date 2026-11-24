@@ -5,7 +5,7 @@ export const languages: Languages = {
   title: 'Passez vos entretiens en {count} {noun}',
   titleNoun: { one: 'langue', other: 'langues' },
   description:
-    'La transcription, les suggestions en direct, les questions d’entraînement, la notation et le rapport exporté suivent un seul réglage, modifiable en plein entretien et pas seulement avant de commencer. Les {count} langues sont transcrites et prises en charge ; dans {voices} d’entre elles, le recruteur d’entraînement parle aussi à voix haute.',
+    'Entraînez-vous, obtenez une note et exportez votre rapport dans la langue de votre entretien. Le recruteur IA parle à voix haute {voices} des {count} langues.',
   spokenBadge: '{voices} parlées par le recruteur',
   writtenBadge: '{written} avec questions écrites',
   spokenAria: 'Les questions d’entraînement sont dites à voix haute',

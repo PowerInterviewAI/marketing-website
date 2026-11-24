@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: 'ホーム',
     howItWorks: '使い方',
+    languages: '対応言語',
     pricing: '料金',
     faq: 'よくある質問',
     team: 'チーム',
@@ -31,9 +32,9 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: '次の面接こそ、決めるべき面接です',
-    ctaBody: '本番の通話で使える 1 時間を無料で。Windows と macOS に対応。',
+    ctaBody: 'Windows で 1 時間無料で始められます。クレジットカードは不要です。',
     ctaButton: 'Power Interview AI をダウンロード',
-    tagline: 'あなた専用の AI 面接コーチ。プライバシー第一で、通話中は相手から見えません。',
+    tagline: 'あなたの言語で、声に出して面接練習。プライバシーにも配慮しています。',
     product: '製品',
     resources: 'リソース',
     legal: '法務',

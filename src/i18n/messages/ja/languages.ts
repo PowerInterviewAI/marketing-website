@@ -5,7 +5,7 @@ export const languages: Languages = {
   title: '{count} {noun}で面接',
   titleNoun: { one: '言語', other: '言語' },
   description:
-    '文字起こし、ライブ提案、模擬面接の質問、採点、エクスポートするレポートはすべて 1 つの設定に従い、開始前だけでなく面接の途中でも変更できます。{count} 言語すべてで文字起こしと回答ができ、そのうち {voices} 言語は模擬面接官が声に出して話します。',
+    '面接で使う言語で練習し、採点を受け、レポートを出力できます。{count} 言語のうち {voices} 言語は AI 面接官が音声で質問します。',
   spokenBadge: '{voices} 言語は模擬面接官が音声で質問',
   writtenBadge: '{written} 言語は質問を文字で表示',
   spokenAria: '模擬面接の質問は音声で読み上げられます',

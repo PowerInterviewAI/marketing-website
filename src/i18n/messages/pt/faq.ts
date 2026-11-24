@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'Perguntas frequentes',
+  seeAll: 'Ver todas as perguntas',
   title: 'Perguntas frequentes',
   description: 'Tudo o que vale saber antes de instalar.',
   categories: {
@@ -40,7 +41,8 @@ export const faq: Faq = {
     {
       question: 'Quais plataformas são compatíveis?',
       category: 'gettingStarted',
-      answer: 'O Power Interview AI é compatível com Windows e macOS.',
+      answer:
+        'O Power Interview AI funciona hoje no Windows. O suporte ao macOS está em desenvolvimento.',
     },
     {
       question: 'Em quais idiomas posso fazer entrevistas?',
@@ -52,7 +54,7 @@ export const faq: Faq = {
       question: 'Preciso de um hardware especial para usar o Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'O Power Interview AI roda na maioria dos computadores modernos com Windows e macOS, sem requisitos especiais de hardware. Uma conexão estável com a internet melhora o streaming, mas você não precisa de placa de vídeo dedicada.',
+        'O Power Interview AI funciona na maioria dos computadores Windows modernos, sem hardware especial. Uma conexão estável melhora a qualidade do streaming.',
     },
     {
       question: 'Qual é a precisão da transcrição com IA?',
@@ -64,13 +66,13 @@ export const faq: Faq = {
       question: 'Posso usar em entrevistas de programação?',
       category: 'product',
       answer:
-        'Com certeza! O Power Interview AI tem recursos específicos de sugestão de código. Ele analisa capturas de tela de problemas de programação e oferece soluções geradas por LLM com realce de sintaxe. Perfeito para entrevistas técnicas.',
+        'Sim. Capture até quatro telas de um problema de código para receber uma abordagem sugerida e código destacado. Use para praticar a explicação de soluções e em entrevistas que permitam ferramentas de IA.',
     },
     {
-      question: 'O que é o modo furtivo?',
+      question: 'Posso usar durante uma entrevista real?',
       category: 'privacy',
       answer:
-        'O modo furtivo permite usar o assistente com discrição durante as entrevistas. Você controla tudo por atalhos de teclado, ajusta a opacidade da janela e posiciona as janelas de forma estratégica, sem tirar o foco da aba ou do app da entrevista. Além disso, a janela não aparece em capturas de tela e continua invisível no compartilhamento de tela inteira, garantindo privacidade total durante a entrevista.',
+        'A ajuda ao vivo pode funcionar ao lado do Zoom, Google Meet ou Teams, mas algumas empresas e plataformas de avaliação não permitem assistência de IA. Verifique as regras de cada entrevista e use apenas onde for permitido. Por padrão, a janela do app fica fora das capturas de tela para proteger os dados pessoais exibidos.',
     },
     {
       question: 'Quanto custa uma entrevista simulada?',

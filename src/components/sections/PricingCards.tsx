@@ -1,5 +1,3 @@
-import { Check } from 'lucide-react';
-
 import { DownloadCta } from '@/components/DownloadCta';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
@@ -10,15 +8,14 @@ import { formatUsd, getPlans, savingPercent } from '@/lib/plans';
 import { cn } from '@/lib/utils';
 import type { Plan } from '@/types';
 
-const Feature: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <li className="flex items-start gap-2">
-    <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
-    {children}
-  </li>
-);
-
-// The plans are a hardcoded constant (see plans.ts) rather than a fetch, so
-// /pricing and the home page never wait on a backend round trip to render.
+/**
+ * Each card carries only what differs between plans: who it suits, the price
+ * and the term. Features they share sit once in PricingSection, so comparing
+ * plans does not mean reading the same list four times.
+ *
+ * The plans are a hardcoded constant (see plans.ts) rather than a fetch, so
+ * /pricing and the home page never wait on a backend round trip to render.
+ */
 export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { pricing: copy } = getMessages(locale);
   const plans = getPlans();
@@ -27,7 +24,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   const priceLine = (plan: Plan) =>
     plan.months === null
-      ? copy.freeLine
+      ? `${copy.freeLine} · ${copy.features.freeModel}`
       : format(copy.billedAs, {
           price: usd(plan.price_usd),
           months: plan.months.toLocaleString(locale),
@@ -35,7 +32,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
         });
 
   return (
-    <div className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {plans.map((plan, index) => {
         const free = plan.price_usd === 0;
         const saving = savingPercent(plan);
@@ -45,13 +42,11 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
             <div
               className={cn(
                 'relative flex h-full flex-col gap-5 rounded-xl border bg-card p-6',
-                plan.popular
-                  ? 'border-primary shadow-glow-sm xl:-mt-4 xl:pb-8 xl:pt-10'
-                  : 'border-border'
+                plan.popular ? 'border-primary shadow-glow-sm' : 'border-border'
               )}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
                   <Badge variant="solid" size="md">
                     {copy.popular}
                   </Badge>
@@ -60,9 +55,7 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
 
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold">{copy.planNames[plan.plan]}</h3>
-                <p className="text-sm text-muted-foreground xl:min-h-[3lh]">
-                  {copy.plans[plan.plan]}
-                </p>
+                <p className="text-sm text-muted-foreground">{copy.plans[plan.plan]}</p>
               </div>
 
               <div className="flex flex-col gap-1">
@@ -77,20 +70,13 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
                     </Badge>
                   )}
                 </div>
-                <p className="font-mono text-xs text-muted-foreground">{priceLine(plan)}</p>
+                <p className="text-xs leading-relaxed text-muted-foreground">{priceLine(plan)}</p>
               </div>
-
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <Feature>{copy.features.suggestions}</Feature>
-                <Feature>{copy.features.mock}</Feature>
-                <Feature>{free ? copy.features.freeModel : copy.features.sotaModel}</Feature>
-                <Feature>{free ? copy.features.oneHour : copy.features.unlimited}</Feature>
-                {!free && <Feature>{copy.features.noRenewal}</Feature>}
-              </ul>
 
               <DownloadCta
                 className="mt-auto w-full"
                 variant={plan.popular ? 'default' : 'outline'}
+                placement="pricing"
               >
                 {free ? copy.startFree : copy.getStarted}
               </DownloadCta>

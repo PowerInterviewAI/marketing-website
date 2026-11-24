@@ -8,12 +8,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
+import { DownloadCta } from '@/components/DownloadCta';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { NavLink } from '@/components/NavLink';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { DOWNLOAD_HREF, NAV_LINKS, ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
+import { NAV_LINKS, ROUTES, homeAnchor } from '@/config/routes';
 import { useScrolled } from '@/hooks/useScrolled';
 import { useMessages } from '@/i18n/LocaleProvider';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
@@ -61,11 +62,9 @@ export const Header: React.FC = () => {
   const isActive = (link: (typeof NAV_LINKS)[number]) => {
     if (link.matchSubtree) return pathname.startsWith(link.href);
     if (isHome) {
-      // An empty hash (a plain "/" visit, or having scrolled back to the
-      // top) still counts as the hero section, so Home reads as active by
-      // default instead of nothing being selected.
-      const effectiveHash = hash || `#${SECTIONS.hero}`;
-      return link.section ? effectiveHash === `#${link.section}` : false;
+      // Home is lit at the top of the page, before any section is picked.
+      if (link.href === ROUTES.home) return hash === '' || hash === `#${link.section}`;
+      return link.section ? hash === `#${link.section}` : false;
     }
     return pathname === link.href;
   };
@@ -75,8 +74,9 @@ export const Header: React.FC = () => {
   // and is still what a search result, a bookmark or a footer link lands on
   // (see FooterSection, which links to link.href directly and is unaffected
   // by this). The header just never uses it for its own links anymore.
+  // Home is the exception: from another page it is plain `/`, not `/#home`.
   const linkHref = (link: (typeof NAV_LINKS)[number]) =>
-    link.section ? homeAnchor(link.section) : link.href;
+    link.section && (isHome || link.href !== ROUTES.home) ? homeAnchor(link.section) : link.href;
 
   // Same-page hash links skip Next's router entirely - see plainAnchor on
   // NavLink for the concatenated-hash bug this avoids. A hash link that also
@@ -105,19 +105,22 @@ export const Header: React.FC = () => {
             className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Image
-              src="/logo.png"
+              src="/brand/logo.png"
               alt=""
               width={32}
               height={32}
               className="size-8 rounded-lg"
               priority
             />
-            <span className="font-display text-base font-semibold tracking-tight max-[399px]:sr-only">
+            <span className="font-display text-base font-semibold tracking-tight max-[399px]:sr-only lg:max-xl:sr-only">
               Power Interview AI
             </span>
           </LocalizedLink>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label={header.mainNavigation}>
+          <nav
+            className="hidden items-center gap-5 lg:flex xl:gap-7"
+            aria-label={header.mainNavigation}
+          >
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.href}
@@ -125,6 +128,7 @@ export const Header: React.FC = () => {
                 label={nav[link.id]}
                 href={linkHref(link)}
                 underline
+                className="whitespace-nowrap"
                 active={isActive(link)}
                 prefetch={false}
                 plainAnchor={isPlainAnchor(link)}
@@ -135,20 +139,9 @@ export const Header: React.FC = () => {
           <div className="hidden items-center gap-1 lg:flex">
             <LanguageSwitcher className="mr-1" />
             <ThemeToggle />
-            <Button variant="ghost" size="icon" asChild>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={header.githubAria}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <SiGithub className="size-4" />
-              </a>
-            </Button>
-            <Button size="sm" className="ml-2" asChild>
-              <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
-            </Button>
+            <DownloadCta size="sm" className="ml-2" placement="header">
+              {header.download}
+            </DownloadCta>
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
@@ -185,9 +178,7 @@ export const Header: React.FC = () => {
                     </a>
                   </Button>
                   <SheetClose asChild>
-                    <Button asChild>
-                      <LocalizedLink href={DOWNLOAD_HREF}>{header.download}</LocalizedLink>
-                    </Button>
+                    <DownloadCta placement="mobile_menu">{header.download}</DownloadCta>
                   </SheetClose>
                 </div>
               </SheetContent>

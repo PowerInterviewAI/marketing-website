@@ -1,25 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '模拟面试 + 实时面试，免费 1 小时',
-  titleLead: '先演练面试，',
-  titleAccent: '再带着实时帮助参加真正的面试',
-  mockLabel: '模拟面试：',
-  mockText: 'AI 面试官大声提问，对薄弱的回答追问到底，并为每个回答打分。',
-  liveLabel: '实时面试：',
-  liveText:
-    '同一款应用运行在你真实的 Zoom、Meet 或 Teams 通话中，共享屏幕时不可见，并提示你该说什么。',
-  rolePre: '两者都基于你的简历和职位描述，因此适用于',
-  roleStrong: '任何岗位',
-  rolePost: '- 销售、金融、护理、教育、工程，不只是软件开发。',
-  ctaMock: '从模拟面试开始',
-  ctaLive: '查看实时面试功能',
-  freeNote: '免费一小时，练习和实时帮助都能用。仅支持加密货币支付，无需信用卡。',
+  title: '先练好面试，真正面试时有人帮。',
+  subtitle:
+    '与会为每个回答打分的 AI 面试官开口练习；真正通话时，在 Zoom、Meet 或 Teams 旁显示实时转写和回答要点。适用于各类岗位，用你的语言。',
+  free: '1 小时免费',
+  noCard: '无需信用卡',
 
   trust: {
     platformsLabel: '平台',
     platforms: '已支持 Windows，macOS 即将推出',
     languagesLabel: '面试语言',
+    voices: '{voices} 种语言支持语音',
     rolesLabel: '岗位',
     roles: '任何岗位，不只是技术岗',
     privacyLabel: '隐私',
@@ -37,38 +29,64 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS（即将推出）',
     macosSoonTitle: '正在积极开发中',
+    free: '免费下载',
+    stickyNote: '1 小时免费',
+    mobileNote: 'Power Interview AI 可在 Windows 电脑上运行。',
+    shareLink: '发送链接到我的电脑',
+    copyLink: '复制电脑下载链接',
+    linkCopied: '链接已复制',
+    shareText: '在我的电脑上下载 Power Interview AI',
   },
 
   surface: {
-    play: '播放演示',
-    pause: '暂停演示',
-    previous: '上一个演示',
-    next: '下一个演示',
-    clips: '演示片段',
+    preview: '面试预览',
+    mock: '模拟面试',
+    live: '实时帮助',
+    sample: '示例',
+    question: '第 {n} 题，共 {total} 题',
+    interviewer: '面试官',
+    you: '你',
+    score: '评分',
+    strength: '优势',
+    gap: '待改进',
+    suggestion: '建议',
+    language: '面试语言',
+    yours: '你的浏览器语言',
+    pauseLanguages: '暂停语言预览',
+    playLanguages: '播放语言预览',
+    allLanguages: '全部 {count} 种语言',
   },
-  demos: [
-    {
-      title: '实时面试助手与智能导出',
-      description: '通话中即时给出建议，结束后智能导出摘要和要点',
+
+  demo: {
+    watch: '观看演示',
+    title: '产品演示',
+    close: '关闭演示',
+    sample: '使用预设数据在真实应用中录制的示例会话。',
+    clips: {
+      mock: {
+        title: '西班牙语模拟面试',
+        description: 'AI 面试官提问，你开口回答，文字随语音显示。',
+      },
+      report: {
+        title: '评分报告',
+        description: '查看评分、不足之处和每个回答的改进版本。',
+      },
+      live: {
+        title: '日语实时帮助',
+        description: '在对话旁用你的语言显示简短要点。',
+      },
+      coding: {
+        title: '编程讲解',
+        description: '将编程题整理为思路、代码和复杂度。',
+      },
     },
-    {
-      title: '编程题 - 图的遍历',
-      description: '从屏幕截取题目，在隐身浮层中阅读解法',
-    },
-    {
-      title: '编程题 - 连通分量',
-      description: '多张截图为 AI 提供完整题目、约束条件和函数签名',
-    },
-    {
-      title: '编程题 - 二叉树递归',
-      description: '只用快捷键滚动代码 - 共享屏幕时不可见，也不会抢走焦点',
-    },
-  ],
+  },
 
   install: {
     eyebrow: '安装',
-    title: '三种开始方式',
-    description: '选一种最适合你的方式。一行命令会下载最新版本并为你启动安装程序。',
+    title: '开始你的免费 1 小时',
+    description: '下载应用，添加简历，今晚就开始第一场模拟面试。',
+    more: '更多安装方式',
     tabCli: '命令行',
     tabInstaller: '安装程序',
     tabSource: '从源码',

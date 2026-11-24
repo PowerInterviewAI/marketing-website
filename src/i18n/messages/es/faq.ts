@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'Preguntas frecuentes',
+  seeAll: 'Ver todas las preguntas',
   title: 'Preguntas frecuentes',
   description: 'Todo lo que conviene saber antes de instalar.',
   categories: {
@@ -40,7 +41,8 @@ export const faq: Faq = {
     {
       question: '¿Qué plataformas son compatibles?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI es compatible con Windows y macOS.',
+      answer:
+        'Power Interview AI funciona hoy en Windows. La compatibilidad con macOS está en desarrollo.',
     },
     {
       question: '¿En qué idiomas puedo hacer entrevistas?',
@@ -52,7 +54,7 @@ export const faq: Faq = {
       question: '¿Necesito un hardware especial para usar Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI funciona en la mayoría de los ordenadores modernos con Windows y macOS sin requisitos de hardware especiales. Una conexión a internet estable mejora la transmisión, pero no necesitas una tarjeta gráfica dedicada.',
+        'Power Interview AI funciona en la mayoría de los ordenadores Windows modernos sin hardware especial. Una conexión estable mejora la calidad de la transmisión.',
     },
     {
       question: '¿Qué precisión tiene la transcripción con IA?',
@@ -64,13 +66,13 @@ export const faq: Faq = {
       question: '¿Puedo usarlo en entrevistas de programación?',
       category: 'product',
       answer:
-        '¡Por supuesto! Power Interview AI incluye funciones específicas de sugerencias de código. Puede analizar capturas de problemas de programación y ofrecer soluciones generadas por LLM con resaltado de sintaxis. Perfecto para entrevistas técnicas.',
+        'Sí. Captura hasta cuatro pantallas de un problema de código para obtener un enfoque sugerido y código resaltado. Úsalo para practicar cómo explicar soluciones y en entrevistas que permitan herramientas de IA.',
     },
     {
-      question: '¿Qué es el modo sigiloso?',
+      question: '¿Puedo usarlo durante una entrevista real?',
       category: 'privacy',
       answer:
-        'El modo sigiloso te permite usar el asistente con discreción durante las entrevistas. Puedes controlarlo todo con atajos de teclado, ajustar la opacidad de la ventana y colocar las ventanas estratégicamente, sin perder el foco de la pestaña o aplicación de la entrevista. Además, la ventana no aparece en las capturas de pantalla y sigue invisible al compartir la pantalla completa, para una privacidad total durante tu entrevista.',
+        'La ayuda en directo puede funcionar junto a Zoom, Google Meet o Teams, pero algunas empresas y plataformas de evaluación no permiten la asistencia de IA. Revisa las normas de cada entrevista y úsala solo donde esté permitida. La ventana de la app se excluye por defecto de las capturas de pantalla para proteger los datos personales que muestra.',
     },
     {
       question: '¿Cuánto cuesta una entrevista de práctica?',

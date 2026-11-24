@@ -32,11 +32,11 @@ The quality of AI reply suggestions depends directly on the detail in your profi
 
 The **Context** field (job description / role requirements) directly shapes the tone and subject matter of reply suggestions. Before each interview:
 
-1. Click the menu icon (☰) in the titlebar and select **Configuration**.
+1. Open **Account** from the navigation rail.
 2. Replace the previous job description with the one from the current role.
 3. Highlight the key skills the role requires - the AI will weight those more heavily.
 
-![Configuration dialog - name, CV, and job context fields](/media/docs/configuration-dialog.png)
+![Account page - name, CV, and job context fields](/media/docs/app/account.png)
 
 The more aligned your context is to the actual interview, the more targeted and useful the suggestions will be.
 
@@ -60,7 +60,7 @@ Run a short test session a few minutes before the interview starts:
 - Play a short audio clip through your speakers and verify the loopback channel picks it up.
 - If the microphone channel is missing, re-check that your physical microphone is selected in **Audio Options**.
 
-![Audio Options - verify the correct microphone is selected](/media/docs/audio-options.png)
+![Audio Options - verify the correct microphone is selected](/media/docs/app/audio-options.png)
 
 ### A Dead Headset is Recoverable
 
@@ -88,7 +88,7 @@ Press `Ctrl+Shift+F9` for each capture, then `Ctrl+Shift+F11` to submit (use `Ct
 
 ## Stealth Mode & Window Placement
 
-The Power Interview AI window is always excluded from screen capture and screen share - interviewers cannot see it regardless of where it is placed or whether stealth mode is on.
+By default, the app window is excluded from screen capture to protect the personal details it shows. Before using it in a real interview, confirm that the employer or assessment platform allows AI assistance.
 
 ### Set Up Your Window Position Before the Interview
 
@@ -149,4 +149,5 @@ Before every interview, run through this checklist:
 Use it responsibly:
 
 - AI suggestions are a starting point - adapt them in your own words. Parroting a suggestion verbatim can appear unnatural.
+- Follow each employer's interview rules. If AI assistance is prohibited or undisclosed use would misrepresent your work, do not use live help or code suggestions.
 - Ensure your use complies with the terms of service of the platform hosting the interview and with any applicable laws in your jurisdiction.

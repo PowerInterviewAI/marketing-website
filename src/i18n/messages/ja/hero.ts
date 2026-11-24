@@ -1,26 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '模擬面接 + ライブ面接、1 時間無料',
-  titleLead: '面接をリハーサルしてから、',
-  titleAccent: 'リアルタイムのサポート付きで本番へ',
-  mockLabel: '模擬面接：',
-  mockText: 'AI 面接官が声に出して質問し、弱い回答には突っ込み、すべての回答を採点します。',
-  liveLabel: 'ライブ面接：',
-  liveText:
-    '同じアプリが本番の Zoom・Meet・Teams 通話で動き、画面共有には映らずに、何を話すべきかを提案します。',
-  rolePre: 'どちらも履歴書と求人票をもとに動くので、',
-  roleStrong: 'どんな職種にも',
-  rolePost: '対応します - 営業、金融、看護、教育、エンジニアリングなど、ソフトウェアに限りません。',
-  ctaMock: '模擬面接から始める',
-  ctaLive: 'ライブ面接の機能を見る',
-  freeNote:
-    '無料の 1 時間で練習もライブサポートも使えます。支払いは暗号資産のみ、クレジットカード不要。',
+  title: '面接は練習で準備し、本番はサポート付きで。',
+  subtitle:
+    '回答ごとに採点する AI 面接官と声に出して練習。本番では Zoom、Meet、Teams の横にリアルタイムの文字起こしと回答のポイントを表示します。あらゆる職種に、あなたの言語で。',
+  free: '1 時間無料',
+  noCard: 'クレジットカード不要',
 
   trust: {
     platformsLabel: '対応プラットフォーム',
     platforms: 'Windows に対応、macOS は近日対応',
     languagesLabel: '面接言語',
+    voices: '{voices} 言語の音声',
     rolesLabel: '職種',
     roles: 'IT 以外のどんな職種にも',
     privacyLabel: 'プライバシー',
@@ -38,40 +29,64 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS（近日対応）',
     macosSoonTitle: '開発中です',
+    free: '無料でダウンロード',
+    stickyNote: '1 時間無料',
+    mobileNote: 'Power Interview AI は Windows PC で動作します。',
+    shareLink: 'PC にリンクを送る',
+    copyLink: 'PC 用リンクをコピー',
+    linkCopied: 'コピーしました',
+    shareText: 'PC に Power Interview AI をダウンロード',
   },
 
   surface: {
-    play: 'デモを再生',
-    pause: 'デモを一時停止',
-    previous: '前のデモ',
-    next: '次のデモ',
-    clips: 'デモ動画',
+    preview: '面接プレビュー',
+    mock: '模擬面接',
+    live: 'ライブサポート',
+    sample: 'サンプル',
+    question: '質問 {n} / {total}',
+    interviewer: '面接官',
+    you: 'あなた',
+    score: 'スコア',
+    strength: '強み',
+    gap: '改善点',
+    suggestion: '提案',
+    language: '面接言語',
+    yours: 'ブラウザの言語',
+    pauseLanguages: '言語プレビューを一時停止',
+    playLanguages: '言語プレビューを再生',
+    allLanguages: '全 {count} 言語',
   },
-  demos: [
-    {
-      title: 'ライブ面接アシスタントとスマートエクスポート',
-      description: '通話中は即座に提案し、終了後は要約と気づきをスマートにエクスポート',
+
+  demo: {
+    watch: 'デモを見る',
+    title: '製品デモ',
+    close: 'デモを閉じる',
+    sample: '実際のアプリで、用意したデータを使って収録したサンプルです。',
+    clips: {
+      mock: {
+        title: 'スペイン語の模擬面接',
+        description: 'AI 面接官の質問に声で答えると、発言が文字で表示されます。',
+      },
+      report: {
+        title: '採点レポート',
+        description: 'スコア、課題、各回答の改善例を確認できます。',
+      },
+      live: {
+        title: '日本語のライブサポート',
+        description: '会話の横に、あなたの言語で短い要点を表示します。',
+      },
+      coding: {
+        title: 'コーディング解説',
+        description: 'コーディング問題を解法、コード、計算量に整理します。',
+      },
     },
-    {
-      title: 'コーディング課題 - グラフ探索',
-      description: '画面から問題をキャプチャし、ステルスオーバーレイで解答を読む',
-    },
-    {
-      title: 'コーディング課題 - 連結成分',
-      description: '複数のスクリーンショットで、問題文・制約・関数シグネチャをすべて AI に渡す',
-    },
-    {
-      title: 'コーディング課題 - 二分木の再帰',
-      description:
-        'ショートカットだけでコードをスクロール - 画面共有に映らず、フォーカスも奪わない',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'インストール',
-    title: '始め方は 3 通り',
-    description:
-      '作業スタイルに合うものを選んでください。ワンライナーは最新リリースをダウンロードし、インストーラを起動します。',
+    title: '無料の 1 時間を始める',
+    description: 'アプリをダウンロードして履歴書を追加し、今夜最初の模擬面接を始めましょう。',
+    more: 'その他のインストール方法',
     tabCli: 'コマンドライン',
     tabInstaller: 'インストーラ',
     tabSource: 'ソースから',

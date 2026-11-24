@@ -12,14 +12,12 @@ export interface MediaSize {
  * Posters for the demo clips embedded in the docs.
  *
  * Without one a `<video preload="metadata">` paints a black rectangle until
- * the reader presses play. The clips are 2560x1440 and the posters 1920x1080,
- * so both are 16:9 - see public/media/marketing/README.md.
+ * the reader presses play. Each poster is a frame of its clip, so they share an
+ * aspect ratio - see MEDIA.md.
  */
 const VIDEO_POSTERS: Record<string, string> = {
-  '/media/live-interview-assistant.mp4': '/media/marketing/poster-live-interview.jpg',
-  '/media/coding-challenge-1.mp4': '/media/marketing/poster-coding-1.jpg',
-  '/media/coding-challenge-2.mp4': '/media/marketing/poster-coding-2.jpg',
-  '/media/coding-challenge-3.mp4': '/media/marketing/poster-coding-3.jpg',
+  '/media/demos/live.mp4': '/media/demos/live.webp',
+  '/media/demos/coding.mp4': '/media/demos/coding.webp',
 };
 
 export function getVideoPoster(src: string): string | undefined {
@@ -53,6 +51,26 @@ function readJpegSize(buffer: Buffer): MediaSize | null {
     }
 
     offset += 2 + buffer.readUInt16BE(offset + 2);
+  }
+  return null;
+}
+
+function readWebpSize(buffer: Buffer): MediaSize | null {
+  if (buffer.length < 30 || buffer.toString('ascii', 8, 12) !== 'WEBP') return null;
+
+  const format = buffer.toString('ascii', 12, 16);
+  if (format === 'VP8X') {
+    return { width: buffer.readUIntLE(24, 3) + 1, height: buffer.readUIntLE(27, 3) + 1 };
+  }
+  if (format === 'VP8 ') {
+    return {
+      width: buffer.readUInt16LE(26) & 0x3fff,
+      height: buffer.readUInt16LE(28) & 0x3fff,
+    };
+  }
+  if (format === 'VP8L') {
+    const bits = buffer.readUInt32LE(21);
+    return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
   }
   return null;
 }
@@ -102,6 +120,7 @@ export function getMediaSize(src: string): MediaSize | null {
 
       if (extension === '.png') size = readPngSize(buffer);
       else if (extension === '.jpg' || extension === '.jpeg') size = readJpegSize(buffer);
+      else if (extension === '.webp') size = readWebpSize(buffer);
       else if (extension === '.svg') size = readSvgSize(buffer);
     }
   } catch {

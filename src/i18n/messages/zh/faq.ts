@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: '常见问题',
+  seeAll: '查看全部问题',
   title: '常见问题',
   description: '安装前值得了解的一切。',
   categories: {
@@ -40,7 +41,7 @@ export const faq: Faq = {
     {
       question: '支持哪些平台？',
       category: 'gettingStarted',
-      answer: 'Power Interview AI 同时支持 Windows 和 macOS。',
+      answer: 'Power Interview AI 目前支持 Windows，macOS 支持正在开发中。',
     },
     {
       question: '我可以用哪些语言面试？',
@@ -52,7 +53,7 @@ export const faq: Faq = {
       question: '运行 Power Interview AI 需要特殊硬件吗？',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI 可在大多数现代 Windows 和 macOS 电脑上运行，没有特殊的硬件要求。稳定的网络连接能提升流式传输表现，但不需要独立显卡。',
+        'Power Interview AI 可在大多数现代 Windows 电脑上运行，无需特殊硬件。稳定的网络连接可提升串流质量。',
     },
     {
       question: 'AI 转录的准确度如何？',
@@ -64,13 +65,13 @@ export const faq: Faq = {
       question: '可以用于编程面试吗？',
       category: 'product',
       answer:
-        '当然可以！Power Interview AI 提供专门的代码建议功能。它能分析编程题截图，并给出带语法高亮的 LLM 解法。非常适合技术面试。',
+        '可以。最多截取四张编程题截图，即可获得建议思路和语法高亮代码。请用于练习讲解解法，或用于允许使用 AI 工具的面试。',
     },
     {
-      question: '什么是隐身模式？',
+      question: '可以在真实面试中使用吗？',
       category: 'privacy',
       answer:
-        '隐身模式让你在面试中低调地使用助手。你可以通过快捷键控制一切、调整窗口透明度、有策略地摆放窗口 - 全程不会让面试标签页或应用失去焦点。此外，窗口不会出现在截图中，全屏共享时也不可见，确保面试过程中的完全隐私。',
+        '实时帮助可在 Zoom、Google Meet 或 Teams 旁运行，但部分雇主和测评平台不允许使用 AI 辅助。请查看每场面试的规定，并仅在允许时使用。为保护窗口中显示的个人信息，应用窗口默认不会被屏幕捕获。',
     },
     {
       question: '一次模拟面试要花多少钱？',

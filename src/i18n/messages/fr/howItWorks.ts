@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: 'Installez et lancez votre essai',
-      body: 'Téléchargez l’application de bureau pour Windows ou macOS et connectez-vous. Les nouveaux comptes disposent d’une heure complète avec le modèle gratuit, sans limite d’usage en pratique et sans interruption.',
+      body: 'Téléchargez l’application pour Windows et connectez-vous. Les nouveaux comptes reçoivent une heure complète avec le modèle gratuit. macOS arrive bientôt.',
     },
     {
       title: 'Ajoutez votre CV et l’offre d’emploi',
@@ -20,7 +20,7 @@ export const howItWorks: HowItWorks = {
     },
     {
       title: 'Puis passez l’entretien en direct',
-      body: 'La seconde fonctionnalité, dans la même application. La transcription sur deux canaux avec détection de l’interlocuteur tourne à côté de Zoom, Google Meet ou Teams, et les suggestions arrivent dans une surcouche invisible aux partages d’écran et aux captures, entièrement pilotée au clavier.',
+      body: 'Lors du véritable entretien, la même application peut transcrire l’appel et suggérer des points clés à côté de Zoom, Google Meet ou Teams. N’utilisez l’aide en direct que si l’employeur autorise les outils d’IA.',
     },
   ],
   cta: 'Télécharger et essayer',

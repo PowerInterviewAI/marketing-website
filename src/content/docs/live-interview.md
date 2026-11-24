@@ -16,9 +16,7 @@ Once started, the app begins capturing audio from your configured microphone (yo
 
 To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q` from any window (this also exits stealth mode if active).
 
-| Main UI during active session                                                    | Main UI during active session - Stealth Mode                                                            |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ![Power Interview AI - Main UI during active session](/media/docs/app-overview.jpg) | ![Power Interview AI - Main UI during active session - Stealth Mode](/media/docs/app-overview-stealth.jpg) |
+![Power Interview AI during a sample live session](/media/docs/app/overview.jpg)
 
 ---
 
@@ -38,7 +36,7 @@ To stop the session at any time, click **Stop** in the UI or press `Ctrl+Shift+Q
 
 Click the **language button** in the control panel to choose the language of your interview. The button shows the current code (`EN`, `ES`, `JA`) so you can read the setting without opening the menu.
 
-![Interview language menu open on the control bar](/media/docs/language-menu.png)
+![Interview language menu open on the control bar](/media/docs/app/language-menu.png)
 
 One setting decides three things:
 
@@ -81,7 +79,7 @@ Reply suggestions are generated based on the current transcript, your profile (n
 
 Suggestions are triggered automatically as the AI determines a response is useful, or you can request one manually through the UI. The suggestion streams into the reply panel word by word in real time.
 
-![Reply Suggestions panel - streamed in real time during a live interview](/media/live-interview-assistant.mp4)
+![Reply suggestions streaming during a sample session in Japanese](/media/demos/live.mp4)
 
 ### Scrolling Suggestions
 
@@ -97,7 +95,7 @@ You can use the keyboard to scroll through reply suggestion content without leav
 
 ## AI Code Suggestions
 
-For technical interviews with coding problems, Power Interview AI can analyze your screen and suggest solutions.
+For coding practice and technical interviews that allow AI tools, Power Interview AI can analyze your screen and suggest solutions. Many coding assessments prohibit outside help, so check the rules before you use it in a real interview.
 
 ### Workflow
 
@@ -107,7 +105,7 @@ For technical interviews with coding problems, Power Interview AI can analyze yo
 4. The AI processes the images and streams a suggested solution with syntax-highlighted code into the code suggestion panel.
 5. To clear the captured screenshots (e.g., mistakes), press `Ctrl+Shift+F10` to clear all captured screenshots.
 
-![Code Suggestions panel - syntax-highlighted solution streamed in real time](/media/coding-challenge-1.mp4)
+![Code suggestion streaming from a captured practice problem](/media/demos/coding.mp4)
 
 ### Scrolling Code Suggestions
 
@@ -123,7 +121,7 @@ You can also jump to the end of the code panel using the third shortcut (O).
 
 ## Stealth Mode
 
-The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers cannot see it at any time, regardless of whether stealth mode is on or off.
+By default, the app window is excluded from screen capture to protect the personal details it shows. You can allow capture in Configuration outside stealth mode. This setting does not change an employer's rules: use live help only where AI assistance is permitted.
 
 Stealth mode is about **focus control**. When active, the window will not steal focus from your coding challenge, IDE, or video call. You stay in full control of your keyboard and mouse at all times.
 
@@ -132,8 +130,6 @@ Stealth mode is about **focus control**. When active, the window will not steal 
 Press `Ctrl+Shift+M` to toggle stealth mode on or off.
 
 When active, the window collapses to a minimal status bar showing running state, your plan or free time left, and active hotkeys.
-
-![Stealth mode status bar](/media/docs/stealth-mode.png)
 
 ### Opacity Toggle
 
@@ -153,7 +149,7 @@ Because you cannot use the mouse to interact with Power Interview AI while focus
 
 Use a numpad-style layout to snap the window to any screen position:
 
-![Window positioning grid - numpad layout for screen zones](/media/docs/window-positioning.svg)
+![Window positioning grid - numpad layout for screen zones](/media/docs/diagrams/window-positioning.svg)
 
 ### Fine-Tuning Position and Size
 
@@ -166,9 +162,9 @@ Use a numpad-style layout to snap the window to any screen position:
 
 ## Profile & Settings
 
-Access your settings from the **menu icon** (☰) in the top-right of the titlebar.
+Open **Account** from the navigation rail for your profile, and **Configuration** for app settings.
 
-### Profile Settings
+### Your Profile
 
 | Field        | Description                                                          |
 | ------------ | -------------------------------------------------------------------- |
@@ -176,7 +172,7 @@ Access your settings from the **menu icon** (☰) in the top-right of the titleb
 | Profile / CV | Your resume, bio, or portfolio content (required)                    |
 | Context      | Job description or role requirements for the interview (recommended) |
 
-![Configuration dialog - name, CV, and job context fields](/media/docs/configuration-dialog.png)
+![Account page - name, CV, and job context fields](/media/docs/app/account.png)
 
 This is your interview configuration, not general account info (like your email or subscription) - it's saved under your account so signing in on another device restores the same full name, profile, and context automatically.
 
@@ -220,10 +216,10 @@ The **Export** button offers a choice of two formats - **Word Document (.docx)**
 
 A save dialog appears so you can choose where to save the file.
 
-| ![Export Interview dialog - save generated report as a .docx file](/media/docs/export-interview.png) | ![Export Example - generated interview report in Word](/media/docs/export-example.png) |
-| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| ![Export menu with Word and Markdown options](/media/docs/app/export-menu.png) | ![Example report generated in Word](/media/docs/export/example.png) |
+| --- | --- |
 
-[Export Example - generated interview report in Word](/media/docs/export-example.docx)
+[Export Example - generated interview report in Word](/media/docs/export/example.docx)
 
 ### Clear Session
 

@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     'Comece com uma hora grátis no modelo grátis. Quando quiser mais, assine para ter entrevistas ao vivo e simuladas ilimitadas no modelo SOTA: {monthly} ao mês, ou {yearly} ao mês no plano anual.',
   monthNoun: { one: 'mês', other: 'meses' },
-  trialBadge: 'Contas novas: 1 hora grátis',
   coinsBadge: 'Só cripto: sem cartão, PayPal ou dados bancários',
-  prepaidBadge: 'Pré-pago: nunca renova sozinho',
-
-  tier: {
-    caption: 'O plano grátis comparado com uma assinatura',
-    whatYouGet: 'O que você recebe',
-    trial: 'Grátis',
-    paid: 'Assinatura',
-    included: 'Incluído',
-    duration: {
-      label: 'Tempo de entrevista',
-      trial: '1 hora, uma vez',
-      paid: 'Ilimitado',
-    },
-    model: { label: 'Modelo incluído', trial: 'Modelo grátis', paid: 'Modelo SOTA' },
-    live: 'Sugestões ao vivo',
-    triggered: 'Sugestões sob demanda',
-    mock: 'Entrevistas simuladas com relatório de avaliação',
-    rateLimit: { label: 'Limite de uso', trial: 'Nenhum na prática', paid: 'Nenhum na prática' },
-  },
 
   billing: {
     title: 'Como funciona a cobrança',
@@ -39,12 +19,13 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: 'Tudo o que o app faz, no modelo grátis, na sua primeira hora',
-    monthly: 'Entrevistas ilimitadas no modelo SOTA, um mês de cada vez',
-    quarterly: 'Entrevistas ilimitadas no modelo SOTA por três meses',
-    yearly: 'Entrevistas ilimitadas no modelo SOTA por um ano inteiro',
+    free: 'Teste todos os recursos',
+    monthly: 'Para uma entrevista próxima',
+    quarterly: 'Para uma busca ativa',
+    yearly: 'Para uma busca mais longa',
   },
-  popular: 'Mais popular',
+  included: { every: 'Incluído em todos os planos', paid: 'Com qualquer plano pago' },
+  popular: 'Recomendado',
   save: 'Economize {percent}%',
   planNames: { free: 'Grátis', monthly: 'Mensal', quarterly: 'Trimestral', yearly: 'Anual' },
   perMonth: '/ mês',

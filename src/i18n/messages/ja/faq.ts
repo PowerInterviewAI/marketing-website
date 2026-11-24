@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'よくある質問',
+  seeAll: 'すべての質問を見る',
   title: 'よくある質問',
   description: 'インストールする前に知っておきたいことのすべて。',
   categories: {
@@ -40,7 +41,7 @@ export const faq: Faq = {
     {
       question: '対応プラットフォームは何ですか？',
       category: 'gettingStarted',
-      answer: 'Power Interview AI は Windows と macOS の両方に対応しています。',
+      answer: 'Power Interview AI は現在 Windows で利用できます。macOS 対応は開発中です。',
     },
     {
       question: 'どの言語で面接できますか？',
@@ -52,7 +53,7 @@ export const faq: Faq = {
       question: 'Power Interview AI を使うのに特別なハードウェアは必要ですか？',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI は、特別なハードウェア要件なしで、ほとんどの最近の Windows・macOS パソコンで動作します。安定したインターネット接続があればストリーミングが快適になりますが、専用の GPU は不要です。',
+        'Power Interview AI は、特別なハードウェアなしでほとんどの最新 Windows PC で動作します。安定したインターネット接続があると、ストリーミング品質が向上します。',
     },
     {
       question: 'AI の文字起こしはどのくらい正確ですか？',
@@ -64,13 +65,13 @@ export const faq: Faq = {
       question: 'コーディング面接にも使えますか？',
       category: 'product',
       answer:
-        'もちろんです！Power Interview AI には、コード提案に特化した機能があります。コーディング問題のスクリーンショットを解析し、LLM による解答を構文ハイライト付きで提示します。技術面接に最適です。',
+        'はい。コーディング問題のスクリーンショットを最大 4 枚取り込むと、解法の提案と構文ハイライト付きのコードを確認できます。解法を説明する練習や、AI ツールが許可された面接でご利用ください。',
     },
     {
-      question: 'ステルスモードとは何ですか？',
+      question: '本番の面接で使えますか？',
       category: 'privacy',
       answer:
-        'ステルスモードを使うと、面接中にアシスタントを目立たずに操作できます。すべてをショートカットで操作し、ウィンドウの透明度を調整し、ウィンドウを戦略的に配置できます - 面接中のタブやアプリからフォーカスを外すことなく。さらに、ウィンドウはスクリーンショットに写らず、全画面共有でも見えないため、面接中のプライバシーを完全に守れます。',
+        'ライブサポートは Zoom、Google Meet、Teams の横で動作しますが、AI の利用を認めていない企業や評価プラットフォームもあります。面接ごとにルールを確認し、許可されている場合にのみご利用ください。アプリのウィンドウは、表示される個人情報を保護するため、既定で画面キャプチャの対象外です。',
     },
     {
       question: '模擬面接の料金はいくらですか？',

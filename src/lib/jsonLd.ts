@@ -65,15 +65,11 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Loc
       '@type': 'Organization',
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}/brand/logo.png`,
       sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
     },
-    // Real frames from the demo clips. This was /logo.png, which is not a
-    // screenshot of anything.
-    screenshot: [
-      `${SITE_URL}/media/marketing/poster-live-interview.jpg`,
-      `${SITE_URL}/media/marketing/poster-coding-1.jpg`,
-    ],
+    // Frames of the real app UI, recorded with sample data.
+    screenshot: [`${SITE_URL}/media/demos/report.webp`, `${SITE_URL}/media/demos/coding.webp`],
     ...(prices.length > 0 && {
       offers: {
         '@type': 'AggregateOffer',
@@ -98,7 +94,7 @@ export const buildOrganizationJsonLd = (locale: Locale) => ({
   '@type': 'Organization',
   name: SITE_NAME,
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/brand/logo.png`,
   description: getMessages(locale).meta.structured.organizationDescription,
   email: 'team@vectorleappulse.xyz',
   sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],

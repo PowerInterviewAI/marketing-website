@@ -15,7 +15,8 @@ export default {
         // Loaded via next/font/google in src/app/layout.tsx, which self-hosts
         // them at build time and exposes each as a CSS variable on <html>.
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'var(--font-sans)', 'ui-sans-serif', 'sans-serif'],
+        // One family, as in the app. Headings differ by scale and weight.
+        display: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
@@ -79,8 +80,8 @@ export default {
       borderRadius: {
         xl: 'var(--radius-lg)',
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 4px)',
-        sm: 'calc(var(--radius) - 6px)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
         // Tuned to stay believable on the dark ground, where a stock Tailwind
@@ -112,10 +113,6 @@ export default {
           from: { backgroundPosition: '200% 0' },
           to: { backgroundPosition: '-200% 0' },
         },
-        'glow-pulse': {
-          '0%, 100%': { opacity: '0.55' },
-          '50%': { opacity: '1' },
-        },
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
@@ -127,7 +124,6 @@ export default {
         'fade-up': 'fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both',
         float: 'float 6s ease-in-out infinite',
         shimmer: 'shimmer 2.5s linear infinite',
-        'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
         marquee: 'marquee 40s linear infinite',
       },
     },

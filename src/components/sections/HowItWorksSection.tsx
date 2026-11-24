@@ -3,10 +3,8 @@ import React from 'react';
 import { Download, FileText, Radio, Volume2 } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
-import { Kbd } from '@/components/ui/kbd';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
-import { HOTKEYS, Hotkey } from '@/config/hotkeys';
 import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
 import { format } from '@/i18n/format';
@@ -22,7 +20,7 @@ interface HowItWorksSectionProps {
 }
 
 /**
- * The full four-step walkthrough, with the hotkey callout, on the home page
+ * The full four-step walkthrough, on the home page
  * and /how-it-works alike - not condensed to one line per step with a link
  * across, the way this section used to work. With the header nav always
  * pointing at the home anchor (see NAV_LINKS in routes.ts), a reader landing
@@ -30,10 +28,9 @@ interface HowItWorksSectionProps {
  * unchanged - still a real, indexable page for direct links and search
  * results.
  *
- * The mock interview is step three and the live call is step four, which is
- * the order the site tells the whole story in: a reader meets the rehearsal
- * before the thing it rehearses for. This used to be three steps ending at
- * "join the call", with the mock relegated to a card further down the page.
+ * The mock interview is step three and the live call is step four: the order
+ * a candidate uses them in, not a ranking - the two are equal features (see
+ * ModesSection).
  */
 export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
   locale,
@@ -70,15 +67,6 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
 
                   <h3 className="text-lg font-semibold">{step.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-
-                  {index === 3 && (
-                    <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-2">
-                      <Kbd combo={HOTKEYS[Hotkey.ToggleStealth].combo} />
-                      <span className="text-xs text-muted-foreground">
-                        {t.common.hotkeys.toggleStealth}
-                      </span>
-                    </div>
-                  )}
                 </div>
               </div>
             </Reveal>

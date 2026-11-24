@@ -1,28 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: 'Entretien d’entraînement + entretien en direct, 1 heure offerte',
-  titleLead: 'Répétez l’entretien, puis',
-  titleAccent: 'passez le vrai avec une aide en direct',
-  mockLabel: 'Entretien d’entraînement :',
-  mockText:
-    'un recruteur IA pose ses questions à voix haute, insiste sur les réponses faibles et note chacune d’elles.',
-  liveLabel: 'Entretien en direct :',
-  liveText:
-    'la même application tourne sur votre vrai appel Zoom, Meet ou Teams, invisible au partage d’écran, et vous suggère quoi dire.',
-  rolePre: 'Les deux s’appuient sur votre CV et l’offre d’emploi, ils conviennent donc à',
-  roleStrong: 'tous les métiers',
-  rolePost:
-    ' : vente, finance, soins infirmiers, enseignement, ingénierie, pas seulement le logiciel.',
-  ctaMock: 'Commencer par un entretien d’entraînement',
-  ctaLive: 'Voir les fonctionnalités de l’entretien en direct',
-  freeNote:
-    'Une heure offerte couvre l’entraînement et l’aide en direct. Paiement en crypto uniquement, sans carte bancaire.',
+  title: 'Entraînez-vous. Puis soyez épaulé le jour J.',
+  subtitle:
+    'Répétez à voix haute avec un recruteur IA qui note chaque réponse, puis gardez transcription et points clés en direct à côté de Zoom, Meet ou Teams. Pour tout métier, dans votre langue.',
+  free: '1 heure offerte',
+  noCard: 'Sans carte bancaire',
 
   trust: {
     platformsLabel: 'Plateformes',
     platforms: 'Windows dès maintenant, macOS bientôt',
     languagesLabel: 'Langues d’entretien',
+    voices: '{voices} langues avec voix',
     rolesLabel: 'Métiers',
     roles: 'Tous les métiers, pas seulement la tech',
     privacyLabel: 'Confidentialité',
@@ -40,42 +29,67 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (bientôt)',
     macosSoonTitle: 'En cours de développement',
+    free: 'Télécharger gratuitement',
+    stickyNote: '1 heure offerte',
+    mobileNote: 'Power Interview AI fonctionne sur votre PC Windows.',
+    shareLink: 'Envoyer le lien à mon PC',
+    copyLink: 'Copier le lien pour mon PC',
+    linkCopied: 'Lien copié',
+    shareText: 'Télécharger Power Interview AI sur mon PC',
   },
 
   surface: {
-    play: 'Lire la démo',
-    pause: 'Mettre la démo en pause',
-    previous: 'Démo précédente',
-    next: 'Démo suivante',
-    clips: 'Extraits de démo',
+    preview: 'Aperçu de l’entretien',
+    mock: 'Entretien simulé',
+    live: 'Aide en direct',
+    sample: 'Exemple',
+    question: 'Question {n} sur {total}',
+    interviewer: 'Recruteur',
+    you: 'Vous',
+    score: 'Note',
+    strength: 'Point fort',
+    gap: 'À améliorer',
+    suggestion: 'Suggestion',
+    language: 'Langue de l’entretien',
+    yours: 'Langue de votre navigateur',
+    pauseLanguages: 'Mettre l’aperçu des langues en pause',
+    playLanguages: 'Lancer l’aperçu des langues',
+    allLanguages: 'Les {count} langues',
   },
-  demos: [
-    {
-      title: 'Assistant d’entretien en direct et export intelligent',
-      description:
-        'Des suggestions instantanées pendant l’appel, puis un export intelligent du résumé et des points clés',
+
+  demo: {
+    watch: 'Voir la démo',
+    title: 'Démos du produit',
+    close: 'Fermer la démo',
+    sample: 'Session d’exemple enregistrée dans la vraie application avec des données préparées.',
+    clips: {
+      mock: {
+        title: 'Entretien simulé en espagnol',
+        description:
+          'Le recruteur IA pose la question, vous répondez à voix haute et vos mots s’affichent.',
+      },
+      report: {
+        title: 'Rapport noté',
+        description:
+          'Consultez votre note, vos lacunes et une meilleure version de chaque réponse.',
+      },
+      live: {
+        title: 'Aide en direct en japonais',
+        description: 'De courts points clés dans votre langue à côté de la conversation.',
+      },
+      coding: {
+        title: 'Parcours de code',
+        description: 'Transformez un problème de code en approche, solution et complexité.',
+      },
     },
-    {
-      title: 'Exercice de code - Parcours de graphe',
-      description: 'Capturez l’énoncé à l’écran et lisez la solution dans la surcouche furtive',
-    },
-    {
-      title: 'Exercice de code - Composantes connexes',
-      description:
-        'Plusieurs captures donnent à l’IA l’énoncé complet, les contraintes et la signature',
-    },
-    {
-      title: 'Exercice de code - Récursion sur arbre binaire',
-      description:
-        'Faites défiler le code au clavier uniquement : invisible au partage d’écran, sans voler le focus',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'Installation',
-    title: 'Trois façons de démarrer',
+    title: 'Commencez votre heure offerte',
     description:
-      'Choisissez celle qui correspond à votre façon de travailler. La commande en une ligne télécharge la dernière version et lance l’installateur pour vous.',
+      'Téléchargez l’application, ajoutez votre CV et passez votre premier entretien simulé dès ce soir.',
+    more: 'Autres méthodes d’installation',
     tabCli: 'Ligne de commande',
     tabInstaller: 'Installateur',
     tabSource: 'Depuis les sources',

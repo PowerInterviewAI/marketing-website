@@ -2,9 +2,7 @@
 
 Power Interview AI is a privacy-first AI interview coach that works in two stages: you rehearse against a spoken mock interview it runs itself, then it sits the real interview with you. It is a desktop application on your machine, combining an AI interviewer with a scored report, real-time transcription, intelligent AI suggestions, and smart meeting export for Google Meet, Zoom, Microsoft Teams, and more - all designed to keep your data under your control.
 
-| Normal Mode                                                                   | Stealth Mode                                                                          |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| ![Power Interview AI - Main Application Interface](/media/docs/app-overview.jpg) | ![Power Interview AI - Main Application Interface](/media/docs/app-overview-stealth.jpg) |
+![Power Interview AI during a sample live session](/media/docs/app/overview.jpg)
 
 ---
 
@@ -63,13 +61,12 @@ The model is provided for you - there is nothing to connect or configure. New ac
 
 ### Stealth Mode
 
-- The Power Interview AI window is **always hidden from screen capture and screen share** - interviewers can never see it regardless of mode
+- By default, the app window is excluded from screen capture to protect the personal details it shows. You can allow capture in Configuration outside stealth mode
+- Some employers and assessment platforms do not allow AI assistance. Check the rules for each interview and use live help only where it is permitted
 - Stealth mode keeps the window from receiving focus, so your keyboard and mouse stay locked on your coding challenge or video call
 - A minimal status bar shows running state, your plan or free time left, and active hotkeys
 - A toggleable low-opacity overlay lets you glance at suggestions without switching focus
 - Entire workflow controllable by keyboard shortcuts - no mouse required, no lost focus
-
-![Stealth mode status bar](/media/docs/stealth-mode.png)
 
 ### Smart Meeting Notes & Export
 
@@ -138,5 +135,5 @@ The desktop client communicates with local services and with cloud services over
 Before getting started, ensure you have the following:
 
 - A Power Interview AI account (sign up from within the application)
-- A Windows or macOS machine
+- A Windows machine (macOS support is in development)
 - A working microphone and (optionally) webcam

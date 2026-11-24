@@ -6,7 +6,7 @@ export const howItWorks = {
   steps: [
     {
       title: 'Install and start your trial',
-      body: 'Download the desktop app for Windows or macOS and sign in. New accounts get a full hour on the free model - no practical rate limit, no interruptions.',
+      body: 'Download the desktop app for Windows and sign in. New accounts get a full hour on the free model. macOS is coming soon.',
     },
     {
       title: 'Add your CV and the job description',
@@ -18,7 +18,7 @@ export const howItWorks = {
     },
     {
       title: 'Then sit the live interview',
-      body: 'The second feature, in the same app. Dual-channel transcription with speaker detection runs alongside Zoom, Google Meet or Teams, and suggestions stream into an overlay that stays out of screen shares and screenshots, driven entirely by hotkeys.',
+      body: 'When the interview is real, the same app can transcribe the call and suggest talking points beside Zoom, Google Meet or Teams. Use live help only where the employer allows AI tools.',
     },
   ],
   cta: 'Download and try it',

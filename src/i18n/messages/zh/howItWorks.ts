@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: '安装并开始试用',
-      body: '下载 Windows 或 macOS 桌面应用并登录。新账户可在免费模型上使用完整的一小时 - 实际上没有使用限制，也不会中断。',
+      body: '下载 Windows 桌面应用并登录。新账户可使用免费模型整整 1 小时。macOS 版本即将推出。',
     },
     {
       title: '添加简历和职位描述',
@@ -20,7 +20,7 @@ export const howItWorks: HowItWorks = {
     },
     {
       title: '然后参加实时面试',
-      body: '同一应用中的第二个功能。带说话人识别的双通道转录与 Zoom、Google Meet 或 Teams 同时运行，建议显示在共享屏幕和截图中都看不见的浮层里，完全通过快捷键操作。',
+      body: '在真实面试中，同一款应用可在 Zoom、Google Meet 或 Teams 旁转录通话并建议表达要点。请仅在雇主允许使用 AI 工具时使用实时帮助。',
     },
   ],
   cta: '下载试用',

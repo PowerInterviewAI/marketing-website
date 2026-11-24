@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     'まずは無料モデルで 1 時間無料。もっと使いたくなったら、サブスクリプションで SOTA モデルのライブ面接と模擬面接が無制限に - 月額 {monthly}、または年払いで月あたり {yearly}。',
   monthNoun: { one: 'か月', other: 'か月' },
-  trialBadge: '新規アカウント：1 時間無料',
   coinsBadge: '暗号資産のみ - カード、PayPal、口座情報は不要',
-  prepaidBadge: '前払い制 - 自動更新なし',
-
-  tier: {
-    caption: '無料プランとサブスクリプションの比較',
-    whatYouGet: '内容',
-    trial: '無料',
-    paid: 'サブスクリプション',
-    included: '含まれます',
-    duration: {
-      label: '面接時間',
-      trial: '1 時間（1 回のみ）',
-      paid: '無制限',
-    },
-    model: { label: '提供モデル', trial: '無料モデル', paid: 'SOTA モデル' },
-    live: 'ライブ提案',
-    triggered: 'オンデマンド提案',
-    mock: '採点レポート付きの模擬面接',
-    rateLimit: { label: '利用制限', trial: '実質なし', paid: '実質なし' },
-  },
 
   billing: {
     title: '支払いのしくみ',
@@ -39,12 +19,13 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: '最初の 1 時間、無料モデルでアプリのすべての機能',
-    monthly: 'SOTA モデルで面接し放題、1 か月ずつ',
-    quarterly: 'SOTA モデルで 3 か月間面接し放題',
-    yearly: 'SOTA モデルでまる 1 年間面接し放題',
+    free: 'すべての機能を試す',
+    monthly: '近々の面接に',
+    quarterly: '本格的な転職活動に',
+    yearly: '長期の転職活動に',
   },
-  popular: '一番人気',
+  included: { every: 'すべてのプランに含まれるもの', paid: '有料プランの特典' },
+  popular: 'おすすめ',
   save: '{percent}% お得',
   planNames: { free: '無料', monthly: '月額', quarterly: '3 か月', yearly: '年額' },
   perMonth: '/ 月',

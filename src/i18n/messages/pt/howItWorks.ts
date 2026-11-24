@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: 'Instale e comece seu teste',
-      body: 'Baixe o app de desktop para Windows ou macOS e faça login. Contas novas ganham uma hora inteira no modelo grátis, sem limite de uso na prática e sem interrupções.',
+      body: 'Baixe o app para Windows e entre na sua conta. Novas contas recebem uma hora completa com o modelo gratuito. O macOS chega em breve.',
     },
     {
       title: 'Adicione seu currículo e a descrição da vaga',
@@ -20,7 +20,7 @@ export const howItWorks: HowItWorks = {
     },
     {
       title: 'Depois, faça a entrevista ao vivo',
-      body: 'O segundo recurso, no mesmo app. A transcrição em dois canais com detecção de quem fala roda junto com o Zoom, o Google Meet ou o Teams, e as sugestões chegam numa sobreposição que não aparece no compartilhamento de tela nem em capturas, controlada inteiramente por atalhos.',
+      body: 'Na entrevista real, o mesmo app pode transcrever a chamada e sugerir pontos de fala ao lado do Zoom, Google Meet ou Teams. Use a ajuda ao vivo apenas quando a empresa permitir ferramentas de IA.',
     },
   ],
   cta: 'Baixe e experimente',

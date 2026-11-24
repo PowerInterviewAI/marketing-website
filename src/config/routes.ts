@@ -17,6 +17,7 @@ export const ROUTES = {
   home: '/',
   howItWorks: '/how-it-works',
   mockInterview: '/mock-interview',
+  languages: '/languages',
   pricing: '/pricing',
   faq: '/faq',
   team: '/team',
@@ -37,6 +38,8 @@ export const SECTIONS = {
   howItWorks: 'how-it-works',
   features: 'features',
   mockInterview: 'mock-interview',
+  liveInterview: 'live-interview',
+  coding: 'coding',
   languages: 'languages',
   benefits: 'benefits',
   whyChoose: 'why-choose',
@@ -59,7 +62,7 @@ export const DOWNLOAD_HREF = homeAnchor(SECTIONS.install);
 
 export interface NavLinkDef {
   /** Key into the `chrome.nav` messages - the label is translated, not stored here. */
-  id: 'home' | 'howItWorks' | 'pricing' | 'faq' | 'team' | 'docs';
+  id: 'home' | 'howItWorks' | 'languages' | 'pricing' | 'faq' | 'docs';
   /** The item's own indexable route. Still a real, standalone page - still
    *  what search results, bookmarks and the footer's own links land on -
    *  even for an item the header always links to as `/#section` instead
@@ -95,13 +98,18 @@ export interface NavLinkDef {
  * Features, Why Us and Contact are home-page-only sections with no page of
  * their own; they're reached by scrolling and linked from the footer, where
  * anchors are conventional.
+ *
+ * Home, then five items each answering a question a visitor has before
+ * downloading. Home doubles the logo for readers who don't know the logo is a
+ * link; on the home page it is the hero anchor (back to the top), elsewhere
+ * plain `/`. Team moved to the footer.
  */
 export const NAV_LINKS: readonly NavLinkDef[] = [
   { id: 'home', href: ROUTES.home, section: SECTIONS.hero },
   { id: 'howItWorks', href: ROUTES.howItWorks, section: SECTIONS.howItWorks },
+  { id: 'languages', href: ROUTES.languages, section: SECTIONS.languages },
   { id: 'pricing', href: ROUTES.pricing, section: SECTIONS.pricing },
   { id: 'faq', href: ROUTES.faq, section: SECTIONS.faq },
-  { id: 'team', href: ROUTES.team, section: SECTIONS.team },
   { id: 'docs', href: ROUTES.docs, matchSubtree: true, newTab: true },
 ] as const;
 
@@ -122,6 +130,7 @@ export const SITEMAP_ROUTES: readonly string[] = [
   ROUTES.home,
   ROUTES.howItWorks,
   ROUTES.mockInterview,
+  ROUTES.languages,
   ROUTES.pricing,
   ROUTES.faq,
   ROUTES.team,
@@ -155,4 +164,57 @@ export const LEGACY_ANCHOR_REDIRECTS = [
  */
 export const LEGACY_DOC_REDIRECTS = [
   { source: docPath('usage'), destination: docPath('live-interview') },
+] as const;
+
+/**
+ * Public files that have moved. Search results, social cards and other sites
+ * can still hold the old URLs, so each one keeps working.
+ */
+export const LEGACY_ASSET_REDIRECTS = [
+  { source: '/logo.png', destination: '/brand/logo.png' },
+  { source: '/favicon.png', destination: '/brand/favicon.png' },
+  { source: '/favicon.svg', destination: '/brand/favicon.svg' },
+  { source: '/open-graph.png', destination: '/brand/open-graph.png' },
+  { source: '/media/docs/install-windows.png', destination: '/media/docs/install/windows.png' },
+  { source: '/media/docs/install-macos.png', destination: '/media/docs/install/macos.png' },
+  {
+    source: '/media/docs/macos-update-permission-issue.png',
+    destination: '/media/docs/macos/permission-issue.png',
+  },
+  {
+    source: '/media/docs/macos-update-remove-old-app.png',
+    destination: '/media/docs/macos/remove-old-app.png',
+  },
+  {
+    source: '/media/docs/macos-update-add-new-app-1.png',
+    destination: '/media/docs/macos/add-new-app-1.png',
+  },
+  {
+    source: '/media/docs/macos-update-add-new-app-2.png',
+    destination: '/media/docs/macos/add-new-app-2.png',
+  },
+  { source: '/media/docs/export-example.png', destination: '/media/docs/export/example.png' },
+  { source: '/media/docs/export-example.docx', destination: '/media/docs/export/example.docx' },
+  {
+    source: '/media/docs/architecture-diagram.svg',
+    destination: '/media/docs/diagrams/architecture.svg',
+  },
+  {
+    source: '/media/docs/window-positioning.svg',
+    destination: '/media/docs/diagrams/window-positioning.svg',
+  },
+  { source: '/media/docs/app-overview.jpg', destination: '/media/docs/app/overview.jpg' },
+  { source: '/media/docs/language-menu.png', destination: '/media/docs/app/language-menu.png' },
+  { source: '/media/docs/audio-options.png', destination: '/media/docs/app/audio-options.png' },
+  { source: '/media/docs/export-interview.png', destination: '/media/docs/app/export-menu.png' },
+  { source: '/media/docs/configuration-dialog.png', destination: '/media/docs/app/account.png' },
+  { source: '/media/docs/first-run-setup.png', destination: '/media/docs/app/first-run-setup.png' },
+  { source: '/media/live-interview-assistant.mp4', destination: '/media/demos/live.mp4' },
+  { source: '/media/coding-challenge-1.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/coding-challenge-2.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/coding-challenge-3.mp4', destination: '/media/demos/coding.mp4' },
+  { source: '/media/marketing/poster-live-interview.jpg', destination: '/media/demos/live.webp' },
+  { source: '/media/marketing/poster-coding-1.jpg', destination: '/media/demos/coding.webp' },
+  { source: '/media/marketing/poster-coding-2.jpg', destination: '/media/demos/coding.webp' },
+  { source: '/media/marketing/poster-coding-3.jpg', destination: '/media/demos/coding.webp' },
 ] as const;

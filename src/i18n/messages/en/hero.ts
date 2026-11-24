@@ -1,24 +1,16 @@
 /** The hero block, its demo carousel, trust strip and the install panel below it. */
 export const hero = {
-  badge: 'Mock interview + live interview, 1 hour free',
-  titleLead: 'Rehearse the interview, then',
-  titleAccent: 'sit the real one with live help',
-  mockLabel: 'Mock interview:',
-  mockText: 'an AI interviewer asks aloud, presses on weak answers, and scores each one.',
-  liveLabel: 'Live interview:',
-  liveText:
-    'the same app runs on your real Zoom, Meet or Teams call, hidden from screen share, and suggests what to say.',
-  rolePre: 'Both use your CV and job description, so they fit',
-  roleStrong: 'any role',
-  rolePost: '- sales, finance, nursing, teaching, engineering, not just software.',
-  ctaMock: 'Start with a mock interview',
-  ctaLive: 'See the live interview features',
-  freeNote: 'One free hour covers practice and live help. Pay with coins only, no credit card.',
+  title: 'Practice the interview. Get backup in the real one.',
+  subtitle:
+    'Rehearse out loud with an AI interviewer that scores every answer, then keep live transcription and talking points beside your Zoom, Meet or Teams call. Any job, in your language.',
+  free: '1 free hour',
+  noCard: 'No credit card',
 
   trust: {
     platformsLabel: 'Platforms',
     platforms: 'Windows now, macOS coming soon',
     languagesLabel: 'Interview languages',
+    voices: '{voices} languages spoken aloud',
     rolesLabel: 'Roles',
     roles: 'Any role, not just tech',
     privacyLabel: 'Privacy',
@@ -36,43 +28,65 @@ export const hero = {
     windows: 'Windows',
     macosSoon: 'macOS (coming soon)',
     macosSoonTitle: 'Actively being worked on',
+    free: 'Download free',
+    stickyNote: '1 hour free',
+    mobileNote: 'Power Interview AI runs on your Windows PC.',
+    shareLink: 'Send link to my PC',
+    copyLink: 'Copy link for my PC',
+    linkCopied: 'Link copied',
+    shareText: 'Download Power Interview AI on my PC',
   },
 
   surface: {
-    play: 'Play demo',
-    pause: 'Pause demo',
-    previous: 'Previous demo',
-    next: 'Next demo',
-    clips: 'Demo clips',
+    preview: 'Interview preview',
+    mock: 'Mock interview',
+    live: 'Live help',
+    sample: 'Sample',
+    question: 'Question {n} of {total}',
+    interviewer: 'Interviewer',
+    you: 'You',
+    score: 'Score',
+    strength: 'Strength',
+    gap: 'To improve',
+    suggestion: 'Suggestion',
+    language: 'Interview language',
+    yours: 'Your browser language',
+    pauseLanguages: 'Pause language preview',
+    playLanguages: 'Play language preview',
+    allLanguages: 'All {count} languages',
   },
-  /** Same order as MEDIA_ITEMS in src/components/sections/hero/constants.ts. */
-  demos: [
-    {
-      title: 'Live Interview Assistant & Smart Export',
-      description:
-        'Instant suggestions during the call, then a smart export of the summary and insights',
+
+  demo: {
+    watch: 'Watch demo',
+    title: 'Product demos',
+    close: 'Close demo',
+    sample: 'Sample session recorded in the real app with scripted data.',
+    clips: {
+      mock: {
+        title: 'Mock interview in Spanish',
+        description:
+          'The AI interviewer asks, you answer aloud, and your words appear as you speak.',
+      },
+      report: {
+        title: 'Scored report',
+        description: 'See your score, gaps, and a stronger version of each answer.',
+      },
+      live: {
+        title: 'Live help in Japanese',
+        description: 'Short talking points in your language beside the conversation.',
+      },
+      coding: {
+        title: 'Coding walkthrough',
+        description: 'Turn a coding problem into an approach, code, and complexity.',
+      },
     },
-    {
-      title: 'Coding Challenge - Graph Traversal',
-      description:
-        'Capture the problem from your screen and read the solution in the stealth overlay',
-    },
-    {
-      title: 'Coding Challenge - Connected Components',
-      description: 'Several screenshots give the AI the full statement, constraints and signature',
-    },
-    {
-      title: 'Coding Challenge - Binary Tree Recursion',
-      description:
-        'Scroll the code with hotkeys alone - hidden from screen share, never steals focus',
-    },
-  ],
+  },
 
   install: {
     eyebrow: 'Install',
-    title: 'Three ways to get it running',
-    description:
-      'Pick whichever fits how you work. The one-liner downloads the latest release and launches the installer for you.',
+    title: 'Start your free hour',
+    description: 'Download the app, add your CV, and run your first mock interview tonight.',
+    more: 'More ways to install',
     tabCli: 'Command line',
     tabInstaller: 'Installer',
     tabSource: 'From source',

@@ -9,7 +9,6 @@ import Image from 'next/image';
 import Container from '@/components/Container';
 import { DownloadCta } from '@/components/DownloadCta';
 import { NavLink } from '@/components/NavLink';
-import { Glow } from '@/components/ui/glow';
 import { DOWNLOAD_HREF, ROUTES, SECTIONS, homeAnchor } from '@/config/routes';
 import { useMessages } from '@/i18n/LocaleProvider';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
@@ -37,35 +36,35 @@ const RESOURCE_LINKS = [
  * real, copyable URL that behaves the same on every route. The header is
  * routes only; see src/config/routes.ts.
  */
-export const FooterSection: React.FC = () => {
+export const FooterSection: React.FC<{ showCta?: boolean }> = ({ showCta = true }) => {
   const t = useMessages().chrome.footer;
 
   return (
     <>
-      {/* Pre-footer CTA band */}
-      <section className="glow-surface relative isolate border-t border-border bg-surface-1 py-16 md:py-20">
-        <Glow position="bottom" intensity="subtle" />
-        <Container>
-          <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
-            <h2 className="text-balance font-display text-3xl font-semibold tracking-tight md:text-4xl">
-              {t.ctaTitle}
-            </h2>
-            <p className="text-pretty text-muted-foreground">{t.ctaBody}</p>
-            <DownloadCta size="lg">
-              {t.ctaButton}
-              <ArrowRight />
-            </DownloadCta>
-          </div>
-        </Container>
-      </section>
+      {showCta && (
+        <section className="border-t border-border bg-surface-1 py-14 md:py-16">
+          <Container>
+            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+              <div className="max-w-2xl">
+                <h2 className="text-heading text-balance">{t.ctaTitle}</h2>
+                <p className="mt-3 text-pretty text-muted-foreground">{t.ctaBody}</p>
+              </div>
+              <DownloadCta size="xl" className="max-w-full shrink-0" placement="footer_band">
+                <span className="truncate">{t.ctaButton}</span>
+                <ArrowRight />
+              </DownloadCta>
+            </div>
+          </Container>
+        </section>
+      )}
 
-      <footer className="border-t border-border py-12 md:py-16" role="contentinfo">
+      <footer className="border-t border-border py-12 md:py-14" role="contentinfo">
         <Container>
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            <div className="lg:col-span-1">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+            <div>
               <LocalizedLink href={ROUTES.home} className="mb-4 flex w-fit items-center gap-2.5">
                 <Image
-                  src="/logo.png"
+                  src="/brand/logo.png"
                   alt=""
                   width={28}
                   height={28}
@@ -122,7 +121,7 @@ export const FooterSection: React.FC = () => {
                 <li>
                   <NavLink
                     label={t.languages}
-                    href={homeAnchor(SECTIONS.languages)}
+                    href={ROUTES.languages}
                     className={LINK_CLASS}
                     prefetch={false}
                   />

@@ -14,6 +14,7 @@ export interface FaqEntry {
  */
 export const faq = {
   eyebrow: 'FAQ',
+  seeAll: 'See all questions',
   title: 'Frequently asked questions',
   description: 'Everything worth knowing before you install.',
   categories: {
@@ -52,7 +53,7 @@ export const faq = {
     {
       question: 'What platforms are supported?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI supports both Windows and macOS.',
+      answer: 'Power Interview AI runs on Windows today. macOS support is in development.',
     },
     {
       question: 'What languages can I interview in?',
@@ -64,7 +65,7 @@ export const faq = {
       question: 'Do I need special hardware to run Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI runs on most modern Windows and macOS computers without special hardware requirements. A stable internet connection improves streaming performance, but you do not need a dedicated GPU.',
+        'Power Interview AI runs on most modern Windows computers without special hardware. A stable internet connection improves streaming quality.',
     },
     {
       question: 'How accurate is the AI transcription?',
@@ -76,13 +77,13 @@ export const faq = {
       question: 'Can I use this for coding interviews?',
       category: 'product',
       answer:
-        'Absolutely! Power Interview AI includes specialized code suggestion features. It can analyze screenshots of coding problems and provide LLM-powered solutions with proper syntax highlighting. Perfect for technical interviews.',
+        'Yes. Capture up to four screenshots of a coding problem to get a suggested approach and syntax-highlighted code. Use it to practice explaining solutions, and in interviews that allow AI tools.',
     },
     {
-      question: 'What is stealth mode?',
+      question: 'Can I use it during a real interview?',
       category: 'privacy',
       answer:
-        'Stealth mode allows you to operate the assistant discreetly during interviews. You can control everything via hotkeys, adjust window opacity, and position windows strategically-all without losing focus on your interview tab or application. Additionally, the window is not capturable in screenshots and remains invisible during full screen sharing, ensuring complete privacy during your interview.',
+        'Live help can run beside Zoom, Google Meet or Teams, but some employers and assessment platforms do not allow AI assistance. Check the rules for each interview and use it only where it is permitted. The app window is excluded from screen capture by default to protect the personal details it shows.',
     },
     {
       question: 'What does a mock interview cost?',
@@ -100,7 +101,7 @@ export const faq = {
       question: 'What payment methods do you accept?',
       category: 'billing',
       answer:
-        'We accept cryptocurrency coins only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to pay for a monthly, quarterly or annual pass within the application.',
+        'We accept cryptocurrency only. No credit card, PayPal, or traditional bank payments are required. This ensures maximum privacy and security for your transactions. Simply purchase coins and use them to pay for a monthly, quarterly or annual pass within the application.',
     },
     {
       question: 'Is there a free trial?',

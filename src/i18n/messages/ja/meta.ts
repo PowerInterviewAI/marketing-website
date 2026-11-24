@@ -30,13 +30,11 @@ export const meta: Meta = {
       'Google Meet 文字起こし',
       'Microsoft Teams 録画',
       '面接の文字起こし',
-      'ステルスモード',
       'プライバシー重視',
       '暗号資産決済',
       '面接練習ソフト',
       'デスクトップアプリ',
       'Windows',
-      'Mac',
       '面接準備',
       'システム設計面接',
       '面接の自信',
@@ -58,6 +56,12 @@ export const meta: Meta = {
     description:
       '質問を読み上げ、薄い回答に突っ込み、エクスポートできる採点レポートを返す AI 面接官と、声に出して練習できます。',
   },
+  languages: {
+    title: '面接対応言語',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      '{count} 言語で面接を練習できます。そのうち {voices} 言語は AI 面接官が音声で質問します。あなたの言語を確認して、1 時間無料で始めましょう。',
+  },
   pricing: {
     title: '料金',
     description:
@@ -66,7 +70,7 @@ export const meta: Meta = {
   faq: {
     title: 'よくある質問',
     description:
-      'Power Interview AI のしくみ：対応プラットフォーム、ステルスモードと画面共有、プライバシーとローカルデータ、模擬面接、支払いとサブスクリプション。',
+      'Power Interview AI のしくみ：対応プラットフォーム、言語、プライバシーとローカルデータ、模擬面接、請求とサブスクリプションについて回答します。',
   },
   team: {
     title: 'チーム',
@@ -83,7 +87,6 @@ export const meta: Meta = {
       '模擬面接：すべての回答を採点し、より良い回答を提示。DOCX または Markdown でエクスポート',
       'ライブ面接：話者識別付きの 2 チャンネル文字起こし',
       'ライブ面接：履歴書と求人票にもとづく AI の回答提案',
-      'ライブ面接：ショートカットで操作するステルスモード。画面共有にもスクリーンショットにも映らない',
       'ライブ面接：技術面接向けの、スクリーンショットによる任意のコーディング支援',
       'ソフトウェアエンジニアに限らずどんな職種にも対応 - 質問も採点も貼り付けた求人票から作成',
       'Zoom・Google Meet・Microsoft Teams 向けの AI 議事録。AI による要約とアクションアイテム',

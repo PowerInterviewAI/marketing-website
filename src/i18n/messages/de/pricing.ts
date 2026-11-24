@@ -6,27 +6,7 @@ export const pricing: Pricing = {
   description:
     'Starte mit einer Gratisstunde mit dem Gratis-Modell. Wenn du mehr willst, abonniere unbegrenzte Live- und Probeinterviews mit dem SOTA-Modell - {monthly} im Monat oder {yearly} im Monat bei jährlicher Zahlung.',
   monthNoun: { one: 'Monat', other: 'Monate' },
-  trialBadge: 'Neue Konten: 1 Stunde gratis',
   coinsBadge: 'Nur Krypto - keine Karte, kein PayPal, keine Bankdaten',
-  prepaidBadge: 'Im Voraus bezahlt - verlängert sich nie von selbst',
-
-  tier: {
-    caption: 'Der Gratis-Tarif im Vergleich zum Abonnement',
-    whatYouGet: 'Was du bekommst',
-    trial: 'Gratis',
-    paid: 'Abonnement',
-    included: 'Enthalten',
-    duration: {
-      label: 'Interviewzeit',
-      trial: '1 Stunde, einmalig',
-      paid: 'Unbegrenzt',
-    },
-    model: { label: 'Verwendetes Modell', trial: 'Gratis-Modell', paid: 'SOTA-Modell' },
-    live: 'Live-Vorschläge',
-    triggered: 'Vorschläge auf Abruf',
-    mock: 'Probeinterviews mit bewertetem Bericht',
-    rateLimit: { label: 'Ratenlimit', trial: 'Praktisch keins', paid: 'Praktisch keins' },
-  },
 
   billing: {
     title: 'So funktioniert die Abrechnung',
@@ -39,12 +19,13 @@ export const pricing: Pricing = {
   },
 
   plans: {
-    free: 'Alles, was die App kann, mit dem Gratis-Modell, für deine erste Stunde',
-    monthly: 'Unbegrenzte Interviews mit dem SOTA-Modell, jeweils für einen Monat',
-    quarterly: 'Unbegrenzte Interviews mit dem SOTA-Modell für drei Monate',
-    yearly: 'Unbegrenzte Interviews mit dem SOTA-Modell für ein ganzes Jahr',
+    free: 'Alle Funktionen testen',
+    monthly: 'Für ein anstehendes Interview',
+    quarterly: 'Für eine aktive Jobsuche',
+    yearly: 'Für eine längere Jobsuche',
   },
-  popular: 'Am beliebtesten',
+  included: { every: 'In jedem Plan enthalten', paid: 'Mit jedem bezahlten Plan' },
+  popular: 'Empfohlen',
   save: '{percent} % sparen',
   planNames: {
     free: 'Gratis',

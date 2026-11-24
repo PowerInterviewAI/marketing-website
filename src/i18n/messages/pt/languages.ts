@@ -5,7 +5,7 @@ export const languages: Languages = {
   title: 'Entrevistas em {count} {noun}',
   titleNoun: { one: 'idioma', other: 'idiomas' },
   description:
-    'Transcrição, sugestões ao vivo, perguntas simuladas, avaliação e o relatório exportado seguem uma única configuração, que muda no meio da entrevista e não só antes de começar. Todos os {count} são transcritos e respondidos; em {voices} deles o entrevistador simulado também fala em voz alta.',
+    'Pratique, receba sua nota e exporte o relatório no idioma da entrevista. O entrevistador de IA fala em voz alta {voices} dos {count} idiomas.',
   spokenBadge: '{voices} falados pelo entrevistador',
   writtenBadge: '{written} com perguntas escritas',
   spokenAria: 'As perguntas simuladas são faladas em voz alta',

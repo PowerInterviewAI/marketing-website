@@ -31,13 +31,11 @@ export const meta: Meta = {
       'transcrição do Google Meet',
       'gravação do Microsoft Teams',
       'transcrição de entrevista',
-      'modo furtivo',
       'privacidade',
       'pagamento com criptomoedas',
       'software de preparação para entrevistas',
       'app de desktop',
       'Windows',
-      'Mac',
       'preparação para entrevistas',
       'entrevista de design de sistemas',
       'confiança na entrevista',
@@ -59,6 +57,12 @@ export const meta: Meta = {
     description:
       'Treine em voz alta com um entrevistador de IA que faz as perguntas, insiste nas respostas rasas e devolve um relatório com nota que você pode exportar.',
   },
+  languages: {
+    title: 'Idiomas de entrevista',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Pratique entrevistas em {count} idiomas, {voices} deles falados em voz alta pelo entrevistador de IA. Confira o seu e comece com uma hora grátis.',
+  },
   pricing: {
     title: 'Preços',
     description:
@@ -67,7 +71,7 @@ export const meta: Meta = {
   faq: {
     title: 'Perguntas frequentes',
     description:
-      'Respostas sobre o Power Interview AI: plataformas, modo furtivo, compartilhamento de tela, privacidade e dados locais, entrevistas simuladas e assinaturas.',
+      'Respostas sobre o Power Interview AI: plataformas, idiomas, privacidade e dados locais, entrevistas simuladas, cobrança e assinaturas.',
   },
   team: {
     title: 'Equipe',
@@ -84,7 +88,6 @@ export const meta: Meta = {
       'Entrevista simulada: cada resposta avaliada, com uma versão mais forte e exportação em DOCX ou Markdown',
       'Entrevista ao vivo: transcrição em dois canais com detecção de quem fala',
       'Entrevista ao vivo: sugestões de resposta com IA baseadas no seu currículo e na descrição da vaga',
-      'Entrevista ao vivo: modo furtivo com atalhos, escondido no compartilhamento de tela e em capturas',
       'Entrevista ao vivo: ajuda opcional com código a partir de capturas para etapas técnicas',
       'Serve para qualquer cargo, não só engenharia de software: perguntas e avaliação vêm da descrição da vaga que você cola',
       'Anotações com IA para Zoom, Google Meet e Microsoft Teams, com resumos e itens de ação gerados por IA',

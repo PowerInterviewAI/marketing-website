@@ -5,6 +5,7 @@ export const chrome: Chrome = {
   nav: {
     home: 'Accueil',
     howItWorks: 'Fonctionnement',
+    languages: 'Langues',
     pricing: 'Tarifs',
     faq: 'FAQ',
     team: 'Équipe',
@@ -31,10 +32,10 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: 'Votre prochain entretien est celui à réussir',
-    ctaBody: 'Une heure offerte, utilisable sur un vrai appel. Windows et macOS.',
+    ctaBody: 'Commencez avec une heure offerte sur Windows. Sans carte bancaire.',
     ctaButton: 'Télécharger Power Interview AI',
     tagline:
-      'Votre coach d’entretien personnel propulsé par l’IA. La confidentialité d’abord, et invisible pendant l’appel.',
+      'Entraînez-vous aux entretiens à voix haute dans votre langue, en toute confidentialité.',
     product: 'Produit',
     resources: 'Ressources',
     legal: 'Mentions légales',

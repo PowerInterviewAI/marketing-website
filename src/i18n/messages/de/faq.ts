@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: 'FAQ',
+  seeAll: 'Alle Fragen ansehen',
   title: 'Häufig gestellte Fragen',
   description: 'Alles Wichtige vor der Installation.',
   categories: {
@@ -40,7 +41,8 @@ export const faq: Faq = {
     {
       question: 'Welche Plattformen werden unterstützt?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI unterstützt Windows und macOS.',
+      answer:
+        'Power Interview AI läuft derzeit unter Windows. Die macOS-Unterstützung ist in Entwicklung.',
     },
     {
       question: 'In welchen Sprachen kann ich Interviews führen?',
@@ -52,7 +54,7 @@ export const faq: Faq = {
       question: 'Brauche ich spezielle Hardware für Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI läuft auf den meisten modernen Windows- und macOS-Rechnern ohne besondere Hardwareanforderungen. Eine stabile Internetverbindung verbessert das Streaming, eine eigene Grafikkarte brauchst du aber nicht.',
+        'Power Interview AI läuft auf den meisten modernen Windows-Computern ohne besondere Hardware. Eine stabile Internetverbindung verbessert die Streaming-Qualität.',
     },
     {
       question: 'Wie genau ist die KI-Transkription?',
@@ -64,13 +66,13 @@ export const faq: Faq = {
       question: 'Kann ich das für Programmierinterviews nutzen?',
       category: 'product',
       answer:
-        'Auf jeden Fall! Power Interview AI enthält spezielle Funktionen für Code-Vorschläge. Es kann Screenshots von Programmieraufgaben analysieren und LLM-gestützte Lösungen mit sauberer Syntaxhervorhebung liefern. Ideal für technische Interviews.',
+        'Ja. Erfasse bis zu vier Screenshots einer Coding-Aufgabe und erhalte einen Lösungsansatz mit hervorgehobenem Code. Nutze es, um das Erklären von Lösungen zu üben, und in Interviews, die KI-Tools erlauben.',
     },
     {
-      question: 'Was ist der Tarnmodus?',
+      question: 'Kann ich es in einem echten Interview nutzen?',
       category: 'privacy',
       answer:
-        'Mit dem Tarnmodus bedienst du den Assistenten während eines Interviews diskret. Alles lässt sich per Tastenkürzel steuern, die Deckkraft des Fensters anpassen und Fenster gezielt platzieren - ohne den Fokus von deinem Interview-Tab oder deiner Anwendung zu nehmen. Außerdem ist das Fenster auf Screenshots nicht sichtbar und bleibt bei Vollbildfreigabe unsichtbar, für vollständige Privatsphäre im Interview.',
+        'Die Live-Hilfe kann neben Zoom, Google Meet oder Teams laufen, aber manche Arbeitgeber und Testplattformen erlauben keine KI-Unterstützung. Prüfe die Regeln jedes Interviews und nutze sie nur, wo sie zulässig ist. Das App-Fenster ist standardmäßig von Bildschirmaufnahmen ausgeschlossen, um die angezeigten persönlichen Daten zu schützen.',
     },
     {
       question: 'Was kostet ein Probeinterview?',

@@ -1,26 +1,17 @@
 import type { Hero } from '../en/hero';
 
 export const hero: Hero = {
-  badge: '모의 면접 + 실시간 면접, 1시간 무료',
-  titleLead: '면접을 미리 연습하고,',
-  titleAccent: '실전은 실시간 도움을 받으며',
-  mockLabel: '모의 면접:',
-  mockText: 'AI 면접관이 소리 내어 질문하고, 약한 답변은 파고들며, 모든 답변에 점수를 매깁니다.',
-  liveLabel: '실시간 면접:',
-  liveText:
-    '같은 앱이 실제 Zoom, Meet, Teams 통화에서 화면 공유에 보이지 않게 실행되며, 무엇을 말할지 제안합니다.',
-  rolePre: '두 기능 모두 이력서와 채용 공고를 바탕으로 하므로',
-  roleStrong: '어떤 직무에도',
-  rolePost: '맞습니다 - 영업, 금융, 간호, 교육, 엔지니어링 등 소프트웨어만이 아닙니다.',
-  ctaMock: '모의 면접으로 시작하기',
-  ctaLive: '실시간 면접 기능 보기',
-  freeNote:
-    '무료 1시간으로 연습과 실시간 도움을 모두 쓸 수 있습니다. 결제는 암호화폐로만, 신용카드 불필요.',
+  title: '면접은 연습으로 준비하고, 실전은 도움을 받으세요.',
+  subtitle:
+    '모든 답변을 채점하는 AI 면접관과 소리 내어 연습하고, 실제 통화에서는 Zoom, Meet, Teams 옆에 실시간 자막과 답변 포인트를 띄우세요. 모든 직무, 내 언어로.',
+  free: '1시간 무료',
+  noCard: '신용카드 불필요',
 
   trust: {
     platformsLabel: '플랫폼',
     platforms: '지금은 Windows, macOS는 곧 지원',
     languagesLabel: '면접 언어',
+    voices: '음성 지원 {voices}개 언어',
     rolesLabel: '직무',
     roles: 'IT뿐 아니라 모든 직무',
     privacyLabel: '개인정보',
@@ -38,39 +29,64 @@ export const hero: Hero = {
     windows: 'Windows',
     macosSoon: 'macOS (곧 지원)',
     macosSoonTitle: '개발 중',
+    free: '무료 다운로드',
+    stickyNote: '1시간 무료',
+    mobileNote: 'Power Interview AI는 Windows PC에서 실행됩니다.',
+    shareLink: 'PC로 링크 보내기',
+    copyLink: 'PC용 링크 복사',
+    linkCopied: '링크 복사됨',
+    shareText: 'PC에 Power Interview AI 다운로드',
   },
 
   surface: {
-    play: '데모 재생',
-    pause: '데모 일시정지',
-    previous: '이전 데모',
-    next: '다음 데모',
-    clips: '데모 영상',
+    preview: '면접 미리보기',
+    mock: '모의 면접',
+    live: '실시간 도움',
+    sample: '샘플',
+    question: '질문 {n}/{total}',
+    interviewer: '면접관',
+    you: '나',
+    score: '점수',
+    strength: '강점',
+    gap: '개선점',
+    suggestion: '제안',
+    language: '면접 언어',
+    yours: '브라우저 언어',
+    pauseLanguages: '언어 미리보기 일시정지',
+    playLanguages: '언어 미리보기 재생',
+    allLanguages: '전체 {count}개 언어',
   },
-  demos: [
-    {
-      title: '실시간 면접 어시스턴트 & 스마트 내보내기',
-      description: '통화 중에는 즉시 제안하고, 끝나면 요약과 인사이트를 스마트하게 내보냅니다',
+
+  demo: {
+    watch: '데모 보기',
+    title: '제품 데모',
+    close: '데모 닫기',
+    sample: '실제 앱에서 준비된 데이터로 녹화한 샘플 세션입니다.',
+    clips: {
+      mock: {
+        title: '스페인어 모의 면접',
+        description: 'AI 면접관이 질문하고 소리 내어 답하면 말이 화면에 표시됩니다.',
+      },
+      report: {
+        title: '점수 보고서',
+        description: '점수, 부족한 점, 각 답변의 개선안을 확인하세요.',
+      },
+      live: {
+        title: '일본어 실시간 도움',
+        description: '대화 옆에 내 언어로 짧은 요점을 보여 줍니다.',
+      },
+      coding: {
+        title: '코딩 풀이',
+        description: '코딩 문제를 접근법, 코드, 복잡도로 정리합니다.',
+      },
     },
-    {
-      title: '코딩 과제 - 그래프 탐색',
-      description: '화면에서 문제를 캡처하고 스텔스 오버레이에서 풀이를 읽습니다',
-    },
-    {
-      title: '코딩 과제 - 연결 요소',
-      description: '여러 장의 스크린샷으로 AI에게 문제 전체, 제약 조건, 함수 시그니처를 전달합니다',
-    },
-    {
-      title: '코딩 과제 - 이진 트리 재귀',
-      description: '단축키만으로 코드를 스크롤 - 화면 공유에 보이지 않고 포커스도 빼앗지 않습니다',
-    },
-  ],
+  },
 
   install: {
     eyebrow: '설치',
-    title: '시작하는 세 가지 방법',
-    description:
-      '작업 방식에 맞는 방법을 고르세요. 한 줄 명령어가 최신 릴리스를 내려받아 설치 프로그램을 실행해 줍니다.',
+    title: '무료 1시간 시작하기',
+    description: '앱을 다운로드하고 이력서를 추가한 뒤 오늘 밤 첫 모의 면접을 시작하세요.',
+    more: '다른 설치 방법',
     tabCli: '명령줄',
     tabInstaller: '설치 프로그램',
     tabSource: '소스에서',

@@ -38,13 +38,11 @@ export const meta = {
       'Microsoft Teams recording',
       'smart export',
       'interview transcription',
-      'stealth mode',
       'privacy-first',
       'cryptocurrency payment',
       'interview practice software',
       'desktop application',
       'Windows',
-      'Mac',
       'interview companion',
       'interview preparation',
       'FAANG interview prep',
@@ -70,15 +68,21 @@ export const meta = {
     description:
       'Practice out loud against an AI interviewer that speaks its questions, presses on thin answers and returns a scored report you can export.',
   },
+  languages: {
+    title: 'Interview Languages',
+    /** `{count}` and `{voices}` are derived from src/config/languages.ts. */
+    description:
+      'Practice and sit interviews in {count} languages, with {voices} spoken aloud by the AI mock interviewer. Check yours and start with one free hour.',
+  },
   pricing: {
     title: 'Pricing',
     description:
-      'Power Interview AI pricing: one free hour, then unlimited interviews for $25 a month, $60 a quarter or $180 a year. Prepaid in coins, never auto-renewed.',
+      'Power Interview AI pricing: one free hour, then unlimited interviews for $25 a month, $60 a quarter or $180 a year. Prepaid in crypto, never auto-renewed.',
   },
   faq: {
     title: 'FAQ',
     description:
-      'Answers on how Power Interview AI works: platform support, stealth mode and screen share, privacy and local data, mock interviews, billing and subscriptions.',
+      'Answers on how Power Interview AI works: platform support, languages, privacy and local data, mock interviews, billing and subscriptions.',
   },
   team: {
     title: 'Team',
@@ -96,7 +100,6 @@ export const meta = {
       'Mock interview: every answer scored, with a stronger version written back and exported as DOCX or Markdown',
       'Live interview: dual-channel transcription with speaker detection',
       'Live interview: AI reply suggestions grounded in your CV and the job description',
-      'Live interview: stealth mode with hotkeys, hidden from screen share and screenshots',
       'Live interview: optional screenshot-based coding assistance for technical rounds',
       'Works for any role, not just software engineering - questions and scoring come from the job description you paste in',
       'AI meeting note taker for Zoom, Google Meet and Microsoft Teams, with AI summaries and action items',

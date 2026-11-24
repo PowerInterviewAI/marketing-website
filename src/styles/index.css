@@ -24,71 +24,74 @@
  */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 6%;
+    /* Ported from client-app/src/renderer/index.css so the site and the app
+       read as one product. Tailwind's opacity modifiers need bare HSL triples,
+       so the app's oklch values are converted rather than referenced. */
+    --background: 240 10% 97%;
+    --foreground: 240 6% 10%;
 
     /* Elevation ramp, lightest (page) to heaviest (popovers, raised cards) */
-    --surface-1: 240 5% 98%;
-    --surface-2: 240 5% 96%;
-    --surface-3: 240 5% 92%;
+    --surface-1: 240 8% 98.5%;
+    --surface-2: 240 4% 95.8%;
+    --surface-3: 240 6% 93.2%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 6%;
+    --card-foreground: 240 6% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 6%;
+    --popover-foreground: 240 6% 10%;
 
-    --primary: 28 96% 36%;
-    --primary-foreground: 30 40% 99%;
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 8% 12%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 40%;
-    --accent: 240 5% 95%;
-    --accent-foreground: 240 8% 12%;
+    --primary: 28 95% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 95.8%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 4% 95.8%;
+    --muted-foreground: 240 5% 35.8%;
+    --accent: 240 6% 93.2%;
+    --accent-foreground: 240 6% 10%;
 
     --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
-    --success: 152 60% 32%;
+    --success: 152 60% 29%;
     --success-foreground: 0 0% 100%;
     --warning: 38 92% 42%;
     --warning-foreground: 0 0% 100%;
     --info: 206 80% 42%;
     --info-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --border-subtle: 240 5% 94%;
-    --border-strong: 240 5% 80%;
-    --input: 240 6% 90%;
-    --ring: 28 96% 36%;
+    --border: 240 6% 87.6%;
+    --border-subtle: 240 6% 91%;
+    --border-strong: 240 5% 78%;
+    --input: 240 5% 82.6%;
+    --ring: 28 95% 36%;
 
-    /* Hue used for ambient radial glows behind hero / CTA surfaces */
+    /* Hue used for the few ambient washes behind product surfaces */
     --glow: 28 96% 56%;
 
-    --radius: 0.75rem;
-    --radius-lg: 1rem;
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
   }
 
   .dark {
-    --background: 240 6% 5%;
-    --foreground: 240 5% 96%;
+    --background: 240 9% 4.2%;
+    --foreground: 240 7% 95.6%;
 
-    --surface-1: 240 5% 7%;
-    --surface-2: 240 5% 10%;
-    --surface-3: 240 5% 14%;
+    --surface-1: 240 6% 6%;
+    --surface-2: 240 6% 7.5%;
+    --surface-3: 240 6% 9.5%;
 
-    --card: 240 5% 7%;
-    --card-foreground: 240 5% 96%;
-    --popover: 240 5% 10%;
-    --popover-foreground: 240 5% 96%;
+    --card: 240 6% 7.5%;
+    --card-foreground: 240 7% 95.6%;
+    --popover: 240 6% 9.5%;
+    --popover-foreground: 240 7% 95.6%;
 
-    --primary: 30 96% 58%;
-    --primary-foreground: 24 40% 8%;
-    --secondary: 240 4% 13%;
-    --secondary-foreground: 240 5% 96%;
-    --muted: 240 4% 12%;
+    --primary: 31 95% 58%;
+    --primary-foreground: 27 48% 6.4%;
+    --secondary: 240 5% 12.3%;
+    --secondary-foreground: 240 7% 95.6%;
+    --muted: 240 5% 12.3%;
     --muted-foreground: 240 5% 65%;
-    --accent: 240 4% 15%;
-    --accent-foreground: 240 5% 96%;
+    --accent: 240 5% 14.2%;
+    --accent-foreground: 240 7% 95.6%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 24 40% 8%;
@@ -99,13 +102,13 @@
     --info: 206 85% 62%;
     --info-foreground: 24 40% 8%;
 
-    --border: 240 4% 15%;
-    --border-subtle: 240 4% 11%;
-    --border-strong: 240 4% 25%;
-    --input: 240 4% 15%;
-    --ring: 30 96% 58%;
+    --border: 240 4% 13.5%;
+    --border-subtle: 240 4% 10.5%;
+    --border-strong: 240 4% 23%;
+    --input: 240 4% 16%;
+    --ring: 31 95% 58%;
 
-    --glow: 30 96% 55%;
+    --glow: 31 95% 55%;
   }
 }
 
@@ -190,19 +193,38 @@
    * single centred blob.
    */
   .glow-surface {
-    background-image:
-      radial-gradient(60% 50% at 50% 0%, hsl(var(--glow) / 0.16) 0%, transparent 70%),
-      radial-gradient(40% 40% at 85% 20%, hsl(var(--glow) / 0.08) 0%, transparent 70%);
+    background-image: radial-gradient(
+      55% 60% at 75% 10%,
+      hsl(var(--glow) / 0.09) 0%,
+      transparent 70%
+    );
   }
 
-  /* Faint grid, masked to fade out toward the edges */
-  .grid-surface {
-    background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(70% 60% at 50% 30%, black 0%, transparent 100%);
-    -webkit-mask-image: radial-gradient(70% 60% at 50% 30%, black 0%, transparent 100%);
+  /* Headline scale. clamp() rather than breakpoints so long German, French and
+     Russian headlines shrink continuously instead of overflowing at one width. */
+  .text-display {
+    font-size: clamp(2.25rem, 1.55rem + 3.1vw, 4rem);
+    font-weight: 650;
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+  }
+
+  .text-heading {
+    font-size: clamp(1.875rem, 1.5rem + 1.6vw, 3rem);
+    font-weight: 650;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+  }
+
+  /* Latin negative tracking collides glyphs in these scripts. */
+  :lang(ja) .text-display,
+  :lang(ko) .text-display,
+  :lang(zh) .text-display,
+  :lang(ja) .text-heading,
+  :lang(ko) .text-heading,
+  :lang(zh) .text-heading {
+    letter-spacing: 0;
+    line-height: 1.2;
   }
 }
 
@@ -333,4 +355,14 @@
 
 .markdown-body li + li {
   margin-top: 0.25em;
+}
+
+/* The role slide show's progress bar (RolePicker); the duration is set inline. */
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }

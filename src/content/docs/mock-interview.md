@@ -40,7 +40,11 @@ The role is deliberately not asked for. Your account's job context already names
 
 ---
 
+![Mock interview setup dialog](/media/docs/mock/setup.png)
+
 ## How a Session Runs
+
+![A sample mock interview waiting for the candidate to finish answering](/media/docs/mock/session.png)
 
 Every question follows the same loop:
 
@@ -67,6 +71,8 @@ Stealth mode is not available during a mock interview - it exists to hide the as
 ---
 
 ## The Report
+
+![Sample report with an overall score, strengths, gaps, and per-question feedback](/media/docs/mock/report.png)
 
 When the closing question is answered, the session is scored as a whole and the report replaces the interview screen.
 
@@ -123,10 +129,6 @@ If you would rather rehearse without spending your free hour, a general-purpose 
 
 1. **Enter ChatGPT voice mode**
 
-| Enter Voice Mode                                                | Voice Mode is Ready                                                    |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Opening ChatGPT voice mode](/media/docs/mock-interview-1.png) | ![ChatGPT voice mode ready to start](/media/docs/mock-interview-2.png) |
-
 2. **Submit the following prompt**:
 
 ```
@@ -143,10 +145,6 @@ Be professional, conversational, and ask insightful follow-up questions.
 Begin the interview by asking your first question.
 ```
 
-![Submitting the interviewer prompt in ChatGPT voice mode](/media/docs/mock-interview-3.png)
-
 3. It begins the interview simulation in voice mode.
-
-![The voice-mode interview simulation under way](/media/docs/mock-interview-4.png)
 
 Customise the prompt for the role or the skills you want to drill.

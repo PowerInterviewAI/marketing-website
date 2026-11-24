@@ -2,6 +2,7 @@ import type { Faq } from '../en/faq';
 
 export const faq: Faq = {
   eyebrow: '자주 묻는 질문',
+  seeAll: '모든 질문 보기',
   title: '자주 묻는 질문',
   description: '설치하기 전에 알아 두면 좋은 모든 것.',
   categories: {
@@ -40,7 +41,7 @@ export const faq: Faq = {
     {
       question: '어떤 플랫폼을 지원하나요?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI는 Windows와 macOS를 모두 지원합니다.',
+      answer: 'Power Interview AI는 현재 Windows에서 실행됩니다. macOS 지원은 개발 중입니다.',
     },
     {
       question: '어떤 언어로 면접을 볼 수 있나요?',
@@ -52,7 +53,7 @@ export const faq: Faq = {
       question: 'Power Interview AI를 쓰려면 특별한 하드웨어가 필요한가요?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI는 특별한 하드웨어 요구 사항 없이 대부분의 최신 Windows, macOS 컴퓨터에서 실행됩니다. 안정적인 인터넷 연결이 있으면 스트리밍이 더 원활하지만, 별도의 GPU는 필요 없습니다.',
+        'Power Interview AI는 특별한 하드웨어 없이 대부분의 최신 Windows 컴퓨터에서 실행됩니다. 안정적인 인터넷 연결은 스트리밍 품질을 높여 줍니다.',
     },
     {
       question: 'AI 전사는 얼마나 정확한가요?',
@@ -64,13 +65,13 @@ export const faq: Faq = {
       question: '코딩 면접에도 쓸 수 있나요?',
       category: 'product',
       answer:
-        '물론입니다! Power Interview AI에는 코드 제안 전용 기능이 있습니다. 코딩 문제의 스크린샷을 분석해 LLM이 만든 풀이를 구문 강조와 함께 보여 줍니다. 기술 면접에 딱 맞습니다.',
+        '네. 코딩 문제의 스크린샷을 최대 4장 캡처하면 접근법 제안과 구문 강조 코드를 받을 수 있습니다. 풀이를 설명하는 연습과 AI 도구가 허용된 면접에 사용하세요.',
     },
     {
-      question: '스텔스 모드란 무엇인가요?',
+      question: '실제 면접에서 사용할 수 있나요?',
       category: 'privacy',
       answer:
-        '스텔스 모드를 쓰면 면접 중에 어시스턴트를 티 나지 않게 사용할 수 있습니다. 모든 것을 단축키로 조작하고, 창 투명도를 조절하고, 창을 전략적으로 배치할 수 있습니다 - 면접 탭이나 앱에서 포커스를 잃지 않고요. 게다가 창은 스크린샷에 찍히지 않고 전체 화면 공유에서도 보이지 않아, 면접 중 개인정보를 완벽히 지킬 수 있습니다.',
+        '실시간 도움은 Zoom, Google Meet, Teams 옆에서 실행할 수 있지만 일부 기업과 평가 플랫폼은 AI 지원을 허용하지 않습니다. 면접마다 규칙을 확인하고 허용된 경우에만 사용하세요. 앱 창은 표시되는 개인정보를 보호하기 위해 기본적으로 화면 캡처에서 제외됩니다.',
     },
     {
       question: '모의 면접 비용은 얼마인가요?',

@@ -87,10 +87,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         {eyebrow}
       </span>
     )}
-    <Heading
-      id={id}
-      className="text-balance text-3xl font-semibold sm:text-4xl md:text-[2.75rem] md:leading-[1.1]"
-    >
+    <Heading id={id} className="text-heading text-balance">
       {title}
     </Heading>
     {description && (

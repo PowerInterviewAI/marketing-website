@@ -63,10 +63,11 @@ const Reveal: React.FC<RevealProps> = ({
   return (
     <Component
       ref={ref}
+      data-reveal=""
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={cn(
-        'ease-[cubic-bezier(0.16,1,0.3,1)] transition-[opacity,transform] duration-700 motion-reduce:transition-none',
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0',
+        'ease-[cubic-bezier(0.16,1,0.3,1)] transition-[opacity,transform] duration-500 motion-reduce:transition-none',
+        visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0',
         className
       )}
       {...props}
