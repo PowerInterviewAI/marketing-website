@@ -586,19 +586,6 @@
   }
 }
 
-/* Floaters bob on `translate`, leaving their inline `rotate` alone. */
-.backdrop-floater {
-  position: absolute;
-  opacity: 0.75;
-  animation: floater-bob var(--float-d, 10s) ease-in-out infinite;
-}
-
-@keyframes floater-bob {
-  50% {
-    translate: 0 var(--float-y, -12px);
-  }
-}
-
 .backdrop-fade-bottom {
   mask-image: radial-gradient(ellipse 80% 70% at 50% 100%, #000 30%, transparent 100%);
 }
