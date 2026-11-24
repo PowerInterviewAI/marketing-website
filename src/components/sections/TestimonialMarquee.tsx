@@ -39,7 +39,7 @@ const Row: React.FC<{ cards: React.ReactNode[]; indices: number[]; reverse?: boo
         className="flex shrink-0 items-stretch gap-3 pe-3"
       >
         {indices.map((cardIndex) => (
-          <li key={cardIndex} className="w-60 shrink-0">
+          <li key={cardIndex} className="w-40 shrink-0">
             {cards[cardIndex]}
           </li>
         ))}

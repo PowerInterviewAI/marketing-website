@@ -48,6 +48,8 @@ const TestimonialCard: React.FC<{
   return (
     <figure className="surface-card flex h-full flex-col overflow-hidden rounded-xl">
       {testimonial.avatar && (
+        // Photos are 700x900 portraits. A 4:3 box keeps the card short; the
+        // full width shows unzoomed and the crop keeps the head and shoulders.
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
           <img
             src={testimonial.avatar}
@@ -56,12 +58,12 @@ const TestimonialCard: React.FC<{
             height={900}
             loading="lazy"
             decoding="async"
-            className="size-full origin-[50%_30%] scale-[1.4] object-cover object-[center_30%]"
+            className="size-full object-cover object-[center_20%]"
           />
         </div>
       )}
 
-      <div className="flex flex-1 flex-col gap-2 p-3">
+      <div className="flex flex-1 flex-col gap-1.5 p-2.5">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           {testimonial.rating !== undefined && (
             <StarRating
@@ -87,18 +89,18 @@ const TestimonialCard: React.FC<{
         <blockquote
           lang={testimonial.lang}
           dir={dir}
-          className="flex-1 text-xs leading-relaxed text-foreground"
+          className="flex-1 text-[11px] leading-snug text-foreground"
         >
           {testimonial.quote}
         </blockquote>
       </div>
 
-      <figcaption className="mx-3 mb-3 flex items-center gap-2 border-t border-border pt-2">
+      <figcaption className="mx-2.5 mb-2.5 flex items-center gap-2 border-t border-border pt-1.5">
         <span className="min-w-0" lang={testimonial.lang} dir={dir}>
-          <span className="block truncate text-xs font-medium text-foreground">
+          <span className="block truncate text-[11px] font-medium text-foreground">
             {testimonial.name}
           </span>
-          <span className="block truncate text-[11px] text-muted-foreground">
+          <span className="block truncate text-[10px] text-muted-foreground">
             {testimonial.role}
           </span>
         </span>
