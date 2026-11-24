@@ -30,45 +30,47 @@ const FADE_CLASS = {
 
 type Vars = React.CSSProperties & Record<`--${string}`, string>;
 
-// Fixed tables rather than Math.random(): the server and the client must
-// render the same markup, and a fixed layout can be tuned by eye.
-const BEAMS: { axis: 'h' | 'v'; at: string; duration: number; delay: number }[] = [
-  { axis: 'h', at: '18%', duration: 9, delay: 0 },
-  { axis: 'h', at: '46%', duration: 12, delay: 4 },
-  { axis: 'h', at: '78%', duration: 10, delay: 7 },
-  { axis: 'v', at: '14%', duration: 11, delay: 2 },
-  { axis: 'v', at: '63%', duration: 13, delay: 6 },
-  { axis: 'v', at: '88%', duration: 9, delay: 9 },
-];
+/**
+ * Deterministic 0..1 noise from an index: the same layout on every render
+ * (Math.random() would differ between server and client), dense enough that
+ * nobody tunes forty entries by hand, and stable when the counts change.
+ */
+const noise = (i: number, salt: number) => {
+  const x = Math.sin(i * 12.9898 + salt * 78.233) * 43758.5453;
+  return x - Math.floor(x);
+};
+const between = (i: number, salt: number, min: number, max: number) =>
+  min + noise(i, salt) * (max - min);
 
-const EMBERS = [
-  [4, 3, 14, 0, 0.7],
-  [11, 2, 18, 5, 0.5],
-  [19, 4, 16, 9, 0.6],
-  [27, 2, 21, 2, 0.45],
-  [36, 3, 17, 12, 0.6],
-  [44, 2, 23, 7, 0.4],
-  [52, 3, 15, 3, 0.65],
-  [61, 2, 19, 10, 0.5],
-  [69, 4, 22, 6, 0.55],
-  [77, 2, 16, 14, 0.45],
-  [85, 3, 20, 1, 0.6],
-  [93, 2, 18, 8, 0.5],
-].map(([left, size, duration, delay, opacity]) => ({ left, size, duration, delay, opacity }));
+const BEAM_COUNT = { h: 9, v: 7 } as const;
+const BEAMS = (['h', 'v'] as const).flatMap((axis) =>
+  Array.from({ length: BEAM_COUNT[axis] }, (_, i) => ({
+    axis,
+    // Spread evenly across the section, nudged off the even spacing.
+    at: `${((i + 0.5) / BEAM_COUNT[axis]) * 100 + between(i, axis === 'h' ? 1 : 2, -3, 3)}%`,
+    duration: between(i, axis === 'h' ? 3 : 4, 6, 12),
+    delay: between(i, axis === 'h' ? 5 : 6, 0, 10),
+  }))
+);
 
-const GLYPHS = [
-  ['あ', 6, 30, 0],
-  ['한', 15, 26, 9],
-  ['ع', 24, 34, 4],
-  ['Ж', 33, 28, 14],
-  ['ह', 42, 32, 2],
-  ['中', 51, 27, 11],
-  ['é', 60, 31, 6],
-  ['ß', 68, 29, 16],
-  ['ত', 76, 33, 1],
-  ['Ω', 84, 26, 8],
-  ['ñ', 92, 30, 13],
-] as const;
+const EMBER_COUNT = 36;
+const EMBERS = Array.from({ length: EMBER_COUNT }, (_, i) => ({
+  left: ((i + noise(i, 7)) / EMBER_COUNT) * 100,
+  size: Math.round(between(i, 8, 2, 4.6)),
+  duration: between(i, 9, 11, 22),
+  delay: between(i, 10, 0, 22),
+  opacity: between(i, 11, 0.35, 0.75),
+}));
+
+// A dozen-plus scripts the interviewer actually runs in.
+const GLYPH_SET = 'あ한عЖह中éßতΩñאกქΣ語ыç文ಕşΔ'.split('');
+const GLYPHS = GLYPH_SET.map((glyph, i) => ({
+  glyph,
+  left: ((i + noise(i, 12)) / GLYPH_SET.length) * 100,
+  size: Math.round(between(i, 13, 26, 52)),
+  duration: between(i, 14, 20, 34),
+  delay: between(i, 15, 0, 34),
+}));
 
 /** A tiny live-audio waveform; bars reuse the `call-level` keyframe. */
 const Waveform: React.FC = () => (
@@ -106,31 +108,61 @@ const ScoreRing: React.FC = () => (
  * No words in the floaters - they are on every locale's hero and are not
  * translated. Numbers, endonyms and a waveform read the same everywhere.
  */
+const chip = (text: string) => <span className="text-sm font-semibold">{text}</span>;
+const pill = 'rounded-full px-4 py-2';
+
 const FLOATERS: { style: Vars; content: React.ReactNode; className?: string }[] = [
+  // Left margin
   {
-    style: { left: '1%', top: '14%', '--float-d': '9s', '--float-y': '-14px' },
+    style: { left: '1%', top: '8%', '--float-d': '9s', '--float-y': '-14px' },
     content: <Waveform />,
     className: 'rounded-full px-4 py-3',
   },
   {
-    style: { left: '1.2%', top: '60%', '--float-d': '11s', '--float-y': '12px', rotate: '-6deg' },
+    style: { left: '2.2%', top: '28%', '--float-d': '12s', '--float-y': '10px', rotate: '4deg' },
+    content: chip('한국어'),
+    className: pill,
+  },
+  {
+    style: { left: '1.2%', top: '47%', '--float-d': '11s', '--float-y': '12px', rotate: '-6deg' },
     content: <ScoreRing />,
     className: 'rounded-2xl p-2',
   },
   {
-    style: { right: '1%', top: '10%', '--float-d': '10s', '--float-y': '10px', rotate: '5deg' },
-    content: <span className="text-sm font-semibold">日本語</span>,
-    className: 'rounded-full px-4 py-2',
+    style: { left: '2.6%', top: '68%', '--float-d': '10s', '--float-y': '-10px', rotate: '-3deg' },
+    content: chip('Deutsch'),
+    className: pill,
   },
   {
-    style: { right: '1.4%', top: '42%', '--float-d': '12s', '--float-y': '-12px', rotate: '-4deg' },
+    style: { left: '0.8%', top: '86%', '--float-d': '13s', '--float-y': '8px', rotate: '5deg' },
+    content: <Sparkles className="size-5 text-primary" />,
+    className: 'rounded-xl p-3',
+  },
+  // Right margin
+  {
+    style: { right: '1%', top: '6%', '--float-d': '10s', '--float-y': '10px', rotate: '5deg' },
+    content: chip('日本語'),
+    className: pill,
+  },
+  {
+    style: { right: '2.4%', top: '24%', '--float-d': '12s', '--float-y': '-12px', rotate: '-4deg' },
     content: <Sparkles className="size-5 text-primary" />,
     className: 'rounded-xl p-3',
   },
   {
-    style: { right: '0.8%', top: '74%', '--float-d': '8s', '--float-y': '9px', rotate: '3deg' },
-    content: <span className="text-sm font-semibold">Español</span>,
-    className: 'rounded-full px-4 py-2',
+    style: { right: '0.8%', top: '42%', '--float-d': '9s', '--float-y': '11px', rotate: '3deg' },
+    content: <Waveform />,
+    className: 'rounded-full px-4 py-3',
+  },
+  {
+    style: { right: '2%', top: '60%', '--float-d': '8s', '--float-y': '9px', rotate: '3deg' },
+    content: chip('Español'),
+    className: pill,
+  },
+  {
+    style: { right: '1.2%', top: '78%', '--float-d': '11s', '--float-y': '-9px', rotate: '-5deg' },
+    content: chip('العربية'),
+    className: pill,
   },
 ];
 
@@ -211,22 +243,22 @@ const Backdrop: React.FC<BackdropProps> = ({
     )}
     {glyphs && (
       <div className="backdrop-rise">
-        {GLYPHS.map(([glyph, left, duration, delay], index) => (
+        {GLYPHS.map((glyph, index) => (
           <span
-            key={glyph}
+            key={glyph.glyph}
             className="backdrop-glyph"
             style={
               {
-                left: `${left}%`,
-                fontSize: `${index % 3 === 0 ? 44 : index % 3 === 1 ? 30 : 36}px`,
-                '--rise-d': `${duration}s`,
-                '--rise-delay': `-${delay}s`,
+                left: `${glyph.left}%`,
+                fontSize: `${glyph.size}px`,
+                '--rise-d': `${glyph.duration}s`,
+                '--rise-delay': `-${glyph.delay}s`,
                 '--rise-o': '1',
                 '--sway': `${index % 2 ? 24 : -24}px`,
               } as Vars
             }
           >
-            {glyph}
+            {glyph.glyph}
           </span>
         ))}
       </div>

@@ -563,7 +563,7 @@
 .backdrop-glyph {
   font-weight: 700;
   line-height: 1;
-  color: hsl(var(--foreground) / 0.07);
+  color: hsl(var(--foreground) / 0.09);
 }
 
 @keyframes rise {
