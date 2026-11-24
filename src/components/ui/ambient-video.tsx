@@ -10,6 +10,8 @@ interface AmbientVideoProps {
   className?: string;
   /** Lets a parent keep several clips mounted and play only the visible one. */
   active?: boolean;
+  /** Start from the first frame each time `active` turns on (slide shows). */
+  rewind?: boolean;
 }
 
 /**
@@ -21,6 +23,7 @@ export const AmbientVideo: React.FC<AmbientVideoProps> = ({
   poster,
   className,
   active = true,
+  rewind = false,
 }) => {
   const ref = React.useRef<HTMLVideoElement>(null);
 
@@ -38,6 +41,7 @@ export const AmbientVideo: React.FC<AmbientVideoProps> = ({
       video.pause();
       return;
     }
+    if (rewind) video.currentTime = 0;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -55,7 +59,7 @@ export const AmbientVideo: React.FC<AmbientVideoProps> = ({
       observer.disconnect();
       video.pause();
     };
-  }, [active]);
+  }, [active, rewind]);
 
   return (
     <video

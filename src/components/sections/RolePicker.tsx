@@ -3,8 +3,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
-import Image from 'next/image';
 
+import { AmbientVideo } from '@/components/ui/ambient-video';
 import { format } from '@/i18n/format';
 import type { Story } from '@/i18n/messages/en/story';
 import { track } from '@/lib/analytics';
@@ -14,8 +14,8 @@ type RoleId = keyof Story['roles']['items'];
 
 const ROLES: RoleId[] = ['sales', 'nurse', 'teacher', 'finance', 'developer'];
 
-/** How long each slide stays up while the show is playing. */
-const SLIDE_MS = 8000;
+/** How long each slide stays up while the show is playing: one full role clip. */
+const SLIDE_MS = 12000;
 /** A horizontal drag longer than this, in px, turns the slide. */
 const SWIPE_PX = 48;
 
@@ -23,13 +23,16 @@ const FOCUS =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
 /**
- * The roles as a slide show. Each still pairs a generated, fictional candidate
- * with the real app's score card; the question stays in HTML so it is
- * translated. Stills rather than the role clips: the slide show already moves,
- * and a looping video inside a moving slide competed with the question for
- * attention. Each slide carries a 16:9 desktop and a 4:5 phone crop, and the
- * one hidden by the breakpoint is never fetched (lazy images skip
- * `display: none`).
+ * The roles as a slide show. Each clip pairs a generated, fictional candidate
+ * with the real app's score card (see MEDIA.md); the question stays in HTML so
+ * it is translated. A slide lasts exactly one 12s clip and rewinds each time it
+ * comes up, so every role plays start to finish. Each slide carries a 16:9
+ * desktop and a 4:5 phone clip; the one hidden by the breakpoint never plays
+ * or downloads (AmbientVideo waits for it to intersect, which `display: none`
+ * never does).
+ *
+ * Clips mount only once the show has been on screen, and only for the current
+ * slide and its neighbours, so the page does not fetch ten posters up front.
  *
  * The show advances on the progress bar's `animationend`, so pausing the bar
  * pauses the show: it holds while the pointer or focus is inside, while it is
@@ -43,6 +46,7 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
   const [held, setHeld] = useState(false);
   const [visible, setVisible] = useState(false);
   const [pageHidden, setPageHidden] = useState(false);
+  const [seen, setSeen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const dragStart = useRef<{ x: number; y: number } | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -62,9 +66,14 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
     document.addEventListener('visibilitychange', onVisibility);
 
     const root = rootRef.current;
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
-      threshold: 0.35,
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) setSeen(true);
+      },
+      // Mount the clips a little before the show scrolls in.
+      { threshold: 0.35, rootMargin: '200px 0px' }
+    );
     if (root) observer.observe(root);
 
     return () => {
@@ -134,6 +143,10 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
         >
           {ROLES.map((id, i) => {
             const active = i === index;
+            const distance = Math.abs(i - index);
+            const near = seen && Math.min(distance, ROLES.length - distance) <= 1;
+            // Stopped by the pause button too: it has to halt all the motion.
+            const playClip = active && playing && !pageHidden;
             return (
               <figure
                 key={id}
@@ -147,22 +160,24 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
                 className="w-full shrink-0"
               >
                 <div className="relative hidden aspect-video bg-black lg:block">
-                  <Image
-                    src={`/media/roles/${id}.webp`}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 1024px, 100vw"
-                    className="object-cover"
-                  />
+                  {near && (
+                    <AmbientVideo
+                      src={`/media/roles/${id}.mp4`}
+                      poster={`/media/roles/${id}.webp`}
+                      active={playClip}
+                      rewind
+                    />
+                  )}
                 </div>
                 <div className="relative aspect-[4/5] bg-black lg:hidden">
-                  <Image
-                    src={`/media/roles/${id}-mobile.webp`}
-                    alt=""
-                    fill
-                    sizes="(min-width: 448px) 448px, 100vw"
-                    className="object-cover"
-                  />
+                  {near && (
+                    <AmbientVideo
+                      src={`/media/roles/${id}-mobile.mp4`}
+                      poster={`/media/roles/${id}-mobile.webp`}
+                      active={playClip}
+                      rewind
+                    />
+                  )}
                 </div>
                 <figcaption className="border-t border-border p-4 md:px-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
