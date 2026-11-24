@@ -4,6 +4,7 @@ import { Check } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
 import { AmbientVideo } from '@/components/ui/ambient-video';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
@@ -18,6 +19,7 @@ export const PracticeSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <Section id={SECTIONS.mockInterview} tone="muted" aria-labelledby="practice-heading">
+      <Backdrop embers />
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="flex flex-col gap-6">
           <SectionHeading

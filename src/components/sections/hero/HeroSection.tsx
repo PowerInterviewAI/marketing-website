@@ -32,7 +32,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <section id={SECTIONS.hero} className="relative isolate scroll-mt-20">
-      <Backdrop aurora="strong" pattern="grid" fade="top" />
+      <Backdrop aurora="strong" pattern="grid" fade="top" beams floaters />
 
       <Container className="flex flex-col gap-10 pb-12 pt-10 md:pt-14 lg:gap-14 lg:pb-16 xl:pt-20">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">

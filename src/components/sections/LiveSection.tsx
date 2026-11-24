@@ -4,6 +4,7 @@ import { AudioLines, FileDown, Languages, type LucideIcon, Sparkles } from 'luci
 import Image from 'next/image';
 
 import { DownloadCta } from '@/components/DownloadCta';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { LANGUAGE_COUNT } from '@/config/languages';
@@ -25,6 +26,7 @@ export const LiveSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <Section id={SECTIONS.liveInterview} aria-labelledby="live-heading">
+      <Backdrop pattern="dots" fade="bottom" beams />
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="flex flex-col gap-7">
           <SectionHeading

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Check, ChevronDown } from 'lucide-react';
 
+import { Backdrop } from '@/components/ui/backdrop';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { LANGUAGE_COUNT } from '@/config/languages';
@@ -50,6 +51,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
 
   return (
     <Section id={SECTIONS.pricing} tone="muted" aria-labelledby="pricing-heading">
+      <Backdrop aurora="subtle" />
       <SectionHeading
         id="pricing-heading"
         as={standalone ? 'h1' : 'h2'}

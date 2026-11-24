@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Button } from '@/components/ui/button';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { FAQ_CATEGORIES, getFaqItems } from '@/config/faq';
@@ -36,6 +37,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ locale, standalone = fal
 
   return (
     <Section id={SECTIONS.faq} aria-labelledby="faq-heading">
+      <Backdrop pattern="dots" fade="top" />
       <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
         <div className="flex flex-col items-start gap-6 lg:sticky lg:top-24 lg:self-start">
           <SectionHeading

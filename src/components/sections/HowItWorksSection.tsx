@@ -42,7 +42,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
 
   return (
     <Section id={SECTIONS.howItWorks} aria-labelledby="how-it-works-heading">
-      <Backdrop pattern="grid" fade="center" />
+      <Backdrop pattern="grid" fade="center" beams />
       <SectionHeading
         id="how-it-works-heading"
         as={standalone ? 'h1' : 'h2'}

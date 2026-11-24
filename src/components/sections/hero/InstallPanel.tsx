@@ -75,7 +75,7 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
 
   return (
     <Section id={id} tone="muted" size="md" className="border-y border-border">
-      <Backdrop aurora="subtle" pattern="dots" fade="bottom" />
+      <Backdrop aurora="subtle" pattern="dots" fade="bottom" embers />
       <SectionHeading eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <div className="mt-8 flex justify-center">

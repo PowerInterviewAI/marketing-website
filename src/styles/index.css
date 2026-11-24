@@ -462,6 +462,143 @@
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 100%);
 }
 
+/*
+ * Beams: a short streak of light runs along a hairline, then rests offscreen
+ * for the remainder of the cycle - a glint now and then, not a conveyor belt.
+ * The track is a size container, so the streak can travel exactly its length
+ * (100cqw / 100cqh) with transform alone.
+ */
+.backdrop-beam-h,
+.backdrop-beam-v {
+  position: absolute;
+  overflow: hidden;
+}
+
+.backdrop-beam-h {
+  left: 0;
+  right: 0;
+  height: 1px;
+  container-type: inline-size;
+  background: hsl(var(--foreground) / 0.04);
+}
+
+.backdrop-beam-v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  container-type: size;
+  background: hsl(var(--foreground) / 0.04);
+}
+
+.backdrop-beam-h::after,
+.backdrop-beam-v::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  animation: var(--beam-d, 10s) linear var(--beam-delay, 0s) infinite;
+}
+
+.backdrop-beam-h::after {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--glow)), transparent);
+  transform: translateX(-220px);
+  animation-name: beam-x;
+}
+
+.backdrop-beam-v::after {
+  width: 1px;
+  height: 160px;
+  background: linear-gradient(180deg, transparent, hsl(var(--glow)), transparent);
+  transform: translateY(-180px);
+  animation-name: beam-y;
+}
+
+@keyframes beam-x {
+  0% {
+    transform: translateX(-220px);
+  }
+  45%,
+  100% {
+    transform: translateX(calc(100cqw + 220px));
+  }
+}
+
+@keyframes beam-y {
+  0% {
+    transform: translateY(-180px);
+  }
+  45%,
+  100% {
+    transform: translateY(calc(100cqh + 180px));
+  }
+}
+
+/* Embers and glyphs rise through the section, swaying, fading in and out. */
+.backdrop-rise {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+}
+
+.backdrop-ember,
+.backdrop-glyph {
+  position: absolute;
+  bottom: -48px;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: rise var(--rise-d, 18s) linear var(--rise-delay, 0s) infinite;
+}
+
+.backdrop-ember {
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  border-radius: 9999px;
+  background: hsl(var(--glow));
+  box-shadow: 0 0 10px 1px hsl(var(--glow) / 0.7);
+}
+
+.backdrop-glyph {
+  font-weight: 700;
+  line-height: 1;
+  color: hsl(var(--foreground) / 0.07);
+}
+
+@keyframes rise {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--rise-o, 0.6);
+  }
+  50% {
+    transform: translate(var(--sway, 16px), calc(-50cqh - 24px));
+  }
+  85% {
+    opacity: var(--rise-o, 0.6);
+  }
+  100% {
+    transform: translate(0, calc(-100cqh - 48px));
+    opacity: 0;
+  }
+}
+
+/* Floaters bob on `translate`, leaving their inline `rotate` alone. */
+.backdrop-floater {
+  position: absolute;
+  opacity: 0.75;
+  animation: floater-bob var(--float-d, 10s) ease-in-out infinite;
+}
+
+@keyframes floater-bob {
+  50% {
+    translate: 0 var(--float-y, -12px);
+  }
+}
+
 .backdrop-fade-bottom {
   mask-image: radial-gradient(ellipse 80% 70% at 50% 100%, #000 30%, transparent 100%);
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import { Code2, type LucideIcon, MessageSquareText, ScanText } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Kbd } from '@/components/ui/kbd';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
@@ -33,6 +34,7 @@ export const CodingSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <Section id={SECTIONS.coding} tone="muted" aria-labelledby="coding-heading">
+      <Backdrop pattern="grid" fade="center" beams />
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="flex flex-col gap-7">
           <SectionHeading

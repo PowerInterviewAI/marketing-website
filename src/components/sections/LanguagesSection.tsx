@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ChevronDown, FileText, Volume2 } from 'lucide-react';
 
+import { Backdrop } from '@/components/ui/backdrop';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
@@ -119,6 +120,7 @@ export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }
 
   return (
     <Section id={SECTIONS.languages} aria-labelledby="languages-heading">
+      <Backdrop glyphs />
       <SectionHeading
         id="languages-heading"
         as={standalone ? 'h1' : 'h2'}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Backdrop } from '@/components/ui/backdrop';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
 import type { Locale } from '@/i18n/config';
@@ -13,6 +14,7 @@ export const RolesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <Section id={SECTIONS.benefits} tone="muted" aria-labelledby="roles-heading">
+      <Backdrop embers />
       <span id={SECTIONS.whyChoose} className="absolute -top-20" aria-hidden="true" />
       <SectionHeading
         id="roles-heading"
