@@ -356,3 +356,13 @@
 .markdown-body li + li {
   margin-top: 0.25em;
 }
+
+/* The role slide show's progress bar (RolePicker); the duration is set inline. */
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
