@@ -4,7 +4,6 @@ export const testimonials: Testimonials = {
   eyebrow: '사용 후기',
   title: '지원자들의 이야기',
   source: '출처',
-  sampleBadge: '가상의 예시',
   ratingLabel: '5점 만점에 {rating}점',
   modes: {
     mock: '모의 면접',

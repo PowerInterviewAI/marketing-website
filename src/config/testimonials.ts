@@ -1,4 +1,4 @@
-import { SAMPLE_TESTIMONIALS } from './testimonials.samples';
+import { SAMPLE_TESTIMONIALS } from './testimonials.data';
 
 export interface Testimonial {
   /** The quote itself. Keep it to two or three sentences. */

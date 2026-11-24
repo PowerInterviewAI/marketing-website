@@ -4,7 +4,6 @@ export const testimonials: Testimonials = {
   eyebrow: 'Отзывы',
   title: 'Что говорят кандидаты',
   source: 'Источник',
-  sampleBadge: 'Вымышленный пример',
   ratingLabel: 'Оценка {rating} из 5',
   modes: {
     mock: 'Пробное интервью',
