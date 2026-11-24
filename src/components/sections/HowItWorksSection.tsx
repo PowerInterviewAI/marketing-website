@@ -3,6 +3,7 @@ import React from 'react';
 import { Download, FileText, Radio, Volume2 } from 'lucide-react';
 
 import { DownloadCta } from '@/components/DownloadCta';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { SECTIONS } from '@/config/routes';
@@ -41,6 +42,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
 
   return (
     <Section id={SECTIONS.howItWorks} aria-labelledby="how-it-works-heading">
+      <Backdrop pattern="grid" fade="center" />
       <SectionHeading
         id="how-it-works-heading"
         as={standalone ? 'h1' : 'h2'}

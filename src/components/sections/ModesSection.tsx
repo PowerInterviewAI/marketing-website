@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
 import { AmbientVideo } from '@/components/ui/ambient-video';
+import { Backdrop } from '@/components/ui/backdrop';
 import { Reveal } from '@/components/ui/reveal';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { ROUTES, SECTIONS, docPath } from '@/config/routes';
@@ -35,6 +36,7 @@ export const ModesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
   return (
     <Section id={SECTIONS.features} aria-labelledby="modes-heading">
+      <Backdrop pattern="dots" fade="top" />
       <SectionHeading
         id="modes-heading"
         eyebrow={copy.eyebrow}

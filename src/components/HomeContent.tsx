@@ -9,6 +9,7 @@ import {
   Header,
   HeroSection,
   InstallPanel,
+  LanguageMarquee,
   LanguagesSection,
   LiveSection,
   ModesSection,
@@ -50,6 +51,7 @@ export function HomeContent({
         <PracticeSection locale={locale} />
         <LiveSection locale={locale} />
         <CodingSection locale={locale} />
+        <LanguageMarquee />
         <LanguagesSection locale={locale} />
         <RolesSection locale={locale} />
         {howItWorksSection}

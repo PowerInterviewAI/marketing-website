@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { Check, ChevronDown, Copy, ExternalLink } from 'lucide-react';
 
+import { Backdrop } from '@/components/ui/backdrop';
 import { Button } from '@/components/ui/button';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -73,7 +74,8 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
   };
 
   return (
-    <Section id={id} tone="glow" size="md" className="border-y border-border">
+    <Section id={id} tone="muted" size="md" className="border-y border-border">
+      <Backdrop aurora="subtle" pattern="dots" fade="bottom" />
       <SectionHeading eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <div className="mt-8 flex justify-center">

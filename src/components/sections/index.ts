@@ -4,6 +4,7 @@ export * from './FAQSection';
 export * from './FooterSection';
 export * from './Header';
 export * from './HowItWorksSection';
+export * from './LanguageMarquee';
 export * from './LanguagesSection';
 export * from './LiveSection';
 export * from './MockInterviewSection';
