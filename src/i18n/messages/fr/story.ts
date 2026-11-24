@@ -16,6 +16,66 @@ export const story: Story = {
     replay: 'Rejouer',
     points: ['Note par question', 'Relances sur les réponses légères', 'Export DOCX ou Markdown'],
   },
+  modes: {
+    eyebrow: 'Une app, deux modes',
+    title: 'Avant l’entretien, et pendant',
+    description:
+      'Entraînez-vous face à un recruteur IA qui vous note, puis gardez l’aide en direct ouverte pendant le vrai appel. L’un, l’autre ou les deux.',
+    sample: 'Exemple',
+    shared:
+      'Les deux modes lisent le même CV et la même offre, et les deux sont illimités avec tout abonnement.',
+    mock: {
+      tag: 'Avant',
+      title: 'Entretien simulé',
+      body: 'Un recruteur IA pose ses questions à voix haute, relance sur les réponses trop minces et note chaque réponse.',
+      points: [
+        'Des questions écrites pour votre poste et votre niveau',
+        'Jusqu’à deux relances par question',
+        'Un rapport noté avec une meilleure réponse pour chacune',
+      ],
+      link: 'Comment fonctionne l’entretien simulé',
+    },
+    live: {
+      tag: 'Pendant',
+      title: 'Entretien en direct',
+      body: 'Transcription en direct et points clés courts à côté de Zoom, Google Meet ou Teams pendant l’appel.',
+      points: [
+        'Les deux côtés de l’appel transcrits',
+        'Des suggestions tirées de votre CV',
+        'Aide au code à partir d’une capture',
+      ],
+      link: 'Comment fonctionne l’aide en direct',
+    },
+  },
+  live: {
+    eyebrow: 'Entretien en direct',
+    title: 'Des points clés pendant l’appel',
+    description:
+      'L’app écoute les deux côtés de l’appel et affiche à côté des points courts et pertinents, tirés de votre CV et du poste visé. Aucun bot ne rejoint la réunion.',
+    points: [
+      {
+        title: 'Les deux voix transcrites',
+        body: 'Votre micro et le son de l’appel, identifiés par interlocuteur au fil de la conversation.',
+      },
+      {
+        title: 'Des suggestions tirées de votre parcours',
+        body: 'Chacune s’appuie sur votre CV et l’offre, pas sur des conseils génériques.',
+      },
+      {
+        title: 'Changez de langue en plein appel',
+        body: 'Les suggestions suivent aussitôt, dans n’importe laquelle des {count} langues.',
+      },
+      {
+        title: 'Exportez la session',
+        body: 'Enregistrez un résumé, la transcription et chaque suggestion en Word ou Markdown.',
+      },
+    ],
+    imageAlt:
+      'Power Interview AI pendant une session d’exemple : points clés suggérés au-dessus de la transcription en direct',
+    caption: 'Session d’exemple enregistrée dans la vraie app avec des données préparées.',
+    cta: 'Essayer l’aide en direct gratuitement',
+    note: 'N’utilisez l’aide en direct que lors d’entretiens autorisant les outils d’IA. Respectez toujours les règles de l’employeur.',
+  },
   roles: {
     eyebrow: 'Tous les métiers',
     title: 'Votre poste. Vos questions.',

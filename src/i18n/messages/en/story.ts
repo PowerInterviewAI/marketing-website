@@ -19,6 +19,67 @@ export const story = {
       'Export as DOCX or Markdown',
     ],
   },
+  modes: {
+    eyebrow: 'One app, two modes',
+    title: 'Before the interview, and during it',
+    description:
+      'Practice against an AI interviewer that scores you, then keep live help open on the real call. Use one, or both.',
+    sample: 'Sample',
+    shared:
+      'Both modes read the same CV and job description, and both are unlimited on any subscription.',
+    mock: {
+      tag: 'Before',
+      title: 'Mock interview',
+      body: 'An AI interviewer asks its questions out loud, presses on thin answers and scores every reply.',
+      points: [
+        'Questions written for your role and seniority',
+        'Up to two follow-ups on each question',
+        'A scored report with a stronger answer for each',
+      ],
+      link: 'How the mock interview works',
+    },
+    live: {
+      tag: 'During',
+      title: 'Live interview',
+      body: 'Live transcription and short talking points beside Zoom, Google Meet or Teams while the call is happening.',
+      points: [
+        'Both sides of the call transcribed',
+        'Suggestions grounded in your own CV',
+        'Coding help from a screenshot',
+      ],
+      link: 'How live help works',
+    },
+  },
+  live: {
+    eyebrow: 'Live interview',
+    title: 'Talking points while the call is happening',
+    description:
+      'The app listens to both sides of the call and puts short, relevant points beside it, drawn from your CV and the job you applied for. No bot joins the meeting.',
+    /** Same order as the icons in LiveSection. `{count}` is LANGUAGE_COUNT. */
+    points: [
+      {
+        title: 'Both voices, transcribed',
+        body: 'Your microphone and the call audio, labelled by speaker as the conversation happens.',
+      },
+      {
+        title: 'Suggestions from your experience',
+        body: 'Each one is grounded in your CV and the job description, not generic advice.',
+      },
+      {
+        title: 'Switch language mid-call',
+        body: 'Suggestions follow at once, in any of the {count} languages.',
+      },
+      {
+        title: 'Export the session',
+        body: 'Save a summary, the transcript and every suggestion as Word or Markdown.',
+      },
+    ],
+    imageAlt:
+      'Power Interview AI during a sample live session: suggested talking points above the live transcript',
+    caption: 'Sample session recorded in the real app with scripted data.',
+    cta: 'Try live help free',
+    note: 'Use live help only in interviews that allow AI tools. Always follow each employer’s rules.',
+  },
   roles: {
     eyebrow: 'Any job',
     title: 'Your role. Your questions.',

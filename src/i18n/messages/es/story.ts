@@ -20,6 +20,66 @@ export const story: Story = {
       'Exporta en DOCX o Markdown',
     ],
   },
+  modes: {
+    eyebrow: 'Una app, dos modos',
+    title: 'Antes de la entrevista y durante ella',
+    description:
+      'Practica con un entrevistador de IA que te puntúa y deja abierta la ayuda en directo en la llamada real. Usa uno o los dos.',
+    sample: 'Ejemplo',
+    shared:
+      'Los dos modos leen el mismo CV y la misma oferta, y ambos son ilimitados con cualquier suscripción.',
+    mock: {
+      tag: 'Antes',
+      title: 'Entrevista simulada',
+      body: 'Un entrevistador de IA hace sus preguntas en voz alta, insiste en las respuestas flojas y puntúa cada una.',
+      points: [
+        'Preguntas escritas para tu puesto y nivel',
+        'Hasta dos repreguntas por pregunta',
+        'Un informe puntuado con una respuesta mejor para cada una',
+      ],
+      link: 'Cómo funciona la entrevista simulada',
+    },
+    live: {
+      tag: 'Durante',
+      title: 'Entrevista en directo',
+      body: 'Transcripción en directo y puntos clave breves junto a Zoom, Google Meet o Teams mientras transcurre la llamada.',
+      points: [
+        'Las dos partes de la llamada, transcritas',
+        'Sugerencias basadas en tu propio CV',
+        'Ayuda con código a partir de una captura',
+      ],
+      link: 'Cómo funciona la ayuda en directo',
+    },
+  },
+  live: {
+    eyebrow: 'Entrevista en directo',
+    title: 'Puntos clave mientras transcurre la llamada',
+    description:
+      'La app escucha a las dos partes de la llamada y muestra al lado puntos breves y relevantes, sacados de tu CV y del puesto al que aspiras. Ningún bot se une a la reunión.',
+    points: [
+      {
+        title: 'Las dos voces, transcritas',
+        body: 'Tu micrófono y el audio de la llamada, etiquetados por persona mientras habláis.',
+      },
+      {
+        title: 'Sugerencias desde tu experiencia',
+        body: 'Cada una se basa en tu CV y en la oferta, no en consejos genéricos.',
+      },
+      {
+        title: 'Cambia de idioma en plena llamada',
+        body: 'Las sugerencias cambian al instante, en cualquiera de los {count} idiomas.',
+      },
+      {
+        title: 'Exporta la sesión',
+        body: 'Guarda un resumen, la transcripción y cada sugerencia en Word o Markdown.',
+      },
+    ],
+    imageAlt:
+      'Power Interview AI en una sesión de ejemplo: puntos clave sugeridos sobre la transcripción en directo',
+    caption: 'Sesión de ejemplo grabada en la app real con datos preparados.',
+    cta: 'Prueba gratis la ayuda en directo',
+    note: 'Usa la ayuda en directo solo en entrevistas que permitan herramientas de IA. Sigue siempre las normas de cada empresa.',
+  },
   roles: {
     eyebrow: 'Cualquier trabajo',
     title: 'Tu puesto. Tus preguntas.',

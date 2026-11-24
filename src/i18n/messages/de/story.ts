@@ -20,6 +20,66 @@ export const story: Story = {
       'Export als DOCX oder Markdown',
     ],
   },
+  modes: {
+    eyebrow: 'Eine App, zwei Modi',
+    title: 'Vor dem Gespräch und währenddessen',
+    description:
+      'Übe mit einem KI-Interviewer, der dich bewertet, und lass im echten Call die Live-Hilfe offen. Nutze eins davon oder beides.',
+    sample: 'Beispiel',
+    shared:
+      'Beide Modi lesen denselben Lebenslauf und dieselbe Stellenbeschreibung, und beide sind in jedem Abo unbegrenzt.',
+    mock: {
+      tag: 'Vorher',
+      title: 'Probeinterview',
+      body: 'Ein KI-Interviewer stellt seine Fragen laut, hakt bei dünnen Antworten nach und bewertet jede Antwort.',
+      points: [
+        'Fragen für deine Rolle und dein Level',
+        'Bis zu zwei Nachfragen pro Frage',
+        'Bewerteter Bericht mit einer stärkeren Antwort zu jeder Frage',
+      ],
+      link: 'So funktioniert das Probeinterview',
+    },
+    live: {
+      tag: 'Währenddessen',
+      title: 'Live-Interview',
+      body: 'Live-Transkription und kurze Stichpunkte neben Zoom, Google Meet oder Teams, während das Gespräch läuft.',
+      points: [
+        'Beide Seiten des Calls transkribiert',
+        'Vorschläge auf Basis deines Lebenslaufs',
+        'Coding-Hilfe per Screenshot',
+      ],
+      link: 'So funktioniert die Live-Hilfe',
+    },
+  },
+  live: {
+    eyebrow: 'Live-Interview',
+    title: 'Stichpunkte, während das Gespräch läuft',
+    description:
+      'Die App hört beide Seiten des Calls und zeigt daneben kurze, passende Stichpunkte aus deinem Lebenslauf und der Stelle, auf die du dich bewirbst. Kein Bot tritt dem Meeting bei.',
+    points: [
+      {
+        title: 'Beide Stimmen transkribiert',
+        body: 'Dein Mikrofon und der Ton des Calls, nach Sprecher beschriftet, während ihr redet.',
+      },
+      {
+        title: 'Vorschläge aus deiner Erfahrung',
+        body: 'Jeder stützt sich auf deinen Lebenslauf und die Stellenbeschreibung, nicht auf Floskeln.',
+      },
+      {
+        title: 'Sprache mitten im Call wechseln',
+        body: 'Die Vorschläge folgen sofort, in jeder der {count} Sprachen.',
+      },
+      {
+        title: 'Sitzung exportieren',
+        body: 'Speichere Zusammenfassung, Transkript und alle Vorschläge als Word oder Markdown.',
+      },
+    ],
+    imageAlt:
+      'Power Interview AI in einer Beispielsitzung: vorgeschlagene Stichpunkte über dem Live-Transkript',
+    caption: 'Beispielsitzung, aufgenommen in der echten App mit vorbereiteten Daten.',
+    cta: 'Live-Hilfe gratis testen',
+    note: 'Nutze die Live-Hilfe nur in Interviews, die KI-Tools erlauben. Beachte immer die Regeln des Arbeitgebers.',
+  },
   roles: {
     eyebrow: 'Jeder Job',
     title: 'Deine Rolle. Deine Fragen.',

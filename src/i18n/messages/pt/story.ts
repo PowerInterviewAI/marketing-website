@@ -16,6 +16,66 @@ export const story: Story = {
     replay: 'Repetir',
     points: ['Nota por pergunta', 'Perguntas de aprofundamento', 'Exporte em DOCX ou Markdown'],
   },
+  modes: {
+    eyebrow: 'Um app, dois modos',
+    title: 'Antes da entrevista e durante ela',
+    description:
+      'Pratique com um entrevistador de IA que te avalia e deixe a ajuda ao vivo aberta na chamada real. Use um ou os dois.',
+    sample: 'Exemplo',
+    shared:
+      'Os dois modos leem o mesmo currículo e a mesma vaga, e ambos são ilimitados em qualquer assinatura.',
+    mock: {
+      tag: 'Antes',
+      title: 'Entrevista simulada',
+      body: 'Um entrevistador de IA faz as perguntas em voz alta, insiste em respostas fracas e dá nota a cada uma.',
+      points: [
+        'Perguntas escritas para seu cargo e nível',
+        'Até duas perguntas de acompanhamento por pergunta',
+        'Um relatório com nota e uma resposta melhor para cada uma',
+      ],
+      link: 'Como funciona a entrevista simulada',
+    },
+    live: {
+      tag: 'Durante',
+      title: 'Entrevista ao vivo',
+      body: 'Transcrição ao vivo e pontos-chave curtos ao lado do Zoom, Google Meet ou Teams enquanto a chamada acontece.',
+      points: [
+        'Os dois lados da chamada transcritos',
+        'Sugestões baseadas no seu currículo',
+        'Ajuda com código a partir de uma captura',
+      ],
+      link: 'Como funciona a ajuda ao vivo',
+    },
+  },
+  live: {
+    eyebrow: 'Entrevista ao vivo',
+    title: 'Pontos-chave enquanto a chamada acontece',
+    description:
+      'O app ouve os dois lados da chamada e mostra ao lado pontos curtos e relevantes, tirados do seu currículo e da vaga. Nenhum bot entra na reunião.',
+    points: [
+      {
+        title: 'As duas vozes transcritas',
+        body: 'Seu microfone e o áudio da chamada, identificados por pessoa enquanto vocês falam.',
+      },
+      {
+        title: 'Sugestões a partir da sua experiência',
+        body: 'Cada uma se baseia no seu currículo e na vaga, não em conselhos genéricos.',
+      },
+      {
+        title: 'Troque de idioma no meio da chamada',
+        body: 'As sugestões acompanham na hora, em qualquer um dos {count} idiomas.',
+      },
+      {
+        title: 'Exporte a sessão',
+        body: 'Salve um resumo, a transcrição e cada sugestão em Word ou Markdown.',
+      },
+    ],
+    imageAlt:
+      'Power Interview AI em uma sessão de exemplo: pontos-chave sugeridos acima da transcrição ao vivo',
+    caption: 'Sessão de exemplo gravada no app real com dados preparados.',
+    cta: 'Teste a ajuda ao vivo grátis',
+    note: 'Use a ajuda ao vivo só em entrevistas que permitam ferramentas de IA. Siga sempre as regras de cada empresa.',
+  },
   roles: {
     eyebrow: 'Qualquer trabalho',
     title: 'Seu cargo. Suas perguntas.',
