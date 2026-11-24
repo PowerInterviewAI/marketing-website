@@ -8,6 +8,6 @@ mkdir -p "$dest"
 if [ "$#" -gt 0 ]; then ids="$*"; else ids=$(cd "$src" && ls *.png | sed 's/\.png$//'); fi
 for id in $ids; do
   ffmpeg -loglevel error -y -i "$src/$id.png" \
-    -vf "scale=700:900:flags=lanczos,noise=alls=5:allf=u" -q:v 5 "$dest/$id-sample.jpg"
+    -vf "scale=700:900:flags=lanczos,noise=alls=5:allf=u" -q:v 5 "$dest/$id.jpg"
   echo "converted $id"
 done

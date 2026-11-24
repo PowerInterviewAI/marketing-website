@@ -81,10 +81,10 @@ Each role has a 16:9 desktop video and a 4:5 phone video.
 
 ## Testimonials
 
-`media/testimonials/avatar-placeholder.png` is only a no-photo fallback. Testimonials must be real.
+`media/testimonials/avatar-placeholder.png` is only a no-photo fallback.
 
-On the `demo/testimonials` branch only, `media/testimonials/*-sample.jpg` are fictional 700x900
+On the `demo/testimonials` branch only, `media/testimonials/*.jpg` are fictional 700x900
 phone-style selfies generated locally in ComfyUI (Qwen Image Edit 2511, Lightning 4-step,
 text-to-image), with light grain added in ffmpeg. They pair with the fictional entries in
-`src/config/testimonials.samples.ts`, are used for a school demo, render with a "Fictional example"
+`src/config/testimonials.ts`, are used for a school demo, render with a "Fictional example"
 badge, and must never reach `main`.

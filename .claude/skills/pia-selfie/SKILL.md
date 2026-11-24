@@ -9,7 +9,7 @@ Makes the photorealistic selfies and data for the **fictional sample testimonial
 `demo/testimonials` branch (a school project). Everything here is invented, so three rules are
 non-negotiable:
 
-1. **Branch:** work only on `demo/testimonials`. Never merge sample entries or `*-sample.jpg` into
+1. **Branch:** work only on `demo/testimonials`. Never merge sample entries or `*.jpg` into
    `main` - `main` deploys to the real site, where invented reviews are fake reviews.
 2. **Label:** every entry has `sample: true`, which renders the visible "Fictional example" badge.
    Don't remove the badge or the flag, and never add the ratings to JSON-LD (`aggregateRating`).
@@ -24,7 +24,7 @@ non-negotiable:
 |---|---|
 | `spec.py` | `SPEC`: one tuple per person `(id, name, role, lang, mode, rating, look, scene, quote)`; `KEEP`: the ids that ship |
 | `scripts/generate.py` | Queues ComfyUI text-to-image jobs and saves `<out>/<id>.png`; skips files that exist, so it resumes |
-| `scripts/convert.sh` | Approved PNGs to `public/media/testimonials/<id>-sample.jpg` (700x900, grain, q5) |
+| `scripts/convert.sh` | Approved PNGs to `public/media/testimonials/<id>.jpg` (700x900, grain, q5) |
 | `scripts/emit_ts.py` | Writes `src/config/testimonials.samples.ts`, **only for ids whose JPEG exists**, so you can ship in batches |
 
 The section itself is `src/components/sections/TestimonialsSection.tsx`, which renders the cards on
