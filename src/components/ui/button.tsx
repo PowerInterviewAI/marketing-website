@@ -6,24 +6,26 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold ring-offset-background transition-[color,background-color,border-color,box-shadow,transform] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold ring-offset-background transition-[color,background-color,border-color,box-shadow,transform] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground shadow-elevation-1 hover:bg-primary/90',
+        default: 'btn-primary bg-primary text-primary-foreground hover:bg-primary/90',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        // Glassy: a hairline and a faint tint that let the page show through.
         outline:
-          'border border-border-strong bg-transparent text-foreground hover:border-primary/50 hover:bg-accent',
+          'border border-foreground/15 bg-foreground/[0.03] text-foreground backdrop-blur-sm hover:border-primary/50 hover:bg-foreground/[0.07]',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         // Reads as a raised surface rather than a coloured button - for
         // secondary CTAs sitting next to the primary one.
-        subtle: 'bg-surface-2 text-foreground shadow-elevation-1 hover:bg-surface-3',
+        subtle:
+          'border border-foreground/10 bg-foreground/[0.05] text-foreground shadow-[inset_0_1px_0_hsl(var(--foreground)/0.06)] backdrop-blur-sm hover:bg-foreground/[0.09]',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 px-4 py-2 text-sm',
-        sm: 'h-9 rounded-md px-3 text-sm',
+        sm: 'h-9 px-3.5 text-sm',
         lg: 'h-11 px-6 text-sm',
         // Hero-scale CTA.
         xl: 'h-12 px-7 text-base',

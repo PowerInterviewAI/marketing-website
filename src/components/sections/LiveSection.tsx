@@ -40,7 +40,7 @@ export const LiveSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               const Icon = POINT_ICONS[index];
               return (
                 <li key={point.title} className="flex gap-3.5">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary ring-1 ring-inset ring-primary/25">
                     <Icon className="size-[18px]" aria-hidden="true" />
                   </span>
                   <span>
@@ -61,7 +61,7 @@ export const LiveSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         </div>
 
         <Reveal className="min-w-0 lg:order-first">
-          <figure className="tilt-media tilt-media-right overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3">
+          <figure className="surface-card tilt-media tilt-media-right overflow-hidden rounded-2xl">
             <Image
               src="/media/docs/app/overview.jpg"
               alt={copy.imageAlt}

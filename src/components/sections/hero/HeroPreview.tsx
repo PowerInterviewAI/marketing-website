@@ -289,7 +289,7 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
       role="group"
       aria-label={t.preview}
       className={cn(
-        'grid overflow-hidden rounded-2xl border border-border-strong bg-card shadow-elevation-3',
+        'surface-card grid overflow-hidden rounded-2xl',
         'lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_minmax(0,1fr)]',
         className
       )}

@@ -93,10 +93,7 @@ export const AnswerUpgrade: React.FC<{ copy: Story['answer'] }> = ({ copy }) => 
   ];
 
   return (
-    <div
-      ref={rootRef}
-      className="rounded-xl border border-border-strong bg-card p-5 shadow-elevation-3 md:p-6"
-    >
+    <div ref={rootRef} className="surface-card rounded-2xl p-5 md:p-6">
       <p className="text-lg font-semibold leading-snug">{copy.question}</p>
 
       <div className="mt-4 flex items-center justify-between gap-2">

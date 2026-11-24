@@ -54,6 +54,25 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 );
 Section.displayName = 'Section';
 
+/** Section label: a pill with a softly pulsing dot, in the brand hue. */
+const Eyebrow: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className,
+}) => (
+  <span
+    className={cn(
+      'inline-flex w-fit items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.07] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary',
+      className
+    )}
+  >
+    <span className="relative flex size-1.5" aria-hidden="true">
+      <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-60" />
+      <span className="relative size-1.5 rounded-full bg-primary" />
+    </span>
+    {children}
+  </span>
+);
+
 interface SectionHeadingProps {
   /** Small uppercase label above the title. */
   eyebrow?: React.ReactNode;
@@ -82,12 +101,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       className
     )}
   >
-    {eyebrow && (
-      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-        {eyebrow}
-      </span>
-    )}
-    <Heading id={id} className="text-heading text-balance">
+    {eyebrow && <Eyebrow className={cn(align === 'center' && 'mx-auto')}>{eyebrow}</Eyebrow>}
+    <Heading id={id} className="text-heading text-gradient text-balance">
       {title}
     </Heading>
     {description && (
@@ -103,4 +118,4 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   </div>
 );
 
-export { Section, SectionHeading, sectionVariants };
+export { Eyebrow, Section, SectionHeading, sectionVariants };

@@ -48,7 +48,7 @@ export const CodingSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               const Icon = STEP_ICONS[index];
               return (
                 <li key={step.title} className="flex gap-3.5">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary ring-1 ring-inset ring-primary/25">
                     <Icon className="size-[18px]" aria-hidden="true" />
                   </span>
                   <span>
@@ -72,10 +72,7 @@ export const CodingSection: React.FC<{ locale: Locale }> = ({ locale }) => {
         </div>
 
         <Reveal className="min-w-0">
-          <div
-            dir="ltr"
-            className="tilt-media overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3"
-          >
+          <div dir="ltr" className="surface-card tilt-media overflow-hidden rounded-2xl">
             <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-2.5">
               <span className="text-xs font-semibold">{copy.panel}</span>
               <span className="font-mono text-xs text-muted-foreground">merge-intervals.ts</span>

@@ -4,6 +4,7 @@ import { ArrowRight, FileDown, Languages } from 'lucide-react';
 import Image from 'next/image';
 
 import Container from '@/components/Container';
+import { Eyebrow } from '@/components/ui/section';
 import { LANGUAGE_COUNT } from '@/config/languages';
 import { ROUTES } from '@/config/routes';
 import { LocalizedLink } from '@/i18n/LocalizedLink';
@@ -96,10 +97,8 @@ export const AppShowcaseSection: React.FC<{ locale: Locale }> = ({ locale }) => 
 
       <Container className="relative">
         <div className="glass-panel relative mx-auto max-w-2xl rounded-2xl px-6 py-10 text-center sm:px-10 md:py-12">
-          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-            {copy.eyebrow}
-          </span>
-          <h2 id="showcase-heading" className="text-heading mt-4 text-balance">
+          <Eyebrow className="mx-auto">{copy.eyebrow}</Eyebrow>
+          <h2 id="showcase-heading" className="text-heading text-gradient mt-4 text-balance">
             {copy.title}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground md:text-lg">

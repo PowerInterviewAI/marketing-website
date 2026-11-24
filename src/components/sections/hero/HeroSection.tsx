@@ -36,7 +36,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
       <Container className="flex flex-col gap-10 pb-12 pt-10 md:pt-14 lg:gap-14 lg:pb-16 xl:pt-20">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
-          <h1 id="hero-heading" className="text-hero text-balance lg:col-span-7">
+          <h1 id="hero-heading" className="text-hero text-gradient text-balance lg:col-span-7">
             {t.title}
           </h1>
 

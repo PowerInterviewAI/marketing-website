@@ -122,7 +122,7 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
       }}
       className="mx-auto mt-10 max-w-md lg:max-w-5xl"
     >
-      <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-elevation-2">
+      <div className="surface-card overflow-hidden rounded-2xl">
         <div
           ref={trackRef}
           aria-live={running ? 'off' : 'polite'}

@@ -27,7 +27,7 @@ export const TestimonialsSection: React.FC<{ locale: Locale }> = ({ locale }) =>
       <ul className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {TESTIMONIALS.map((testimonial, index) => (
           <Reveal as="li" key={`${testimonial.name}-${index}`} delay={index * 80}>
-            <figure className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6">
+            <figure className="surface-card flex h-full flex-col gap-4 rounded-2xl p-6">
               <Quote className="size-5 shrink-0 text-primary/60" aria-hidden="true" />
 
               <blockquote className="flex-1 text-sm leading-relaxed text-foreground">

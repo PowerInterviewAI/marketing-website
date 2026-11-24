@@ -86,9 +86,9 @@ export const MockInterviewSection: React.FC<MockInterviewSectionProps> = ({
           const Icon = STEP_ICONS[index];
           return (
             <Reveal as="li" key={step.title} delay={index * 90}>
-              <div className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
+              <div className="surface-card flex h-full flex-col gap-4 rounded-2xl p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary ring-1 ring-inset ring-primary/25">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <span className="font-mono text-xs font-medium text-muted-foreground">
@@ -116,8 +116,8 @@ export const MockInterviewSection: React.FC<MockInterviewSectionProps> = ({
       <div className="mx-auto mt-6 grid max-w-6xl gap-4 sm:grid-cols-2">
         {details.map((detail, index) => (
           <Reveal key={detail.title} delay={Math.min(index, 3) * 60}>
-            <article className="flex h-full gap-4 rounded-xl border border-border bg-card p-6">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <article className="surface-card flex h-full gap-4 rounded-2xl p-6">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary ring-1 ring-inset ring-primary/25">
                 <detail.icon className="size-5" aria-hidden="true" />
               </span>
               <div className="flex flex-col gap-2">

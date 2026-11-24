@@ -8,6 +8,7 @@ import Script from 'next/script';
 
 import { AnalyticsListener } from '@/components/AnalyticsListener';
 import { InlineScript } from '@/components/InlineScript';
+import { SpotlightTracker } from '@/components/SpotlightTracker';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
 import { LOCALES, LOCALE_META, isLocale, localizePath } from '@/i18n/config';
@@ -161,6 +162,7 @@ export default async function RootLayout({
           <ThemeProvider>{children}</ThemeProvider>
         </LocaleProvider>
         <AnalyticsListener />
+        <SpotlightTracker />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V6LKZ75M3J"
           strategy="afterInteractive"

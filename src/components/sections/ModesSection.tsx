@@ -51,7 +51,7 @@ export const ModesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
             <Reveal key={mode.id} delay={index * 90} className="min-w-0">
               <article
                 aria-labelledby={`mode-${mode.id}-heading`}
-                className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-border-strong"
+                className="surface-card surface-glass flex h-full flex-col overflow-hidden rounded-2xl"
               >
                 <div className="relative aspect-video overflow-hidden border-b border-border bg-muted">
                   <AmbientVideo src={mode.video.src} poster={mode.video.poster} />

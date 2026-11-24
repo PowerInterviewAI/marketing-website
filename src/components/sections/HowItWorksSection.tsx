@@ -51,15 +51,16 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
         description={copy.description}
       />
 
-      <ol className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* On a wide screen the four steps hang off one glowing rail. */}
+      <ol className="relative mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:before:absolute lg:before:inset-x-[10%] lg:before:top-[2.6rem] lg:before:h-px lg:before:bg-gradient-to-r lg:before:from-transparent lg:before:via-primary/50 lg:before:to-transparent lg:before:content-['']">
         {copy.steps.map((step, index) => {
           const Icon = STEP_ICONS[index];
           return (
             <Reveal as="li" key={step.title} delay={index * 90} className="relative">
-              <div className="flex h-full flex-col rounded-xl border border-border bg-card/60 backdrop-blur-md transition-colors hover:border-border-strong">
+              <div className="surface-card flex h-full flex-col rounded-2xl">
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div className="flex items-center gap-3">
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary ring-1 ring-inset ring-primary/25">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <span className="font-mono text-xs font-medium text-muted-foreground">

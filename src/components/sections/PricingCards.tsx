@@ -41,8 +41,8 @@ export const PricingCards: React.FC<{ locale: Locale }> = ({ locale }) => {
           <Reveal key={plan.plan} delay={index * 80} className="h-full">
             <div
               className={cn(
-                'relative flex h-full flex-col gap-5 rounded-xl border bg-card p-6',
-                plan.popular ? 'border-primary shadow-glow-sm' : 'border-border'
+                'relative flex h-full flex-col gap-5 rounded-2xl p-6',
+                plan.popular ? 'border-beam shadow-glow-md' : 'surface-card'
               )}
             >
               {plan.popular && (
