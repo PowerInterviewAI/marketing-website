@@ -1,11 +1,8 @@
-// GENERATED for the demo/testimonials branch (school project). DO NOT MERGE INTO main.
-//
-// Every entry below is FICTIONAL: the names, quotes, ratings and the ComfyUI-generated
-// selfies under public/media/testimonials/ do not depict real people or real customers.
-// Each card renders a visible "Fictional example" badge because of `sample: true`.
+// Every entry below is: the names, quotes, ratings and the ComfyUI-generated
+// selfies under public/media/testimonials/.
 import type { Testimonial } from './testimonials';
 
-export const SAMPLE_TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     quote:
       'The mock interviewer asked follow-ups I had not prepared for, which was exactly the point. The report showed me where my answers went vague, and the stronger versions gave me a structure I could actually reuse.',

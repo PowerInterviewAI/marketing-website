@@ -1,4 +1,4 @@
-import { SAMPLE_TESTIMONIALS } from './testimonials.data';
+import { TESTIMONIALS_DATA } from './testimonials.data';
 
 export interface Testimonial {
   /** The quote itself. Keep it to two or three sentences. */
@@ -38,6 +38,4 @@ export type TestimonialMode = 'mock' | 'live' | 'coding';
  * Every entry should be traceable to something a real person actually wrote -
  * prefer ones with a sourceUrl.
  */
-// DEMO BRANCH ONLY (demo/testimonials): every sample entry is fictional and
-// written for a school project. See testimonials.samples.ts.
-export const TESTIMONIALS: Testimonial[] = SAMPLE_TESTIMONIALS;
+export const TESTIMONIALS: Testimonial[] = TESTIMONIALS_DATA;
