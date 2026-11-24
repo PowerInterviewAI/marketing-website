@@ -38,6 +38,8 @@ export const SECTIONS = {
   howItWorks: 'how-it-works',
   features: 'features',
   mockInterview: 'mock-interview',
+  liveInterview: 'live-interview',
+  coding: 'coding',
   languages: 'languages',
   benefits: 'benefits',
   whyChoose: 'why-choose',

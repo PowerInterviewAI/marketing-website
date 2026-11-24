@@ -49,7 +49,7 @@ export const PricingSection = ({ locale, standalone = false }: PricingSectionPro
   const usd = (amount: number) => formatUsd(amount, locale);
 
   return (
-    <Section id={SECTIONS.pricing} aria-labelledby="pricing-heading">
+    <Section id={SECTIONS.pricing} tone="muted" aria-labelledby="pricing-heading">
       <SectionHeading
         id="pricing-heading"
         as={standalone ? 'h1' : 'h2'}

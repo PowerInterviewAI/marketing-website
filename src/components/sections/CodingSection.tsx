@@ -32,7 +32,7 @@ export const CodingSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const copy = getMessages(locale).story.coding;
 
   return (
-    <Section id={SECTIONS.features} aria-labelledby="coding-heading">
+    <Section id={SECTIONS.coding} tone="muted" aria-labelledby="coding-heading">
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="flex flex-col gap-7">
           <SectionHeading

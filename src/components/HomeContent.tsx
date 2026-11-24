@@ -10,6 +10,8 @@ import {
   HeroSection,
   InstallPanel,
   LanguagesSection,
+  LiveSection,
+  ModesSection,
   PracticeSection,
   RolesSection,
 } from '@/components/sections';
@@ -23,10 +25,12 @@ interface HomeContentProps {
   contactSection: ReactNode;
 }
 
-// The order follows a visitor's questions: what is it, will it improve me, does
-// it work in my language, does it fit my job, and how do developers use it.
-// Cost and installation come once they want it. Long reference material lives
-// on /mock-interview, /team and the docs.
+// The order follows a visitor's questions. What is it: two modes of equal
+// weight, shown side by side, then one deep dive each - the mock interview
+// (before the call) and the live assistant (during it), with the coding helper
+// as part of live. Then does it work in my language and for my job, how do I
+// start, what does it cost. Long reference material lives on /mock-interview,
+// /team and the docs.
 export function HomeContent({
   locale,
   howItWorksSection,
@@ -42,10 +46,12 @@ export function HomeContent({
 
       <main id="main" className="flex-1 scroll-mt-20">
         <HeroSection locale={locale} />
+        <ModesSection locale={locale} />
         <PracticeSection locale={locale} />
+        <LiveSection locale={locale} />
+        <CodingSection locale={locale} />
         <LanguagesSection locale={locale} />
         <RolesSection locale={locale} />
-        <CodingSection locale={locale} />
         {howItWorksSection}
         {pricingSection}
         {testimonialsSection}

@@ -118,7 +118,7 @@ export const LanguagesSection: React.FC<{ locale: Locale; standalone?: boolean }
   );
 
   return (
-    <Section id={SECTIONS.languages} tone="muted" aria-labelledby="languages-heading">
+    <Section id={SECTIONS.languages} aria-labelledby="languages-heading">
       <SectionHeading
         id="languages-heading"
         as={standalone ? 'h1' : 'h2'}

@@ -28,10 +28,9 @@ interface HowItWorksSectionProps {
  * unchanged - still a real, indexable page for direct links and search
  * results.
  *
- * The mock interview is step three and the live call is step four, which is
- * the order the site tells the whole story in: a reader meets the rehearsal
- * before the thing it rehearses for. This used to be three steps ending at
- * "join the call", with the mock relegated to a card further down the page.
+ * The mock interview is step three and the live call is step four: the order
+ * a candidate uses them in, not a ranking - the two are equal features (see
+ * ModesSection).
  */
 export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
   locale,
@@ -41,7 +40,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
   const copy = t.howItWorks;
 
   return (
-    <Section id={SECTIONS.howItWorks} tone="muted" aria-labelledby="how-it-works-heading">
+    <Section id={SECTIONS.howItWorks} aria-labelledby="how-it-works-heading">
       <SectionHeading
         id="how-it-works-heading"
         as={standalone ? 'h1' : 'h2'}

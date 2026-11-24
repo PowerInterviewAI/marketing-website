@@ -16,9 +16,10 @@ import { HeroPreview } from './HeroPreview';
 import { ProofBar } from './ProofBar';
 
 /**
- * One promise, one primary action, and the product beside them. The preview
- * answers the question that decides this audience: does it work in my language?
- * Rehearsal leads because a visitor can use it tonight.
+ * One promise covering both modes - practice before the interview, help during
+ * it - one primary action, and the product beside them. The preview toggles
+ * between the two and answers the question that decides this audience: does it
+ * work in my language?
  */
 export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { hero: t, common } = getMessages(locale);

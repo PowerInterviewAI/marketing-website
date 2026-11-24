@@ -17,7 +17,7 @@ export const PracticeSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const copy = story.answer;
 
   return (
-    <Section id={SECTIONS.mockInterview} aria-labelledby="practice-heading">
+    <Section id={SECTIONS.mockInterview} tone="muted" aria-labelledby="practice-heading">
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="flex flex-col gap-6">
           <SectionHeading
