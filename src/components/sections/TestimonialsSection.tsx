@@ -58,11 +58,6 @@ const TestimonialCard: React.FC<{
             decoding="async"
             className="size-full origin-[50%_30%] scale-[1.4] object-cover object-[center_30%]"
           />
-          {testimonial.sample && (
-            <span className="absolute left-2 top-2 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-white backdrop-blur-sm">
-              {copy.sampleBadge}
-            </span>
-          )}
         </div>
       )}
 
@@ -107,11 +102,6 @@ const TestimonialCard: React.FC<{
             {testimonial.role}
           </span>
         </span>
-        {testimonial.sample && !testimonial.avatar && (
-          <span className="ml-auto shrink-0 rounded-full border border-border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-            {copy.sampleBadge}
-          </span>
-        )}
         {testimonial.sourceUrl && (
           <a
             href={testimonial.sourceUrl}
