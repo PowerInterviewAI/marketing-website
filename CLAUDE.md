@@ -90,18 +90,18 @@ App screenshots and product demos are captured from the real client renderer wit
 - Always use `LocalizedLink` (`src/i18n/LocalizedLink.tsx`, a `next/link` that prefixes the active locale) for internal navigation, never a bare `next/link` `Link` (it would drop a Russian reader back into English) and never a raw `<a href="/...">` (a full page reload) and never a `<button>` with a scroll handler. `react-router-dom` isn't a dependency anymore
 - Never nest a `<Button>` inside a `<Link>` — that renders a `<button>` inside an `<a>`. Use `<Button asChild><LocalizedLink …/></Button>`
 
-### The two things the product does, in order
+### The two things the product does, as equals
 
-The site sells a mock interview *and* a live assistant, and both are first-party features of the desktop app. **The mock interview comes first everywhere** - it is the half a reader can use the evening they download the app, without a scheduled interview to use it on, and the live assistant is what the rehearsal is for. Concretely, that ordering is carried by:
+The site sells a mock interview *and* a live assistant, and both are first-party features of the desktop app **of equal weight**: neither is a footnote to the other. They are presented in the order a candidate meets them - the mock interview *before* the call, the live assistant *during* it - which is chronology, not rank. The site used to be "practice first" (the hero was "Make your mistakes here, not in the interview" and the live assistant appeared only as a toggle in the hero preview and a line in How it works), so a reader came away thinking the app was a practice tool. Concretely, the balance is carried by:
 
-- `HomeContent` renders `PracticeSection` directly under the hero, ahead of the languages, role picker and developer sections. `/mock-interview` keeps the full `MockInterviewSection`
-- `HowItWorksSection` is four steps, not three: install, add your CV and the job description, rehearse as a mock interview, then join the real call
-- `RolesSection` carries the legacy `#benefits` and `#why-choose` anchors, and `CodingSection` carries `#features`, because `LEGACY_ANCHOR_REDIRECTS` still points old URLs there. Developers are the first role and have a dedicated section, but coding help is pitched for practice and interviews that allow AI tools. Keep hiding from screen share out of marketing copy, metadata and demos
-- The `faq.items` array in `src/i18n/messages/<locale>/faq.ts` (read through `getFaqItems` in `src/config/faq.ts`) leads its Product category with the mock question and its Plans & billing category with mock pricing, followed by how the subscription works
-- `ORDER` in `src/lib/docs.ts` puts `mock-interview` ahead of `live-interview`, and `public/llms.txt` matches
-- Hero and `PracticeSection` copy open on the rehearsal
+- The hero names both in its title and subtitle (`hero.title` / `hero.subtitle`), and `HeroPreview` toggles between a mock pane and a live pane
+- `ModesSection` (`#features`) sits directly under the hero: two identical cards, Before / During, each with its own real demo clip (`/media/demos/mock.mp4`, `/media/demos/live.mp4`), three facts and a link (`/mock-interview` and `/docs/live-interview`). Keep the two cards structurally identical - same number of points, same media treatment
+- Then one deep dive each, mirrored left/right so they read as a pair: `PracticeSection` (`#mock-interview`, the answer upgrade over the practice clip) and `LiveSection` (`#live-interview`, the real `overview.jpg` screenshot and four capabilities). `CodingSection` (`#coding`) follows as part of the live story. Then languages, roles, how it works, pricing, FAQ, install
+- `HowItWorksSection` is four steps in the order a candidate takes them: install, add your CV and the job description, rehearse as a mock interview, then join the real call
+- `RolesSection` carries the legacy `#benefits` and `#why-choose` anchors, and `ModesSection` carries `#features`, because `LEGACY_ANCHOR_REDIRECTS` still points old URLs there. Coding help is pitched for practice and interviews that allow AI tools, and every live-help CTA carries the "only where AI tools are allowed" note. Keep hiding from screen share out of marketing copy, metadata and demos
+- The FAQ, `ORDER` in `src/lib/docs.ts` and `public/llms.txt` list mock before live for the same chronological reason
 
-Don't reorder any of those back without moving all of them: half the site leading with practice and half with the live call is how the copy drifted the first time. That is recent: `mock-interview.md` used to tell readers to open ChatGPT's voice mode and paste a prompt, because the app could not run a session itself, and the marketing copy still promised "AI-guided mock interviews" over the top of it. The workaround now survives only as the last section of that doc, for readers who would rather not spend their free hour.
+Use only existing media for these sections (see `MEDIA.md`); the demo clips and screenshots are real app UI with scripted data, so keep them labelled as samples. Don't drift back to one half leading: if a new section, CTA or claim is added for one mode, check whether the other needs its counterpart.
 
 Anything describing the mock interview has to match the client (`../client`), which is where the behaviour actually lives:
 
