@@ -1,20 +1,11 @@
-// Renders public/brand/open-graph.png from the real report screenshot.
+// Renders public/brand/open-graph.png from real app screenshots.
 //   node scripts/generate-og.mjs
-import { execFileSync, spawn } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
-const PORT = 9347;
+import { ROOT, dataUri, languageCount, openRenderer } from './lib/render-html.mjs';
+
 const OUTPUT = join(ROOT, 'public/brand/open-graph.png');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const dataUri = (path, type) =>
-  `data:${type};base64,${readFileSync(join(ROOT, path)).toString('base64')}`;
-const languageCount =
-  readFileSync(join(ROOT, 'src/config/languages.ts'), 'utf8').match(/nativeName: /g).length - 1;
+
 // Endonyms, so a reader in any of these scripts finds their own. One per
 // script family where possible; the full list is LanguagesSection.
 const LANGUAGES = [
@@ -77,82 +68,7 @@ p{margin-top:22px;width:520px;font-size:23px;line-height:1.36;font-weight:500;co
 <div class="sample">Real app, sample data</div>
 </body></html>`;
 
-const work = mkdtempSync(join(tmpdir(), 'og-image-'));
-const page = join(work, 'og.html');
-const raw = join(work, 'og.png');
-writeFileSync(page, html);
-const edge = spawn(
-  EDGE,
-  [
-    '--headless=new',
-    `--remote-debugging-port=${PORT}`,
-    `--user-data-dir=${join(work, 'profile')}`,
-    '--no-first-run',
-    '--hide-scrollbars',
-    'about:blank',
-  ],
-  { stdio: 'ignore' }
-);
-let target;
-for (let i = 0; i < 40 && !target; i++) {
-  try {
-    target = (await (await fetch(`http://127.0.0.1:${PORT}/json`)).json()).find(
-      (t) => t.type === 'page'
-    );
-  } catch {}
-  if (!target) await sleep(250);
-}
-const ws = new WebSocket(target.webSocketDebuggerUrl);
-await new Promise((r) => (ws.onopen = r));
-let id = 0;
-const pending = new Map();
-ws.onmessage = (event) => {
-  const m = JSON.parse(event.data);
-  if (m.id && pending.has(m.id)) {
-    pending.get(m.id)(m);
-    pending.delete(m.id);
-  }
-};
-const send = (method, params = {}) =>
-  new Promise((resolve) => {
-    const i = ++id;
-    pending.set(i, (m) => resolve(m.result));
-    ws.send(JSON.stringify({ id: i, method, params }));
-  });
-await send('Page.enable');
-await send('Runtime.enable');
-await send('Emulation.setDeviceMetricsOverride', {
-  width: 1200,
-  height: 630,
-  deviceScaleFactor: 2,
-  mobile: false,
-});
-await send('Page.navigate', { url: `file:///${page.replace(/\\/g, '/')}` });
-await sleep(1500);
-const fonts = await send('Runtime.evaluate', {
-  expression: `document.fonts.ready.then(() => document.fonts.check('800 66px Inter'))`,
-  awaitPromise: true,
-  returnByValue: true,
-});
-console.log('Inter loaded:', fonts.result.value, '| languages:', languageCount);
-const shot = await send('Page.captureScreenshot', { format: 'png' });
-writeFileSync(raw, Buffer.from(shot.data, 'base64'));
-ws.close();
-edge.kill();
-await sleep(500);
-execFileSync('ffmpeg', [
-  '-y',
-  '-v',
-  'error',
-  '-i',
-  raw,
-  '-vf',
-  'scale=1200:630:flags=lanczos,split[a][b];[a]palettegen=max_colors=256:stats_mode=full[p];[b][p]paletteuse=dither=sierra2_4a',
-  '-frames:v',
-  '1',
-  OUTPUT,
-]);
-try {
-  rmSync(work, { recursive: true, force: true });
-} catch {}
+const renderer = await openRenderer();
+await renderer.render({ html, width: 1200, height: 630, output: OUTPUT, palette: true });
+await renderer.close();
 process.exit(0);
