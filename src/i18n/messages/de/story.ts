@@ -86,6 +86,13 @@ export const story: Story = {
     description:
       'Füge Lebenslauf und Stellenbeschreibung hinzu. Jede Frage wird für die Position geschrieben, die du willst.',
     sample: 'Beispielfrage',
+    controls: {
+      previous: 'Vorherige Rolle',
+      next: 'Nächste Rolle',
+      pause: 'Diashow anhalten',
+      play: 'Diashow abspielen',
+      slide: '{n} von {total}',
+    },
     items: {
       developer: {
         label: 'Entwicklung',

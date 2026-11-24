@@ -86,6 +86,14 @@ export const story = {
     description:
       'Add your CV and the job description. Every question is written for the position you want.',
     sample: 'Sample question',
+    /** Slide-show controls; `{n}` and `{total}` are filled in by RolePicker. */
+    controls: {
+      previous: 'Previous role',
+      next: 'Next role',
+      pause: 'Pause slide show',
+      play: 'Play slide show',
+      slide: '{n} of {total}',
+    },
     items: {
       developer: {
         label: 'Developer',

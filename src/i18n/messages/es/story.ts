@@ -85,6 +85,13 @@ export const story: Story = {
     title: 'Tu puesto. Tus preguntas.',
     description: 'Añade tu CV y la oferta. Cada pregunta se escribe para el puesto que quieres.',
     sample: 'Pregunta de ejemplo',
+    controls: {
+      previous: 'Puesto anterior',
+      next: 'Puesto siguiente',
+      pause: 'Pausar presentación',
+      play: 'Reproducir presentación',
+      slide: '{n} de {total}',
+    },
     items: {
       developer: {
         label: 'Desarrollo',

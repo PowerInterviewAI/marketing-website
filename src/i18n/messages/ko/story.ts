@@ -75,6 +75,13 @@ export const story: Story = {
     title: '내 직무, 내 질문.',
     description: '이력서와 채용 공고를 추가하면 원하는 직무에 맞는 질문을 만듭니다.',
     sample: '예시 질문',
+    controls: {
+      previous: '이전 직무',
+      next: '다음 직무',
+      pause: '슬라이드쇼 일시 정지',
+      play: '슬라이드쇼 재생',
+      slide: '{n} / {total}',
+    },
     items: {
       developer: {
         label: '개발자',

@@ -81,6 +81,13 @@ export const story: Story = {
     title: 'あなたの職種に、あなたの質問を。',
     description: '履歴書と求人情報を追加すると、志望職種に合わせた質問を作成します。',
     sample: '質問の例',
+    controls: {
+      previous: '前の職種',
+      next: '次の職種',
+      pause: 'スライドショーを一時停止',
+      play: 'スライドショーを再生',
+      slide: '{n} / {total}',
+    },
     items: {
       developer: {
         label: '開発者',

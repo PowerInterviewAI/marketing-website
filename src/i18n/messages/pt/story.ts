@@ -82,6 +82,13 @@ export const story: Story = {
     description:
       'Adicione seu currículo e a vaga. Cada pergunta é escrita para o cargo que você quer.',
     sample: 'Pergunta de exemplo',
+    controls: {
+      previous: 'Cargo anterior',
+      next: 'Próximo cargo',
+      pause: 'Pausar apresentação',
+      play: 'Reproduzir apresentação',
+      slide: '{n} de {total}',
+    },
     items: {
       developer: {
         label: 'Desenvolvimento',

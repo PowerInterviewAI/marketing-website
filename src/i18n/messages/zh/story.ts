@@ -69,6 +69,13 @@ export const story: Story = {
     title: '你的岗位，你的问题。',
     description: '添加简历和职位描述，每个问题都为你想要的岗位而写。',
     sample: '示例问题',
+    controls: {
+      previous: '上一个岗位',
+      next: '下一个岗位',
+      pause: '暂停幻灯片',
+      play: '播放幻灯片',
+      slide: '第 {n} 个，共 {total} 个',
+    },
     items: {
       developer: {
         label: '开发',

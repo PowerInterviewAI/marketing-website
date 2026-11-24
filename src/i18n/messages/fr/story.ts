@@ -81,6 +81,13 @@ export const story: Story = {
     title: 'Votre poste. Vos questions.',
     description: 'Ajoutez votre CV et l’offre. Chaque question est écrite pour le poste visé.',
     sample: 'Exemple de question',
+    controls: {
+      previous: 'Métier précédent',
+      next: 'Métier suivant',
+      pause: 'Mettre le diaporama en pause',
+      play: 'Lancer le diaporama',
+      slide: '{n} sur {total}',
+    },
     items: {
       developer: {
         label: 'Développement',
