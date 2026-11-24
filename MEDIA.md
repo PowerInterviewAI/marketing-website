@@ -60,6 +60,15 @@ Sessions are defined in `scripts/demo-videos/scenes.mjs`.
 Social platforms cache this image by URL, so a replacement may take time to appear on links that
 were already shared.
 
+## Social covers
+
+`brand/social/*.png` (outside `public/`, since the site never serves them) are the profile
+banners for X, LinkedIn (profile and company page), Facebook, YouTube, the GitHub social preview
+and the Product Hunt gallery. `node scripts/generate-covers.mjs [name...]` renders them from the
+same real screenshots as the Open Graph card; each platform's size and safe area is listed at the
+top of the script. Both scripts share `scripts/lib/render-html.mjs`. Re-run them together when the
+hero copy or the language count changes.
+
 ## Generated media
 
 `media/lifestyle/*` and the people in `media/roles/*` were generated locally in ComfyUI with Qwen
