@@ -15,38 +15,66 @@ const dataUri = (path, type) =>
   `data:${type};base64,${readFileSync(join(ROOT, path)).toString('base64')}`;
 const languageCount =
   readFileSync(join(ROOT, 'src/config/languages.ts'), 'utf8').match(/nativeName: /g).length - 1;
+// Endonyms, so a reader in any of these scripts finds their own. One per
+// script family where possible; the full list is LanguagesSection.
 const LANGUAGES = [
   'English',
   'Español',
-  '日本語',
-  'العربية',
-  'हिन्दी',
-  '한국어',
   'Deutsch',
   'Français',
+  'Português',
+  '日本語',
+  '한국어',
+  '中文',
+  'العربية',
+  'Русский',
 ];
 
+// Both modes, as equals and in the order a candidate meets them: the mock
+// interview's scored report in front, the live assistant behind it. Matches
+// hero.title / hero.subtitle; re-run when either changes.
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block">
 <style>
-*{box-sizing:border-box;margin:0}html,body{width:1200px;height:630px;overflow:hidden;background:#0a0a0b}
+*{box-sizing:border-box;margin:0}html,body{width:1200px;height:630px;overflow:hidden;background:#0a0a0c}
 body{position:relative;color:#f4f4f6;font-family:Inter,'Segoe UI',sans-serif}
-.wash{position:absolute;inset:0;background:radial-gradient(620px 520px at 88% 42%,rgba(250,146,48,.30),transparent 70%),radial-gradient(420px 320px at 8% 100%,rgba(250,146,48,.10),transparent 72%)}
-.copy{position:absolute;left:60px;top:54px;width:590px;height:522px;display:flex;flex-direction:column}
-.brand{display:flex;align-items:center;gap:14px;font-size:25px;font-weight:700;letter-spacing:-.02em}.brand img{width:46px;height:46px;border-radius:11px}
-h1{margin-top:48px;font-size:66px;line-height:1.04;font-weight:800;letter-spacing:-.04em}h1 span{color:#fb9833}
-p{margin-top:24px;width:530px;font-size:26px;line-height:1.32;font-weight:500;color:#b8b8c0}
-.facts{margin-top:auto;display:flex;gap:10px}.fact{padding:11px 17px;border:1px solid #3a3a40;border-radius:10px;background:#17171a;font-size:20px;font-weight:600;white-space:nowrap}.fact.main{border-color:#fb9833;background:#fb9833;color:#1b0f05}
-.window{position:absolute;left:690px;top:64px;width:680px;height:454px;overflow:hidden;border:1px solid #47474e;border-radius:16px;background:#121214;box-shadow:0 34px 90px rgba(0,0,0,.72),0 0 0 7px rgba(255,255,255,.035)}
-.window img{display:block;width:100%;margin:-40px 0 0 -82px}
-.languages{position:absolute;left:668px;top:492px;width:510px;display:flex;flex-wrap:wrap;gap:8px}.languages span{padding:7px 13px;border:1px solid #4a4a50;border-radius:9px;background:#1b1b1f;box-shadow:0 8px 22px rgba(0,0,0,.5);font-size:19px;font-weight:600;line-height:1.25}
-</style></head><body><div class="wash"></div>
+.wash{position:absolute;inset:0;background:radial-gradient(640px 520px at 86% 30%,rgba(250,146,48,.28),transparent 70%),radial-gradient(520px 360px at 4% 105%,rgba(250,146,48,.12),transparent 72%),radial-gradient(420px 300px at 60% 90%,rgba(56,150,230,.07),transparent 70%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 80% 75% at 40% 0%,#000 25%,transparent 100%)}
+.copy{position:absolute;left:60px;top:52px;width:560px;height:526px;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:14px;font-size:24px;font-weight:700;letter-spacing:-.02em}.brand img{width:44px;height:44px;border-radius:11px}
+h1{margin-top:40px;font-size:60px;line-height:1.02;font-weight:800;letter-spacing:-.042em;background:linear-gradient(180deg,#fff 40%,rgba(244,244,246,.72));-webkit-background-clip:text;color:transparent}
+h1 span{background:linear-gradient(100deg,#ffb15c,#fb8a1f);-webkit-background-clip:text;color:transparent}
+p{margin-top:22px;width:520px;font-size:23px;line-height:1.36;font-weight:500;color:#b4b4bd}
+.facts{margin-top:auto;margin-bottom:18px;display:flex;gap:10px}
+.fact{padding:11px 18px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(255,255,255,.05);font-size:19px;font-weight:600;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.fact.main{border-color:transparent;background:linear-gradient(180deg,#ffa647,#f98b1e);color:#1b0f05;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 10px 28px -8px rgba(250,146,48,.7)}
+.stage{position:absolute;left:640px;top:0;width:640px;height:630px;perspective:1400px}
+.win{position:absolute;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:#121214;box-shadow:0 40px 90px -20px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.08)}
+.win img{display:block;width:100%}
+.live{left:70px;top:58px;width:500px;transform:rotateY(-14deg) rotateX(5deg) rotateZ(2deg)}
+.mock{left:10px;top:300px;width:500px;transform:rotateY(-12deg) rotateX(4deg) rotateZ(-2deg);box-shadow:0 50px 110px -20px rgba(0,0,0,.9),0 0 0 1px rgba(250,146,48,.25),0 0 60px -10px rgba(250,146,48,.35)}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(16,16,19,.6);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 18px 40px -10px rgba(0,0,0,.7);font-size:18px;font-weight:700;white-space:nowrap}
+.chip b{font-size:13px;letter-spacing:.14em;color:#fb9833}
+.chip i{width:8px;height:8px;border-radius:50%;background:#fb9833;box-shadow:0 0 10px #fb9833}
+.c1{left:-14px;top:268px;transform:rotate(-4deg)}.c2{left:300px;top:30px;transform:rotate(3deg)}
+.c2 i{background:#3ecf8e;box-shadow:0 0 10px #3ecf8e}
+.languages{position:absolute;left:628px;top:500px;width:566px;display:flex;flex-wrap:wrap;gap:7px}
+.languages span{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(16,16,19,.72);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px -6px rgba(0,0,0,.7);font-size:16px;font-weight:600;line-height:1.25}
+.languages span:first-child{border-color:rgba(250,146,48,.5);color:#ffb15c}
+.sample{position:absolute;left:62px;bottom:14px;font-size:13px;font-weight:600;color:rgba(244,244,246,.45)}
+</style></head><body><div class="wash"></div><div class="grid"></div>
 <main class="copy"><div class="brand"><img src="${dataUri('public/brand/logo.png', 'image/png')}" alt="">Power Interview AI</div>
-<h1>Make your mistakes here, <span>not in the interview.</span></h1>
-<p>Practice out loud in ${languageCount} languages and get every answer scored.</p>
-<div class="facts"><div class="fact main">1 free hour</div><div class="fact">Any role</div><div class="fact">Coding rounds</div></div></main>
-<div class="window"><img src="${dataUri('public/media/docs/mock/report.png', 'image/png')}" alt=""></div>
-<div class="languages">${LANGUAGES.map((name) => `<span>${name}</span>`).join('')}</div>
+<h1>Practice the interview.<br><span>Get backup in the real one.</span></h1>
+<p>An AI interviewer that scores every answer, then live talking points beside your call.</p>
+<div class="facts"><div class="fact main">1 free hour</div><div class="fact">${languageCount} languages</div><div class="fact">Any role</div></div></main>
+<div class="stage">
+<div class="win live"><img src="${dataUri('public/media/docs/app/overview.jpg', 'image/jpeg')}" alt=""></div>
+<div class="win mock"><img src="${dataUri('public/media/docs/mock/report.png', 'image/png')}" alt=""></div>
+<div class="chip c1"><i></i><b>BEFORE</b>Mock interview</div>
+<div class="chip c2"><i></i><b>DURING</b>Live help</div>
+</div>
+<div class="languages">${LANGUAGES.map((name) => `<span>${name}</span>`).join('')}<span>+${languageCount - LANGUAGES.length} more</span></div>
+<div class="sample">Real app, sample data</div>
 </body></html>`;
 
 const work = mkdtempSync(join(tmpdir(), 'og-image-'));
