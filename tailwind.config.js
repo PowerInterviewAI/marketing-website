@@ -93,6 +93,10 @@ export default {
         'glow-md': '0 0 64px -12px hsl(var(--glow) / 0.45)',
       },
       keyframes: {
+        'call-level': {
+          '0%, 100%': { transform: 'scaleY(1)' },
+          '50%': { transform: 'scaleY(0.35)' },
+        },
         'accordion-down': {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' },
@@ -119,6 +123,7 @@ export default {
         },
       },
       animation: {
+        'call-level': 'call-level 0.9s ease-in-out infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-up': 'fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both',

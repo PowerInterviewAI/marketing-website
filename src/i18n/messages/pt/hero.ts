@@ -40,6 +40,8 @@ export const hero: Hero = {
 
   surface: {
     preview: 'Prévia da entrevista',
+    before: 'Antes',
+    during: 'Durante',
     mock: 'Entrevista simulada',
     live: 'Ajuda ao vivo',
     sample: 'Exemplo',

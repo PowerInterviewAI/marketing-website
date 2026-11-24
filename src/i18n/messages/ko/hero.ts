@@ -40,6 +40,8 @@ export const hero: Hero = {
 
   surface: {
     preview: '면접 미리보기',
+    before: '면접 전',
+    during: '면접 중',
     mock: '모의 면접',
     live: '실시간 도움',
     sample: '샘플',

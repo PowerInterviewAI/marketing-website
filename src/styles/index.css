@@ -209,6 +209,15 @@
     letter-spacing: -0.028em;
   }
 
+  /* The home hero's headline only: it owns the wide column, so it runs larger
+     and tighter than the other pages' .text-display. */
+  .text-hero {
+    font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5.25rem);
+    font-weight: 680;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+
   .text-heading {
     font-size: clamp(1.875rem, 1.5rem + 1.6vw, 3rem);
     font-weight: 650;
@@ -220,6 +229,9 @@
   :lang(ja) .text-display,
   :lang(ko) .text-display,
   :lang(zh) .text-display,
+  :lang(ja) .text-hero,
+  :lang(ko) .text-hero,
+  :lang(zh) .text-hero,
   :lang(ja) .text-heading,
   :lang(ko) .text-heading,
   :lang(zh) .text-heading {

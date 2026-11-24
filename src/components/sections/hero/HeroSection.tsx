@@ -16,10 +16,11 @@ import { HeroPreview } from './HeroPreview';
 import { ProofBar } from './ProofBar';
 
 /**
- * One promise covering both modes - practice before the interview, help during
- * it - one primary action, and the product beside them. The preview toggles
- * between the two and answers the question that decides this audience: does it
- * work in my language?
+ * One promise covering both modes, one primary action, then the product as a
+ * full-width diptych: a single interview question with the mock interview's
+ * scored answer on one side and the live assistant's talking points on the
+ * other. The headline takes the wide column and the action sits on its
+ * baseline, so the eye runs headline -> button -> the stage below.
  */
 export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const { hero: t, common } = getMessages(locale);
@@ -33,28 +34,31 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
     <section id={SECTIONS.hero} className="relative isolate scroll-mt-20">
       <Glow position="top" intensity="strong" />
 
-      <Container className="grid items-center gap-10 py-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 xl:py-14">
-        <div className="flex min-w-0 flex-col items-start gap-5">
-          <h1 id="hero-heading" className="text-display text-balance">
+      <Container className="flex flex-col gap-10 pb-12 pt-10 md:pt-14 lg:gap-14 lg:pb-16 xl:pt-20">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
+          <h1 id="hero-heading" className="text-hero text-balance lg:col-span-7">
             {t.title}
           </h1>
-          <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {t.subtitle}
-          </p>
 
-          <div className="flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
-            <DownloadButton align="start" placement="hero" className="w-full sm:w-auto" />
-            <DemoDialog className="w-full sm:w-auto" />
+          <div className="flex min-w-0 flex-col items-start gap-5 lg:col-span-5 lg:pb-2">
+            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+              {t.subtitle}
+            </p>
+
+            <div className="flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+              <DownloadButton align="start" placement="hero" className="w-full sm:w-auto" />
+              <DemoDialog className="w-full sm:w-auto" />
+            </div>
+
+            <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
+              {reassurance.map((item) => (
+                <li key={item} className="flex items-center gap-1.5">
+                  <Check className="size-4 shrink-0 text-success" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
-            {reassurance.map((item) => (
-              <li key={item} className="flex items-center gap-1.5">
-                <Check className="size-4 shrink-0 text-success" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <HeroPreview className="min-w-0" />

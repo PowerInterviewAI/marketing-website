@@ -18,7 +18,6 @@ import { format } from '@/i18n/format';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
-type Mode = 'mock' | 'live';
 type Labels = ReturnType<typeof useMessages>['hero']['surface'];
 
 const CYCLE_MS = 4200;
@@ -28,7 +27,7 @@ const FOCUS =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card';
 
 const ScoreRing: React.FC<{ active: boolean }> = ({ active }) => (
-  <div className="relative size-20 shrink-0">
+  <div className="relative size-16 shrink-0">
     <svg viewBox="0 0 80 80" className="size-full -rotate-90" aria-hidden="true">
       <circle
         cx="40"
@@ -50,47 +49,55 @@ const ScoreRing: React.FC<{ active: boolean }> = ({ active }) => (
         className="stroke-primary transition-[stroke-dashoffset] duration-700 ease-out"
       />
     </svg>
-    <span className="absolute inset-0 flex items-center justify-center font-mono text-2xl font-medium">
+    <span className="absolute inset-0 flex items-center justify-center font-mono text-xl font-medium">
       {HERO_DEMO_SCORE}
     </span>
   </div>
 );
 
+/** The question both sides answer: the hinge of the diptych. */
+const QuestionPane: React.FC<{ item: HeroDemoLanguage }> = ({ item }) => (
+  <blockquote
+    lang={item.code}
+    dir={item.dir}
+    className="relative text-balance text-2xl font-semibold leading-snug tracking-tight sm:text-[1.75rem] lg:text-[1.65rem] xl:text-3xl"
+  >
+    <span aria-hidden="true" className="text-primary">
+      “
+    </span>
+    {item.question}
+    <span aria-hidden="true" className="text-primary">
+      ”
+    </span>
+  </blockquote>
+);
+
+/** Before the call: your rehearsed answer, scored. */
 const MockPane: React.FC<{ item: HeroDemoLanguage; labels: Labels; active: boolean }> = ({
   item,
   labels,
   active,
 }) => (
-  <div dir={item.dir} className="flex h-full flex-col gap-3">
+  <div dir={item.dir} className="flex h-full flex-col gap-4">
     <div>
-      <p className="text-xs font-medium text-muted-foreground">{labels.interviewer}</p>
-      <p lang={item.code} dir={item.dir} className="mt-1 text-lg font-semibold leading-snug">
-        {item.question}
-      </p>
-    </div>
-    <div className="rounded-lg border border-border bg-surface-1 p-3">
       <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
         <Mic className="size-3 text-primary" aria-hidden="true" />
         {labels.you}
       </p>
-      <p lang={item.code} dir={item.dir} className="mt-1 text-sm leading-relaxed">
+      <p lang={item.code} className="mt-1.5 text-sm leading-relaxed">
         {item.answer}
       </p>
     </div>
-    <div className="mt-auto flex items-center gap-4 rounded-lg border border-border bg-surface-1 p-3">
+    <div className="mt-auto flex items-center gap-4 border-t border-dashed border-border-strong pt-4">
       <ScoreRing active={active} />
-      <dl className="min-w-0 flex-1 space-y-2 text-sm">
+      <dl className="min-w-0 flex-1 space-y-1.5 text-sm">
         <div>
           <dt className="text-xs font-medium text-success">{labels.strength}</dt>
-          <dd lang={item.code} dir={item.dir}>
-            {item.strength}
-          </dd>
+          <dd lang={item.code}>{item.strength}</dd>
         </div>
         <div>
           <dt className="text-xs font-medium text-primary">{labels.gap}</dt>
-          <dd lang={item.code} dir={item.dir}>
-            {item.gap}
-          </dd>
+          <dd lang={item.code}>{item.gap}</dd>
         </div>
       </dl>
       <span className="sr-only">
@@ -100,26 +107,18 @@ const MockPane: React.FC<{ item: HeroDemoLanguage; labels: Labels; active: boole
   </div>
 );
 
+/** During the call: the talking points that appear beside it. */
 const LivePane: React.FC<{ item: HeroDemoLanguage; labels: Labels }> = ({ item, labels }) => (
-  <div dir={item.dir} className="flex h-full flex-col gap-3">
-    <div>
-      <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-        <span className="size-1.5 rounded-full bg-success" aria-hidden="true" />
-        {labels.interviewer}
-      </p>
-      <p lang={item.code} dir={item.dir} className="mt-1 text-lg font-semibold leading-snug">
-        {item.question}
-      </p>
-    </div>
-    <div className="mt-auto rounded-lg border border-primary/30 bg-primary/5 p-4">
+  <div dir={item.dir} className="flex h-full flex-col">
+    <div className="rounded-lg border border-primary/30 bg-primary/[0.06] p-4">
       <p className="flex items-center gap-1.5 text-xs font-medium text-primary">
         <Lightbulb className="size-3.5" aria-hidden="true" />
         {labels.suggestion}
       </p>
-      <p lang={item.code} dir={item.dir} className="mt-2 text-lg font-semibold">
+      <p lang={item.code} className="mt-2 text-lg font-semibold leading-snug">
         {item.hint}
       </p>
-      <ul lang={item.code} dir={item.dir} className="mt-2 space-y-1 text-sm">
+      <ul lang={item.code} className="mt-2 space-y-1 text-sm">
         {item.hintPoints.map((point) => (
           <li key={point} className="flex items-center gap-2">
             <span className="size-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
@@ -131,19 +130,103 @@ const LivePane: React.FC<{ item: HeroDemoLanguage; labels: Labels }> = ({ item, 
   </div>
 );
 
+const LEVELS = [0.35, 0.7, 0.5, 0.95, 0.6, 0.8, 0.4, 0.65, 0.9, 0.45, 0.75, 0.3, 0.55, 0.85, 0.5];
+
 /**
- * The hero's proof: one interview, in the visitor's language.
+ * The call's audio as the assistant hears it: the interviewer is talking, and
+ * the suggestion below is what it made of that. Decorative, so it moves only
+ * while the language tour does and never under reduced motion.
+ */
+const CallLevel: React.FC<{ label: string; animate: boolean }> = ({ label, animate }) => (
+  <div className="flex items-center gap-3 rounded-lg border border-border bg-surface-1 px-3 py-2.5">
+    <span className="shrink-0 text-xs font-medium text-muted-foreground">{label}</span>
+    <span className="flex h-6 flex-1 items-center gap-[3px]" aria-hidden="true">
+      {LEVELS.map((level, index) => (
+        <span
+          key={index}
+          style={{ height: `${level * 100}%`, animationDelay: `${(index % 5) * -0.18}s` }}
+          className={cn(
+            'w-[3px] origin-center rounded-full bg-muted-foreground/60',
+            animate && 'animate-call-level motion-reduce:animate-none'
+          )}
+        />
+      ))}
+    </span>
+  </div>
+);
+
+/**
+ * Every language's pane in one grid cell, so the tallest sets the height and
+ * the tour never moves the page. Before hydration only the active one renders,
+ * so the HTML does not carry ten hidden languages search engines could read as
+ * the page's content.
+ */
+function Stack({
+  code,
+  mounted,
+  render,
+}: {
+  code: string;
+  mounted: boolean;
+  render: (item: HeroDemoLanguage, active: boolean) => React.ReactNode;
+}) {
+  return (
+    <div className="grid">
+      {HERO_DEMO_LANGUAGES.map((item) => {
+        const active = item.code === code;
+        if (!mounted && !active) return null;
+        return (
+          <div
+            key={item.code}
+            aria-hidden={!active}
+            className={cn(
+              'transition-opacity duration-300 [grid-area:1/1]',
+              active ? 'visible opacity-100' : 'invisible opacity-0'
+            )}
+          >
+            {render(item, active)}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+const Wing: React.FC<{
+  side: 'before' | 'during';
+  tag: string;
+  title: string;
+  className?: string;
+  children: React.ReactNode;
+}> = ({ side, tag, title, className, children }) => (
+  <div className={cn('flex min-w-0 flex-col gap-4 p-5 sm:p-6', className)}>
+    <p className="flex items-baseline gap-2 text-sm">
+      <span className="flex items-center gap-1.5 font-mono text-xs font-medium uppercase tracking-wider text-primary">
+        {side === 'during' && (
+          <span className="relative flex size-1.5" aria-hidden="true">
+            <span className="absolute inset-0 animate-ping rounded-full bg-success opacity-75 motion-reduce:hidden" />
+            <span className="relative size-1.5 rounded-full bg-success" />
+          </span>
+        )}
+        {tag}
+      </span>
+      <span className="font-semibold">{title}</span>
+    </p>
+    {children}
+  </div>
+);
+
+/**
+ * The hero's proof, laid out as a diptych around one interview question: the
+ * mock interview answers it before the call, the live assistant during it.
+ * Both modes are on screen at once, left to right in the order a candidate
+ * meets them, and the language tour changes all three panels together.
  *
- * Only the active pane is server-rendered, so a page's HTML does not carry ten
- * hidden languages that search engines could read as its content. After
- * hydration every pane shares one grid cell, so the tallest sets the height and
- * switching never moves the page. The automatic tour pauses off screen and
- * stops for good on the first choice.
+ * The automatic tour pauses off screen and stops for good on the first choice.
  */
 export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => {
   const locale = useLocale();
   const t = useMessages().hero.surface;
-  const [mode, setMode] = useState<Mode>('mock');
   const [code, setCode] = useState<string>(
     HERO_DEMO_LANGUAGES.some((item) => item.code === locale) ? locale : 'en'
   );
@@ -200,51 +283,32 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
     track('hero_language_select', { language: next });
   };
 
-  const chooseMode = (next: Mode) => {
-    setMode(next);
-    track('hero_mode_select', { mode: next });
-  };
-
   return (
     <div
       ref={rootRef}
       role="group"
       aria-label={t.preview}
       className={cn(
-        'overflow-hidden rounded-xl border border-border-strong bg-card shadow-elevation-3',
+        'grid overflow-hidden rounded-2xl border border-border-strong bg-card shadow-elevation-3',
+        'lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_minmax(0,1fr)]',
         className
       )}
     >
-      <div className="flex items-center justify-between gap-3 border-b border-border p-2">
-        <div className="flex min-w-0 flex-1 gap-1 rounded-lg bg-muted p-1 sm:flex-none">
-          {(['mock', 'live'] as const).map((item) => (
-            <button
-              key={item}
-              type="button"
-              aria-pressed={mode === item}
-              onClick={() => chooseMode(item)}
-              className={cn(
-                'min-h-8 min-w-0 flex-1 rounded-md px-2 py-1 text-xs font-semibold leading-tight transition-colors sm:flex-none sm:whitespace-nowrap sm:px-3',
-                FOCUS,
-                mode === item
-                  ? 'bg-card text-foreground shadow-elevation-1'
-                  : 'text-muted-foreground hover:text-foreground'
-              )}
-            >
-              {t[item]}
-            </button>
-          ))}
-        </div>
-        <div className="flex shrink-0 items-center gap-2 pr-1 text-xs text-muted-foreground">
-          <span>{t.sample}</span>
-          <span className="hidden font-mono sm:inline">
-            {format(t.question, HERO_DEMO_QUESTION)}
+      {/* The hinge: first on a phone, in the middle on a wide screen. */}
+      <div className="flex min-w-0 flex-col gap-5 border-b border-border bg-surface-1 p-5 sm:p-6 lg:order-2 lg:border-x lg:border-b-0">
+        <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+          <span className="flex items-center gap-2 font-medium">
+            <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+            {t.interviewer}
+          </span>
+          <span className="font-mono">
+            {t.sample} · {format(t.question, HERO_DEMO_QUESTION)}
           </span>
         </div>
-      </div>
 
-      <div className="border-b border-border p-2">
-        <div className="flex items-start gap-1">
+        <Stack code={code} mounted={mounted} render={(item) => <QuestionPane item={item} />} />
+
+        <div className="mt-auto flex items-start gap-1 border-t border-border pt-4">
           <div
             ref={chipsRef}
             role="group"
@@ -290,44 +354,41 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
             {playing ? <Pause className="size-3.5" /> : <Play className="size-3.5" />}
           </button>
         </div>
+        <LocalizedLink
+          href={ROUTES.languages}
+          prefetch={false}
+          data-track="languages_link"
+          data-placement="hero_preview"
+          className="-mt-2 flex w-fit items-center gap-1.5 rounded text-xs font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {format(t.allLanguages, { count: LANGUAGE_COUNT.toLocaleString(locale) })}
+          <ArrowRight className="size-3.5 rtl:rotate-180" aria-hidden="true" />
+        </LocalizedLink>
       </div>
 
-      {/* Reserves the height the tallest pane takes once all of them mount. */}
-      <div className="grid min-h-[434px] p-4 sm:min-h-[323px] lg:min-h-[366px] xl:min-h-[323px]">
-        {HERO_DEMO_LANGUAGES.flatMap((item) =>
-          (['mock', 'live'] as const).map((paneMode) => {
-            const active = item.code === code && paneMode === mode;
-            if (!mounted && !active) return null;
-            return (
-              <div
-                key={`${item.code}-${paneMode}`}
-                aria-hidden={!active}
-                className={cn(
-                  'transition-opacity duration-300 [grid-area:1/1]',
-                  active ? 'visible opacity-100' : 'invisible opacity-0'
-                )}
-              >
-                {paneMode === 'mock' ? (
-                  <MockPane item={item} labels={t} active={active} />
-                ) : (
-                  <LivePane item={item} labels={t} />
-                )}
-              </div>
-            );
-          })
-        )}
-      </div>
-
-      <LocalizedLink
-        href={ROUTES.languages}
-        prefetch={false}
-        data-track="languages_link"
-        data-placement="hero_preview"
-        className="flex items-center justify-center gap-1.5 border-t border-border p-2.5 text-xs font-semibold text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+      <Wing
+        side="before"
+        tag={t.before}
+        title={t.mock}
+        className="border-b border-border lg:order-1 lg:border-b-0"
       >
-        {format(t.allLanguages, { count: LANGUAGE_COUNT.toLocaleString(locale) })}
-        <ArrowRight className="size-3.5 rtl:rotate-180" aria-hidden="true" />
-      </LocalizedLink>
+        <Stack
+          code={code}
+          mounted={mounted}
+          render={(item, active) => <MockPane item={item} labels={t} active={active} />}
+        />
+      </Wing>
+
+      <Wing side="during" tag={t.during} title={t.live} className="lg:order-3">
+        <CallLevel label={t.interviewer} animate={playing} />
+        <div className="lg:mt-auto">
+          <Stack
+            code={code}
+            mounted={mounted}
+            render={(item) => <LivePane item={item} labels={t} />}
+          />
+        </div>
+      </Wing>
     </div>
   );
 };

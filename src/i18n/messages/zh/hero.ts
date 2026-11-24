@@ -40,6 +40,8 @@ export const hero: Hero = {
 
   surface: {
     preview: '面试预览',
+    before: '面试前',
+    during: '面试中',
     mock: '模拟面试',
     live: '实时帮助',
     sample: '示例',
