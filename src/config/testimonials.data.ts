@@ -14,7 +14,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/maya-sample.jpg',
+    avatar: '/media/testimonials/maya.jpg',
     sample: true,
   },
   {
@@ -25,7 +25,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 5,
-    avatar: '/media/testimonials/ben-sample.jpg',
+    avatar: '/media/testimonials/ben.jpg',
     sample: true,
   },
   {
@@ -36,7 +36,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/alex-sample.jpg',
+    avatar: '/media/testimonials/alex.jpg',
     sample: true,
   },
   {
@@ -47,7 +47,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'es',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/lucia-sample.jpg',
+    avatar: '/media/testimonials/lucia.jpg',
     sample: true,
   },
   {
@@ -58,7 +58,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ru',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/dmitry-sample.jpg',
+    avatar: '/media/testimonials/dmitry.jpg',
     sample: true,
   },
   {
@@ -69,7 +69,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ko',
     mode: 'mock',
     rating: 4.5,
-    avatar: '/media/testimonials/seoyeon-sample.jpg',
+    avatar: '/media/testimonials/seoyeon.jpg',
     sample: true,
   },
   {
@@ -80,7 +80,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/sarah-sample.jpg',
+    avatar: '/media/testimonials/sarah.jpg',
     sample: true,
   },
   {
@@ -91,7 +91,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ru',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/artem-sample.jpg',
+    avatar: '/media/testimonials/artem.jpg',
     sample: true,
   },
   {
@@ -102,7 +102,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/tyler-sample.jpg',
+    avatar: '/media/testimonials/tyler.jpg',
     sample: true,
   },
   {
@@ -113,7 +113,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/fatima_en-sample.jpg',
+    avatar: '/media/testimonials/fatima_en.jpg',
     sample: true,
   },
   {
@@ -124,7 +124,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 5,
-    avatar: '/media/testimonials/mei_en-sample.jpg',
+    avatar: '/media/testimonials/mei_en.jpg',
     sample: true,
   },
   {
@@ -135,7 +135,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/nora-sample.jpg',
+    avatar: '/media/testimonials/nora.jpg',
     sample: true,
   },
   {
@@ -146,7 +146,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/carlos_en-sample.jpg',
+    avatar: '/media/testimonials/carlos_en.jpg',
     sample: true,
   },
   {
@@ -157,7 +157,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 4.5,
-    avatar: '/media/testimonials/ryan-sample.jpg',
+    avatar: '/media/testimonials/ryan.jpg',
     sample: true,
   },
   {
@@ -168,7 +168,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'pt',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/beatriz-sample.jpg',
+    avatar: '/media/testimonials/beatriz.jpg',
     sample: true,
   },
   {
@@ -179,7 +179,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/jenny-sample.jpg',
+    avatar: '/media/testimonials/jenny.jpg',
     sample: true,
   },
   {
@@ -190,7 +190,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'tr',
     mode: 'live',
     rating: 4,
-    avatar: '/media/testimonials/emre-sample.jpg',
+    avatar: '/media/testimonials/emre.jpg',
     sample: true,
   },
   {
@@ -201,7 +201,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/rachel-sample.jpg',
+    avatar: '/media/testimonials/rachel.jpg',
     sample: true,
   },
   {
@@ -212,7 +212,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'de',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/katharina-sample.jpg',
+    avatar: '/media/testimonials/katharina.jpg',
     sample: true,
   },
   {
@@ -223,7 +223,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/sam-sample.jpg',
+    avatar: '/media/testimonials/sam.jpg',
     sample: true,
   },
   {
@@ -234,7 +234,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 4.5,
-    avatar: '/media/testimonials/daniel-sample.jpg',
+    avatar: '/media/testimonials/daniel.jpg',
     sample: true,
   },
   {
@@ -245,7 +245,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'pt',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/hiro_pt-sample.jpg',
+    avatar: '/media/testimonials/hiro_pt.jpg',
     sample: true,
   },
   {
@@ -256,7 +256,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 4.5,
-    avatar: '/media/testimonials/lily-sample.jpg',
+    avatar: '/media/testimonials/lily.jpg',
     sample: true,
   },
   {
@@ -267,7 +267,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 5,
-    avatar: '/media/testimonials/olivia-sample.jpg',
+    avatar: '/media/testimonials/olivia.jpg',
     sample: true,
   },
   {
@@ -278,7 +278,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'tr',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/elif-sample.jpg',
+    avatar: '/media/testimonials/elif.jpg',
     sample: true,
   },
   {
@@ -289,7 +289,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'es',
     mode: 'coding',
     rating: 4.5,
-    avatar: '/media/testimonials/mateo-sample.jpg',
+    avatar: '/media/testimonials/mateo.jpg',
     sample: true,
   },
   {
@@ -300,7 +300,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'fr',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/camille-sample.jpg',
+    avatar: '/media/testimonials/camille.jpg',
     sample: true,
   },
   {
@@ -310,7 +310,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'zh',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/wei-sample.jpg',
+    avatar: '/media/testimonials/wei.jpg',
     sample: true,
   },
   {
@@ -321,7 +321,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/tariq-sample.jpg',
+    avatar: '/media/testimonials/tariq.jpg',
     sample: true,
   },
   {
@@ -332,7 +332,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/aiko-sample.jpg',
+    avatar: '/media/testimonials/aiko.jpg',
     sample: true,
   },
   {
@@ -343,7 +343,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'fr',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/ines-sample.jpg',
+    avatar: '/media/testimonials/ines.jpg',
     sample: true,
   },
   {
@@ -354,7 +354,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/jess-sample.jpg',
+    avatar: '/media/testimonials/jess.jpg',
     sample: true,
   },
   {
@@ -365,7 +365,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'fr',
     mode: 'coding',
     rating: 4.5,
-    avatar: '/media/testimonials/hugo-sample.jpg',
+    avatar: '/media/testimonials/hugo.jpg',
     sample: true,
   },
   {
@@ -376,7 +376,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/hannah-sample.jpg',
+    avatar: '/media/testimonials/hannah.jpg',
     sample: true,
   },
   {
@@ -386,7 +386,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ar',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/layla-sample.jpg',
+    avatar: '/media/testimonials/layla.jpg',
     sample: true,
   },
   {
@@ -397,7 +397,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ru',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/anastasia-sample.jpg',
+    avatar: '/media/testimonials/anastasia.jpg',
     sample: true,
   },
   {
@@ -408,7 +408,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ko',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/minjun-sample.jpg',
+    avatar: '/media/testimonials/minjun.jpg',
     sample: true,
   },
   {
@@ -419,7 +419,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/marcus-sample.jpg',
+    avatar: '/media/testimonials/marcus.jpg',
     sample: true,
   },
   {
@@ -430,7 +430,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/jordan-sample.jpg',
+    avatar: '/media/testimonials/jordan.jpg',
     sample: true,
   },
   {
@@ -441,7 +441,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 5,
-    avatar: '/media/testimonials/ali-sample.jpg',
+    avatar: '/media/testimonials/ali.jpg',
     sample: true,
   },
   {
@@ -452,7 +452,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ja',
     mode: 'live',
     rating: 4,
-    avatar: '/media/testimonials/kenji-sample.jpg',
+    avatar: '/media/testimonials/kenji.jpg',
     sample: true,
   },
   {
@@ -463,7 +463,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/victor-sample.jpg',
+    avatar: '/media/testimonials/victor.jpg',
     sample: true,
   },
   {
@@ -474,7 +474,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'es',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/valentina-sample.jpg',
+    avatar: '/media/testimonials/valentina.jpg',
     sample: true,
   },
   {
@@ -485,7 +485,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 4.5,
-    avatar: '/media/testimonials/grace-sample.jpg',
+    avatar: '/media/testimonials/grace.jpg',
     sample: true,
   },
   {
@@ -496,7 +496,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'ko',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/jihoon-sample.jpg',
+    avatar: '/media/testimonials/jihoon.jpg',
     sample: true,
   },
   {
@@ -507,7 +507,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 4.5,
-    avatar: '/media/testimonials/tom-sample.jpg',
+    avatar: '/media/testimonials/tom.jpg',
     sample: true,
   },
   {
@@ -518,7 +518,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'mock',
     rating: 5,
-    avatar: '/media/testimonials/priya-sample.jpg',
+    avatar: '/media/testimonials/priya.jpg',
     sample: true,
   },
   {
@@ -529,7 +529,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'de',
     mode: 'coding',
     rating: 4.5,
-    avatar: '/media/testimonials/jonas-sample.jpg',
+    avatar: '/media/testimonials/jonas.jpg',
     sample: true,
   },
   {
@@ -540,7 +540,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'live',
     rating: 4.5,
-    avatar: '/media/testimonials/aisha-sample.jpg',
+    avatar: '/media/testimonials/aisha.jpg',
     sample: true,
   },
   {
@@ -551,7 +551,7 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     lang: 'en',
     mode: 'coding',
     rating: 5,
-    avatar: '/media/testimonials/diego_en-sample.jpg',
+    avatar: '/media/testimonials/diego_en.jpg',
     sample: true,
   },
 ];
