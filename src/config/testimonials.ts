@@ -11,11 +11,6 @@ export interface Testimonial {
   sourceUrl?: string;
   /** Optional avatar under public/ - e.g. '/media/testimonials/name.jpg'. */
   avatar?: string;
-  /**
-   * Fictional placeholder (school/demo use only). The card shows a visible
-   * "Fictional example" badge. Never ship a sample entry to production.
-   */
-  sample?: boolean;
   /** Optional star rating out of 5, in half steps (e.g. 4.5). Visual only - never emitted as JSON-LD. */
   rating?: number;
   /** BCP 47 code of the language the quote is written in, e.g. 'es'. Sets `lang` (and `dir`) on the card. */
