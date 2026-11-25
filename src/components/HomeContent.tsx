@@ -14,6 +14,7 @@ import {
   LanguagesSection,
   LiveSection,
   ModesSection,
+  NotesSection,
   PracticeSection,
   RolesSection,
 } from '@/components/sections';
@@ -30,7 +31,7 @@ interface HomeContentProps {
 // The order follows a visitor's questions. What is it: two modes of equal
 // weight, shown side by side, then one deep dive each - the mock interview
 // (before the call) and the live assistant (during it), with the coding helper
-// as part of live. Then does it work in my language and for my job, how do I
+// as part of live and the notes it leaves after the call. Then does it work in my language and for my job, how do I
 // start, what does it cost. Long reference material lives on /mock-interview,
 // /team and the docs.
 export function HomeContent({
@@ -52,6 +53,7 @@ export function HomeContent({
         <PracticeSection locale={locale} />
         <LiveSection locale={locale} />
         <CodingSection locale={locale} />
+        <NotesSection locale={locale} />
         <LanguageMarquee />
         <LanguagesSection locale={locale} />
         <RolesSection locale={locale} />

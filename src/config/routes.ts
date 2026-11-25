@@ -40,6 +40,7 @@ export const SECTIONS = {
   mockInterview: 'mock-interview',
   liveInterview: 'live-interview',
   coding: 'coding',
+  interviewNotes: 'interview-notes',
   languages: 'languages',
   benefits: 'benefits',
   whyChoose: 'why-choose',

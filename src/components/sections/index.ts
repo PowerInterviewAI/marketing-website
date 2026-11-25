@@ -10,6 +10,7 @@ export * from './LanguagesSection';
 export * from './LiveSection';
 export * from './MockInterviewSection';
 export * from './ModesSection';
+export * from './NotesSection';
 export * from './PracticeSection';
 export * from './PricingSection';
 export * from './RolesSection';

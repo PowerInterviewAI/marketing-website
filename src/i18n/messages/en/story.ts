@@ -143,6 +143,66 @@ export const story = {
     note: 'Use it to practice and in interviews that allow AI tools. Always follow each employer’s rules.',
     cta: 'Practice coding interviews',
   },
+  /**
+   * What a live session leaves behind - the client's export: the model's
+   * summary, the transcript by speaker, every suggestion, as Word or Markdown.
+   */
+  notes: {
+    eyebrow: 'Interview notes',
+    title: 'Your notes write themselves',
+    description:
+      'Nothing to type while you talk. When the call ends, the app turns the transcript into structured notes, so you remember what was asked and know what to do next.',
+    /** Same order as the icons in NotesSection. */
+    points: [
+      {
+        title: 'An AI summary of the call',
+        body: 'What was discussed, where you were strong, what to work on and the next steps.',
+      },
+      {
+        title: 'The full transcript',
+        body: 'Every line of the conversation, labelled by speaker and time.',
+      },
+      {
+        title: 'Every suggestion kept',
+        body: 'The talking points you saw, beside the question each one answered.',
+      },
+      {
+        title: 'Word or Markdown',
+        body: 'Offered when you stop the session, or export at any time from the toolbar.',
+      },
+    ],
+    panel: 'Interview notes',
+    sampleLabel: 'Sample',
+    sample: {
+      title: 'Customer Success Manager interview - Alex Rivera',
+      date: 'Date/Time: Mar 12, 2026, 5:21 AM',
+      summaryHeading: 'Summary',
+      summary:
+        'Covered account recovery, renewal planning and handling escalations. Answers were specific and led with outcomes.',
+      strengths: {
+        heading: 'Key strengths',
+        items: ['Clear, outcome-first stories', 'Fast, personal follow-up'],
+      },
+      nextSteps: {
+        heading: 'Next steps',
+        items: ['Send the recovery plan example', 'Prepare renewal metrics'],
+      },
+      transcriptHeading: 'Transcript',
+      transcript: [
+        {
+          speaker: 'Interviewer',
+          text: 'Tell me about a time you turned around an unhappy customer.',
+        },
+        {
+          speaker: 'Alex Rivera',
+          text: 'Our largest client was frustrated by a late delivery. I called them that day and agreed a recovery plan.',
+        },
+      ],
+    },
+    caption: 'Sample notes with scripted data.',
+    cta: 'Get notes from your next call',
+    note: 'Notes come from a live session: use it only in interviews that allow AI tools, and follow each employer’s rules.',
+  },
   checker: {
     label: 'Is my language supported?',
     placeholder: 'Type a language, like Tamil or தமிழ்',

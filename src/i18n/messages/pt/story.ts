@@ -138,6 +138,61 @@ export const story: Story = {
     note: 'Use para praticar e em entrevistas que permitam ferramentas de IA. Siga sempre as regras de cada empresa.',
     cta: 'Praticar entrevistas de código',
   },
+  notes: {
+    eyebrow: 'Notas da entrevista',
+    title: 'Suas notas se escrevem sozinhas',
+    description:
+      'Nada para digitar enquanto você fala. Quando a chamada termina, o app transforma a transcrição em notas estruturadas, para você lembrar o que foi perguntado e saber o próximo passo.',
+    points: [
+      {
+        title: 'Um resumo da chamada com IA',
+        body: 'O que foi discutido, onde você foi bem, o que melhorar e os próximos passos.',
+      },
+      {
+        title: 'A transcrição completa',
+        body: 'Cada fala da conversa, identificada por quem falou e o horário.',
+      },
+      {
+        title: 'Todas as sugestões guardadas',
+        body: 'Os pontos que você viu, ao lado da pergunta que cada um respondia.',
+      },
+      {
+        title: 'Word ou Markdown',
+        body: 'Oferecido ao encerrar a sessão, ou exporte a qualquer momento pela barra de ferramentas.',
+      },
+    ],
+    panel: 'Notas da entrevista',
+    sampleLabel: 'Exemplo',
+    sample: {
+      title: 'Entrevista para Customer Success Manager - Alex Rivera',
+      date: 'Data/Hora: 12/03/2026, 05:21',
+      summaryHeading: 'Resumo',
+      summary:
+        'Falamos de recuperação de contas, planejamento de renovações e escalonamentos. Respostas específicas, começando pelo resultado.',
+      strengths: {
+        heading: 'Pontos fortes',
+        items: ['Exemplos claros, resultado primeiro', 'Retorno rápido e pessoal'],
+      },
+      nextSteps: {
+        heading: 'Próximos passos',
+        items: ['Enviar o exemplo de plano de recuperação', 'Preparar métricas de renovação'],
+      },
+      transcriptHeading: 'Transcrição',
+      transcript: [
+        {
+          speaker: 'Entrevistador',
+          text: 'Conte sobre uma vez em que você reconquistou um cliente insatisfeito.',
+        },
+        {
+          speaker: 'Alex Rivera',
+          text: 'Nosso maior cliente estava chateado com uma entrega atrasada. Liguei no mesmo dia e combinamos um plano de recuperação.',
+        },
+      ],
+    },
+    caption: 'Notas de exemplo com dados preparados.',
+    cta: 'Tenha notas da sua próxima chamada',
+    note: 'As notas vêm de uma sessão ao vivo: use só em entrevistas que permitem ferramentas de IA e siga sempre as regras de cada empresa.',
+  },
   checker: {
     label: 'Meu idioma é compatível?',
     placeholder: 'Digite um idioma, como tâmil ou தமிழ்',

@@ -138,6 +138,61 @@ export const story: Story = {
     note: 'À utiliser pour s’entraîner et lors d’entretiens autorisant les outils d’IA. Respectez toujours les règles de l’employeur.',
     cta: 'S’entraîner au code',
   },
+  notes: {
+    eyebrow: 'Notes d’entretien',
+    title: 'Vos notes s’écrivent toutes seules',
+    description:
+      'Rien à taper pendant que vous parlez. À la fin de l’appel, l’app transforme la transcription en notes structurées : vous savez ce qu’on vous a demandé et quoi faire ensuite.',
+    points: [
+      {
+        title: 'Un résumé de l’appel par IA',
+        body: 'Les sujets abordés, vos points forts, ce qu’il faut travailler et les prochaines étapes.',
+      },
+      {
+        title: 'La transcription complète',
+        body: 'Chaque réplique de la conversation, avec l’intervenant et l’heure.',
+      },
+      {
+        title: 'Toutes les suggestions conservées',
+        body: 'Les points clés que vous avez vus, à côté de la question à laquelle chacun répondait.',
+      },
+      {
+        title: 'Word ou Markdown',
+        body: 'Proposé à l’arrêt de la session, ou exportable à tout moment depuis la barre d’outils.',
+      },
+    ],
+    panel: 'Notes d’entretien',
+    sampleLabel: 'Exemple',
+    sample: {
+      title: 'Entretien Customer Success Manager - Alex Rivera',
+      date: 'Date/Heure : 12/03/2026 05:21',
+      summaryHeading: 'Résumé',
+      summary:
+        'Reconquête de comptes, préparation des renouvellements et gestion des escalades. Des réponses précises qui commencent par le résultat.',
+      strengths: {
+        heading: 'Points forts',
+        items: ['Exemples clairs, résultat d’abord', 'Suivi rapide et personnel'],
+      },
+      nextSteps: {
+        heading: 'Prochaines étapes',
+        items: ['Envoyer l’exemple de plan de reprise', 'Préparer les chiffres de renouvellement'],
+      },
+      transcriptHeading: 'Transcription',
+      transcript: [
+        {
+          speaker: 'Recruteur',
+          text: 'Parlez-moi d’une fois où vous avez reconquis un client mécontent.',
+        },
+        {
+          speaker: 'Alex Rivera',
+          text: 'Notre plus gros client était mécontent d’une livraison en retard. Je l’ai appelé le jour même et nous avons convenu d’un plan de reprise.',
+        },
+      ],
+    },
+    caption: 'Notes d’exemple avec des données préparées.',
+    cta: 'Des notes pour votre prochain appel',
+    note: 'Les notes proviennent d’une session en direct : utilisez-la uniquement dans les entretiens qui autorisent les outils d’IA, et respectez les règles de chaque employeur.',
+  },
   checker: {
     label: 'Ma langue est-elle disponible ?',
     placeholder: 'Saisissez une langue, comme tamoul ou தமிழ்',

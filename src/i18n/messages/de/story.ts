@@ -143,6 +143,61 @@ export const story: Story = {
     note: 'Nutze es zum Üben und in Interviews, die KI-Tools erlauben. Beachte immer die Regeln des Arbeitgebers.',
     cta: 'Coding-Interviews üben',
   },
+  notes: {
+    eyebrow: 'Interview-Notizen',
+    title: 'Deine Notizen schreiben sich selbst',
+    description:
+      'Nichts mitschreiben, während du sprichst. Nach dem Gespräch macht die App aus dem Transkript strukturierte Notizen, damit du weißt, was gefragt wurde und was als Nächstes zu tun ist.',
+    points: [
+      {
+        title: 'Eine KI-Zusammenfassung des Gesprächs',
+        body: 'Worüber gesprochen wurde, wo du stark warst, woran du arbeiten solltest und die nächsten Schritte.',
+      },
+      {
+        title: 'Das vollständige Transkript',
+        body: 'Jede Zeile des Gesprächs, nach Sprecher und Uhrzeit gekennzeichnet.',
+      },
+      {
+        title: 'Jeder Vorschlag bleibt erhalten',
+        body: 'Die Gesprächspunkte, die du gesehen hast, neben der Frage, auf die sie antworten.',
+      },
+      {
+        title: 'Word oder Markdown',
+        body: 'Wird beim Beenden der Sitzung angeboten, oder jederzeit über die Werkzeugleiste exportieren.',
+      },
+    ],
+    panel: 'Interview-Notizen',
+    sampleLabel: 'Beispiel',
+    sample: {
+      title: 'Interview Customer Success Manager - Alex Rivera',
+      date: 'Datum/Uhrzeit: 12.03.2026, 05:21',
+      summaryHeading: 'Zusammenfassung',
+      summary:
+        'Themen: Rückgewinnung von Kunden, Verlängerungsplanung und Umgang mit Eskalationen. Die Antworten waren konkret und begannen mit dem Ergebnis.',
+      strengths: {
+        heading: 'Wichtigste Stärken',
+        items: ['Klare Beispiele, Ergebnis zuerst', 'Schnelles, persönliches Nachfassen'],
+      },
+      nextSteps: {
+        heading: 'Nächste Schritte',
+        items: ['Beispiel für den Rettungsplan senden', 'Kennzahlen zur Verlängerung vorbereiten'],
+      },
+      transcriptHeading: 'Transkript',
+      transcript: [
+        {
+          speaker: 'Interviewer',
+          text: 'Erzählen Sie von einem Mal, als Sie einen unzufriedenen Kunden zurückgewonnen haben.',
+        },
+        {
+          speaker: 'Alex Rivera',
+          text: 'Unser größter Kunde war wegen einer verspäteten Lieferung verärgert. Ich habe noch am selben Tag angerufen und einen Rettungsplan vereinbart.',
+        },
+      ],
+    },
+    caption: 'Beispielnotizen mit vorbereiteten Daten.',
+    cta: 'Notizen aus deinem nächsten Gespräch',
+    note: 'Die Notizen entstehen in einer Live-Sitzung: Nutze sie nur in Interviews, die KI-Tools erlauben, und beachte die Regeln des Arbeitgebers.',
+  },
   checker: {
     label: 'Wird meine Sprache unterstützt?',
     placeholder: 'Sprache eingeben, z. B. Tamil oder தமிழ்',

@@ -124,6 +124,39 @@ export const story: Story = {
     note: '请用于练习，或用于允许使用 AI 工具的面试。请始终遵守各雇主的规定。',
     cta: '练习编程面试',
   },
+  notes: {
+    eyebrow: '面试笔记',
+    title: '笔记自动生成',
+    description:
+      '说话时无需手动记录。通话结束后，应用会把转写内容整理成结构化笔记，让你记得被问了什么，也知道下一步该做什么。',
+    points: [
+      { title: 'AI 通话摘要', body: '讨论了什么、你的优势、需要改进的地方以及后续步骤。' },
+      { title: '完整转写', body: '对话中的每一句话，都标注说话人和时间。' },
+      { title: '保留所有建议', body: '你看到的要点，与各自回答的问题并列保存。' },
+      { title: 'Word 或 Markdown', body: '停止会话时会提示保存，也可以随时从工具栏导出。' },
+    ],
+    panel: '面试笔记',
+    sampleLabel: '示例',
+    sample: {
+      title: '客户成功经理面试 - Alex Rivera',
+      date: '日期/时间：2026/3/12 05:21',
+      summaryHeading: '摘要',
+      summary: '讨论了客户挽回、续约规划和升级处理。回答具体，先讲结果。',
+      strengths: { heading: '主要优势', items: ['结果先行，案例清晰', '跟进迅速且用心'] },
+      nextSteps: { heading: '后续步骤', items: ['发送恢复计划示例', '准备续约相关指标'] },
+      transcriptHeading: '转写',
+      transcript: [
+        { speaker: '面试官', text: '请讲一次你挽回不满意客户的经历。' },
+        {
+          speaker: 'Alex Rivera',
+          text: '我们最大的客户因交付延迟很不满。我当天就打了电话，并商定了恢复计划。',
+        },
+      ],
+    },
+    caption: '使用预设数据的示例笔记。',
+    cta: '下次通话即可获得笔记',
+    note: '笔记来自实时会话：仅在允许使用 AI 工具的面试中使用，并始终遵守各雇主的规定。',
+  },
   checker: {
     label: '支持我的语言吗？',
     placeholder: '输入语言，例如 泰米尔语 或 தமிழ்',

@@ -141,6 +141,61 @@ export const story: Story = {
     note: 'Úsalo para practicar y en entrevistas que permitan herramientas de IA. Sigue siempre las normas de cada empresa.',
     cta: 'Practicar entrevistas de código',
   },
+  notes: {
+    eyebrow: 'Notas de la entrevista',
+    title: 'Tus notas se escriben solas',
+    description:
+      'Nada que teclear mientras hablas. Al terminar la llamada, la app convierte la transcripción en notas estructuradas para que recuerdes qué te preguntaron y sepas qué hacer después.',
+    points: [
+      {
+        title: 'Un resumen de la llamada con IA',
+        body: 'De qué se habló, dónde destacaste, qué mejorar y los próximos pasos.',
+      },
+      {
+        title: 'La transcripción completa',
+        body: 'Cada línea de la conversación, con el hablante y la hora.',
+      },
+      {
+        title: 'Todas las sugerencias guardadas',
+        body: 'Los puntos clave que viste, junto a la pregunta que respondía cada uno.',
+      },
+      {
+        title: 'Word o Markdown',
+        body: 'Se ofrece al detener la sesión, o expórtalo cuando quieras desde la barra de herramientas.',
+      },
+    ],
+    panel: 'Notas de la entrevista',
+    sampleLabel: 'Ejemplo',
+    sample: {
+      title: 'Entrevista para Customer Success Manager - Alex Rivera',
+      date: 'Fecha/Hora: 12/3/2026, 5:21',
+      summaryHeading: 'Resumen',
+      summary:
+        'Se habló de recuperar cuentas, planificar renovaciones y gestionar escalados. Respuestas concretas que empezaban por el resultado.',
+      strengths: {
+        heading: 'Puntos fuertes',
+        items: ['Ejemplos claros, resultado primero', 'Seguimiento rápido y personal'],
+      },
+      nextSteps: {
+        heading: 'Próximos pasos',
+        items: ['Enviar el ejemplo de plan de recuperación', 'Preparar métricas de renovación'],
+      },
+      transcriptHeading: 'Transcripción',
+      transcript: [
+        {
+          speaker: 'Entrevistador',
+          text: 'Cuénteme una ocasión en la que recuperó a un cliente insatisfecho.',
+        },
+        {
+          speaker: 'Alex Rivera',
+          text: 'Nuestro mayor cliente estaba molesto por una entrega tardía. Lo llamé ese mismo día y acordamos un plan de recuperación.',
+        },
+      ],
+    },
+    caption: 'Notas de ejemplo con datos preparados.',
+    cta: 'Obtén notas de tu próxima llamada',
+    note: 'Las notas salen de una sesión en vivo: úsala solo en entrevistas que permitan herramientas de IA y sigue siempre las normas de cada empresa.',
+  },
   checker: {
     label: '¿Está disponible mi idioma?',
     placeholder: 'Escribe un idioma, como tamil o தமிழ்',
