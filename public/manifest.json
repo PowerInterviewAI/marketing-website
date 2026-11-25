@@ -1,7 +1,7 @@
 {
-    "name": "Power Interview AI - Privacy-First AI Interview Assistant",
+    "name": "Power Interview AI - AI Mock Interview & Live Interview Assistant",
     "short_name": "Power Interview AI",
-    "description": "Transform your interview performance with Power Interview AI - a privacy-first AI interview assistant with real-time transcription, intelligent reply and code suggestions, and exportable session reports. The model is provided for you, so you can get started instantly.",
+    "description": "A spoken AI mock interview that scores every answer, then live transcription and reply suggestions on the real Zoom, Meet or Teams call. 1 hour free.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#0a0a0b",
@@ -10,9 +10,9 @@
     "icons": [
         {
             "src": "/brand/favicon.png",
-            "sizes": "192x192",
+            "sizes": "420x420",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "/favicon.ico",
