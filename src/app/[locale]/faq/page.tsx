@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { JsonLd } from '@/components/JsonLd';
 import { PageChrome } from '@/components/PageChrome';
 import { FAQSection } from '@/components/sections';
 import { getMessages } from '@/i18n/messages';
@@ -26,10 +27,7 @@ export default async function FAQPage(props: LocaleParams) {
     <PageChrome>
       {/* The only page rendering the full question list, so the only page that
           should claim FAQPage. */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqPageJsonLd(locale)) }}
-      />
+      <JsonLd data={buildFaqPageJsonLd(locale)} />
       <FAQSection locale={locale} standalone />
     </PageChrome>
   );

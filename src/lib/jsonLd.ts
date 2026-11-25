@@ -17,13 +17,21 @@
  */
 import { getFaqItems } from '@/config/faq';
 import { LANGUAGE_COUNT, VOICE_LANGUAGE_COUNT } from '@/config/languages';
-import { LOCALES, LOCALE_META, type Locale } from '@/i18n/config';
+import { DOWNLOAD_HREF, ROUTES } from '@/config/routes';
+import {
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_PROFILES,
+  SOFTWARE_ID,
+  SUPPORT_EMAIL,
+  WEBSITE_ID,
+  absoluteUrl,
+} from '@/config/site';
+import { LOCALES, LOCALE_META, type Locale, localizePath } from '@/i18n/config';
 import { format } from '@/i18n/format';
 import { getMessages } from '@/i18n/messages';
 import { Plan } from '@/types';
-
-const SITE_URL = 'https://www.powerinterviewai.com';
-const SITE_NAME = 'Power Interview AI';
 
 /**
  * The home page's SoftwareApplication block.
@@ -45,39 +53,49 @@ const SITE_NAME = 'Power Interview AI';
  * ratings are collected and shown, and derive it from that same data.
  */
 export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Locale) {
-  const { structured } = getMessages(locale).meta;
-  const prices = (plans ?? []).map((plan) => plan.price_usd).filter((n) => Number.isFinite(n));
+  const messages = getMessages(locale);
+  const { structured } = messages.meta;
+  const { planNames } = messages.pricing;
+  const validPlans = (plans ?? []).filter((plan) => Number.isFinite(plan.price_usd));
 
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': SOFTWARE_ID,
     name: SITE_NAME,
-    url: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`,
-    inLanguage: locale,
+    url: absoluteUrl(localizePath(locale, ROUTES.home)),
+    inLanguage: LOCALE_META[locale].htmlLang,
     applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Interview preparation',
     // macOS isn't ready to ship yet (see MACOS_SUPPORTED in DownloadButton.tsx)
     // - claiming a platform that isn't actually downloadable is exactly the
     // kind of drift this file's other comments already warn against. Add it
     // back once the macOS build is supported again.
     operatingSystem: 'Windows',
+    downloadUrl: absoluteUrl(localizePath(locale, DOWNLOAD_HREF)),
     description: structured.softwareDescription,
-    author: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-      logo: `${SITE_URL}/brand/logo.png`,
-      sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
-    },
+    image: `${SITE_URL}/brand/open-graph.png`,
+    // The Organization block in the root layout carries the full record.
+    author: { '@id': ORGANIZATION_ID },
+    publisher: { '@id': ORGANIZATION_ID },
     // Frames of the real app UI, recorded with sample data.
-    screenshot: [`${SITE_URL}/media/demos/report.webp`, `${SITE_URL}/media/demos/coding.webp`],
-    ...(prices.length > 0 && {
-      offers: {
-        '@type': 'AggregateOffer',
-        lowPrice: String(Math.min(...prices)),
-        highPrice: String(Math.max(...prices)),
+    screenshot: [
+      `${SITE_URL}/media/demos/mock.webp`,
+      `${SITE_URL}/media/demos/report.webp`,
+      `${SITE_URL}/media/demos/live.webp`,
+      `${SITE_URL}/media/demos/coding.webp`,
+    ],
+    // One Offer per plan the pricing section renders, so an assistant asked
+    // "how much is it?" reads the actual price list rather than a range.
+    ...(validPlans.length > 0 && {
+      offers: validPlans.map((plan) => ({
+        '@type': 'Offer',
+        name: planNames[plan.plan],
+        price: String(plan.price_usd),
         priceCurrency: 'USD',
-        offerCount: String(prices.length),
-      },
+        url: absoluteUrl(localizePath(locale, ROUTES.pricing)),
+        availability: 'https://schema.org/InStock',
+      })),
     }),
     // Grouped the way the page groups them: the mock interview first, the
     // live interview second, then what holds for both. A flat list here while
@@ -89,21 +107,97 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Loc
   };
 }
 
+/**
+ * Site-wide identity. `@id` lets the page-level blocks point at it instead of
+ * restating it, and `sameAs` lists every profile the Contact section links to -
+ * it is how search engines and assistants join the brand to those accounts.
+ */
 export const buildOrganizationJsonLd = (locale: Locale) => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': ORGANIZATION_ID,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/brand/logo.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/brand/logo.png`,
+  },
   description: getMessages(locale).meta.structured.organizationDescription,
-  email: 'team@vectorleappulse.xyz',
-  sameAs: ['https://github.com/PowerInterviewAI/client-app', 'https://t.me/power_interview_ai'],
+  email: SUPPORT_EMAIL,
+  sameAs: [...SOCIAL_PROFILES],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'team@vectorleappulse.xyz',
-    contactType: 'Customer Support',
+    email: SUPPORT_EMAIL,
+    contactType: 'customer support',
     availableLanguage: LOCALES.map((l) => LOCALE_META[l].label),
   },
+});
+
+/**
+ * WebSite, on the home page only - Google reads it there to choose the site
+ * name it shows above a result. `inLanguage` lists every locale the site is
+ * published in. No SearchAction: the site has no search to point it at.
+ */
+export const buildWebSiteJsonLd = (locale: Locale) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': WEBSITE_ID,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  description: getMessages(locale).meta.home.description,
+  inLanguage: LOCALES.map((l) => LOCALE_META[l].htmlLang),
+  publisher: { '@id': ORGANIZATION_ID },
+});
+
+export interface BreadcrumbItem {
+  name: string;
+  /** Locale-neutral site path; the last item's may be omitted (it is the page itself). */
+  path?: string;
+}
+
+/**
+ * BreadcrumbList for a page that renders a visible breadcrumb - currently the
+ * docs (DocsBreadcrumb). It must mirror the trail a reader actually sees.
+ */
+export const buildBreadcrumbJsonLd = (items: BreadcrumbItem[], locale: Locale) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    ...(item.path && { item: absoluteUrl(localizePath(locale, item.path)) }),
+  })),
+});
+
+/**
+ * TechArticle for a documentation page. The docs are English under every
+ * locale, so the article's language and URL are always the English ones,
+ * matching the page's canonical. No dates: the file's mtime on a fresh build
+ * clone is the build time, and a dateModified that moves on every deploy is a
+ * claim, not a fact.
+ */
+export const buildDocArticleJsonLd = ({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  url: absoluteUrl(path),
+  mainEntityOfPage: absoluteUrl(path),
+  inLanguage: 'en',
+  image: `${SITE_URL}/brand/open-graph.png`,
+  author: { '@id': ORGANIZATION_ID },
+  publisher: { '@id': ORGANIZATION_ID },
+  about: { '@id': SOFTWARE_ID },
+  isPartOf: { '@id': WEBSITE_ID },
 });
 
 /**
@@ -115,7 +209,7 @@ export const buildOrganizationJsonLd = (locale: Locale) => ({
 export const buildFaqPageJsonLd = (locale: Locale) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  inLanguage: locale,
+  inLanguage: LOCALE_META[locale].htmlLang,
   mainEntity: getFaqItems(locale).map((item) => ({
     '@type': 'Question',
     name: item.question,
