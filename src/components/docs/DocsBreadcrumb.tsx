@@ -34,9 +34,8 @@ export const DocsBreadcrumb: React.FC<DocsBreadcrumbProps> = ({ current }) => {
           </LocalizedLink>
         </li>
 
-        <ChevronRight className="size-3.5 shrink-0" aria-hidden="true" />
-
-        <li>
+        <li className="flex items-center gap-1.5">
+          <ChevronRight className="size-3.5 shrink-0" aria-hidden="true" />
           {current ? (
             <LocalizedLink href={ROUTES.docs} prefetch={false} className={LINK_CLASS}>
               {t.documentation}
@@ -49,12 +48,12 @@ export const DocsBreadcrumb: React.FC<DocsBreadcrumbProps> = ({ current }) => {
         </li>
 
         {current && (
-          <>
+          <li className="flex items-center gap-1.5">
             <ChevronRight className="size-3.5 shrink-0" aria-hidden="true" />
-            <li aria-current="page" className="font-medium capitalize text-foreground">
+            <span aria-current="page" className="font-medium capitalize text-foreground">
               {current}
-            </li>
-          </>
+            </span>
+          </li>
         )}
       </ol>
     </nav>

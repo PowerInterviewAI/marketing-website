@@ -1,6 +1,6 @@
 # Troubleshooting
 
-This page covers the most common issues users encounter with Power Interview AI and how to resolve them.
+Fixes for common Power Interview AI problems: the app not launching, sign-in errors, missing or delayed transcription, empty suggestions, blank screenshots and hotkeys.
 
 ---
 

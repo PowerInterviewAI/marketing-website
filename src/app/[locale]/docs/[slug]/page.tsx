@@ -4,11 +4,12 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+import { JsonLd } from '@/components/JsonLd';
 import { DocsBreadcrumb } from '@/components/docs/DocsBreadcrumb';
 import { DocsLayout } from '@/components/docs/DocsLayout';
 import { DocsPager } from '@/components/docs/DocsPager';
 import { MarkdownImage } from '@/components/docs/MarkdownImage';
-import { docPath } from '@/config/routes';
+import { ROUTES, docPath } from '@/config/routes';
 import { getMessages } from '@/i18n/messages';
 import { getLocale } from '@/i18n/server';
 import {
@@ -19,6 +20,7 @@ import {
   getDocSlugs,
   getDocTitle,
 } from '@/lib/docs';
+import { buildBreadcrumbJsonLd, buildDocArticleJsonLd } from '@/lib/jsonLd';
 import { getMediaSize, getVideoPoster } from '@/lib/media';
 import { buildMetadata } from '@/lib/metadata';
 import { applyReleaseTokens, getLatestVersion } from '@/lib/release';
@@ -40,6 +42,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       description: 'No documentation found for this page.',
       path: docPath(slug),
       translated: false,
+      noindex: true,
     });
   }
   const title = getDocTitle(slug, raw);
@@ -185,13 +188,35 @@ export default async function DocPage({ params }: DocPageProps) {
   const rendered = applyReleaseTokens(content, await getLatestVersion());
 
   const { previous, next } = getDocNeighbours(slug);
+  const title = getDocTitle(slug, content);
+  const crumbs = t.breadcrumb;
 
   return (
     <DocsLayout docs={navItems}>
+      {/* Mirrors the visible DocsBreadcrumb trail. */}
+      <JsonLd
+        data={buildBreadcrumbJsonLd(
+          [
+            { name: crumbs.home, path: ROUTES.home },
+            { name: crumbs.documentation, path: ROUTES.docs },
+            { name: title },
+          ],
+          locale
+        )}
+      />
+      <JsonLd
+        data={buildDocArticleJsonLd({
+          title,
+          description: getDocDescription(slug),
+          path: docPath(slug),
+        })}
+      />
       <main className="mx-auto max-w-4xl px-2 py-4 sm:px-4">
-        <DocsBreadcrumb current={getDocTitle(slug, content)} />
+        <DocsBreadcrumb current={title} />
 
-        <article className="markdown-body">
+        {/* The docs are English under every locale; say so, so a /ru page's
+            English body isn't read (or spoken) as Russian. */}
+        <article className="markdown-body" lang={locale === 'en' ? undefined : 'en'}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={buildMarkdownComponents(t.linkToSection)}

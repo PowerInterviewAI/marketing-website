@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 
+import { SITE_NAME } from '@/config/site';
 import { DEFAULT_LOCALE, LOCALES, LOCALE_META, type Locale, localizePath } from '@/i18n/config';
-
-const SITE_NAME = 'Power Interview AI';
 
 interface PageMetadataInput {
   title: string;
@@ -26,6 +25,8 @@ interface PageMetadataInput {
    * compete with each other.
    */
   translated?: boolean;
+  /** Keep the page out of the index - for a URL that renders a "not found" body. */
+  noindex?: boolean;
 }
 
 /**
@@ -47,6 +48,7 @@ export function buildMetadata({
   locale = DEFAULT_LOCALE,
   absoluteTitle = false,
   translated = true,
+  noindex = false,
 }: PageMetadataInput): Metadata {
   const fullTitle = absoluteTitle ? title : `${title} - ${SITE_NAME}`;
   const pageLocale = translated ? locale : DEFAULT_LOCALE;
@@ -68,6 +70,7 @@ export function buildMetadata({
     title: fullTitle,
     description,
     alternates,
+    ...(noindex && { robots: { index: false, follow: false } }),
     openGraph: {
       type: 'website',
       siteName: SITE_NAME,
