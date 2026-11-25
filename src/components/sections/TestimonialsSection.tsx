@@ -4,9 +4,10 @@ import { Quote, Star } from 'lucide-react';
 
 import { TestimonialMarquee } from '@/components/sections/TestimonialMarquee';
 import { Section, SectionHeading } from '@/components/ui/section';
-import { SECTIONS } from '@/config/routes';
+import { SECTIONS, homeAnchor } from '@/config/routes';
 import { TESTIMONIALS, type Testimonial } from '@/config/testimonials';
-import type { Locale } from '@/i18n/config';
+import { LocalizedLink } from '@/i18n/LocalizedLink';
+import { LOCALE_META, type Locale } from '@/i18n/config';
 import { format } from '@/i18n/format';
 import { type Messages, getMessages } from '@/i18n/messages';
 import { cn } from '@/lib/utils';
@@ -144,6 +145,18 @@ export const TestimonialsSection: React.FC<{ locale: Locale }> = ({ locale }) =>
       <SectionHeading id="testimonials-heading" eyebrow={copy.eyebrow} title={copy.title} />
 
       <TestimonialMarquee cards={cards} />
+
+      <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+        {copy.share}
+        {LOCALE_META[locale].space}
+        <LocalizedLink
+          href={homeAnchor(SECTIONS.contact)}
+          className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
+        >
+          {copy.shareLink}
+        </LocalizedLink>
+        {LOCALE_META[locale].period}
+      </p>
 
       <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
         {messages.story.live.note}
