@@ -47,7 +47,7 @@ Every page except the docs (which have their own sidebar layout) uses `PageChrom
 
 **6. One label, one destination.** Every "Download" control uses `DownloadCta` (`src/components/DownloadCta.tsx`) and goes to `DOWNLOAD_HREF` (`/#install`). It replaced `GoHomeButton`/`useGoHome`, a `<button>` that pushed `/` from other pages and scrolled to the top of the home page — so a control labelled "Download Power Interview AI" offered no download, while the footer's "Download" link three columns away went to GitHub releases.
 
-JSON-LD is scoped the same way (`src/lib/jsonLd.ts`): `Organization` is site-wide and stays in the root layout, `SoftwareApplication` is on the home page, `FAQPage` is on `/faq`. Structured data has to describe the page it sits on — all three used to be emitted on every route, including `/privacy` and every docs page.
+JSON-LD is scoped the same way (`src/lib/jsonLd.ts`, emitted through `JsonLd` in `src/components/JsonLd.tsx`, which escapes `<`): `Organization` is site-wide and stays in the root layout, `WebSite` and `SoftwareApplication` are on the home page, `FAQPage` is on `/faq`, and each doc page carries `BreadcrumbList` (mirroring `DocsBreadcrumb`) and `TechArticle`. The blocks reference each other by `@id` (`src/config/site.ts`) instead of restating the organization. Structured data has to describe the page it sits on — all three used to be emitted on every route, including `/privacy` and every docs page.
 
 ### Localization
 
@@ -131,6 +131,11 @@ Every route exports `metadata` (static pages) or `generateMetadata` (`/docs/[slu
 - **Doc descriptions come from the doc.** `getDocDescription()` in `src/lib/docs.ts` reuses `getDocExcerpt()` to take the opening paragraph as plain text. They used to be `Documentation: ${title}` — 27–39 characters, identical in shape across all seven pages, which is a snippet Google discards.
 - **Any page that 404s must be `noindex`.** Both `src/app/[locale]/not-found.tsx` and `src/app/[locale]/docs/[slug]/not-found.tsx` set it; without it they inherit the root layout's `index, follow`.
 - **`sitemap.ts` never lists a URL that 3xx's**, and doc `lastModified` comes from the markdown file's mtime (`getDocLastModified`), not `new Date()` — a lastmod that moves for pages that didn't change is a signal crawlers learn to ignore.
+- **Site identity lives in `src/config/site.ts`** (`SITE_URL`, `SITE_NAME`, `SOCIAL_PROFILES`, the JSON-LD `@id`s). `Organization.sameAs` lists every profile the Contact section links to; add a channel there and in `ContactSection` together.
+- **The root layout sets no canonical or `og:url`.** A layout-level canonical is inherited by any route that forgets its own and points it at the home page; every route gets both from `buildMetadata()`. The layout does set `max-snippet:-1` / `max-image-preview:large` so search and AI answers may quote pages in full.
+- **`robots.ts` names the search and AI crawlers** and allows them everywhere. Don't add a `Disallow` that catches them by accident.
+- **`/llms-full.txt`** (`src/app/llms-full.txt/route.ts`) is the whole English knowledge base in one file: features, plans, the language list, every FAQ answer and every doc, generated from the same sources the pages render, so it needs no hand maintenance. `public/llms.txt` links to it.
+- **Static sitemap entries carry no `lastModified`.** They are assembled from components and the catalogue, so there is no honest date; `new Date()` claimed every page changed on every deploy.
 - **`public/llms.txt` lists routes too.** It is not generated; update it when routes change. It had been advertising `/features`, `/benefits`, `/why-choose` and `/contact` as canonical URLs long after they became redirects.
 
 **Structured data must be true of the page it sits on and visible to a reader of that page.** `src/lib/jsonLd.ts` scopes each block: `Organization` site-wide in the root layout, `SoftwareApplication` on the home page, `FAQPage` on `/faq`. All three used to be emitted on every route, including `/privacy` and every docs page.
