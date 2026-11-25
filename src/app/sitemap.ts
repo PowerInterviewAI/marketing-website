@@ -1,12 +1,9 @@
 import type { MetadataRoute } from 'next';
 
 import { SITEMAP_ROUTES, docPath, isEnglishOnly } from '@/config/routes';
+import { absoluteUrl as absolute } from '@/config/site';
 import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localizePath } from '@/i18n/config';
 import { getDocLastModified, getDocSlugs } from '@/lib/docs';
-
-const SITE_URL = 'https://www.powerinterviewai.com';
-
-const absolute = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
 
 /** hreflang map for a translated page, `x-default` pointing at the English URL. */
 const languagesFor = (route: string) => ({
@@ -29,8 +26,11 @@ const languagesFor = (route: string) => ({
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = SITEMAP_ROUTES.flatMap((route) => {
     const isHome = route === '/';
+    // No lastModified: these pages are assembled from components and the
+    // message catalogue, so there is no single file whose date is the page's.
+    // `new Date()` stamped every URL as changed on every deploy, which is the
+    // kind of lastmod crawlers learn to ignore - for the docs below too.
     const entry = {
-      lastModified: new Date(),
       changeFrequency: isHome ? ('weekly' as const) : ('monthly' as const),
       priority: isHome ? 1 : 0.7,
     };
@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // lastModified comes off the markdown file itself rather than the clock, so
   // a doc that didn't change doesn't claim it did on every deploy.
   const docEntries: MetadataRoute.Sitemap = getDocSlugs().map((slug) => ({
-    url: `${SITE_URL}${docPath(slug)}`,
+    url: absolute(docPath(slug)),
     lastModified: getDocLastModified(slug),
     changeFrequency: 'monthly',
     priority: 0.5,

@@ -8,10 +8,12 @@ import Script from 'next/script';
 
 import { AnalyticsListener } from '@/components/AnalyticsListener';
 import { InlineScript } from '@/components/InlineScript';
+import { JsonLd } from '@/components/JsonLd';
 import { SpotlightTracker } from '@/components/SpotlightTracker';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
-import { LOCALES, LOCALE_META, isLocale, localizePath } from '@/i18n/config';
+import { LOCALES, LOCALE_META, isLocale } from '@/i18n/config';
 import { getClientMessages, getMessages } from '@/i18n/messages';
 import { buildOrganizationJsonLd } from '@/lib/jsonLd';
 import { cn } from '@/lib/utils';
@@ -41,8 +43,6 @@ const fontMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const SITE_URL = 'https://www.powerinterviewai.com';
-const SITE_NAME = 'Power Interview AI';
 export async function generateMetadata({
   params,
 }: {
@@ -58,8 +58,22 @@ export async function generateMetadata({
     description: site.description,
     keywords: site.keywords,
     authors: [{ name: SITE_NAME }],
-    robots: { index: true, follow: true },
-    alternates: { canonical: localizePath(locale, '/') },
+    // Allow full-length snippets and large image previews: without these,
+    // Google and Bing may cap how much of a page they quote in results and AI
+    // answers. No canonical here - a layout-level canonical is inherited by
+    // any route that forgets its own and would point that page at the home
+    // page. Every route sets its own through buildMetadata().
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
+    },
     applicationName: SITE_NAME,
     manifest: '/manifest.json',
     icons: {
@@ -75,7 +89,6 @@ export async function generateMetadata({
     formatDetection: { telephone: false },
     openGraph: {
       type: 'website',
-      url: localizePath(locale, '/'),
       title: site.ogTitle,
       description: site.description,
       images: [
@@ -152,10 +165,7 @@ export default async function RootLayout({
         {/* Organization is the only schema true of every route. The
             SoftwareApplication and FAQPage blocks moved to the pages whose
             content they describe - see src/lib/jsonLd.ts. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd(locale)) }}
-        />
+        <JsonLd data={buildOrganizationJsonLd(locale)} />
       </head>
       <body suppressHydrationWarning>
         <LocaleProvider locale={locale} messages={getClientMessages(locale)}>
