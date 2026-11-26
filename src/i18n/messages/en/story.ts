@@ -19,6 +19,14 @@ export const story = {
       'Export as DOCX or Markdown',
     ],
   },
+  tour: {
+    eyebrow: 'The full tour',
+    title: 'See everything in 90 seconds',
+    description:
+      'Mock interviews, live help, coding rounds and the smart report after the call, narrated in English. App screens are real with sample data; the people are fictional.',
+    play: 'Play the 90-second tour',
+    sample: 'Sample',
+  },
   modes: {
     eyebrow: 'One app, two modes',
     title: 'Before the interview, and during it',

@@ -20,6 +20,14 @@ export const story: Story = {
       'Export als DOCX oder Markdown',
     ],
   },
+  tour: {
+    eyebrow: 'Die komplette Tour',
+    title: 'Alles in 90 Sekunden',
+    description:
+      'Probeinterviews, Live-Hilfe, Coding-Runden und der smarte Bericht nach dem Gespräch, auf Englisch gesprochen. Die App-Bildschirme sind echt mit Beispieldaten, die Personen sind fiktiv.',
+    play: 'Die 90-Sekunden-Tour abspielen',
+    sample: 'Beispiel',
+  },
   modes: {
     eyebrow: 'Eine App, zwei Modi',
     title: 'Vor dem Gespräch und währenddessen',

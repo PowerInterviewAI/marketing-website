@@ -15,6 +15,14 @@ export const story: Story = {
     replay: '重播',
     points: ['逐题评分', '回答单薄时继续追问', '导出 DOCX 或 Markdown'],
   },
+  tour: {
+    eyebrow: '完整导览',
+    title: '90 秒看懂全部功能',
+    description:
+      '模拟面试、实时辅助、编程面试，以及通话结束后的智能报告，全程英语旁白。应用界面为真实界面并使用示例数据，片中人物均为虚构。',
+    play: '播放 90 秒导览',
+    sample: '示例',
+  },
   modes: {
     eyebrow: '一个应用，两种模式',
     title: '面试前，也在面试中',

@@ -35,6 +35,7 @@ export const ROUTES = {
  */
 export const SECTIONS = {
   hero: 'home',
+  tour: 'tour',
   howItWorks: 'how-it-works',
   features: 'features',
   mockInterview: 'mock-interview',

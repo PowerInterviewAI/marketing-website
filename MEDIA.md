@@ -53,6 +53,18 @@ node scripts/demo-videos/capture-docs.mjs public/media/docs
 
 Sessions are defined in `scripts/demo-videos/scenes.mjs`.
 
+## Tour video
+
+`media/demos/tour.mp4` is the 90-second narrated ad, played by `TourSection` under the hero
+(click to play, with sound; nothing downloads before that). Its app UI is the real renderer with
+sample data; the two leads and the role portraits are fictional people generated in ComfyUI
+(Qwen Image Edit 2511 without the Lightning LoRA for photorealism, Wan 2.2 for motion), and the
+narration is Kokoro-82M. The copy beside it says so, and it must never be captioned as customers.
+`media/demos/tour.webp` is a designed cover (logo, "Rehearse out loud. Walk in ready.", the
+heroine on the right); `TourPlayer` places its play button under that headline, so re-place the
+button if the cover layout changes. Production files, prompts, seeds and the full report live in
+`../pia-advertise/2026-11-26/assets/ad-90s/`.
+
 ## Open Graph image
 
 `brand/open-graph.png` is 1200x630 and is rendered from the real report screenshot by

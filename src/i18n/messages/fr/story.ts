@@ -16,6 +16,14 @@ export const story: Story = {
     replay: 'Rejouer',
     points: ['Note par question', 'Relances sur les réponses légères', 'Export DOCX ou Markdown'],
   },
+  tour: {
+    eyebrow: 'La visite complète',
+    title: 'Tout voir en 90 secondes',
+    description:
+      'Entretiens simulés, aide en direct, épreuves de code et rapport intelligent après l’appel, commentés en anglais. Les écrans de l’app sont réels avec des données d’exemple ; les personnes sont fictives.',
+    play: 'Lancer la visite de 90 secondes',
+    sample: 'Exemple',
+  },
   modes: {
     eyebrow: 'Une app, deux modes',
     title: 'Avant l’entretien, et pendant',

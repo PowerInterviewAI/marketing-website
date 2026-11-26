@@ -16,6 +16,14 @@ export const story: Story = {
     replay: 'Repetir',
     points: ['Nota por pergunta', 'Perguntas de aprofundamento', 'Exporte em DOCX ou Markdown'],
   },
+  tour: {
+    eyebrow: 'O tour completo',
+    title: 'Tudo em 90 segundos',
+    description:
+      'Entrevistas simuladas, ajuda ao vivo, rodadas de código e o relatório inteligente depois da chamada, narrado em inglês. As telas do app são reais com dados de exemplo; as pessoas são fictícias.',
+    play: 'Assistir ao tour de 90 segundos',
+    sample: 'Exemplo',
+  },
   modes: {
     eyebrow: 'Um app, dois modos',
     title: 'Antes da entrevista e durante ela',

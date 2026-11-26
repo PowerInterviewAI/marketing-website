@@ -16,6 +16,14 @@ export const story: Story = {
     replay: '다시 보기',
     points: ['질문별 점수', '부족한 답변에 후속 질문', 'DOCX 또는 Markdown 내보내기'],
   },
+  tour: {
+    eyebrow: '전체 둘러보기',
+    title: '90초 만에 모두 보기',
+    description:
+      '모의 면접, 실시간 도움, 코딩 면접, 통화 후 스마트 보고서까지 영어 내레이션으로 소개합니다. 앱 화면은 샘플 데이터를 쓴 실제 화면이며 등장인물은 가상 인물입니다.',
+    play: '90초 둘러보기 재생',
+    sample: '샘플',
+  },
   modes: {
     eyebrow: '하나의 앱, 두 가지 모드',
     title: '면접 전에도, 면접 중에도',
