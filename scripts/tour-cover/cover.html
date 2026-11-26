@@ -19,8 +19,15 @@
         font-family: Inter, 'Segoe UI', sans-serif; color: #fff;
         -webkit-font-smoothing: antialiased;
       }
-      .her { position: absolute; right: 0; top: 0; width: 760px; height: 1080px;
-        background: url(her.webp) center / cover; }
+      /* her.webp is a tight crop (the face fills the frame), so it is drawn smaller than
+         its 760x1080 panel and anchored to the bottom; the mask fades its cut top and
+         sides into the background so the reduced frame has no visible edge. */
+      .her { position: absolute; right: 70px; bottom: 0; width: 540px; height: 767px;
+        background: url(her.webp) center / cover;
+        -webkit-mask-image:
+          linear-gradient(0deg, #000 70%, transparent 100%),
+          linear-gradient(90deg, transparent 0%, #000 22%, #000 82%, transparent 100%);
+        -webkit-mask-composite: source-in; mask-composite: intersect; }
       .shade { position: absolute; inset: 0;
         background:
           linear-gradient(90deg, #07070a 0%, #07070a 61%, rgba(7,7,10,.75) 66%, rgba(7,7,10,.3) 71%, rgba(7,7,10,0) 76%),
