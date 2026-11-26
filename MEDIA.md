@@ -36,7 +36,7 @@ public/
 
 `media/demos/*` and most of `media/docs/{app,mock}/*` come from the real client renderer with its
 Electron bridge replaced by scripted sample data. The UI is real, but no backend or live call is
-involved, so demos must stay labelled as samples.
+involved.
 
 Start the renderer in `../client-app`:
 

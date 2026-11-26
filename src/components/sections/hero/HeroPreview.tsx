@@ -301,9 +301,7 @@ export const HeroPreview: React.FC<{ className?: string }> = ({ className }) => 
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
             {t.interviewer}
           </span>
-          <span className="font-mono">
-            {t.sample} · {format(t.question, HERO_DEMO_QUESTION)}
-          </span>
+          <span className="font-mono">{format(t.question, HERO_DEMO_QUESTION)}</span>
         </div>
 
         <Stack code={code} mounted={mounted} render={(item) => <QuestionPane item={item} />} />

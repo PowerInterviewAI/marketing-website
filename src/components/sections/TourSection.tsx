@@ -13,7 +13,7 @@ import { TourPlayer } from './TourPlayer';
  * The 90-second narrated tour, on its own under the hero rather than mixed in
  * with the silent feature clips of the hero's "Watch demo" player. The app UI
  * in it is the real renderer with sample data and the people are generated, so
- * the copy says both; see MEDIA.md. Narration is English in every locale.
+ * the copy says they are fictional; see MEDIA.md. Narration is English in every locale.
  */
 export const TourSection: React.FC<{ locale: Locale }> = ({ locale }) => {
   const copy = getMessages(locale).story.tour;
@@ -33,7 +33,6 @@ export const TourSection: React.FC<{ locale: Locale }> = ({ locale }) => {
           poster="/media/demos/tour.webp"
           title={copy.title}
           play={copy.play}
-          sample={copy.sample}
         />
       </Reveal>
     </Section>

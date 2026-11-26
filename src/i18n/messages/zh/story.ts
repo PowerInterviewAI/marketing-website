@@ -19,15 +19,13 @@ export const story: Story = {
     eyebrow: '完整导览',
     title: '90 秒看懂全部功能',
     description:
-      '模拟面试、实时辅助、编程面试，以及通话结束后的智能报告，全程英语旁白。应用界面为真实界面并使用示例数据，片中人物均为虚构。',
+      '模拟面试、实时辅助、编程面试，以及通话结束后的智能报告，全程英语旁白。片中人物均为虚构。',
     play: '播放 90 秒导览',
-    sample: '示例',
   },
   modes: {
     eyebrow: '一个应用，两种模式',
     title: '面试前，也在面试中',
     description: '与会给你打分的 AI 面试官练习，真正通话时开着实时帮助。用其中一个，或两个都用。',
-    sample: '示例',
     shared: '两种模式读取同一份简历和职位描述，任何订阅都可无限使用。',
     mock: {
       tag: '面试前',
@@ -68,7 +66,6 @@ export const story: Story = {
       },
     ],
     imageAlt: '示例实时会话中的 Power Interview AI：实时转写上方显示建议的回答要点',
-    caption: '在真实应用中使用预设数据录制的示例会话。',
     cta: '免费试用实时帮助',
     note: '请仅在允许使用 AI 工具的面试中使用实时帮助。请始终遵守各雇主的规定。',
   },
@@ -76,7 +73,6 @@ export const story: Story = {
     eyebrow: '任何岗位',
     title: '你的岗位，你的问题。',
     description: '添加简历和职位描述，每个问题都为你想要的岗位而写。',
-    sample: '示例问题',
     controls: {
       previous: '上一个岗位',
       next: '下一个岗位',
@@ -144,7 +140,6 @@ export const story: Story = {
       { title: 'Word 或 Markdown', body: '停止会话时会提示保存，也可以随时从工具栏导出。' },
     ],
     panel: '面试笔记',
-    sampleLabel: '示例',
     sample: {
       title: '客户成功经理面试 - Alex Rivera',
       date: '日期/时间：2026/3/12 05:21',
@@ -161,7 +156,6 @@ export const story: Story = {
         },
       ],
     },
-    caption: '使用预设数据的示例笔记。',
     cta: '下次通话即可获得笔记',
     note: '笔记来自实时会话：仅在允许使用 AI 工具的面试中使用，并始终遵守各雇主的规定。',
   },
@@ -175,8 +169,7 @@ export const story: Story = {
   showcase: {
     eyebrow: '走进应用',
     title: '这里的每个界面都是真实应用',
-    body: '设置、个人资料、模拟面试、实时建议、评分报告和导出，均在桌面应用中使用示例数据截取。',
+    body: '设置、个人资料、模拟面试、实时建议、评分报告和导出，均截取自桌面应用。',
     link: '浏览文档',
-    sample: '真实界面，示例数据',
   },
 };

@@ -44,7 +44,6 @@ export const hero: Hero = {
     during: 'Durante',
     mock: 'Entrevista simulada',
     live: 'Ayuda en directo',
-    sample: 'Ejemplo',
     question: 'Pregunta {n} de {total}',
     interviewer: 'Entrevistador',
     you: 'Tú',
@@ -63,7 +62,6 @@ export const hero: Hero = {
     watch: 'Ver demo',
     title: 'Demos del producto',
     close: 'Cerrar demo',
-    sample: 'Sesión de ejemplo grabada en la app real con datos preparados.',
     clips: {
       mock: {
         title: 'Entrevista simulada en español',

@@ -113,7 +113,6 @@ export const AppShowcaseSection: React.FC<{ locale: Locale }> = ({ locale }) => 
             {copy.link}
             <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
           </LocalizedLink>
-          <p className="mt-6 text-xs text-muted-foreground">{copy.sample}</p>
 
           {/* Angled glass chips pinned to the panel's corners - desktop only, where there is room. */}
           <span className="glass-chip absolute -left-10 -top-5 hidden -rotate-6 md:inline-flex">

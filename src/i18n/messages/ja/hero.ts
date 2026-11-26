@@ -44,7 +44,6 @@ export const hero: Hero = {
     during: '面接中',
     mock: '模擬面接',
     live: 'ライブサポート',
-    sample: 'サンプル',
     question: '質問 {n} / {total}',
     interviewer: '面接官',
     you: 'あなた',
@@ -63,7 +62,6 @@ export const hero: Hero = {
     watch: 'デモを見る',
     title: '製品デモ',
     close: 'デモを閉じる',
-    sample: '実際のアプリで、用意したデータを使って収録したサンプルです。',
     clips: {
       mock: {
         title: 'スペイン語の模擬面接',

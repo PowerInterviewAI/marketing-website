@@ -12,7 +12,6 @@ interface TourPlayerProps {
   /** Accessible name of the video and of the play button. */
   title: string;
   play: string;
-  sample: string;
 }
 
 /**
@@ -21,7 +20,7 @@ interface TourPlayerProps {
  * Playback starts inside the click handler, which is the user gesture browsers
  * require before playing with sound.
  */
-export const TourPlayer: React.FC<TourPlayerProps> = ({ src, poster, title, play, sample }) => {
+export const TourPlayer: React.FC<TourPlayerProps> = ({ src, poster, title, play }) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
 
@@ -59,11 +58,6 @@ export const TourPlayer: React.FC<TourPlayerProps> = ({ src, poster, title, play
             {play}
           </span>
         </button>
-      )}
-      {!started && (
-        <span className="pointer-events-none absolute right-3 top-3 rounded-md bg-background/80 px-2 py-0.5 text-[11px] font-medium text-muted-foreground backdrop-blur">
-          {sample}
-        </span>
       )}
     </div>
   );

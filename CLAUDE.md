@@ -79,7 +79,7 @@ The markdown render pipeline (`src/app/[locale]/docs/[slug]/page.tsx`) uses `rea
 
 Public assets are organized and documented in `MEDIA.md`: `public/brand/` for identity, `public/media/demos/` for product demos, `public/media/roles/` for role videos, `public/media/lifestyle/` for the ambient practice loop, and `public/media/docs/<topic>/` for documentation. Markdown can't carry `width`/`height`, so `src/lib/media.ts` reads each asset's intrinsic size off its file header at render time (PNG/JPEG/WebP/SVG) and stamps it on. It also maps embedded `.mp4`s to their posters; add an entry there for any new clip or it paints a black rectangle. When a deployed file moves, add its old URL to `LEGACY_ASSET_REDIRECTS`.
 
-App screenshots and product demos are captured from the real client renderer with scripted sample data by `scripts/demo-videos/`. Keep demos labelled as samples, and never present generated lifestyle media as customers or product screenshots.
+App screenshots and product demos are captured from the real client renderer with scripted sample data by `scripts/demo-videos/`. Never present generated lifestyle media as customers or product screenshots.
 
 ### Component Architecture
 
@@ -101,7 +101,7 @@ The site sells a mock interview *and* a live assistant, and both are first-party
 - `RolesSection` carries the legacy `#benefits` and `#why-choose` anchors, and `ModesSection` carries `#features`, because `LEGACY_ANCHOR_REDIRECTS` still points old URLs there. Coding help is pitched for practice and interviews that allow AI tools, and every live-help CTA carries the "only where AI tools are allowed" note. Keep hiding from screen share out of marketing copy, metadata and demos
 - The FAQ, `ORDER` in `src/lib/docs.ts` and `public/llms.txt` list mock before live for the same chronological reason
 
-Use only existing media for these sections (see `MEDIA.md`); the demo clips and screenshots are real app UI with scripted data, so keep them labelled as samples. Don't drift back to one half leading: if a new section, CTA or claim is added for one mode, check whether the other needs its counterpart.
+Use only existing media for these sections (see `MEDIA.md`); the demo clips and screenshots are real app UI with scripted data. Don't drift back to one half leading: if a new section, CTA or claim is added for one mode, check whether the other needs its counterpart.
 
 Anything describing the mock interview has to match the client (`../client`), which is where the behaviour actually lives:
 

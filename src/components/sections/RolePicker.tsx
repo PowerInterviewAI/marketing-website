@@ -181,7 +181,7 @@ export const RolePicker: React.FC<{ copy: Story['roles'] }> = ({ copy }) => {
                 </div>
                 <figcaption className="border-t border-border p-4 md:px-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    {copy.items[id].label} · {copy.sample}
+                    {copy.items[id].label}
                   </p>
                   <p className="mt-1 text-balance text-lg font-semibold leading-snug">
                     {copy.items[id].question}

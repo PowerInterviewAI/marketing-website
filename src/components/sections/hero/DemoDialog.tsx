@@ -53,7 +53,7 @@ export const DemoDialog: React.FC<{ className?: string }> = ({ className }) => {
                 {t.clips[clip.id].title}
               </DialogPrimitive.Title>
               <DialogPrimitive.Description className="mt-0.5 text-sm text-muted-foreground">
-                {t.clips[clip.id].description} {t.sample}
+                {t.clips[clip.id].description}
               </DialogPrimitive.Description>
             </div>
             <DialogPrimitive.Close

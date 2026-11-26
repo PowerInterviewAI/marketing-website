@@ -25,8 +25,8 @@ const POINT_ICONS: LucideIcon[] = [ListChecks, MessagesSquare, FileText, FileDow
  * ends. Mirrors the client's export (`buildExportMarkdown` in ../client): the
  * model's summary - discussion, strengths, gaps, improvements, next steps -
  * then the transcript labelled by speaker, then every suggestion, saved as
- * Word or Markdown. The panel is a sample of that document, labelled as one,
- * with the same scripted call as the export-menu screenshot in the docs.
+ * Word or Markdown. The panel is an example of that document, built from
+ * the same scripted call as the export-menu screenshot in the docs.
  *
  * It closes the live story (live -> coding -> notes) because that is when a
  * candidate meets it: after the call. The mock interview's counterpart is its
@@ -76,11 +76,8 @@ export const NotesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
 
         <Reveal className="min-w-0 lg:order-first">
           <figure className="surface-card tilt-media tilt-media-right overflow-hidden rounded-2xl">
-            <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-2.5">
+            <div className="border-b border-border px-4 py-2.5">
               <span className="text-xs font-semibold">{copy.panel}</span>
-              <span className="rounded-full border border-border px-2 py-0.5 text-[11px] text-muted-foreground">
-                {copy.sampleLabel}
-              </span>
             </div>
 
             <div className="flex flex-col gap-4 p-5 text-sm">
@@ -128,8 +125,7 @@ export const NotesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               </div>
             </div>
 
-            <figcaption className="flex flex-wrap items-center gap-2 border-t border-border px-4 py-2.5 text-xs text-muted-foreground">
-              <span className="me-auto">{copy.caption}</span>
+            <figcaption className="flex flex-wrap items-center justify-end gap-2 border-t border-border px-4 py-2.5 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1 rounded-md border border-border px-2 py-0.5">
                 <FileText className="size-3" aria-hidden="true" />
                 .docx

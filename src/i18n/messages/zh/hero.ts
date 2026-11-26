@@ -44,7 +44,6 @@ export const hero: Hero = {
     during: '面试中',
     mock: '模拟面试',
     live: '实时帮助',
-    sample: '示例',
     question: '第 {n} 题，共 {total} 题',
     interviewer: '面试官',
     you: '你',
@@ -63,7 +62,6 @@ export const hero: Hero = {
     watch: '观看演示',
     title: '产品演示',
     close: '关闭演示',
-    sample: '使用预设数据在真实应用中录制的示例会话。',
     clips: {
       mock: {
         title: '西班牙语模拟面试',

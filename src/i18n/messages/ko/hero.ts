@@ -44,7 +44,6 @@ export const hero: Hero = {
     during: '면접 중',
     mock: '모의 면접',
     live: '실시간 도움',
-    sample: '샘플',
     question: '질문 {n}/{total}',
     interviewer: '면접관',
     you: '나',
@@ -63,7 +62,6 @@ export const hero: Hero = {
     watch: '데모 보기',
     title: '제품 데모',
     close: '데모 닫기',
-    sample: '실제 앱에서 준비된 데이터로 녹화한 샘플 세션입니다.',
     clips: {
       mock: {
         title: '스페인어 모의 면접',

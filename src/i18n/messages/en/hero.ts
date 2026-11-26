@@ -43,7 +43,6 @@ export const hero = {
     during: 'During',
     mock: 'Mock interview',
     live: 'Live help',
-    sample: 'Sample',
     question: 'Question {n} of {total}',
     interviewer: 'Interviewer',
     you: 'You',
@@ -62,7 +61,6 @@ export const hero = {
     watch: 'Watch demo',
     title: 'Product demos',
     close: 'Close demo',
-    sample: 'Sample session recorded in the real app with scripted data.',
     clips: {
       mock: {
         title: 'Mock interview in Spanish',

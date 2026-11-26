@@ -23,16 +23,14 @@ export const story = {
     eyebrow: 'The full tour',
     title: 'See everything in 90 seconds',
     description:
-      'Mock interviews, live help, coding rounds and the smart report after the call, narrated in English. App screens are real with sample data; the people are fictional.',
+      'Mock interviews, live help, coding rounds and the smart report after the call, narrated in English. The people in it are fictional.',
     play: 'Play the 90-second tour',
-    sample: 'Sample',
   },
   modes: {
     eyebrow: 'One app, two modes',
     title: 'Before the interview, and during it',
     description:
       'Practice against an AI interviewer that scores you, then keep live help open on the real call. Use one, or both.',
-    sample: 'Sample',
     shared:
       'Both modes read the same CV and job description, and both are unlimited on any subscription.',
     mock: {
@@ -84,7 +82,6 @@ export const story = {
     ],
     imageAlt:
       'Power Interview AI during a sample live session: suggested talking points above the live transcript',
-    caption: 'Sample session recorded in the real app with scripted data.',
     cta: 'Try live help free',
     note: 'Use live help only in interviews that allow AI tools. Always follow each employer’s rules.',
   },
@@ -93,7 +90,6 @@ export const story = {
     title: 'Your role. Your questions.',
     description:
       'Add your CV and the job description. Every question is written for the position you want.',
-    sample: 'Sample question',
     /** Slide-show controls; `{n}` and `{total}` are filled in by RolePicker. */
     controls: {
       previous: 'Previous role',
@@ -180,7 +176,6 @@ export const story = {
       },
     ],
     panel: 'Interview notes',
-    sampleLabel: 'Sample',
     sample: {
       title: 'Customer Success Manager interview - Alex Rivera',
       date: 'Date/Time: Mar 12, 2026, 5:21 AM',
@@ -207,7 +202,6 @@ export const story = {
         },
       ],
     },
-    caption: 'Sample notes with scripted data.',
     cta: 'Get notes from your next call',
     note: 'Notes come from a live session: use it only in interviews that allow AI tools, and follow each employer’s rules.',
   },
@@ -221,9 +215,8 @@ export const story = {
   showcase: {
     eyebrow: 'Inside the app',
     title: 'Every screen here is the real app',
-    body: 'Setup, your profile, the mock interview, live suggestions, the scored report and the export, captured from the desktop app with scripted sample data.',
+    body: 'Setup, your profile, the mock interview, live suggestions, the scored report and the export, captured from the desktop app.',
     link: 'Browse the documentation',
-    sample: 'Real app screens, sample data',
   },
 };
 

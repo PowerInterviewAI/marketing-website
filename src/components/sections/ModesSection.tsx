@@ -11,7 +11,7 @@ import { LocalizedLink } from '@/i18n/LocalizedLink';
 import type { Locale } from '@/i18n/config';
 import { getMessages } from '@/i18n/messages';
 
-/** Recorded from the real app with scripted sample data, so each carries a "Sample" label. */
+/** Recorded from the real app with scripted sample data. */
 const MODES = [
   {
     id: 'mock',
@@ -55,9 +55,6 @@ export const ModesSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               >
                 <div className="relative aspect-video overflow-hidden border-b border-border bg-muted">
                   <AmbientVideo src={mode.video.src} poster={mode.video.poster} />
-                  <span className="absolute right-3 top-3 rounded-md bg-background/80 px-2 py-0.5 text-[11px] font-medium text-muted-foreground backdrop-blur">
-                    {copy.sample}
-                  </span>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-4 p-6 md:p-7">

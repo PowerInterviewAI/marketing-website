@@ -72,9 +72,6 @@ export const LiveSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-auto w-full"
             />
-            <figcaption className="border-t border-border px-4 py-2 text-xs text-muted-foreground">
-              {copy.caption}
-            </figcaption>
           </figure>
         </Reveal>
       </div>

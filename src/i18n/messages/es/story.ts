@@ -24,16 +24,14 @@ export const story: Story = {
     eyebrow: 'El recorrido completo',
     title: 'Todo en 90 segundos',
     description:
-      'Entrevistas simuladas, ayuda en vivo, pruebas de código y el informe inteligente tras la llamada, narrado en inglés. Las pantallas de la app son reales con datos de ejemplo; las personas son ficticias.',
+      'Entrevistas simuladas, ayuda en vivo, pruebas de código y el informe inteligente tras la llamada, narrado en inglés. Las personas que aparecen son ficticias.',
     play: 'Reproducir el recorrido de 90 segundos',
-    sample: 'Ejemplo',
   },
   modes: {
     eyebrow: 'Una app, dos modos',
     title: 'Antes de la entrevista y durante ella',
     description:
       'Practica con un entrevistador de IA que te puntúa y deja abierta la ayuda en directo en la llamada real. Usa uno o los dos.',
-    sample: 'Ejemplo',
     shared:
       'Los dos modos leen el mismo CV y la misma oferta, y ambos son ilimitados con cualquier suscripción.',
     mock: {
@@ -84,7 +82,6 @@ export const story: Story = {
     ],
     imageAlt:
       'Power Interview AI en una sesión de ejemplo: puntos clave sugeridos sobre la transcripción en directo',
-    caption: 'Sesión de ejemplo grabada en la app real con datos preparados.',
     cta: 'Prueba gratis la ayuda en directo',
     note: 'Usa la ayuda en directo solo en entrevistas que permitan herramientas de IA. Sigue siempre las normas de cada empresa.',
   },
@@ -92,7 +89,6 @@ export const story: Story = {
     eyebrow: 'Cualquier trabajo',
     title: 'Tu puesto. Tus preguntas.',
     description: 'Añade tu CV y la oferta. Cada pregunta se escribe para el puesto que quieres.',
-    sample: 'Pregunta de ejemplo',
     controls: {
       previous: 'Puesto anterior',
       next: 'Puesto siguiente',
@@ -173,7 +169,6 @@ export const story: Story = {
       },
     ],
     panel: 'Notas de la entrevista',
-    sampleLabel: 'Ejemplo',
     sample: {
       title: 'Entrevista para Customer Success Manager - Alex Rivera',
       date: 'Fecha/Hora: 12/3/2026, 5:21',
@@ -200,7 +195,6 @@ export const story: Story = {
         },
       ],
     },
-    caption: 'Notas de ejemplo con datos preparados.',
     cta: 'Obtén notas de tu próxima llamada',
     note: 'Las notas salen de una sesión en vivo: úsala solo en entrevistas que permitan herramientas de IA y sigue siempre las normas de cada empresa.',
   },
@@ -214,8 +208,7 @@ export const story: Story = {
   showcase: {
     eyebrow: 'Dentro de la app',
     title: 'Cada pantalla que ves es la app real',
-    body: 'La configuración, tu perfil, la entrevista de práctica, las sugerencias en vivo, el informe con puntuación y la exportación, capturados en la app de escritorio con datos de ejemplo.',
+    body: 'La configuración, tu perfil, la entrevista de práctica, las sugerencias en vivo, el informe con puntuación y la exportación, capturados en la app de escritorio.',
     link: 'Ver la documentación',
-    sample: 'Pantallas reales, datos de ejemplo',
   },
 };

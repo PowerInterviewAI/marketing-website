@@ -24,16 +24,14 @@ export const story: Story = {
     eyebrow: 'Die komplette Tour',
     title: 'Alles in 90 Sekunden',
     description:
-      'Probeinterviews, Live-Hilfe, Coding-Runden und der smarte Bericht nach dem Gespräch, auf Englisch gesprochen. Die App-Bildschirme sind echt mit Beispieldaten, die Personen sind fiktiv.',
+      'Probeinterviews, Live-Hilfe, Coding-Runden und der smarte Bericht nach dem Gespräch, auf Englisch gesprochen. Die Personen darin sind fiktiv.',
     play: 'Die 90-Sekunden-Tour abspielen',
-    sample: 'Beispiel',
   },
   modes: {
     eyebrow: 'Eine App, zwei Modi',
     title: 'Vor dem Gespräch und währenddessen',
     description:
       'Übe mit einem KI-Interviewer, der dich bewertet, und lass im echten Call die Live-Hilfe offen. Nutze eins davon oder beides.',
-    sample: 'Beispiel',
     shared:
       'Beide Modi lesen denselben Lebenslauf und dieselbe Stellenbeschreibung, und beide sind in jedem Abo unbegrenzt.',
     mock: {
@@ -84,7 +82,6 @@ export const story: Story = {
     ],
     imageAlt:
       'Power Interview AI in einer Beispielsitzung: vorgeschlagene Stichpunkte über dem Live-Transkript',
-    caption: 'Beispielsitzung, aufgenommen in der echten App mit vorbereiteten Daten.',
     cta: 'Live-Hilfe gratis testen',
     note: 'Nutze die Live-Hilfe nur in Interviews, die KI-Tools erlauben. Beachte immer die Regeln des Arbeitgebers.',
   },
@@ -93,7 +90,6 @@ export const story: Story = {
     title: 'Deine Rolle. Deine Fragen.',
     description:
       'Füge Lebenslauf und Stellenbeschreibung hinzu. Jede Frage wird für die Position geschrieben, die du willst.',
-    sample: 'Beispielfrage',
     controls: {
       previous: 'Vorherige Rolle',
       next: 'Nächste Rolle',
@@ -175,7 +171,6 @@ export const story: Story = {
       },
     ],
     panel: 'Interview-Notizen',
-    sampleLabel: 'Beispiel',
     sample: {
       title: 'Interview Customer Success Manager - Alex Rivera',
       date: 'Datum/Uhrzeit: 12.03.2026, 05:21',
@@ -202,7 +197,6 @@ export const story: Story = {
         },
       ],
     },
-    caption: 'Beispielnotizen mit vorbereiteten Daten.',
     cta: 'Notizen aus deinem nächsten Gespräch',
     note: 'Die Notizen entstehen in einer Live-Sitzung: Nutze sie nur in Interviews, die KI-Tools erlauben, und beachte die Regeln des Arbeitgebers.',
   },
@@ -216,8 +210,7 @@ export const story: Story = {
   showcase: {
     eyebrow: 'Einblick in die App',
     title: 'Jeder Bildschirm hier ist die echte App',
-    body: 'Einrichtung, Ihr Profil, das Probeinterview, Live-Vorschläge, der bewertete Bericht und der Export – aufgenommen in der Desktop-App mit vorbereiteten Beispieldaten.',
+    body: 'Einrichtung, Ihr Profil, das Probeinterview, Live-Vorschläge, der bewertete Bericht und der Export – aufgenommen in der Desktop-App.',
     link: 'Zur Dokumentation',
-    sample: 'Echte App-Bildschirme, Beispieldaten',
   },
 };

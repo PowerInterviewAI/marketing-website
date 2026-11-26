@@ -20,16 +20,14 @@ export const story: Story = {
     eyebrow: 'La visite complète',
     title: 'Tout voir en 90 secondes',
     description:
-      'Entretiens simulés, aide en direct, épreuves de code et rapport intelligent après l’appel, commentés en anglais. Les écrans de l’app sont réels avec des données d’exemple ; les personnes sont fictives.',
+      'Entretiens simulés, aide en direct, épreuves de code et rapport intelligent après l’appel, commentés en anglais. Les personnes qui y figurent sont fictives.',
     play: 'Lancer la visite de 90 secondes',
-    sample: 'Exemple',
   },
   modes: {
     eyebrow: 'Une app, deux modes',
     title: 'Avant l’entretien, et pendant',
     description:
       'Entraînez-vous face à un recruteur IA qui vous note, puis gardez l’aide en direct ouverte pendant le vrai appel. L’un, l’autre ou les deux.',
-    sample: 'Exemple',
     shared:
       'Les deux modes lisent le même CV et la même offre, et les deux sont illimités avec tout abonnement.',
     mock: {
@@ -80,7 +78,6 @@ export const story: Story = {
     ],
     imageAlt:
       'Power Interview AI pendant une session d’exemple : points clés suggérés au-dessus de la transcription en direct',
-    caption: 'Session d’exemple enregistrée dans la vraie app avec des données préparées.',
     cta: 'Essayer l’aide en direct gratuitement',
     note: 'N’utilisez l’aide en direct que lors d’entretiens autorisant les outils d’IA. Respectez toujours les règles de l’employeur.',
   },
@@ -88,7 +85,6 @@ export const story: Story = {
     eyebrow: 'Tous les métiers',
     title: 'Votre poste. Vos questions.',
     description: 'Ajoutez votre CV et l’offre. Chaque question est écrite pour le poste visé.',
-    sample: 'Exemple de question',
     controls: {
       previous: 'Métier précédent',
       next: 'Métier suivant',
@@ -170,7 +166,6 @@ export const story: Story = {
       },
     ],
     panel: 'Notes d’entretien',
-    sampleLabel: 'Exemple',
     sample: {
       title: 'Entretien Customer Success Manager - Alex Rivera',
       date: 'Date/Heure : 12/03/2026 05:21',
@@ -197,7 +192,6 @@ export const story: Story = {
         },
       ],
     },
-    caption: 'Notes d’exemple avec des données préparées.',
     cta: 'Des notes pour votre prochain appel',
     note: 'Les notes proviennent d’une session en direct : utilisez-la uniquement dans les entretiens qui autorisent les outils d’IA, et respectez les règles de chaque employeur.',
   },
@@ -211,8 +205,7 @@ export const story: Story = {
   showcase: {
     eyebrow: 'Dans l’application',
     title: 'Chaque écran ici est la vraie application',
-    body: 'La configuration, votre profil, l’entretien d’entraînement, les suggestions en direct, le rapport noté et l’export, capturés dans l’application de bureau avec des données d’exemple.',
+    body: 'La configuration, votre profil, l’entretien d’entraînement, les suggestions en direct, le rapport noté et l’export, capturés dans l’application de bureau.',
     link: 'Consulter la documentation',
-    sample: 'Vrais écrans, données d’exemple',
   },
 };
