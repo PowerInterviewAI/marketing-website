@@ -48,17 +48,19 @@ export const TourPlayer: React.FC<TourPlayerProps> = ({ src, poster, title, play
         // The whole poster is the button. The visible pill is centred, which on the cover
         // (scripts/tour-cover) is the empty middle of the live window, clear of the labels and
         // the face. It is white rather than the primary orange so the hero keeps one primary
-        // action, the download. Re-place it if the cover changes.
+        // action, the download. Re-place it if the cover changes. Below `sm` the video is too
+        // narrow for the label (it covered the presenter), so it shows the play disc alone and
+        // the label stays as the button's accessible name.
         <button
           type="button"
           onClick={start}
           className="group absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
         >
-          <span className="absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 whitespace-nowrap rounded-full bg-white/95 py-1.5 pe-4 ps-1.5 text-sm font-semibold text-neutral-900 shadow-elevation-3 ring-4 ring-white/15 backdrop-blur transition-transform group-hover:scale-105 sm:gap-3 sm:py-2 sm:pe-5 sm:ps-2 sm:text-base">
-            <span className="flex size-8 items-center justify-center rounded-full bg-primary text-primary-foreground sm:size-10">
+          <span className="absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 whitespace-nowrap rounded-full bg-white/95 p-1.5 text-sm font-semibold text-neutral-900 shadow-elevation-3 ring-4 ring-white/15 backdrop-blur transition-transform group-hover:scale-105 sm:gap-3 sm:py-2 sm:pe-5 sm:ps-2 sm:text-base">
+            <span className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground sm:size-10">
               <Play className="size-4 translate-x-px fill-current sm:size-5" aria-hidden="true" />
             </span>
-            {play}
+            <span className="sr-only sm:not-sr-only">{play}</span>
           </span>
         </button>
       )}

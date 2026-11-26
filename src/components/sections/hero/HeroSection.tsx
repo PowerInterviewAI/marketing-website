@@ -16,6 +16,10 @@ import { HeroPreview } from './HeroPreview';
 import { ProofBar } from './ProofBar';
 import { TourPlayer } from './TourPlayer';
 
+/** Splits copy into sentences, each keeping its closing punctuation, without the space between. */
+const sentences = (text: string): string[] =>
+  (text.match(/[^.!?。！？]+(?:[.!?。！？]+|$)/g) ?? [text]).map((s) => s.trim()).filter(Boolean);
+
 /**
  * One promise covering both modes and one primary action in a short row, then
  * the 90-second narrated tour (`#tour`) at full container width, so it is
@@ -44,7 +48,16 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
               id="hero-heading"
               className="text-hero text-gradient text-balance lg:text-[3rem] xl:text-[4rem]"
             >
-              {t.title}
+              {/* Each sentence is an inline-block, so the title breaks between its sentences
+                  ("Practice the interview." / "Get backup ...") rather than wherever
+                  text-balance lands, e.g. after "Get". A sentence wider than the screen still
+                  wraps inside its own block. */}
+              {sentences(t.title).map((sentence, i) => (
+                <React.Fragment key={i}>
+                  {i > 0 && ' '}
+                  <span className="inline-block">{sentence}</span>
+                </React.Fragment>
+              ))}
             </h1>
             <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               {t.subtitle}
@@ -54,7 +67,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
           <div className="flex min-w-0 flex-col items-start gap-4 lg:col-span-4 lg:pb-1">
             <div className="flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <DownloadButton align="start" placement="hero" className="w-full sm:w-auto" />
-              <DemoDialog className="w-full sm:w-auto" />
+              <DemoDialog />
             </div>
 
             <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
@@ -68,7 +81,7 @@ export const HeroSection: React.FC<{ locale: Locale }> = ({ locale }) => {
           </div>
         </div>
 
-        <figure id={SECTIONS.tour} className="min-w-0 scroll-mt-20">
+        <figure id={SECTIONS.tour} className="mt-4 min-w-0 scroll-mt-20 lg:mt-8">
           <TourPlayer
             src="/media/demos/tour.mp4"
             poster="/media/demos/tour.webp"
