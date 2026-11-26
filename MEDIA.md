@@ -55,15 +55,16 @@ Sessions are defined in `scripts/demo-videos/scenes.mjs`.
 
 ## Tour video
 
-`media/demos/tour.mp4` is the 90-second narrated ad, played by `TourSection` under the hero
+`media/demos/tour.mp4` is the 90-second narrated ad, played by `TourPlayer` in the hero
 (click to play, with sound; nothing downloads before that). Its app UI is the real renderer with
 sample data; the two leads and the role portraits are fictional people generated in ComfyUI
 (Qwen Image Edit 2511 without the Lightning LoRA for photorealism, Wan 2.2 for motion), and the
 narration is Kokoro-82M. The copy beside it says so, and it must never be captioned as customers.
-`media/demos/tour.webp` is a designed cover (logo, "Rehearse out loud. Walk in ready.", the
-heroine on the right); `TourPlayer` places its play button under that headline, so re-place the
-button if the cover layout changes. Production files, prompts, seeds and the full report live in
-`../pia-advertise/2026-11-26/assets/ad-90s/`.
+`media/demos/tour.webp` is the cover, built by `scripts/tour-cover/cover.html`: the real mock
+report and live session windows (labelled Before / During) beside the presenter, with no headline
+because it sits under the hero's `h1`. `TourPlayer` centres its play button on the empty middle of
+the live window, so re-place the button if the cover layout changes. Production files, prompts,
+seeds and the full report live in `../pia-advertise/2026-11-26/assets/ad-90s/`.
 
 ## Open Graph image
 

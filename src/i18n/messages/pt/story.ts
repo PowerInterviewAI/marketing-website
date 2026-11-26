@@ -17,7 +17,6 @@ export const story: Story = {
     points: ['Nota por pergunta', 'Perguntas de aprofundamento', 'Exporte em DOCX ou Markdown'],
   },
   tour: {
-    eyebrow: 'O tour completo',
     title: 'Tudo em 90 segundos',
     description:
       'Entrevistas simuladas, ajuda ao vivo, rodadas de código e o relatório inteligente depois da chamada, narrado em inglês. As pessoas que aparecem são fictícias.',

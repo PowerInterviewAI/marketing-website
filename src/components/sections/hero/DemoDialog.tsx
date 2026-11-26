@@ -38,7 +38,7 @@ export const DemoDialog: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={changeOpen}>
       <DialogPrimitive.Trigger asChild>
-        <Button variant="outline" size="xl" className={className}>
+        <Button variant="ghost" size="xl" className={className}>
           <Play />
           {t.watch}
         </Button>

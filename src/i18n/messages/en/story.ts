@@ -20,7 +20,6 @@ export const story = {
     ],
   },
   tour: {
-    eyebrow: 'The full tour',
     title: 'See everything in 90 seconds',
     description:
       'Mock interviews, live help, coding rounds and the smart report after the call, narrated in English. The people in it are fictional.',

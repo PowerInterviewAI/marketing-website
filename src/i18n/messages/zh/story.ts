@@ -16,7 +16,6 @@ export const story: Story = {
     points: ['逐题评分', '回答单薄时继续追问', '导出 DOCX 或 Markdown'],
   },
   tour: {
-    eyebrow: '完整导览',
     title: '90 秒看懂全部功能',
     description:
       '模拟面试、实时辅助、编程面试，以及通话结束后的智能报告，全程英语旁白。片中人物均为虚构。',

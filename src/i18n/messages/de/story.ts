@@ -21,7 +21,6 @@ export const story: Story = {
     ],
   },
   tour: {
-    eyebrow: 'Die komplette Tour',
     title: 'Alles in 90 Sekunden',
     description:
       'Probeinterviews, Live-Hilfe, Coding-Runden und der smarte Bericht nach dem Gespräch, auf Englisch gesprochen. Die Personen darin sind fiktiv.',

@@ -17,7 +17,6 @@ import {
   NotesSection,
   PracticeSection,
   RolesSection,
-  TourSection,
 } from '@/components/sections';
 import type { Locale } from '@/i18n/config';
 
@@ -29,8 +28,8 @@ interface HomeContentProps {
   contactSection: ReactNode;
 }
 
-// The order follows a visitor's questions. What is it: the 90-second tour for
-// anyone who would rather watch, then two modes of equal
+// The order follows a visitor's questions. What is it: the hero, with the
+// 90-second tour beside the headline, then two modes of equal
 // weight, shown side by side, then one deep dive each - the mock interview
 // (before the call) and the live assistant (during it), with the coding helper
 // as part of live and the notes it leaves after the call. Then does it work in my language and for my job, how do I
@@ -51,7 +50,6 @@ export function HomeContent({
 
       <main id="main" className="flex-1 scroll-mt-20">
         <HeroSection locale={locale} />
-        <TourSection locale={locale} />
         <ModesSection locale={locale} />
         <PracticeSection locale={locale} />
         <LiveSection locale={locale} />

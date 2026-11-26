@@ -17,5 +17,4 @@ export * from './RolesSection';
 export * from './Skeletons';
 export * from './TeamSection';
 export * from './TestimonialsSection';
-export * from './TourSection';
 export * from './hero';

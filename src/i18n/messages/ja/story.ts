@@ -17,7 +17,6 @@ export const story: Story = {
     points: ['質問ごとに採点', '浅い回答には追加質問', 'DOCX / Markdown で出力'],
   },
   tour: {
-    eyebrow: '機能をひと通り紹介',
     title: '90 秒ですべてがわかる',
     description:
       '模擬面接、リアルタイム支援、コーディング面接、通話後のスマートレポートまでを英語ナレーションで紹介します。登場人物は架空です。',

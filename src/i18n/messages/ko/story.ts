@@ -17,7 +17,6 @@ export const story: Story = {
     points: ['질문별 점수', '부족한 답변에 후속 질문', 'DOCX 또는 Markdown 내보내기'],
   },
   tour: {
-    eyebrow: '전체 둘러보기',
     title: '90초 만에 모두 보기',
     description:
       '모의 면접, 실시간 도움, 코딩 면접, 통화 후 스마트 보고서까지 영어 내레이션으로 소개합니다. 등장인물은 가상 인물입니다.',
