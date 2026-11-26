@@ -32,7 +32,7 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: '次の面接こそ、決めるべき面接です',
-    ctaBody: 'Windows で 1 時間無料で始められます。クレジットカードは不要です。',
+    ctaBody: 'Windows や macOS で 1 時間無料で始められます。クレジットカードは不要です。',
     ctaButton: 'Power Interview AI をダウンロード',
     tagline: 'あなたの言語で、声に出して面接練習。プライバシーにも配慮しています。',
     product: '製品',

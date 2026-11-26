@@ -32,7 +32,7 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: 'Dein nächstes Interview ist das, auf das es ankommt',
-    ctaBody: 'Starte mit einer Gratisstunde unter Windows. Keine Kreditkarte nötig.',
+    ctaBody: 'Starte mit einer Gratisstunde unter Windows oder macOS. Keine Kreditkarte nötig.',
     ctaButton: 'Power Interview AI herunterladen',
     tagline: 'Übe Interviews laut in deiner Sprache, mit Datenschutz von Anfang an.',
     product: 'Produkt',

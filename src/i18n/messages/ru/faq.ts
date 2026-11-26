@@ -41,7 +41,8 @@ export const faq: Faq = {
     {
       question: 'Какие платформы поддерживаются?',
       category: 'gettingStarted',
-      answer: 'Сейчас Power Interview AI работает в Windows. Поддержка macOS в разработке.',
+      answer:
+        'Power Interview AI работает в Windows 10/11 и macOS 13 и новее, на Mac как с Apple Silicon, так и с Intel.',
     },
     {
       question: 'На каких языках можно проходить собеседование?',
@@ -53,7 +54,7 @@ export const faq: Faq = {
       question: 'Нужно ли специальное оборудование для Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI работает на большинстве современных компьютеров с Windows без специального оборудования. Стабильный интернет повышает качество потоковой передачи.',
+        'Power Interview AI работает на большинстве современных компьютеров с Windows и Mac без специального оборудования. Стабильный интернет повышает качество потоковой передачи.',
     },
     {
       question: 'Насколько точна ИИ-расшифровка?',

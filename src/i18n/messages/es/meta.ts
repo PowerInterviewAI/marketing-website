@@ -36,6 +36,7 @@ export const meta: Meta = {
       'software para preparar entrevistas',
       'aplicación de escritorio',
       'Windows',
+      'macOS',
       'preparación de entrevistas',
       'entrevista de diseño de sistemas',
       'confianza en la entrevista',

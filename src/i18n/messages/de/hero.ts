@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: 'Plattformen',
-    platforms: 'Windows jetzt, macOS bald',
+    platforms: 'Windows und macOS',
     languagesLabel: 'Interviewsprachen',
     voices: '{voices} Sprachen mit Sprachausgabe',
     rolesLabel: 'Rollen',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Für Windows herunterladen',
+    forMac: 'Für macOS herunterladen',
     generic: 'Herunterladen',
-    macosNotReady: 'Die macOS-Version ist noch nicht fertig - wir arbeiten daran.',
-    windowsInstead: 'Stattdessen für Windows herunterladen',
     allReleases: 'Alle Versionen',
     latest: 'neueste',
     windows: 'Windows',
-    macosSoon: 'macOS (bald)',
-    macosSoonTitle: 'In aktiver Entwicklung',
+    mac: 'macOS',
+    macArm: 'Mac mit Apple Silicon',
+    macIntel: 'Intel-Mac',
     free: 'Gratis laden',
     stickyNote: '1 Stunde gratis',
-    mobileNote: 'Power Interview AI läuft auf deinem Windows-PC.',
+    mobileNote: 'Power Interview AI läuft auf deinem Windows-PC oder Mac.',
     shareLink: 'Link an meinen PC senden',
     copyLink: 'Link für meinen PC kopieren',
     linkCopied: 'Link kopiert',
@@ -96,16 +96,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'Installationsbefehl kopieren',
     copied: 'Kopiert',
-    macosReference:
-      'Die macOS-Version ist noch nicht fertig - wir arbeiten daran. Der Befehl steht hier nur zur Referenz und führt eventuell nicht zu einer funktionierenden Installation.',
     versionAgnostic:
       'Angezeigt wird der versionsunabhängige Befehl - die Version wird bei der Installation ermittelt.',
     windowsInstaller: 'Windows-Installationsprogramm',
     latestRelease: 'neueste Version',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady:
-      'Die macOS-Installationsprogramme sind noch nicht fertig - wir arbeiten daran.',
     viewReleases: 'Alle Versionen auf GitHub ansehen',
     sourceText: 'Repository klonen und aus dem Quellcode starten. Erfordert Node.js 22.15+.',
     viewBuild: 'Build-Anleitung ansehen',

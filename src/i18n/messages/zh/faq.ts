@@ -41,7 +41,8 @@ export const faq: Faq = {
     {
       question: '支持哪些平台？',
       category: 'gettingStarted',
-      answer: 'Power Interview AI 目前支持 Windows，macOS 支持正在开发中。',
+      answer:
+        'Power Interview AI 支持 Windows 10/11 和 macOS 13 及更高版本，Apple 芯片和 Intel 芯片的 Mac 均可使用。',
     },
     {
       question: '我可以用哪些语言面试？',
@@ -53,7 +54,7 @@ export const faq: Faq = {
       question: '运行 Power Interview AI 需要特殊硬件吗？',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI 可在大多数现代 Windows 电脑上运行，无需特殊硬件。稳定的网络连接可提升串流质量。',
+        'Power Interview AI 可在大多数现代 Windows 电脑和 Mac上运行，无需特殊硬件。稳定的网络连接可提升串流质量。',
     },
     {
       question: 'AI 转录的准确度如何？',

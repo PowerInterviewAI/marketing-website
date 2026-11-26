@@ -43,6 +43,7 @@ export const meta = {
       'interview practice software',
       'desktop application',
       'Windows',
+      'macOS',
       'interview companion',
       'interview preparation',
       'FAANG interview prep',

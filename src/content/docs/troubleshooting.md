@@ -10,7 +10,7 @@ Fixes for common Power Interview AI problems: the app not launching, sign-in err
 
 **Possible causes and fixes:**
 
-- **Missing runtime**: Ensure you are on a supported OS version (Windows 10/11; macOS support is in development).
+- **Missing runtime**: Ensure you are on a supported OS version (Windows 10/11 or macOS 13+).
 - **Antivirus blocking**: Some antivirus programs quarantine desktop app binaries. Add the Power Interview AI installation folder to your antivirus exclusion list and try launching again.
 - **Corrupted install**: Uninstall the app, delete any leftover files from `%AppData%\Power Interview AI`, and reinstall.
 

@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: 'Платформы',
-    platforms: 'Windows сейчас, macOS скоро',
+    platforms: 'Windows и macOS',
     languagesLabel: 'Языки собеседования',
     voices: '{voices} языка с озвучкой',
     rolesLabel: 'Профессии',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Скачать для Windows',
+    forMac: 'Скачать для macOS',
     generic: 'Скачать',
-    macosNotReady: 'Поддержка macOS пока не готова - мы активно над ней работаем.',
-    windowsInstead: 'Скачать версию для Windows',
     allReleases: 'Все релизы',
     latest: 'последняя',
     windows: 'Windows',
-    macosSoon: 'macOS (скоро)',
-    macosSoonTitle: 'В активной разработке',
+    mac: 'macOS',
+    macArm: 'Mac на Apple Silicon',
+    macIntel: 'Mac на Intel',
     free: 'Скачать бесплатно',
     stickyNote: '1 час бесплатно',
-    mobileNote: 'Power Interview AI работает на компьютере с Windows.',
+    mobileNote: 'Power Interview AI работает на компьютере с Windows или на Mac.',
     shareLink: 'Отправить ссылку на ПК',
     copyLink: 'Скопировать ссылку для ПК',
     linkCopied: 'Ссылка скопирована',
@@ -95,15 +95,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'Скопировать команду установки',
     copied: 'Скопировано',
-    macosReference:
-      'Поддержка macOS пока не готова - мы активно над ней работаем. Команда оставлена для справки и может не привести к рабочей установке.',
     versionAgnostic:
       'Показана команда без привязки к версии - поиск релиза выполняется во время установки.',
     windowsInstaller: 'Установщик для Windows',
     latestRelease: 'последний релиз',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady: 'Установщики для macOS пока не готовы - мы активно над ними работаем.',
     viewReleases: 'Все релизы на GitHub',
     sourceText: 'Склонируйте репозиторий и запустите из исходников. Требуется Node.js 22.15+.',
     viewBuild: 'Инструкция по сборке',

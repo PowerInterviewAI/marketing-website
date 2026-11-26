@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: 'Plateformes',
-    platforms: 'Windows dès maintenant, macOS bientôt',
+    platforms: 'Windows et macOS',
     languagesLabel: 'Langues d’entretien',
     voices: '{voices} langues avec voix',
     rolesLabel: 'Métiers',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Télécharger pour Windows',
+    forMac: 'Télécharger pour macOS',
     generic: 'Télécharger',
-    macosNotReady: 'La version macOS n’est pas encore prête : nous y travaillons activement.',
-    windowsInstead: 'Télécharger pour Windows à la place',
     allReleases: 'Toutes les versions',
     latest: 'dernière',
     windows: 'Windows',
-    macosSoon: 'macOS (bientôt)',
-    macosSoonTitle: 'En cours de développement',
+    mac: 'macOS',
+    macArm: 'Mac Apple Silicon',
+    macIntel: 'Mac Intel',
     free: 'Télécharger gratuitement',
     stickyNote: '1 heure offerte',
-    mobileNote: 'Power Interview AI fonctionne sur votre PC Windows.',
+    mobileNote: 'Power Interview AI fonctionne sur votre PC Windows ou votre Mac.',
     shareLink: 'Envoyer le lien à mon PC',
     copyLink: 'Copier le lien pour mon PC',
     linkCopied: 'Lien copié',
@@ -97,16 +97,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'Copier la commande d’installation',
     copied: 'Copié',
-    macosReference:
-      'La version macOS n’est pas encore prête : nous y travaillons activement. Cette commande reste ici pour référence mais peut ne pas aboutir à une installation fonctionnelle.',
     versionAgnostic:
       'Commande indépendante de la version : la version est recherchée au moment de l’installation.',
     windowsInstaller: 'Installateur Windows',
     latestRelease: 'dernière version',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady:
-      'Les installateurs macOS ne sont pas encore prêts : nous y travaillons activement.',
     viewReleases: 'Voir toutes les versions sur GitHub',
     sourceText: 'Clonez le dépôt et lancez depuis les sources. Nécessite Node.js 22.15+.',
     viewBuild: 'Voir les instructions de compilation',

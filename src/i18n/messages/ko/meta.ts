@@ -35,6 +35,7 @@ export const meta: Meta = {
       '면접 연습 소프트웨어',
       '데스크톱 앱',
       'Windows',
+      'macOS',
       '취업 준비',
       '시스템 설계 면접',
       '면접 자신감',

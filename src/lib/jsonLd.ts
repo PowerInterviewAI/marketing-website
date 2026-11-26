@@ -67,11 +67,9 @@ export function buildSoftwareApplicationJsonLd(plans: Plan[] | null, locale: Loc
     inLanguage: LOCALE_META[locale].htmlLang,
     applicationCategory: 'BusinessApplication',
     applicationSubCategory: 'Interview preparation',
-    // macOS isn't ready to ship yet (see MACOS_SUPPORTED in DownloadButton.tsx)
-    // - claiming a platform that isn't actually downloadable is exactly the
-    // kind of drift this file's other comments already warn against. Add it
-    // back once the macOS build is supported again.
-    operatingSystem: 'Windows',
+    // Only platforms with a downloadable build: the latest release ships a
+    // Windows .exe and Apple Silicon + Intel .dmg files. No Linux build.
+    operatingSystem: 'Windows, macOS',
     downloadUrl: absoluteUrl(localizePath(locale, DOWNLOAD_HREF)),
     description: structured.softwareDescription,
     image: `${SITE_URL}/brand/open-graph.png`,

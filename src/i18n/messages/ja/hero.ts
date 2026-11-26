@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: '対応プラットフォーム',
-    platforms: 'Windows に対応、macOS は近日対応',
+    platforms: 'Windows と macOS に対応',
     languagesLabel: '面接言語',
     voices: '{voices} 言語の音声',
     rolesLabel: '職種',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Windows 版をダウンロード',
+    forMac: 'macOS 版をダウンロード',
     generic: 'ダウンロード',
-    macosNotReady: 'macOS 版はまだ準備中です - 現在開発を進めています。',
-    windowsInstead: '代わりに Windows 版をダウンロード',
     allReleases: 'すべてのリリース',
     latest: '最新',
     windows: 'Windows',
-    macosSoon: 'macOS（近日対応）',
-    macosSoonTitle: '開発中です',
+    mac: 'macOS',
+    macArm: 'Apple シリコン搭載 Mac',
+    macIntel: 'Intel 搭載 Mac',
     free: '無料でダウンロード',
     stickyNote: '1 時間無料',
-    mobileNote: 'Power Interview AI は Windows PC で動作します。',
+    mobileNote: 'Power Interview AI は Windows PC と Mac で動作します。',
     shareLink: 'PC にリンクを送る',
     copyLink: 'PC 用リンクをコピー',
     linkCopied: 'コピーしました',
@@ -94,15 +94,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'インストールコマンドをコピー',
     copied: 'コピーしました',
-    macosReference:
-      'macOS 版はまだ準備中です - 現在開発を進めています。このコマンドは参考として掲載していますが、正常にインストールできない場合があります。',
     versionAgnostic:
       'バージョンに依存しないコマンドを表示しています - リリースはインストール時に取得されます。',
     windowsInstaller: 'Windows インストーラ',
     latestRelease: '最新リリース',
     macArm: 'macOS - Apple シリコン',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady: 'macOS 用インストーラはまだ準備中です - 現在開発を進めています。',
     viewReleases: 'GitHub ですべてのリリースを見る',
     sourceText: 'リポジトリをクローンしてソースから実行します。Node.js 22.15 以上が必要です。',
     viewBuild: 'ビルド手順を見る',

@@ -9,8 +9,8 @@ import { useMessages } from '@/i18n/LocaleProvider';
 import { cn } from '@/lib/utils';
 
 import { DesktopLinkButton } from './DesktopLinkButton';
-import { MACOS_SUPPORTED, RELEASES_URL, getDownloadUrl } from './constants';
-import { useDevice } from './useDevice';
+import { RELEASES_URL, getDownloadUrl } from './constants';
+import { useDevice, useMacArch } from './useDevice';
 import { useLatestVersion } from './useLatestVersion';
 
 interface DownloadButtonProps {
@@ -32,6 +32,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
   const t = useMessages().hero.download;
   const version = useLatestVersion();
   const device = useDevice();
+  const macArch = useMacArch(device === 'macos');
   const alignment = align === 'start' ? 'items-start text-left' : 'items-center text-center';
 
   if (device === 'mobile') {
@@ -43,56 +44,41 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
     );
   }
 
-  if (device === 'macos' && !MACOS_SUPPORTED) {
-    return (
-      <div className={cn('flex flex-col gap-3', alignment, className)}>
-        <p className="flex max-w-sm items-start gap-2 rounded-lg border border-border bg-card px-4 py-3 text-left text-sm text-muted-foreground">
-          <Apple className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-          {t.macosNotReady}
-        </p>
-        <Button size={size} variant="outline" asChild>
-          <a
-            href={getDownloadUrl(version, 'windows')}
-            download={version ? '' : undefined}
-            data-track="download_click"
-            data-placement={placement}
-          >
-            <Monitor />
-            {t.windowsInstead}
-          </a>
-        </Button>
-        <a
-          href={RELEASES_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn('text-xs text-muted-foreground', META_LINK)}
-        >
-          {t.allReleases}
-        </a>
-      </div>
-    );
-  }
-
   const isWindows = device === 'windows';
-  const Icon = isWindows ? Monitor : Download;
+  const isMac = device === 'macos';
+  const otherArch = macArch === 'arm64' ? 'x64' : 'arm64';
+  const Icon = isWindows ? Monitor : isMac ? Apple : Download;
+  const primaryHref = isWindows
+    ? getDownloadUrl(version, 'windows')
+    : isMac
+      ? getDownloadUrl(version, `macos-${macArch}`)
+      : RELEASES_URL;
 
   return (
     <div className={cn('flex flex-col gap-2.5', alignment, className)}>
       <Button size={size} asChild>
         <a
-          href={isWindows ? getDownloadUrl(version, 'windows') : RELEASES_URL}
-          download={isWindows && version ? '' : undefined}
+          href={primaryHref}
+          download={(isWindows || isMac) && version ? '' : undefined}
           data-track="download_click"
           data-placement={placement}
         >
           <Icon />
-          {isWindows ? t.forWindows : t.generic}
+          {isWindows ? t.forWindows : isMac ? t.forMac : t.generic}
         </a>
       </Button>
 
       <p className="text-xs text-muted-foreground">
         <span className="font-mono">{version ? `v${version}` : t.latest}</span>
         {' · '}
+        {isMac && (
+          <>
+            <a href={getDownloadUrl(version, `macos-${otherArch}`)} className={META_LINK}>
+              {otherArch === 'x64' ? t.macIntel : t.macArm}
+            </a>
+            {' · '}
+          </>
+        )}
         {!isWindows && (
           <>
             <a href={getDownloadUrl(version, 'windows')} className={META_LINK}>
@@ -101,8 +87,14 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
             {' · '}
           </>
         )}
-        <span title={t.macosSoonTitle}>{t.macosSoon}</span>
-        {' · '}
+        {!isMac && (
+          <>
+            <a href={getDownloadUrl(version, `macos-${macArch}`)} className={META_LINK}>
+              {t.mac}
+            </a>
+            {' · '}
+          </>
+        )}
         <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer" className={META_LINK}>
           {t.allReleases}
         </a>

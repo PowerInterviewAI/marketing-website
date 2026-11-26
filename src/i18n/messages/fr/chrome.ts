@@ -32,7 +32,7 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: 'Votre prochain entretien est celui à réussir',
-    ctaBody: 'Commencez avec une heure offerte sur Windows. Sans carte bancaire.',
+    ctaBody: 'Commencez avec une heure offerte sur Windows ou macOS. Sans carte bancaire.',
     ctaButton: 'Télécharger Power Interview AI',
     tagline:
       'Entraînez-vous aux entretiens à voix haute dans votre langue, en toute confidentialité.',

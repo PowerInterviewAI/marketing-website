@@ -1,8 +1,6 @@
 # Installation
 
-How to install Power Interview AI on Windows: a one-line PowerShell or Command Prompt install, the prebuilt setup installer, or running from source, then first-run setup.
-
-> macOS support is in development. The macOS steps below are kept for reference and may not produce a working install.
+How to install Power Interview AI on Windows or macOS: a one-line PowerShell, Command Prompt or Terminal install, the prebuilt setup installer, or running from source, then first-run setup.
 
 ---
 

@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: 'Installez et lancez votre essai',
-      body: 'Téléchargez l’application pour Windows et connectez-vous. Les nouveaux comptes reçoivent une heure complète avec le modèle gratuit. macOS arrive bientôt.',
+      body: 'Téléchargez l’application pour Windows ou macOS et connectez-vous. Les nouveaux comptes reçoivent une heure complète avec le modèle gratuit.',
     },
     {
       title: 'Ajoutez votre CV et l’offre d’emploi',

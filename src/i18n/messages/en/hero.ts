@@ -8,7 +8,7 @@ export const hero = {
 
   trust: {
     platformsLabel: 'Platforms',
-    platforms: 'Windows now, macOS coming soon',
+    platforms: 'Windows and macOS',
     languagesLabel: 'Interview languages',
     voices: '{voices} languages spoken aloud',
     rolesLabel: 'Roles',
@@ -20,17 +20,17 @@ export const hero = {
 
   download: {
     forWindows: 'Download for Windows',
+    forMac: 'Download for macOS',
     generic: 'Download',
-    macosNotReady: 'macOS support isn’t ready yet - we’re actively working on it.',
-    windowsInstead: 'Download for Windows instead',
     allReleases: 'All releases',
     latest: 'latest',
     windows: 'Windows',
-    macosSoon: 'macOS (coming soon)',
-    macosSoonTitle: 'Actively being worked on',
+    mac: 'macOS',
+    macArm: 'Apple Silicon Mac',
+    macIntel: 'Intel Mac',
     free: 'Download free',
     stickyNote: '1 hour free',
-    mobileNote: 'Power Interview AI runs on your Windows PC.',
+    mobileNote: 'Power Interview AI runs on your Windows PC or Mac.',
     shareLink: 'Send link to my PC',
     copyLink: 'Copy link for my PC',
     linkCopied: 'Link copied',
@@ -94,15 +94,12 @@ export const hero = {
     macos: 'macOS',
     copy: 'Copy install command',
     copied: 'Copied',
-    macosReference:
-      'macOS support isn’t ready yet - we’re actively working on it. This command is left here for reference but may not produce a working install.',
     versionAgnostic:
       'Showing the version-agnostic command - the release lookup runs at install time.',
     windowsInstaller: 'Windows installer',
     latestRelease: 'latest release',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady: 'macOS installers aren’t ready yet - we’re actively working on it.',
     viewReleases: 'View all releases on GitHub',
     sourceText: 'Clone the repository and run from source. Requires Node.js 22.15+.',
     viewBuild: 'View build instructions',

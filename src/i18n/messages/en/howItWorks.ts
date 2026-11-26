@@ -6,7 +6,7 @@ export const howItWorks = {
   steps: [
     {
       title: 'Install and start your trial',
-      body: 'Download the desktop app for Windows and sign in. New accounts get a full hour on the free model. macOS is coming soon.',
+      body: 'Download the desktop app for Windows or macOS and sign in. New accounts get a full hour on the free model.',
     },
     {
       title: 'Add your CV and the job description',

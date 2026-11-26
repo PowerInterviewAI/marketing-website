@@ -35,6 +35,7 @@ export const meta: Meta = {
       '面试练习软件',
       '桌面应用',
       'Windows',
+      'macOS',
       '求职面试',
       '系统设计面试',
       '面试自信',

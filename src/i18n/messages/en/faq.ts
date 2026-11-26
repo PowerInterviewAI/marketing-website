@@ -53,7 +53,8 @@ export const faq = {
     {
       question: 'What platforms are supported?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI runs on Windows today. macOS support is in development.',
+      answer:
+        'Power Interview AI runs on Windows 10/11 and macOS 13 or later, on both Apple Silicon and Intel Macs.',
     },
     {
       question: 'What languages can I interview in?',
@@ -65,7 +66,7 @@ export const faq = {
       question: 'Do I need special hardware to run Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI runs on most modern Windows computers without special hardware. A stable internet connection improves streaming quality.',
+        'Power Interview AI runs on most modern Windows and Mac computers without special hardware. A stable internet connection improves streaming quality.',
     },
     {
       question: 'How accurate is the AI transcription?',

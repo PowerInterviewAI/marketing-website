@@ -42,7 +42,7 @@ export const faq: Faq = {
       question: '¿Qué plataformas son compatibles?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI funciona hoy en Windows. La compatibilidad con macOS está en desarrollo.',
+        'Power Interview AI funciona en Windows 10/11 y en macOS 13 o posterior, tanto en Mac con Apple Silicon como con Intel.',
     },
     {
       question: '¿En qué idiomas puedo hacer entrevistas?',
@@ -54,7 +54,7 @@ export const faq: Faq = {
       question: '¿Necesito un hardware especial para usar Power Interview AI?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI funciona en la mayoría de los ordenadores Windows modernos sin hardware especial. Una conexión estable mejora la calidad de la transmisión.',
+        'Power Interview AI funciona en la mayoría de los ordenadores Windows y Mac modernos sin hardware especial. Una conexión estable mejora la calidad de la transmisión.',
     },
     {
       question: '¿Qué precisión tiene la transcripción con IA?',

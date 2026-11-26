@@ -16,12 +16,12 @@ import { DownloadButton } from './DownloadButton';
 import {
   DOWNLOAD_BASE_URL,
   type InstallPlatform,
-  MACOS_SUPPORTED,
   RELEASES_LATEST_URL,
   RELEASES_URL,
   type WindowsShell,
   getInstallCommand,
 } from './constants';
+import { useDevice } from './useDevice';
 import { useLatestVersion } from './useLatestVersion';
 
 const INSTALL_TAB = 'min-w-0 flex-1 whitespace-normal text-center leading-tight hyphens-auto';
@@ -57,7 +57,10 @@ const DownloadRow: React.FC<DownloadRowProps> = ({ href, label, note }) => (
 export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install }) => {
   const t = useMessages().hero.install;
   const version = useLatestVersion();
-  const [platform, setPlatform] = useState<InstallPlatform>('windows');
+  const device = useDevice();
+  const [picked, setPlatform] = useState<InstallPlatform | null>(null);
+  // Until the reader picks a tab, show the command for the machine they're on.
+  const platform: InstallPlatform = picked ?? (device === 'macos' ? 'macos' : 'windows');
   const [shell, setShell] = useState<WindowsShell>('cmd');
   const [copied, setCopied] = useState(false);
 
@@ -161,9 +164,6 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                   </Button>
                 </div>
 
-                {platform === 'macos' && !MACOS_SUPPORTED && (
-                  <p className="mt-2 text-xs text-muted-foreground">{t.macosReference}</p>
-                )}
                 {platform === 'windows' && !version && (
                   <p className="mt-2 text-xs text-muted-foreground">{t.versionAgnostic}</p>
                 )}
@@ -181,32 +181,24 @@ export const InstallPanel: React.FC<{ id?: string }> = ({ id = SECTIONS.install 
                   label={t.windowsInstaller}
                   note={version ? `PowerInterviewAI-Setup-${version}.exe` : t.latestRelease}
                 />
-                {MACOS_SUPPORTED ? (
-                  <>
-                    <DownloadRow
-                      href={
-                        version
-                          ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-arm64.dmg`
-                          : RELEASES_LATEST_URL
-                      }
-                      label={t.macArm}
-                      note={version ? `Power.Interview.AI-${version}-arm64.dmg` : t.latestRelease}
-                    />
-                    <DownloadRow
-                      href={
-                        version
-                          ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-x64.dmg`
-                          : RELEASES_LATEST_URL
-                      }
-                      label={t.macIntel}
-                      note={version ? `Power.Interview.AI-${version}-x64.dmg` : t.latestRelease}
-                    />
-                  </>
-                ) : (
-                  <div className="rounded-lg border border-dashed border-border px-4 py-3 text-center text-sm text-muted-foreground">
-                    {t.macosInstallersNotReady}
-                  </div>
-                )}
+                <DownloadRow
+                  href={
+                    version
+                      ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-arm64.dmg`
+                      : RELEASES_LATEST_URL
+                  }
+                  label={t.macArm}
+                  note={version ? `Power.Interview.AI-${version}-arm64.dmg` : t.latestRelease}
+                />
+                <DownloadRow
+                  href={
+                    version
+                      ? `${DOWNLOAD_BASE_URL}/Power.Interview.AI-${version}-x64.dmg`
+                      : RELEASES_LATEST_URL
+                  }
+                  label={t.macIntel}
+                  note={version ? `Power.Interview.AI-${version}-x64.dmg` : t.latestRelease}
+                />
                 <a
                   href={RELEASES_URL}
                   target="_blank"

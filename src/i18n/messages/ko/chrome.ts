@@ -32,7 +32,7 @@ export const chrome: Chrome = {
   },
   footer: {
     ctaTitle: '다음 면접은 반드시 잘 봐야 할 면접입니다',
-    ctaBody: 'Windows에서 1시간 무료로 시작하세요. 신용카드는 필요 없습니다.',
+    ctaBody: 'Windows 또는 macOS에서 1시간 무료로 시작하세요. 신용카드는 필요 없습니다.',
     ctaButton: 'Power Interview AI 다운로드',
     tagline: '내 언어로 소리 내어 면접을 연습하세요. 개인정보 보호도 기본입니다.',
     product: '제품',

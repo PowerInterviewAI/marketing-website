@@ -41,7 +41,8 @@ export const faq: Faq = {
     {
       question: '어떤 플랫폼을 지원하나요?',
       category: 'gettingStarted',
-      answer: 'Power Interview AI는 현재 Windows에서 실행됩니다. macOS 지원은 개발 중입니다.',
+      answer:
+        'Power Interview AI는 Windows 10/11과 macOS 13 이상에서 실행되며, Apple 실리콘 Mac과 Intel Mac을 모두 지원합니다.',
     },
     {
       question: '어떤 언어로 면접을 볼 수 있나요?',
@@ -53,7 +54,7 @@ export const faq: Faq = {
       question: 'Power Interview AI를 쓰려면 특별한 하드웨어가 필요한가요?',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI는 특별한 하드웨어 없이 대부분의 최신 Windows 컴퓨터에서 실행됩니다. 안정적인 인터넷 연결은 스트리밍 품질을 높여 줍니다.',
+        'Power Interview AI는 특별한 하드웨어 없이 대부분의 최신 Windows 및 Mac 컴퓨터에서 실행됩니다. 안정적인 인터넷 연결은 스트리밍 품질을 높여 줍니다.',
     },
     {
       question: 'AI 전사는 얼마나 정확한가요?',

@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: '安装并开始试用',
-      body: '下载 Windows 桌面应用并登录。新账户可使用免费模型整整 1 小时。macOS 版本即将推出。',
+      body: '下载 Windows 或 macOS 桌面应用并登录。新账户可使用免费模型整整 1 小时。',
     },
     {
       title: '添加简历和职位描述',

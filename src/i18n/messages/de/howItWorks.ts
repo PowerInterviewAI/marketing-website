@@ -8,7 +8,7 @@ export const howItWorks: HowItWorks = {
   steps: [
     {
       title: 'Installieren und Testphase starten',
-      body: 'Lade die Desktop-App für Windows herunter und melde dich an. Neue Konten erhalten eine volle Stunde mit dem kostenlosen Modell. macOS folgt bald.',
+      body: 'Lade die Desktop-App für Windows oder macOS herunter und melde dich an. Neue Konten erhalten eine volle Stunde mit dem kostenlosen Modell.',
     },
     {
       title: 'Lebenslauf und Stellenbeschreibung hinzufügen',

@@ -35,6 +35,7 @@ export const meta: Meta = {
       'logiciel de préparation aux entretiens',
       'application de bureau',
       'Windows',
+      'macOS',
       'préparation aux entretiens',
       'entretien de conception de systèmes',
       'confiance en entretien',

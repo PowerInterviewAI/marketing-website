@@ -7,11 +7,6 @@ export const RELEASES_API_URL =
 export type InstallPlatform = 'windows' | 'macos';
 export type WindowsShell = 'cmd' | 'powershell';
 
-// macOS isn't ready to ship yet - actively being worked on. Until it is,
-// DownloadButton and InstallPanel show an honest "not yet" instead of a
-// download that may not work. Flip this back on once the fix lands.
-export const MACOS_SUPPORTED = false;
-
 /** Recorded from the real app UI with scripted sample data. Titles live in `hero.demo.clips`. */
 export const DEMO_CLIPS = [
   { id: 'mock', src: '/media/demos/mock.mp4', poster: '/media/demos/mock.webp' },

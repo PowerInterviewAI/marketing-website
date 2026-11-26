@@ -135,5 +135,5 @@ The desktop client communicates with local services and with cloud services over
 Before getting started, ensure you have the following:
 
 - A Power Interview AI account (sign up from within the application)
-- A Windows machine (macOS support is in development)
+- A Windows 10/11 PC or a Mac on macOS 13 or later (Apple Silicon or Intel)
 - A working microphone and (optionally) webcam

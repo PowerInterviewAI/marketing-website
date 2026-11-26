@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: 'Plataformas',
-    platforms: 'Windows agora, macOS em breve',
+    platforms: 'Windows e macOS',
     languagesLabel: 'Idiomas de entrevista',
     voices: '{voices} idiomas com voz',
     rolesLabel: 'Cargos',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Baixar para Windows',
+    forMac: 'Baixar para macOS',
     generic: 'Baixar',
-    macosNotReady: 'A versão para macOS ainda não está pronta: estamos trabalhando nela.',
-    windowsInstead: 'Baixar para Windows',
     allReleases: 'Todas as versões',
     latest: 'mais recente',
     windows: 'Windows',
-    macosSoon: 'macOS (em breve)',
-    macosSoonTitle: 'Em desenvolvimento',
+    mac: 'macOS',
+    macArm: 'Mac com Apple Silicon',
+    macIntel: 'Mac com Intel',
     free: 'Baixar grátis',
     stickyNote: '1 hora grátis',
-    mobileNote: 'O Power Interview AI funciona no seu PC com Windows.',
+    mobileNote: 'O Power Interview AI funciona no seu PC com Windows ou no seu Mac.',
     shareLink: 'Enviar link para meu PC',
     copyLink: 'Copiar link para meu PC',
     linkCopied: 'Link copiado',
@@ -96,16 +96,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'Copiar o comando de instalação',
     copied: 'Copiado',
-    macosReference:
-      'A versão para macOS ainda não está pronta: estamos trabalhando nela. O comando fica aqui como referência, mas pode não gerar uma instalação funcional.',
     versionAgnostic:
       'Mostrando o comando independente de versão: a versão é buscada na hora da instalação.',
     windowsInstaller: 'Instalador para Windows',
     latestRelease: 'versão mais recente',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady:
-      'Os instaladores para macOS ainda não estão prontos: estamos trabalhando neles.',
     viewReleases: 'Ver todas as versões no GitHub',
     sourceText: 'Clone o repositório e rode a partir do código. Requer Node.js 22.15+.',
     viewBuild: 'Ver as instruções de build',

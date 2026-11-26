@@ -41,7 +41,8 @@ export const faq: Faq = {
     {
       question: '対応プラットフォームは何ですか？',
       category: 'gettingStarted',
-      answer: 'Power Interview AI は現在 Windows で利用できます。macOS 対応は開発中です。',
+      answer:
+        'Power Interview AI は Windows 10/11 と macOS 13 以降で動作し、Apple シリコン搭載 Mac と Intel 搭載 Mac の両方に対応しています。',
     },
     {
       question: 'どの言語で面接できますか？',
@@ -53,7 +54,7 @@ export const faq: Faq = {
       question: 'Power Interview AI を使うのに特別なハードウェアは必要ですか？',
       category: 'gettingStarted',
       answer:
-        'Power Interview AI は、特別なハードウェアなしでほとんどの最新 Windows PC で動作します。安定したインターネット接続があると、ストリーミング品質が向上します。',
+        'Power Interview AI は、特別なハードウェアなしでほとんどの最新の Windows PC や Mac で動作します。安定したインターネット接続があると、ストリーミング品質が向上します。',
     },
     {
       question: 'AI の文字起こしはどのくらい正確ですか？',

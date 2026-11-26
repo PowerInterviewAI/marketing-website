@@ -9,7 +9,7 @@ export const hero: Hero = {
 
   trust: {
     platformsLabel: 'Plataformas',
-    platforms: 'Windows ya, macOS muy pronto',
+    platforms: 'Windows y macOS',
     languagesLabel: 'Idiomas de entrevista',
     voices: '{voices} idiomas con voz',
     rolesLabel: 'Puestos',
@@ -21,17 +21,17 @@ export const hero: Hero = {
 
   download: {
     forWindows: 'Descargar para Windows',
+    forMac: 'Descargar para macOS',
     generic: 'Descargar',
-    macosNotReady: 'La versión para macOS aún no está lista: estamos trabajando en ella.',
-    windowsInstead: 'Descargar para Windows',
     allReleases: 'Todas las versiones',
     latest: 'última',
     windows: 'Windows',
-    macosSoon: 'macOS (muy pronto)',
-    macosSoonTitle: 'En desarrollo activo',
+    mac: 'macOS',
+    macArm: 'Mac con Apple Silicon',
+    macIntel: 'Mac con Intel',
     free: 'Descargar gratis',
     stickyNote: '1 hora gratis',
-    mobileNote: 'Power Interview AI funciona en tu PC con Windows.',
+    mobileNote: 'Power Interview AI funciona en tu PC con Windows o en tu Mac.',
     shareLink: 'Enviar enlace a mi PC',
     copyLink: 'Copiar enlace para mi PC',
     linkCopied: 'Enlace copiado',
@@ -95,16 +95,12 @@ export const hero: Hero = {
     macos: 'macOS',
     copy: 'Copiar el comando de instalación',
     copied: 'Copiado',
-    macosReference:
-      'La versión para macOS aún no está lista: estamos trabajando en ella. Dejamos este comando como referencia, pero puede que no produzca una instalación funcional.',
     versionAgnostic:
       'Se muestra el comando independiente de la versión: la versión se busca al instalar.',
     windowsInstaller: 'Instalador de Windows',
     latestRelease: 'última versión',
     macArm: 'macOS - Apple Silicon',
     macIntel: 'macOS - Intel',
-    macosInstallersNotReady:
-      'Los instaladores para macOS aún no están listos: estamos trabajando en ellos.',
     viewReleases: 'Ver todas las versiones en GitHub',
     sourceText: 'Clona el repositorio y ejecútalo desde el código. Requiere Node.js 22.15+.',
     viewBuild: 'Ver las instrucciones de compilación',
